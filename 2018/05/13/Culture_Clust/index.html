@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="想知道台灣社會的文化品味可以怎麼分類嗎？區分為幾群又是最適的分群組數呢?文化品味有百百種，而且「喜歡」也有程度上的差異，我們到底應該怎麼回答這個難題呢? 其實，統計的分群分析就是一個不錯的選擇！分群分析是一種幫助我們簡化複雜資料的技術，讓我們在面對複雜的資料時，能夠快速的理解與掌握資料結構 舉例來說，如果我們想要對民眾的體態進行分類時，最簡單的分類方式就是按照民眾的身高體重進行分類，但是當我們想做">
+<meta name="description" content="想知道台灣社會的文化品味可以怎麼分類嗎？區分為幾群又是最適的分群組數呢?文化品味有百百種，而且「喜歡」也有程度上的差異，我們到底應該怎麼回答這個難題呢?">
 <meta property="og:type" content="article">
 <meta property="og:title" content="台灣的文化品味如何？音樂、休閒與閱讀品味的統計分群">
 <meta property="og:url" content="http://yoursite.com/2018/05/13/Culture_Clust/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="想知道台灣社會的文化品味可以怎麼分類嗎？區分為幾群又是最適的分群組數呢?文化品味有百百種，而且「喜歡」也有程度上的差異，我們到底應該怎麼回答這個難題呢? 其實，統計的分群分析就是一個不錯的選擇！分群分析是一種幫助我們簡化複雜資料的技術，讓我們在面對複雜的資料時，能夠快速的理解與掌握資料結構 舉例來說，如果我們想要對民眾的體態進行分類時，最簡單的分類方式就是按照民眾的身高體重進行分類，但是當我們想做">
+<meta property="og:description" content="想知道台灣社會的文化品味可以怎麼分類嗎？區分為幾群又是最適的分群組數呢?文化品味有百百種，而且「喜歡」也有程度上的差異，我們到底應該怎麼回答這個難題呢?">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2018/05/13/Culture_Clust/Clust_01.png">
 <meta property="og:image" content="http://yoursite.com/2018/05/13/Culture_Clust/Clust_02.png">
-<meta property="og:updated_time" content="2018-05-13T13:10:34.233Z">
+<meta property="og:updated_time" content="2018-05-13T13:18:27.413Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="台灣的文化品味如何？音樂、休閒與閱讀品味的統計分群">
-<meta name="twitter:description" content="想知道台灣社會的文化品味可以怎麼分類嗎？區分為幾群又是最適的分群組數呢?文化品味有百百種，而且「喜歡」也有程度上的差異，我們到底應該怎麼回答這個難題呢? 其實，統計的分群分析就是一個不錯的選擇！分群分析是一種幫助我們簡化複雜資料的技術，讓我們在面對複雜的資料時，能夠快速的理解與掌握資料結構 舉例來說，如果我們想要對民眾的體態進行分類時，最簡單的分類方式就是按照民眾的身高體重進行分類，但是當我們想做">
+<meta name="twitter:description" content="想知道台灣社會的文化品味可以怎麼分類嗎？區分為幾群又是最適的分群組數呢?文化品味有百百種，而且「喜歡」也有程度上的差異，我們到底應該怎麼回答這個難題呢?">
 <meta name="twitter:image" content="http://yoursite.com/2018/05/13/Culture_Clust/Clust_01.png">
 
 
@@ -325,6 +325,7 @@
 
       
         <p>想知道台灣社會的文化品味可以怎麼分類嗎？區分為幾群又是最適的分群組數呢?<br>文化品味有百百種，而且「喜歡」也有程度上的差異，我們到底應該怎麼回答這個難題呢?</p>
+<a id="more"></a>
 <p>其實，統計的分群分析就是一個不錯的選擇！分群分析是一種幫助我們簡化複雜資料的技術，讓我們在面對複雜的資料時，能夠快速的理解與掌握資料結構</p>
 <p>舉例來說，如果我們想要對民眾的體態進行分類時，最簡單的分類方式就是按照民眾的身高體重進行分類，<br>但是當我們想做更細緻的分類時，參考的資訊可能會加入體脂肪、肌肉量、血壓、基礎代謝量…等等，<br>可以直接預見的是，「分類」這件事情的難度會隨著參考變項的數量而快速增加，甚至會讓我們不知道/沒辦法該從何下手</p>
 <p>那麼我們廢話就不多說了，直接來實作看看吧!今天我們要使用的資料是由中研院社會所執行的<a href="http://www.ios.sinica.edu.tw/sc/cht/home.php" target="_blank" rel="noopener">台灣社會變遷調查計畫</a>社會階層組(2007)的<a href="http://www.ios.sinica.edu.tw/sc/cht/download.php?fn=tscs071.pdf" target="_blank" rel="noopener">調查問卷</a>，為了讓這篇文章聚焦在分群分析的內容，以下提供的<a href="https://goo.gl/4gwjWK" target="_blank" rel="noopener">範例資料</a>是經過我簡單整理過後的資料，若需要原始調查資料的同學請參考上述社會變遷調查計畫的網站</p>
