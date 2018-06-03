@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="統計,文化品味," />
 
 
 
@@ -80,15 +80,16 @@
 
 
 <meta name="description" content="想知道台灣社會的文化品味可以怎麼分類嗎？區分為幾群又是最適的分群組數呢?文化品味有百百種，而且「喜歡」也有程度上的差異，我們到底應該怎麼回答這個難題呢?">
+<meta name="keywords" content="統計,文化品味">
 <meta property="og:type" content="article">
 <meta property="og:title" content="台灣的文化品味如何？音樂、休閒與閱讀品味的統計分群">
 <meta property="og:url" content="https://TL-Yu.github.io/2018/05/13/Culture_Clust/index.html">
-<meta property="og:site_name" content="TL-Yu">
+<meta property="og:site_name" content="Way of the Data Scientist">
 <meta property="og:description" content="想知道台灣社會的文化品味可以怎麼分類嗎？區分為幾群又是最適的分群組數呢?文化品味有百百種，而且「喜歡」也有程度上的差異，我們到底應該怎麼回答這個難題呢?">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://tl-yu.github.io/2018/05/13/Culture_Clust/Clust_01.png">
 <meta property="og:image" content="https://tl-yu.github.io/2018/05/13/Culture_Clust/Clust_02.png">
-<meta property="og:updated_time" content="2018-05-13T13:18:27.000Z">
+<meta property="og:updated_time" content="2018-06-03T05:56:09.639Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="台灣的文化品味如何？音樂、休閒與閱讀品味的統計分群">
 <meta name="twitter:description" content="想知道台灣社會的文化品味可以怎麼分類嗎？區分為幾群又是最適的分群組數呢?文化品味有百百種，而且「喜歡」也有程度上的差異，我們到底應該怎麼回答這個難題呢?">
@@ -128,7 +129,7 @@
 
 
 
-  <title>台灣的文化品味如何？音樂、休閒與閱讀品味的統計分群 | TL-Yu</title>
+  <title>台灣的文化品味如何？音樂、休閒與閱讀品味的統計分群 | Way of the Data Scientist</title>
   
 
 
@@ -158,12 +159,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">TL-Yu</span>
+        <span class="site-title">Way of the Data Scientist</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">學，然後知不足</p>
       
   </div>
 
@@ -193,6 +194,26 @@
         </li>
       
         
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            關於
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -204,9 +225,47 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            檢索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
   
 </nav>
 
@@ -240,11 +299,11 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TL-Yu">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/IMG_20180501_103746.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TL-Yu">
+      <meta itemprop="name" content="Way of the Data Scientist">
     </span>
 
     
@@ -371,6 +430,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/統計/" rel="tag"># 統計</a>
+          
+            <a href="/tags/文化品味/" rel="tag"># 文化品味</a>
+          
+        </div>
+      
 
       
       
@@ -464,6 +531,10 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/IMG_20180501_103746.jpg"
+                alt="TL-Yu" />
+            
               <p class="site-author-name" itemprop="name">TL-Yu</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
@@ -484,11 +555,36 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">標籤</span>
+                </a>
+              </div>
+            
 
           </nav>
 
           
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/tl-yu" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:Teng.Lin.Yu@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -676,7 +772,7 @@
   
 
     
-      <script id="dsq-count-scr" src="https://TL-Yu.github.io.disqus.com/count.js" async></script>
+      <script id="dsq-count-scr" src="https://https://tl-yu.github.io/.disqus.com/count.js" async></script>
     
 
     
@@ -687,7 +783,7 @@
           this.page.title = '台灣的文化品味如何？音樂、休閒與閱讀品味的統計分群';
         };
         var d = document, s = d.createElement('script');
-        s.src = 'https://TL-Yu.github.io.disqus.com/embed.js';
+        s.src = 'https://https://tl-yu.github.io/.disqus.com/embed.js';
         s.setAttribute('data-timestamp', '' + +new Date());
         (d.head || d.body).appendChild(s);
       </script>
@@ -722,6 +818,19 @@
   
 
 
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
 
 
 

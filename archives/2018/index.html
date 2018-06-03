@@ -79,13 +79,14 @@
 
 
 
+<meta name="keywords" content="社會 統計">
 <meta property="og:type" content="website">
-<meta property="og:title" content="TL-Yu">
+<meta property="og:title" content="Way of the Data Scientist">
 <meta property="og:url" content="https://TL-Yu.github.io/archives/2018/index.html">
-<meta property="og:site_name" content="TL-Yu">
+<meta property="og:site_name" content="Way of the Data Scientist">
 <meta property="og:locale" content="zh-tw">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TL-Yu">
+<meta name="twitter:title" content="Way of the Data Scientist">
 
 
 
@@ -121,7 +122,7 @@
 
 
 
-  <title>歸檔 | TL-Yu</title>
+  <title>歸檔 | Way of the Data Scientist</title>
   
 
 
@@ -151,12 +152,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">TL-Yu</span>
+        <span class="site-title">Way of the Data Scientist</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">學，然後知不足</p>
       
   </div>
 
@@ -186,6 +187,26 @@
         </li>
       
         
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            關於
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -197,9 +218,47 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            檢索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
   
 </nav>
 
@@ -351,6 +410,10 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/IMG_20180501_103746.jpg"
+                alt="TL-Yu" />
+            
               <p class="site-author-name" itemprop="name">TL-Yu</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
@@ -371,11 +434,36 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">標籤</span>
+                </a>
+              </div>
+            
 
           </nav>
 
           
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/tl-yu" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:Teng.Lin.Yu@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -543,7 +631,7 @@
   
 
     
-      <script id="dsq-count-scr" src="https://TL-Yu.github.io.disqus.com/count.js" async></script>
+      <script id="dsq-count-scr" src="https://https://tl-yu.github.io/.disqus.com/count.js" async></script>
     
 
     
@@ -577,6 +665,19 @@
   
 
 
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
 
 
 
