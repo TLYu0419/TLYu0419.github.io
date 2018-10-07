@@ -4,18 +4,37 @@
 
     
   <url>
-    <loc>https://TLYu0419.github.io/2018/08/26/Culture-Cluster/</loc>
-    <lastmod>2018-08-27T12:34:19.188Z</lastmod>
+    <loc>https://TLYu0419.github.io/2018/09/29/Taste-Cluster/</loc>
+    <lastmod>2018-10-07T08:25:26.030Z</lastmod>
     <data>
         <display>
-        <title>台灣的文化品味如何？音樂、休閒與閱讀品味的統計分群</title>
-        <pubTime>2018-08-26T02:33:55.000Z</pubTime>
+        <title>台灣的文化品味如何？階級與品味的多變量分析</title>
+        <pubTime>2018-09-29T02:07:34.000Z</pubTime>
         
-        <tag>統計分群</tag>
+        <tag>R</tag>
          
-        <tag>文化品味</tag>
+        <tag>k-medoids cluster</tag>
          
-        <tag>社會變遷調查</tag>
+        <tag>multinomial logistic regression</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://TLYu0419.github.io/2018/09/01/%E5%A6%82%E4%BD%95%E8%A1%A1%E9%87%8F%E9%A0%90%E6%B8%AC%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%93%81%E8%B3%AA/</loc>
+    <lastmod>2018-09-09T16:24:24.387Z</lastmod>
+    <data>
+        <display>
+        <title>高薪就能換來忠誠？預測模型的選擇與評估</title>
+        <pubTime>2018-09-01T03:39:02.000Z</pubTime>
+        
+        <tag>混淆矩陣(Confusion matrix)</tag>
+         
+        <tag>model selection</tag>
          
         <tag>R語言</tag>
          
