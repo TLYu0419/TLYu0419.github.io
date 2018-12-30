@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="前言 這邊文章是從我的碩士論文重新檢視文化資本對台灣社會階層區辨的有效性的資料修改而來，並與莊致嘉老師以反省文化資本理論在臺灣的有效性：文化 品味、教育和階級的關聯性及其變遷 共同發表在台灣教育社會學研究期刊上。有興趣的人可以透過以上連結檢視文化品為與社會階層之間的關聯性與其理論意義。在此僅分享研究流程的代碼留作紀錄。">
+<meta name="description" content="這邊文章是從我的碩士論文「重新檢視文化資本對台灣社會階層區辨的有效性」的資料修改而來，並與東華大學的莊致嘉老師以「反省文化資本理論在臺灣的有效性：文化品味、教育和階級的關聯性及其變遷」共同發表在台灣教育社會學研究期刊上。有興趣的人可以透過以上連結檢視文化品為與社會階層之間的關聯性與其理論意義。在此僅分享研究流程的代碼留作紀錄。">
 <meta name="keywords" content="R programming language,k-medoids cluster,multinomial logistic regression">
 <meta property="og:type" content="article">
 <meta property="og:title" content="台灣的文化品味如何？階級與音樂品味的多變量分析">
 <meta property="og:url" content="https://TLYu0419.github.io/2018/09/29/Taste-Cluster/index.html">
 <meta property="og:site_name" content="TLYu的學習筆記">
-<meta property="og:description" content="前言 這邊文章是從我的碩士論文重新檢視文化資本對台灣社會階層區辨的有效性的資料修改而來，並與莊致嘉老師以反省文化資本理論在臺灣的有效性：文化 品味、教育和階級的關聯性及其變遷 共同發表在台灣教育社會學研究期刊上。有興趣的人可以透過以上連結檢視文化品為與社會階層之間的關聯性與其理論意義。在此僅分享研究流程的代碼留作紀錄。">
+<meta property="og:description" content="這邊文章是從我的碩士論文「重新檢視文化資本對台灣社會階層區辨的有效性」的資料修改而來，並與東華大學的莊致嘉老師以「反省文化資本理論在臺灣的有效性：文化品味、教育和階級的關聯性及其變遷」共同發表在台灣教育社會學研究期刊上。有興趣的人可以透過以上連結檢視文化品為與社會階層之間的關聯性與其理論意義。在此僅分享研究流程的代碼留作紀錄。">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2018-12-30T04:19:37.098Z">
+<meta property="og:updated_time" content="2018-12-30T04:27:34.722Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="台灣的文化品味如何？階級與音樂品味的多變量分析">
-<meta name="twitter:description" content="前言 這邊文章是從我的碩士論文重新檢視文化資本對台灣社會階層區辨的有效性的資料修改而來，並與莊致嘉老師以反省文化資本理論在臺灣的有效性：文化 品味、教育和階級的關聯性及其變遷 共同發表在台灣教育社會學研究期刊上。有興趣的人可以透過以上連結檢視文化品為與社會階層之間的關聯性與其理論意義。在此僅分享研究流程的代碼留作紀錄。">
+<meta name="twitter:description" content="這邊文章是從我的碩士論文「重新檢視文化資本對台灣社會階層區辨的有效性」的資料修改而來，並與東華大學的莊致嘉老師以「反省文化資本理論在臺灣的有效性：文化品味、教育和階級的關聯性及其變遷」共同發表在台灣教育社會學研究期刊上。有興趣的人可以透過以上連結檢視文化品為與社會階層之間的關聯性與其理論意義。在此僅分享研究流程的代碼留作紀錄。">
 
 
 
@@ -338,7 +338,7 @@
               
                 <span class="post-meta-item-text">更新於&#58;</span>
               
-              <time title="更新於" itemprop="dateModified" datetime="2018-12-30T12:19:37+08:00">
+              <time title="更新於" itemprop="dateModified" datetime="2018-12-30T12:27:34+08:00">
                 2018-12-30
               </time>
             
@@ -383,20 +383,15 @@
       
 
       
-        <h1>前言</h1>
-<p>這邊文章是從我的碩士論文<a href="https://hdl.handle.net/11296/tu5y5c" target="_blank" rel="noopener">重新檢視文化資本對台灣社會階層區辨的有效性</a>的資料修改而來，並與莊致嘉老師以<a href="http://www.edubook.com.tw/OAtw/File/PDf/406283.pdf" target="_blank" rel="noopener">反省文化資本理論在臺灣的有效性：文化<br>
-品味、教育和階級的關聯性及其變遷</a><br>
-共同發表在台灣教育社會學研究期刊上。有興趣的人可以透過以上連結檢視文化品為與社會階層之間的關聯性與其理論意義。在此僅分享研究流程的代碼留作紀錄。</p>
+        <p>這邊文章是從我的碩士論文「<a href="https://hdl.handle.net/11296/tu5y5c" target="_blank" rel="noopener">重新檢視文化資本對台灣社會階層區辨的有效性</a>」的資料修改而來，並與東華大學的莊致嘉老師以「<a href="http://www.edubook.com.tw/OAtw/File/PDf/406283.pdf" target="_blank" rel="noopener">反省文化資本理論在臺灣的有效性：文化品味、教育和階級的關聯性及其變遷</a>」共同發表在台灣教育社會學研究期刊上。有興趣的人可以透過以上連結檢視文化品為與社會階層之間的關聯性與其理論意義。在此僅分享研究流程的代碼留作紀錄。</p>
 <a id="more"></a>
 <ul>
-<li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
 <li><a href="#%E8%B3%87%E6%96%99%E4%BE%86%E6%BA%90">資料來源</a></li>
 <li><a href="#%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B">分析流程</a></li>
 <li><a href="#%E8%B3%87%E6%96%99%E6%B8%85%E7%90%86">資料清理</a></li>
 <li><a href="#%E7%B5%B1%E8%A8%88%E5%88%86%E7%BE%A4">統計分群</a></li>
 <li><a href="#%E5%A4%9A%E9%A0%85%E9%82%8F%E8%BC%AF%E8%BF%B4%E6%AD%B8">多項邏輯迴歸</a></li>
 <li><a href="#%E7%B8%BD%E7%B5%90">總結</a></li>
-<li></li>
 </ul>
 <h1>資料來源</h1>
 <p>這次使用的資料是來自中央研究院的<a href="http://www.ios.sinica.edu.tw/sc/cht/home.php" target="_blank" rel="noopener">台灣社會變遷調查</a>資料庫中2007年的<a href="http://www.ios.sinica.edu.tw/sc/cht/download.php?fn=tscs071.pdf" target="_blank" rel="noopener">社會階層組的調查問卷</a>的資料進行分析。這是份公開的資料，對於想要再製或再進一步深入研究的人來說是非常棒的資料源。</p>
@@ -498,7 +493,6 @@
 <h1>統計分群</h1>
 <p>由於文化品味之間或多或少都會存在一些關聯性，並不適合直接進行k-medoids分群，在此我們會先透過主成分分析與因子轉軸<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>來排除變項間存在相關性的問題，接著再將提取出特徵值大於1的維度透過k-medoids進行統計分群。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">culture_PCA &lt;- </span><br><span class="line">  # 運用g3a到g3i等9項題目進行主成分分析</span><br><span class="line">  PCAmix(X.quanti = select(tscs2007, g3a:g3i), graph = F) %&gt;%</span><br><span class="line">  # 提取特徵值大於1的維度並進行轉軸</span><br><span class="line">  PCArot(dim=sum(.$eig[,1]&gt;=1), graph = F)</span><br><span class="line"></span><br><span class="line"># 檢視轉軸過後各維度的意義</span><br><span class="line">culture_PCA$sqload%&gt;%round(2)</span><br></pre></td></tr></table></figure>
-<style> table th:nth-of-type(1) { width: 50px; } </style>
 <table>
 <thead>
 <tr>
@@ -568,7 +562,6 @@
 <p>在這裡我將因子載荷係數大於0.3的項目用粗體標示，如果文化品味在該維度上的係數值越高，表示該維度反映越多的該文化品味的意義。而上表的結果顯示，維度1主要反映的是古典音樂(g3e)、國樂(g3f)、平劇(g3g)等項目，我將其命名為消費高雅文化的程度。維度2主要反映的是台語流行歌(g3a)、歌仔戲(g3h)、布袋戲(g3i)等題目，我將其命名為消費傳統文化的程度。維度3主要反映的是國語流行歌(g3b)、日本流行歌(g3c)、西洋流行歌(g3d)等題目，我將其命名為消費流行文化的程度。</p>
 <p>在排除了變數之間相關性的問題之後，我們接下來就運用k-medoids演算法對每位受訪者的文化品味進行分群。在此我使用的函數是fpc套件中的pamk函數，這個函數的優點是當我們在進行分群時，我們只需要輸入資料集與分群組數的範圍，系統就會幫我們把這個範圍內的分群組數都計算出來，並根據分成各群時的silhouette係數從中挑選最佳的分群結果。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># 將提取後的結果併回資料中</span><br><span class="line">tscs2007 %&lt;&gt;% </span><br><span class="line">  bind_cols(culture_PCA$ind$coord %&gt;% </span><br><span class="line">              as_tibble(.)) </span><br><span class="line"># 選擇提取出的三個維度進行分群</span><br><span class="line">set.seed(123)</span><br><span class="line">pamk.best &lt;- pamk(select(tscs2007, ends_with(&quot;rot&quot;)), </span><br><span class="line">                  # 從區分成2到10群的結果中找出最佳分群組數</span><br><span class="line">                  krange=2:10) </span><br><span class="line"># 將分群結果併回資料集</span><br><span class="line">tscs2007 %&lt;&gt;% mutate(cluster = pamk.best$pamobject$clustering) </span><br><span class="line"></span><br><span class="line">tscs2007 %&gt;% # 檢視分群結果</span><br><span class="line">  group_by(cluster)%&gt;%</span><br><span class="line">  select(ends_with(&quot;rot&quot;)) %&gt;%</span><br><span class="line">  summarise_all(funs(mean(.)))</span><br></pre></td></tr></table></figure>
-<style> table th:nth-of-type(1) { width: 50px; } </style>
 <table>
 <thead>
 <tr>
@@ -610,7 +603,6 @@
 <p>到目前為止我們已經從原始的9項音樂品味創造出一個「4分類的音樂品味」變項囉，這4分類分別是「純流行(popular)」、「純傳統(tradition)」、「雜食(omnivore)」與「不聽音樂(none)」的四個標籤。而這也就是我們後續分析的目標變數，接著我將運用受訪者的性別、年齡、教育年數、父親教育年數、主觀社會地位以及父親的階級來解釋文化品味。操作過程如下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">tscs2007 %&lt;&gt;%  </span><br><span class="line">  # 將解釋變數標準化</span><br><span class="line">  mutate_at(vars(a1, age, c1, c8, f1, d2b3_r),</span><br><span class="line">            funs(as.numeric(scale(.)))) %&gt;%</span><br><span class="line">  mutate(cluster = factor(cluster,c(1, 2, 3, 4), c(&quot;popular&quot;,&quot;tradition&quot;,&quot;omnivore&quot;,&quot;none&quot;)),</span><br><span class="line">         cluster = relevel(cluster, ref = &quot;omnivore&quot;))</span><br><span class="line"></span><br><span class="line">mlogist &lt;- multinom(cluster ~ a1 + age + c8+ d2b3_r + c1 + f1 , # 運用a1、age、c8、d2b3_r、c1、f1等變數解釋文化品味</span><br><span class="line">                    data = tscs2007)</span><br><span class="line"></span><br><span class="line">PseudoR2(mlogist, c(&quot;McFaddenAdj&quot;,&quot;CoxSnell&quot;, &quot;Nagelkerke&quot;, &quot;BIC&quot;, &quot;LogLik&quot;))</span><br><span class="line">stargazer(mlogist, type=&quot;text&quot;, out=&quot;multi1.htm&quot;,summary = T)</span><br></pre></td></tr></table></figure>
 <p>輸出並整理以上的分析結果如下表</p>
-<style> table th:nth-of-type(1) { width: 70px; } </style>
 <table>
 <thead>
 <tr>
@@ -886,7 +878,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">資料來源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">分析流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">資料清理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">統計分群</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">多項邏輯迴歸</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">總結</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">資料來源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">分析流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">資料清理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">統計分群</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">多項邏輯迴歸</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">總結</span></a></li></ol></div>
             
 
           </div>
