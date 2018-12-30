@@ -4,14 +4,33 @@
 
     
   <url>
+    <loc>https://TLYu0419.github.io/2018/12/30/GuessNumber/</loc>
+    <lastmod>2018-12-30T04:16:33.235Z</lastmod>
+    <data>
+        <display>
+        <title>猜數字遊戲</title>
+        <pubTime>2018-12-30T02:45:47.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+        <tag>迴圈</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://TLYu0419.github.io/2018/09/29/Taste-Cluster/</loc>
-    <lastmod>2018-10-07T08:32:55.452Z</lastmod>
+    <lastmod>2018-12-30T04:05:20.892Z</lastmod>
     <data>
         <display>
         <title>台灣的文化品味如何？階級與音樂品味的多變量分析</title>
         <pubTime>2018-09-29T02:07:34.000Z</pubTime>
         
-        <tag>R</tag>
+        <tag>R programming language</tag>
          
         <tag>k-medoids cluster</tag>
          
