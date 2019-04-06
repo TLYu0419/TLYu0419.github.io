@@ -99,7 +99,7 @@
 <meta property="og:image" content="https://tlyu0419.github.io/2019/04/06/Crawl-Dcard/08.JPG">
 <meta property="og:image" content="https://tlyu0419.github.io/2019/04/06/Crawl-Dcard/09.JPG">
 <meta property="og:image" content="https://tlyu0419.github.io/2019/04/06/Crawl-Dcard/10.JPG">
-<meta property="og:updated_time" content="2019-04-06T13:18:48.375Z">
+<meta property="og:updated_time" content="2019-04-06T13:36:13.526Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爬蟲 - 爬取Dcard文章">
 <meta name="twitter:description" content="Dcard是非常適合練習爬蟲的網站， 除了Dcard台灣熱門的社群網站之外，Dcard也提供了非常便利的API讓我們能從網站上爬下文章。 在這篇文章中，我將展示如何透過python爬下Dcard上的文章！">
@@ -349,7 +349,7 @@
               
                 <span class="post-meta-item-text">更新於&#58;</span>
               
-              <time title="更新於" itemprop="dateModified" datetime="2019-04-06T21:18:48+08:00">
+              <time title="更新於" itemprop="dateModified" datetime="2019-04-06T21:36:13+08:00">
                 2019-04-06
               </time>
             
@@ -394,26 +394,26 @@
       
 
       
-        <p><a href="(https://www.dcard.tw/f)">Dcard</a>是非常適合練習爬蟲的網站，<br><br>
-除了Dcard台灣熱門的社群網站之外，Dcard也提供了非常便利的API讓我們能從網站上爬下文章。<br><br>
+        <p><a href="(https://www.dcard.tw/f)">Dcard</a>是非常適合練習爬蟲的網站，<br>
+除了Dcard台灣熱門的社群網站之外，Dcard也提供了非常便利的API讓我們能從網站上爬下文章。<br>
 在這篇文章中，我將展示如何透過python爬下Dcard上的文章！</p>
 <a id="more"></a>
 <p>這邊文章的架構如下</p>
 <ul>
-<li>抓取一篇Dcard的文章<br><br>
+<li>抓取一篇Dcard的文章<br>
 具體項目如下：編號 / 標題 / 引言 / 內容 / 發布時間 / 更新時間…等等</li>
-<li>一次爬100篇Dcard文章<br><br>
+<li>一次爬100篇Dcard文章<br>
 透過系統提供的api，一次抓取100篇熱門文章</li>
-<li>爬超過100篇Dcard文章<br><br>
+<li>爬超過100篇Dcard文章<br>
 因為API限制一次最多100篇，在這裡我們透過簡單的迴圈一次爬1000篇文章。</li>
 </ul>
 <p>在這裡我們先練習爬文章內容的方法，若想進一步爬文章底下留言的人，可以參考補充資料中的範例，以下我們就開始練習吧！</p>
 <p>補充資料：<a href="https://medium.com/pyladies-taiwan/%E7%88%AC%E8%9F%B2-%E5%BE%9Edcard%E7%B6%B2%E7%AB%99%E7%9C%8B%E7%88%AC%E8%9F%B2%E5%85%A5%E9%96%80-iii-ded52759d922" target="_blank" rel="noopener">爬蟲-從dcard網站看爬蟲入門-iii</a></p>
 <h1>抓取一篇Dcard的文章</h1>
-<p>我們先隨機挑選一篇Dcard上的文章作為練習，我挑選到的是這篇文章<a href="https://www.dcard.tw/f/funny/p/231029285" target="_blank" rel="noopener">一個人的遊樂園 #麗寶</a>。</p>
+<p>我們先隨機挑選一篇Dcard上的文章作為練習，我挑選到的是這篇文章<a href="https://www.dcard.tw/f/funny/p/231030181" target="_blank" rel="noopener">警察閃光get</a>。</p>
 <p>文章在Chrome上的畫面如下<br>
 <img src="/2019/04/06/Crawl-Dcard/01.JPG" alt="01"><br>
-從網址列中可以看到這篇文章的編號是231029285，因此我們稍後會透過這個編號來爬這篇文章</p>
+從網址列中可以看到這篇文章的編號是231030181，因此我們稍後會透過這個編號來爬這篇文章</p>
 <p>首先我們先載入需要使用到的套件<br>
 <img src="/2019/04/06/Crawl-Dcard/02.JPG" alt="02"><br>
 將這篇文章的編號透過quest套件讀取，並檢視抓下來資料的結構</p>
