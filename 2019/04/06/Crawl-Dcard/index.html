@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="kXxCbQDO6XajMMXlTzIMZ5reUArY4PDB79OFcuYvw-c" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/Data.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/Data.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/Data.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/Data.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="爬蟲(Crawl),Dcard,python," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="TLYu的學習筆記" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Dcard是非常適合練習爬蟲的網站， 除了Dcard台灣熱門的社群網站之外，Dcard也提供了非常便利的API讓我們能從網站上爬下文章。 在這篇文章中，我將展示如何透過python爬下Dcard上的文章！">
+<meta name="keywords" content="爬蟲(Crawl),Dcard,python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="爬蟲 - 爬取Dcard文章">
+<meta property="og:url" content="https://TLYu0419.github.io/2019/04/06/Crawl-Dcard/index.html">
+<meta property="og:site_name" content="TLYu的學習筆記">
+<meta property="og:description" content="Dcard是非常適合練習爬蟲的網站， 除了Dcard台灣熱門的社群網站之外，Dcard也提供了非常便利的API讓我們能從網站上爬下文章。 在這篇文章中，我將展示如何透過python爬下Dcard上的文章！">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://tlyu0419.github.io/2019/04/06/Crawl-Dcard/01.JPG">
+<meta property="og:image" content="https://tlyu0419.github.io/2019/04/06/Crawl-Dcard/02.JPG">
+<meta property="og:image" content="https://tlyu0419.github.io/2019/04/06/Crawl-Dcard/03.JPG">
+<meta property="og:image" content="https://tlyu0419.github.io/2019/04/06/Crawl-Dcard/04.JPG">
+<meta property="og:image" content="https://tlyu0419.github.io/2019/04/06/Crawl-Dcard/05.JPG">
+<meta property="og:image" content="https://tlyu0419.github.io/2019/04/06/Crawl-Dcard/06.JPG">
+<meta property="og:image" content="https://tlyu0419.github.io/2019/04/06/Crawl-Dcard/07.JPG">
+<meta property="og:image" content="https://tlyu0419.github.io/2019/04/06/Crawl-Dcard/08.JPG">
+<meta property="og:image" content="https://tlyu0419.github.io/2019/04/06/Crawl-Dcard/09.JPG">
+<meta property="og:image" content="https://tlyu0419.github.io/2019/04/06/Crawl-Dcard/10.JPG">
+<meta property="og:updated_time" content="2019-04-06T13:18:48.375Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="爬蟲 - 爬取Dcard文章">
+<meta name="twitter:description" content="Dcard是非常適合練習爬蟲的網站， 除了Dcard台灣熱門的社群網站之外，Dcard也提供了非常便利的API讓我們能從網站上爬下文章。 在這篇文章中，我將展示如何透過python爬下Dcard上的文章！">
+<meta name="twitter:image" content="https://tlyu0419.github.io/2019/04/06/Crawl-Dcard/01.JPG">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://TLYu0419.github.io/2019/04/06/Crawl-Dcard/"/>
+
+
+
+
+
+  <title>爬蟲 - 爬取Dcard文章 | TLYu的學習筆記</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TLYu的學習筆記</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            關於
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            檢索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://TLYu0419.github.io/2019/04/06/Crawl-Dcard/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TL-Yu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/IMG_20180501_103746.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TLYu的學習筆記">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">爬蟲 - 爬取Dcard文章</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-04-06T18:03:39+08:00">
+                2019-04-06
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新於&#58;</span>
+              
+              <time title="更新於" itemprop="dateModified" datetime="2019-04-06T21:18:48+08:00">
+                2019-04-06
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/04/06/Crawl-Dcard/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/04/06/Crawl-Dcard/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="(https://www.dcard.tw/f)">Dcard</a>是非常適合練習爬蟲的網站，<br><br>
+除了Dcard台灣熱門的社群網站之外，Dcard也提供了非常便利的API讓我們能從網站上爬下文章。<br><br>
+在這篇文章中，我將展示如何透過python爬下Dcard上的文章！</p>
+<a id="more"></a>
+<p>這邊文章的架構如下</p>
+<ul>
+<li>抓取一篇Dcard的文章<br><br>
+具體項目如下：編號 / 標題 / 引言 / 內容 / 發布時間 / 更新時間…等等</li>
+<li>一次爬100篇Dcard文章<br><br>
+透過系統提供的api，一次抓取100篇熱門文章</li>
+<li>爬超過100篇Dcard文章<br><br>
+因為API限制一次最多100篇，在這裡我們透過簡單的迴圈一次爬1000篇文章。</li>
+</ul>
+<p>在這裡我們先練習爬文章內容的方法，若想進一步爬文章底下留言的人，可以參考補充資料中的範例，以下我們就開始練習吧！</p>
+<p>補充資料：<a href="https://medium.com/pyladies-taiwan/%E7%88%AC%E8%9F%B2-%E5%BE%9Edcard%E7%B6%B2%E7%AB%99%E7%9C%8B%E7%88%AC%E8%9F%B2%E5%85%A5%E9%96%80-iii-ded52759d922" target="_blank" rel="noopener">爬蟲-從dcard網站看爬蟲入門-iii</a></p>
+<h1>抓取一篇Dcard的文章</h1>
+<p>我們先隨機挑選一篇Dcard上的文章作為練習，我挑選到的是這篇文章<a href="https://www.dcard.tw/f/funny/p/231029285" target="_blank" rel="noopener">一個人的遊樂園 #麗寶</a>。</p>
+<p>文章在Chrome上的畫面如下<br>
+<img src="/2019/04/06/Crawl-Dcard/01.JPG" alt="01"><br>
+從網址列中可以看到這篇文章的編號是231029285，因此我們稍後會透過這個編號來爬這篇文章</p>
+<p>首先我們先載入需要使用到的套件<br>
+<img src="/2019/04/06/Crawl-Dcard/02.JPG" alt="02"><br>
+將這篇文章的編號透過quest套件讀取，並檢視抓下來資料的結構</p>
+<p><img src="/2019/04/06/Crawl-Dcard/03.JPG" alt="03"><br>
+透過比對網站顯示的內容與上面輸出的資料結構後，我們可以從中發現id即為文章的編號, title是標題, conten則是內容，其他欄位的說明如下表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">欄位</th>
+<th style="text-align:center">說明</th>
+<th style="text-align:left">備註</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ID</td>
+<td style="text-align:center">編號</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">title</td>
+<td style="text-align:center">標題</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">content</td>
+<td style="text-align:center">內容</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">excerpt</td>
+<td style="text-align:center">摘要</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">createdAt</td>
+<td style="text-align:center">發布時間</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">updatedAt</td>
+<td style="text-align:center">更新時間</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">commentCount</td>
+<td style="text-align:center">留言數</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">forumName</td>
+<td style="text-align:center">分類</td>
+<td style="text-align:left">中文</td>
+</tr>
+<tr>
+<td style="text-align:left">forumAlias</td>
+<td style="text-align:center">分類</td>
+<td style="text-align:left">英文</td>
+</tr>
+<tr>
+<td style="text-align:left">gender</td>
+<td style="text-align:center">性別</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">likeCount</td>
+<td style="text-align:center">心情數量</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">reactions</td>
+<td style="text-align:center">心情細項</td>
+<td style="text-align:left">把以上心情細分為「愛心」、「哈哈」、「跪」、「森77」、「驚訝」等類型</td>
+</tr>
+<tr>
+<td style="text-align:left">topics</td>
+<td style="text-align:center">標籤</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>在上表中的心情數量是各種心情數量的加總，若想進一步分析各種心情，可以再從reactions欄位提取。</p>
+</blockquote>
+<p>我們來嘗試把資料轉換為DataFrame吧！</p>
+<p><img src="/2019/04/06/Crawl-Dcard/04.JPG" alt="04"></p>
+<p>確認可以透過程式把文章爬下來之後，我們就來寫個簡單的Crawl函數，期望只需要輸入文章的ID後，就回傳爬下來的文章內容！</p>
+<p><img src="/2019/04/06/Crawl-Dcard/05.JPG" alt="05"></p>
+<p>接著我們就透過Crawl來爬文章吧！<br>
+<img src="/2019/04/06/Crawl-Dcard/06.JPG" alt="06"><br>
+Good!</p>
+<p>確認函數能正常執行!</p>
+<h1>一次爬100篇Dcard文章</h1>
+<p>在這邊我使用dcard提供便利的API，讓我們可以直接快速爬取資料<br>
+<a href="https://www.dcard.tw/_api/posts?popular=true&amp;limit=100" target="_blank" rel="noopener">dcard API</a><br>
+以下簡單說明這個網址</p>
+<ul>
+<li>popular參數：若設定為true，表示按照熱門程度排序，若設定為false，則按照發布時間排序</li>
+<li>limit參數：限定在0-100的數值，表示要抓多少文章</li>
+</ul>
+<p><a href="https://www.dcard.tw/_api/posts?popular=true&amp;limit=100" target="_blank" rel="noopener">https://www.dcard.tw/_api/posts?popular=true&amp;limit=100</a></p>
+<p><img src="/2019/04/06/Crawl-Dcard/07.JPG" alt="07"></p>
+<h1>爬超過100篇Dcard文章</h1>
+<p>由於API限制最多載入100篇文章，如果我們想要爬更多資料，可以透過before參數與迴圈進行!<br><br>
+before參數後面是接文章的ID，讓我們可以抓取某篇文章之前的資料<br><br>
+而透過迴圈，我們只需要把之前抓到最後一篇文章的ID放入before參數中，我們就可以抓到這篇文章的前100篇文章。<br>
+<img src="/2019/04/06/Crawl-Dcard/08.JPG" alt="08"></p>
+<h1>保存資料</h1>
+<p>將資料轉換為excel保存到桌面<br>
+<img src="/2019/04/06/Crawl-Dcard/09.JPG" alt="09"><br>
+用excel檢視抓下來的資料<br>
+<img src="/2019/04/06/Crawl-Dcard/10.JPG" alt="10"></p>
+<h1>完整的程式代碼</h1>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 載入使用的套件</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> requests_html <span class="keyword">import</span> HTML</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 檢視資料結構</span></span><br><span class="line">ID = <span class="string">'231030181'</span></span><br><span class="line">url = <span class="string">'https://www.dcard.tw/_api/posts/'</span> + ID</span><br><span class="line"><span class="comment"># 透過request套件抓下這個網址的資料</span></span><br><span class="line">requ = requests.get(url)</span><br><span class="line"><span class="comment"># 初步檢視抓到的資料結構</span></span><br><span class="line">requ.json()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 將抓下來的資料轉為DataFrame</span></span><br><span class="line">ID = <span class="string">'231030181'</span></span><br><span class="line">url = url = <span class="string">'https://www.dcard.tw/_api/posts/'</span> + ID</span><br><span class="line">requ = requests.get(url)</span><br><span class="line">rejs = requ.json()</span><br><span class="line">pd.DataFrame(</span><br><span class="line">    data=</span><br><span class="line">    [&#123;<span class="string">'ID'</span>:rejs[<span class="string">'id'</span>],</span><br><span class="line">      <span class="string">'title'</span>:rejs[<span class="string">'title'</span>],</span><br><span class="line">      <span class="string">'content'</span>:rejs[<span class="string">'content'</span>],</span><br><span class="line">      <span class="string">'excerpt'</span>:rejs[<span class="string">'excerpt'</span>],</span><br><span class="line">      <span class="string">'createdAt'</span>:rejs[<span class="string">'createdAt'</span>],</span><br><span class="line">      <span class="string">'updatedAt'</span>:rejs[<span class="string">'updatedAt'</span>],</span><br><span class="line">      <span class="string">'commentCount'</span>:rejs[<span class="string">'commentCount'</span>],</span><br><span class="line">      <span class="string">'forumName'</span>:rejs[<span class="string">'forumName'</span>],</span><br><span class="line">      <span class="string">'forumAlias'</span>:rejs[<span class="string">'forumAlias'</span>],</span><br><span class="line">      <span class="string">'gender'</span>:rejs[<span class="string">'gender'</span>],</span><br><span class="line">      <span class="string">'likeCount'</span>:rejs[<span class="string">'likeCount'</span>],</span><br><span class="line">      <span class="string">'reactions'</span>:rejs[<span class="string">'reactions'</span>],</span><br><span class="line">      <span class="string">'topics'</span>:rejs[<span class="string">'topics'</span>]&#125;],</span><br><span class="line">    columns=[<span class="string">'ID'</span>,<span class="string">'title'</span>,<span class="string">'content'</span>,<span class="string">'excerpt'</span>,<span class="string">'createdAt'</span>,<span class="string">'updatedAt'</span>,<span class="string">'commentCount'</span>,<span class="string">'forumName'</span>,<span class="string">'forumAlias'</span>,<span class="string">'gender'</span>,<span class="string">'likeCount'</span>,<span class="string">'reactions'</span>,<span class="string">'topics'</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 撰寫簡單的函數，透過輸入文章ID，就輸出文章的資料</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Crawl</span><span class="params">(ID)</span>:</span></span><br><span class="line">    link = <span class="string">'https://www.dcard.tw/_api/posts/'</span> + str(ID)</span><br><span class="line">    requ = requests.get(link)</span><br><span class="line">    rejs = requ.json()</span><br><span class="line">    <span class="keyword">return</span>(pd.DataFrame(</span><br><span class="line">        data=</span><br><span class="line">        [&#123;<span class="string">'ID'</span>:rejs[<span class="string">'id'</span>],</span><br><span class="line">          <span class="string">'title'</span>:rejs[<span class="string">'title'</span>],</span><br><span class="line">          <span class="string">'content'</span>:rejs[<span class="string">'content'</span>],</span><br><span class="line">          <span class="string">'excerpt'</span>:rejs[<span class="string">'excerpt'</span>],</span><br><span class="line">          <span class="string">'createdAt'</span>:rejs[<span class="string">'createdAt'</span>],</span><br><span class="line">          <span class="string">'updatedAt'</span>:rejs[<span class="string">'updatedAt'</span>],</span><br><span class="line">          <span class="string">'commentCount'</span>:rejs[<span class="string">'commentCount'</span>],</span><br><span class="line">          <span class="string">'forumName'</span>:rejs[<span class="string">'forumName'</span>],</span><br><span class="line">          <span class="string">'forumAlias'</span>:rejs[<span class="string">'forumAlias'</span>],</span><br><span class="line">          <span class="string">'gender'</span>:rejs[<span class="string">'gender'</span>],</span><br><span class="line">          <span class="string">'likeCount'</span>:rejs[<span class="string">'likeCount'</span>],</span><br><span class="line">          <span class="string">'reactions'</span>:rejs[<span class="string">'reactions'</span>],</span><br><span class="line">          <span class="string">'topics'</span>:rejs[<span class="string">'topics'</span>]&#125;],</span><br><span class="line">        columns=[<span class="string">'ID'</span>,<span class="string">'title'</span>,<span class="string">'content'</span>,<span class="string">'excerpt'</span>,<span class="string">'createdAt'</span>,<span class="string">'updatedAt'</span>,<span class="string">'commentCount'</span>,<span class="string">'forumName'</span>,<span class="string">'forumAlias'</span>,<span class="string">'gender'</span>,<span class="string">'likeCount'</span>,<span class="string">'reactions'</span>,<span class="string">'topics'</span>]))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 嘗試使用撰寫出的函數，抓取編號231030181的文章</span></span><br><span class="line">Crawl(<span class="number">231030181</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 一次讀取100篇最熱門的文章</span></span><br><span class="line">url = <span class="string">'https://www.dcard.tw/_api/posts?popular=true&amp;limit=100'</span></span><br><span class="line">resq = requests.get(url)</span><br><span class="line">rejs = resq.json()</span><br><span class="line">df = pd.DataFrame()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(rejs)):</span><br><span class="line">    df = df.append(Crawl(rejs[i][<span class="string">'id'</span>]),ignore_index=<span class="keyword">True</span>)</span><br><span class="line">print(df.shape)</span><br><span class="line">df</span><br><span class="line"></span><br><span class="line"><span class="comment"># 透過迴圈讀取10*100篇文章，若需讀取更多資料，可以將range(10)中的數值提升</span></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">    last = str(int(df.tail(<span class="number">1</span>).ID)) <span class="comment"># 找出爬出資料的最後一筆ID</span></span><br><span class="line">    url = <span class="string">'https://www.dcard.tw/_api/posts?popular=true&amp;limit=100&amp;before='</span> + last</span><br><span class="line">    resq = requests.get(url)</span><br><span class="line">    rejs = resq.json()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(rejs)):</span><br><span class="line">        df = df.append(Crawl(rejs[i][<span class="string">'id'</span>]), ignore_index=<span class="keyword">True</span>)</span><br><span class="line">print(df.shape)</span><br><span class="line">df</span><br><span class="line"></span><br><span class="line"><span class="comment"># 將資料存到桌面</span></span><br><span class="line">df.to_excel(<span class="string">'C:/Users/TLYu0419/Desktop/Dcard.xlsx'</span>)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/爬蟲-Crawl/" rel="tag"># 爬蟲(Crawl)</a>
+          
+            <a href="/tags/Dcard/" rel="tag"># Dcard</a>
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/30/GuessNumber/" rel="next" title="猜數字遊戲">
+                <i class="fa fa-chevron-left"></i> 猜數字遊戲
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/IMG_20180501_103746.jpg"
+                alt="TL-Yu" />
+            
+              <p class="site-author-name" itemprop="name">TL-Yu</p>
+              <p class="site-description motion-element" itemprop="description">這裡紀錄了我學習程式、統計的點點滴滴</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">標籤</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/TLYu0419" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:TLYu0419@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">抓取一篇Dcard的文章</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">一次爬100篇Dcard文章</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">爬超過100篇Dcard文章</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">保存資料</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">完整的程式代碼</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TL-Yu</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<span id="busuanzi_container_site_uv">
+	本站訪客數<span id="busuanzi_value_site_uv"></span>人次
+</span>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://TLYu0419.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://TLYu0419.github.io/2019/04/06/Crawl-Dcard/';
+          this.page.identifier = '2019/04/06/Crawl-Dcard/';
+          this.page.title = '爬蟲 - 爬取Dcard文章';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://TLYu0419.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
