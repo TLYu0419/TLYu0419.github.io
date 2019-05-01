@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="爬蟲(Crawl),python,Selenium,BeautifulSoup,104人力銀行,requests," />
+  <meta name="keywords" content="爬蟲(Crawl),python,104人力銀行,Selenium,requests,BeautifulSoup," />
 
 
 
@@ -82,7 +82,7 @@
 
 
 <meta name="description" content="本文僅限於學習使用，請勿用於商業目的 找工作是一件很辛苦的事情，當我們在104人力銀行的網站上輸入關鍵字查詢職缺時，經常會直接跳出上百、千份的職缺。雖然有很多職缺對於求職者是好事，但這也造成了求職者的大困擾！ 因此我希望能透過Python的爬蟲，一次把我想要查詢的結果(工作內容、地點、薪資、要求技能、工作地點…等等資訊)抓下來，在我自己的電腦上按照我的需求進行篩選，讓我能更有效率的挑選工作並投遞履">
-<meta name="keywords" content="爬蟲(Crawl),python,Selenium,BeautifulSoup,104人力銀行,requests">
+<meta name="keywords" content="爬蟲(Crawl),python,104人力銀行,Selenium,requests,BeautifulSoup">
 <meta property="og:type" content="article">
 <meta property="og:title" content="爬蟲_104人力銀行工作清單">
 <meta property="og:url" content="https://TLYu0419.github.io/2019/04/18/Crawl-JobList104/index.html">
@@ -373,6 +373,17 @@
 
           
           
+             <span id="/2019/04/18/Crawl-JobList104/" class="leancloud_visitors" data-flag-title="爬蟲_104人力銀行工作清單">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">閱讀次數&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -445,13 +456,13 @@
           
             <a href="/tags/python/" rel="tag"># python</a>
           
-            <a href="/tags/Selenium/" rel="tag"># Selenium</a>
-          
-            <a href="/tags/BeautifulSoup/" rel="tag"># BeautifulSoup</a>
-          
             <a href="/tags/104人力銀行/" rel="tag"># 104人力銀行</a>
           
+            <a href="/tags/Selenium/" rel="tag"># Selenium</a>
+          
             <a href="/tags/requests/" rel="tag"># requests</a>
+          
+            <a href="/tags/BeautifulSoup/" rel="tag"># BeautifulSoup</a>
           
         </div>
       
@@ -866,6 +877,113 @@
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("qnSPyuKGWkfaxQ8kfY9WwHg3-gzGzoHsz", "lhHv5GaYGHkqxygYev4s6VUq");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 

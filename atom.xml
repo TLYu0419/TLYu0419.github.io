@@ -36,13 +36,13 @@
     
       <category term="爬蟲(Crawl)" scheme="https://TLYu0419.github.io/tags/%E7%88%AC%E8%9F%B2-Crawl/"/>
     
-      <category term="Facebook粉絲團" scheme="https://TLYu0419.github.io/tags/Facebook%E7%B2%89%E7%B5%B2%E5%9C%98/"/>
-    
       <category term="python" scheme="https://TLYu0419.github.io/tags/python/"/>
     
       <category term="Selenium" scheme="https://TLYu0419.github.io/tags/Selenium/"/>
     
       <category term="BeautifulSoup" scheme="https://TLYu0419.github.io/tags/BeautifulSoup/"/>
+    
+      <category term="Facebook粉絲團" scheme="https://TLYu0419.github.io/tags/Facebook%E7%B2%89%E7%B5%B2%E5%9C%98/"/>
     
       <category term="免登入" scheme="https://TLYu0419.github.io/tags/%E5%85%8D%E7%99%BB%E5%85%A5/"/>
     
@@ -71,13 +71,13 @@
     
       <category term="python" scheme="https://TLYu0419.github.io/tags/python/"/>
     
-      <category term="Selenium" scheme="https://TLYu0419.github.io/tags/Selenium/"/>
-    
-      <category term="BeautifulSoup" scheme="https://TLYu0419.github.io/tags/BeautifulSoup/"/>
-    
       <category term="104人力銀行" scheme="https://TLYu0419.github.io/tags/104%E4%BA%BA%E5%8A%9B%E9%8A%80%E8%A1%8C/"/>
     
+      <category term="Selenium" scheme="https://TLYu0419.github.io/tags/Selenium/"/>
+    
       <category term="requests" scheme="https://TLYu0419.github.io/tags/requests/"/>
+    
+      <category term="BeautifulSoup" scheme="https://TLYu0419.github.io/tags/BeautifulSoup/"/>
     
   </entry>
   
@@ -132,9 +132,9 @@
     
       <category term="爬蟲(Crawl)" scheme="https://TLYu0419.github.io/tags/%E7%88%AC%E8%9F%B2-Crawl/"/>
     
-      <category term="python" scheme="https://TLYu0419.github.io/tags/python/"/>
-    
       <category term="Dcard" scheme="https://TLYu0419.github.io/tags/Dcard/"/>
+    
+      <category term="python" scheme="https://TLYu0419.github.io/tags/python/"/>
     
   </entry>
   

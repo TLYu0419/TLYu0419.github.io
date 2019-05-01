@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="爬蟲(Crawl),Facebook粉絲團,python,Selenium,BeautifulSoup,免登入," />
+  <meta name="keywords" content="爬蟲(Crawl),python,Selenium,BeautifulSoup,Facebook粉絲團,免登入," />
 
 
 
@@ -82,7 +82,7 @@
 
 
 <meta name="description" content="本文僅限於學習使用，請勿用於商業目的 上個月參加某公司的職缺面試時，面試長官詢問「有沒有辦法將臉書上的貼文時間、內容、按讚數、留言數與分享數、甚至是粉絲的留言資訊都抓下來？」 受限於當時還不太熟悉爬蟲，只能簡單回應說透過python與Selenium應該是可以，但卻沒辦法說出更詳細的方法與步驟。後來經過一番研究，總算知道怎麼把這些資料爬來下來了！廢話不多說，我們就開始吧！">
-<meta name="keywords" content="爬蟲(Crawl),Facebook粉絲團,python,Selenium,BeautifulSoup,免登入">
+<meta name="keywords" content="爬蟲(Crawl),python,Selenium,BeautifulSoup,Facebook粉絲團,免登入">
 <meta property="og:type" content="article">
 <meta property="og:title" content="網路爬蟲_Facebook粉絲團貼文與留言">
 <meta property="og:url" content="https://TLYu0419.github.io/2019/05/01/Crawl-Facebook/index.html">
@@ -382,6 +382,17 @@
 
           
           
+             <span id="/2019/05/01/Crawl-Facebook/" class="leancloud_visitors" data-flag-title="網路爬蟲_Facebook粉絲團貼文與留言">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">閱讀次數&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -547,13 +558,13 @@ ulr放我們要爬的Facebook網址，n是稍後要送出幾次滾動網頁到�
           
             <a href="/tags/爬蟲-Crawl/" rel="tag"># 爬蟲(Crawl)</a>
           
-            <a href="/tags/Facebook粉絲團/" rel="tag"># Facebook粉絲團</a>
-          
             <a href="/tags/python/" rel="tag"># python</a>
           
             <a href="/tags/Selenium/" rel="tag"># Selenium</a>
           
             <a href="/tags/BeautifulSoup/" rel="tag"># BeautifulSoup</a>
+          
+            <a href="/tags/Facebook粉絲團/" rel="tag"># Facebook粉絲團</a>
           
             <a href="/tags/免登入/" rel="tag"># 免登入</a>
           
@@ -966,6 +977,113 @@ ulr放我們要爬的Facebook網址，n是稍後要送出幾次滾動網頁到�
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("qnSPyuKGWkfaxQ8kfY9WwHg3-gzGzoHsz", "lhHv5GaYGHkqxygYev4s6VUq");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 
