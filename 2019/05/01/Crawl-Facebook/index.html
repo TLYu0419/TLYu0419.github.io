@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="爬蟲(Crawl),python,Selenium,BeautifulSoup,Facebook粉絲團,免登入," />
+  <meta name="keywords" content="爬蟲(Crawl),Facebook粉絲團,python,Selenium,BeautifulSoup,免登入," />
 
 
 
@@ -81,13 +81,13 @@
 
 
 
-<meta name="description" content="本文僅限於學習使用，請勿用於商業目的 上個月參加某公司的面試時，面試的長官詢問「有沒有辦法將臉書上的貼文時間、內容、按讚數、留言數與分享數、甚至是粉絲的留言資訊都抓下來？」 當時我還不太熟悉爬蟲，只能簡單回應說透過python與Selenium應該是可以，但卻沒辦法說出更詳細的方法愈步驟。後來經過一番研究，總算知道怎麼把這些資料爬來下來！ 廢話不多說，我們就開始吧！">
-<meta name="keywords" content="爬蟲(Crawl),python,Selenium,BeautifulSoup,Facebook粉絲團,免登入">
+<meta name="description" content="本文僅限於學習使用，請勿用於商業目的 上個月參加某公司的職缺面試時，面試長官詢問「有沒有辦法將臉書上的貼文時間、內容、按讚數、留言數與分享數、甚至是粉絲的留言資訊都抓下來？」 受限於當時還不太熟悉爬蟲，只能簡單回應說透過python與Selenium應該是可以，但卻沒辦法說出更詳細的方法與步驟。後來經過一番研究，總算知道怎麼把這些資料爬來下來了！廢話不多說，我們就開始吧！">
+<meta name="keywords" content="爬蟲(Crawl),Facebook粉絲團,python,Selenium,BeautifulSoup,免登入">
 <meta property="og:type" content="article">
 <meta property="og:title" content="網路爬蟲_Facebook粉絲團貼文與留言">
 <meta property="og:url" content="https://TLYu0419.github.io/2019/05/01/Crawl-Facebook/index.html">
 <meta property="og:site_name" content="TLYu的學習筆記">
-<meta property="og:description" content="本文僅限於學習使用，請勿用於商業目的 上個月參加某公司的面試時，面試的長官詢問「有沒有辦法將臉書上的貼文時間、內容、按讚數、留言數與分享數、甚至是粉絲的留言資訊都抓下來？」 當時我還不太熟悉爬蟲，只能簡單回應說透過python與Selenium應該是可以，但卻沒辦法說出更詳細的方法愈步驟。後來經過一番研究，總算知道怎麼把這些資料爬來下來！ 廢話不多說，我們就開始吧！">
+<meta property="og:description" content="本文僅限於學習使用，請勿用於商業目的 上個月參加某公司的職缺面試時，面試長官詢問「有沒有辦法將臉書上的貼文時間、內容、按讚數、留言數與分享數、甚至是粉絲的留言資訊都抓下來？」 受限於當時還不太熟悉爬蟲，只能簡單回應說透過python與Selenium應該是可以，但卻沒辦法說出更詳細的方法與步驟。後來經過一番研究，總算知道怎麼把這些資料爬來下來了！廢話不多說，我們就開始吧！">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://tlyu0419.github.io/2019/05/01/Crawl-Facebook/01.jpg">
 <meta property="og:image" content="https://tlyu0419.github.io/2019/05/01/Crawl-Facebook/02.jpg">
@@ -107,10 +107,10 @@
 <meta property="og:image" content="https://tlyu0419.github.io/2019/05/01/Crawl-Facebook/16.jpg">
 <meta property="og:image" content="https://tlyu0419.github.io/2019/05/01/Crawl-Facebook/17.jpg">
 <meta property="og:image" content="https://tlyu0419.github.io/2019/05/01/Crawl-Facebook/18.jpg">
-<meta property="og:updated_time" content="2019-05-01T14:48:02.869Z">
+<meta property="og:updated_time" content="2019-05-01T15:13:42.465Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="網路爬蟲_Facebook粉絲團貼文與留言">
-<meta name="twitter:description" content="本文僅限於學習使用，請勿用於商業目的 上個月參加某公司的面試時，面試的長官詢問「有沒有辦法將臉書上的貼文時間、內容、按讚數、留言數與分享數、甚至是粉絲的留言資訊都抓下來？」 當時我還不太熟悉爬蟲，只能簡單回應說透過python與Selenium應該是可以，但卻沒辦法說出更詳細的方法愈步驟。後來經過一番研究，總算知道怎麼把這些資料爬來下來！ 廢話不多說，我們就開始吧！">
+<meta name="twitter:description" content="本文僅限於學習使用，請勿用於商業目的 上個月參加某公司的職缺面試時，面試長官詢問「有沒有辦法將臉書上的貼文時間、內容、按讚數、留言數與分享數、甚至是粉絲的留言資訊都抓下來？」 受限於當時還不太熟悉爬蟲，只能簡單回應說透過python與Selenium應該是可以，但卻沒辦法說出更詳細的方法與步驟。後來經過一番研究，總算知道怎麼把這些資料爬來下來了！廢話不多說，我們就開始吧！">
 <meta name="twitter:image" content="https://tlyu0419.github.io/2019/05/01/Crawl-Facebook/01.jpg">
 
 
@@ -357,7 +357,7 @@
               
                 <span class="post-meta-item-text">更新於&#58;</span>
               
-              <time title="更新於" itemprop="dateModified" datetime="2019-05-01T22:48:02+08:00">
+              <time title="更新於" itemprop="dateModified" datetime="2019-05-01T23:13:42+08:00">
                 2019-05-01
               </time>
             
@@ -403,9 +403,8 @@
 
       
         <p><em>本文僅限於學習使用，請勿用於商業目的</em></p>
-<p>上個月參加某公司的面試時，面試的長官詢問「有沒有辦法將臉書上的貼文時間、內容、按讚數、留言數與分享數、甚至是粉絲的留言資訊都抓下來？」</p>
-<p>當時我還不太熟悉爬蟲，只能簡單回應說透過python與Selenium應該是可以，但卻沒辦法說出更詳細的方法愈步驟。後來經過一番研究，總算知道怎麼把這些資料爬來下來！</p>
-<p>廢話不多說，我們就開始吧！</p>
+<p>上個月參加某公司的職缺面試時，面試長官詢問「有沒有辦法將臉書上的貼文時間、內容、按讚數、留言數與分享數、甚至是粉絲的留言資訊都抓下來？」</p>
+<p>受限於當時還不太熟悉爬蟲，只能簡單回應說透過python與Selenium應該是可以，但卻沒辦法說出更詳細的方法與步驟。後來經過一番研究，總算知道怎麼把這些資料爬來下來了！廢話不多說，我們就開始吧！</p>
 <a id="more"></a>
 <h1>輸入與輸出結果</h1>
 <p>這是我們要爬的臉書頁面，從畫面上我們可以找到許多住要的資訊，如貼文的人名、ID、貼文發佈時間、貼文內容、多少個心情數量（按讚、生氣或哈哈）、以及留言數與分享數等等資訊。如果貼文底下有留言，我們也希望一併把這些留言都抓下來。</p>
@@ -548,13 +547,13 @@ ulr放我們要爬的Facebook網址，n是稍後要送出幾次滾動網頁到�
           
             <a href="/tags/爬蟲-Crawl/" rel="tag"># 爬蟲(Crawl)</a>
           
+            <a href="/tags/Facebook粉絲團/" rel="tag"># Facebook粉絲團</a>
+          
             <a href="/tags/python/" rel="tag"># python</a>
           
             <a href="/tags/Selenium/" rel="tag"># Selenium</a>
           
             <a href="/tags/BeautifulSoup/" rel="tag"># BeautifulSoup</a>
-          
-            <a href="/tags/Facebook粉絲團/" rel="tag"># Facebook粉絲團</a>
           
             <a href="/tags/免登入/" rel="tag"># 免登入</a>
           
