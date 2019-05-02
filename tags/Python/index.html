@@ -85,7 +85,7 @@
 <meta name="keywords" content="統計、程式">
 <meta property="og:type" content="website">
 <meta property="og:title" content="TLYu的學習筆記">
-<meta property="og:url" content="https://TLYu0419.github.io/tags/python/index.html">
+<meta property="og:url" content="https://TLYu0419.github.io/tags/Python/index.html">
 <meta property="og:site_name" content="TLYu的學習筆記">
 <meta property="og:description" content="Hi, Welcome to my bolg!">
 <meta property="og:locale" content="zh-tw">
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://TLYu0419.github.io/tags/python/"/>
+  <link rel="canonical" href="https://TLYu0419.github.io/tags/Python/"/>
 
 
 
 
 
-  <title>標籤: python | TLYu的學習筆記</title>
+  <title>標籤: Python | TLYu的學習筆記</title>
   
 
 
@@ -285,7 +285,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>python<small>標籤</small>
+        <h1>Python<small>標籤</small>
         </h1>
       </div>
 
@@ -297,37 +297,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2019/05/01/Crawl-Facebook/" itemprop="url">
+            <a class="post-title-link" href="/2018/12/30/GuessNumber/" itemprop="url">
               
-                <span itemprop="name">網路爬蟲_Facebook粉絲團貼文與留言</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-05-01T18:40:39+08:00"
-              content="2019-05-01" >
-          05-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/18/Crawl-JobList104/" itemprop="url">
-              
-                <span itemprop="name">爬蟲_104人力銀行工作清單</span>
+                <span itemprop="name">猜數字遊戲</span>
               
             </a>
         
@@ -335,65 +307,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2019-04-18T22:18:06+08:00"
-              content="2019-04-18" >
-          04-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/07/Crawl-SongGuo/" itemprop="url">
-              
-                <span itemprop="name">爬蟲 - 爬取SongGuo購物商品資訊</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-04-07T20:53:39+08:00"
-              content="2019-04-07" >
-          04-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/06/Crawl-Dcard/" itemprop="url">
-              
-                <span itemprop="name">爬蟲 - 爬取Dcard文章</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-04-06T18:03:39+08:00"
-              content="2019-04-06" >
-          04-06
+              datetime="2018-12-30T10:45:47+08:00"
+              content="2018-12-30" >
+          12-30
         </time>
       </div>
 
@@ -457,7 +373,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -772,6 +688,81 @@
     function addCount(Counter) {
       var $visitors = $(".leancloud_visitors");
       var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+isitors.attr('id').trim();
       var title = $visitors.attr('data-flag-title').trim();
       var query = new AV.Query(Counter);
 

@@ -3,6 +3,15 @@
   
     
     <entry>
+      <title>Crawler_Facebook</title>
+      <link href="/2019/05/02/Crawler-Facebook/"/>
+      <url>/2019/05/02/Crawler-Facebook/</url>
+      <content type="html"><![CDATA[]]></content>
+      
+      
+    </entry>
+    
+    <entry>
       <title>網路爬蟲_Facebook粉絲團貼文與留言</title>
       <link href="/2019/05/01/Crawl-Facebook/"/>
       <url>/2019/05/01/Crawl-Facebook/</url>
@@ -15,11 +24,11 @@
             
             <tag> python </tag>
             
-            <tag> Facebook粉絲團 </tag>
-            
             <tag> Selenium </tag>
             
             <tag> BeautifulSoup </tag>
+            
+            <tag> Facebook粉絲團 </tag>
             
             <tag> 免登入 </tag>
             
@@ -38,15 +47,15 @@
             
             <tag> 爬蟲(Crawl) </tag>
             
+            <tag> 104人力銀行 </tag>
+            
             <tag> python </tag>
             
             <tag> Selenium </tag>
             
-            <tag> BeautifulSoup </tag>
-            
-            <tag> 104人力銀行 </tag>
-            
             <tag> requests </tag>
+            
+            <tag> BeautifulSoup </tag>
             
         </tags>
       
@@ -82,9 +91,9 @@
             
             <tag> 爬蟲(Crawl) </tag>
             
-            <tag> Dcard </tag>
-            
             <tag> python </tag>
+            
+            <tag> Dcard </tag>
             
         </tags>
       
