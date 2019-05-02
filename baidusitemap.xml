@@ -4,33 +4,6 @@
 
     
   <url>
-    <loc>https://TLYu0419.github.io/2019/05/01/Crawler-Facebook/</loc>
-    <lastmod>2019-05-02T01:50:02.253Z</lastmod>
-    <data>
-        <display>
-        <title>網路爬蟲_Facebook粉絲團貼文與留言</title>
-        <pubTime>2019-05-01T10:40:39.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-        <tag>Selenium</tag>
-         
-        <tag>BeautifulSoup</tag>
-         
-        <tag>Facebook粉絲團</tag>
-         
-        <tag>免登入</tag>
-         
-        <tag>爬蟲(Crawler)</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://TLYu0419.github.io/2019/05/01/Crawl-Facebook/</loc>
     <lastmod>2019-05-01T15:13:42.465Z</lastmod>
     <data>
@@ -40,13 +13,13 @@
         
         <tag>爬蟲(Crawl)</tag>
          
+        <tag>Facebook粉絲團</tag>
+         
         <tag>python</tag>
          
         <tag>Selenium</tag>
          
         <tag>BeautifulSoup</tag>
-         
-        <tag>Facebook粉絲團</tag>
          
         <tag>免登入</tag>
          
@@ -67,15 +40,15 @@
         
         <tag>爬蟲(Crawl)</tag>
          
-        <tag>104人力銀行</tag>
-         
         <tag>python</tag>
          
         <tag>Selenium</tag>
          
-        <tag>requests</tag>
-         
         <tag>BeautifulSoup</tag>
+         
+        <tag>104人力銀行</tag>
+         
+        <tag>requests</tag>
          
          
            
