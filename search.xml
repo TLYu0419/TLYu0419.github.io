@@ -11,17 +11,13 @@
       
         <tags>
             
-            <tag> 爬蟲(Crawl) </tag>
-            
             <tag> python </tag>
-            
-            <tag> Facebook粉絲團 </tag>
             
             <tag> Selenium </tag>
             
-            <tag> BeautifulSoup </tag>
+            <tag> Crawler </tag>
             
-            <tag> 免登入 </tag>
+            <tag> Facebook </tag>
             
         </tags>
       
@@ -40,13 +36,13 @@
             
             <tag> python </tag>
             
-            <tag> Selenium </tag>
-            
-            <tag> BeautifulSoup </tag>
-            
             <tag> 104人力銀行 </tag>
             
+            <tag> Selenium </tag>
+            
             <tag> requests </tag>
+            
+            <tag> BeautifulSoup </tag>
             
         </tags>
       
