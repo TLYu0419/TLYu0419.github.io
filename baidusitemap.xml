@@ -4,8 +4,29 @@
 
     
   <url>
+    <loc>https://TLYu0419.github.io/2019/04/07/Crawl-SongGuo/</loc>
+    <lastmod>2019-10-06T10:12:14.095Z</lastmod>
+    <data>
+        <display>
+        <title>爬蟲 - 爬取松果購物商品資訊</title>
+        <pubTime>2019-04-07T12:53:39.000Z</pubTime>
+        
+        <tag>爬蟲(Crawl)</tag>
+         
+        <tag>SongGuo</tag>
+         
+        <tag>python</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://TLYu0419.github.io/2019/09/29/%E7%94%A8%E5%A4%9A%E7%B7%9A%E7%A8%8B%E5%8A%A0%E9%80%9F%E7%88%AC%E8%9F%B2%E6%95%88%E7%8E%87/</loc>
-    <lastmod>2019-09-30T04:53:22.801Z</lastmod>
+    <lastmod>2019-10-06T10:10:10.435Z</lastmod>
     <data>
         <display>
         <title>用多線程加速爬蟲效率</title>
@@ -14,34 +35,6 @@
         <tag>Multi-thread</tag>
          
         <tag>web crawler</tag>
-         
-        <tag>udn_聯合</tag>
-         
-        <tag>appledaily_蘋果</tag>
-         
-        <tag>TVBS_聯利</tag>
-         
-        <tag>SETN_三立</tag>
-         
-        <tag>EBC_東森</tag>
-         
-        <tag>Chinatimes_中時</tag>
-         
-        <tag>ETtoday新聞雲</tag>
-         
-        <tag>FTV_民視</tag>
-         
-        <tag>mirro_鏡周刊</tag>
-         
-        <tag>storm_風傳媒</tag>
-         
-        <tag>technews_科技新報</tag>
-         
-        <tag>Newtalk_新頭殼</tag>
-         
-        <tag>NowNews_今日新聞</tag>
-         
-        <tag>Anue_鉅亨</tag>
          
          
            
@@ -60,11 +53,11 @@
         
         <tag>python</tag>
          
-        <tag>Selenium</tag>
-         
         <tag>Crawler</tag>
          
         <tag>Facebook</tag>
+         
+        <tag>Selenium</tag>
          
          
            
@@ -85,34 +78,13 @@
          
         <tag>python</tag>
          
-        <tag>104人力銀行</tag>
-         
         <tag>Selenium</tag>
+         
+        <tag>104人力銀行</tag>
          
         <tag>requests</tag>
          
         <tag>BeautifulSoup</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://TLYu0419.github.io/2019/04/07/Crawl-SongGuo/</loc>
-    <lastmod>2019-04-07T15:32:40.583Z</lastmod>
-    <data>
-        <display>
-        <title>爬蟲 - 爬取SongGuo購物商品資訊</title>
-        <pubTime>2019-04-07T12:53:39.000Z</pubTime>
-        
-        <tag>爬蟲(Crawl)</tag>
-         
-        <tag>python</tag>
-         
-        <tag>SongGuo</tag>
          
          
            
@@ -131,49 +103,9 @@
         
         <tag>爬蟲(Crawl)</tag>
          
-        <tag>Dcard</tag>
-         
         <tag>python</tag>
          
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://TLYu0419.github.io/2018/12/30/GuessNumber/</loc>
-    <lastmod>2018-12-30T04:30:38.676Z</lastmod>
-    <data>
-        <display>
-        <title>猜數字遊戲</title>
-        <pubTime>2018-12-30T02:45:47.000Z</pubTime>
-        
-        <tag>Python</tag>
-         
-        <tag>迴圈</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://TLYu0419.github.io/2018/09/29/Taste-Cluster/</loc>
-    <lastmod>2018-12-30T04:27:34.722Z</lastmod>
-    <data>
-        <display>
-        <title>台灣的文化品味如何？階級與音樂品味的多變量分析</title>
-        <pubTime>2018-09-29T02:07:34.000Z</pubTime>
-        
-        <tag>R programming language</tag>
-         
-        <tag>k-medoids cluster</tag>
-         
-        <tag>multinomial logistic regression</tag>
+        <tag>Dcard</tag>
          
          
            
