@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>TLYu的學習筆記</title>
   
-  <subtitle>Happiness is a Journey, \nNot a Destination.</subtitle>
+  <subtitle>Happiness is a Journey.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://TLYu0419.github.io/"/>
@@ -131,9 +131,9 @@
     
       <category term="爬蟲(Crawl)" scheme="https://TLYu0419.github.io/tags/%E7%88%AC%E8%9F%B2-Crawl/"/>
     
-      <category term="python" scheme="https://TLYu0419.github.io/tags/python/"/>
-    
       <category term="SongGuo" scheme="https://TLYu0419.github.io/tags/SongGuo/"/>
+    
+      <category term="python" scheme="https://TLYu0419.github.io/tags/python/"/>
     
   </entry>
   
@@ -157,9 +157,9 @@
     
       <category term="爬蟲(Crawl)" scheme="https://TLYu0419.github.io/tags/%E7%88%AC%E8%9F%B2-Crawl/"/>
     
-      <category term="Dcard" scheme="https://TLYu0419.github.io/tags/Dcard/"/>
-    
       <category term="python" scheme="https://TLYu0419.github.io/tags/python/"/>
+    
+      <category term="Dcard" scheme="https://TLYu0419.github.io/tags/Dcard/"/>
     
   </entry>
   
