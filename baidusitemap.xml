@@ -3,6 +3,7 @@
 
 
     
+    
   <url>
     <loc>https://TLYu0419.github.io/2019/04/07/Crawl-SongGuo/</loc>
     <lastmod>2019-11-19T04:33:01.002Z</lastmod>
@@ -13,9 +14,9 @@
         
         <tag>爬蟲(Crawl)</tag>
          
-        <tag>SongGuo</tag>
-         
         <tag>python</tag>
+         
+        <tag>SongGuo</tag>
          
          
            
@@ -23,7 +24,6 @@
     </data>
     </url>
 
-    
     
   <url>
     <loc>https://TLYu0419.github.io/2019/10/30/%E5%A6%82%E4%BD%95%E9%80%8F%E9%81%8E%E7%B6%B2%E8%B7%AF%E7%88%AC%E8%9F%B2%E6%8A%93%E5%8F%96%E4%B8%AD%E6%99%82%E9%9B%BB%E5%AD%90%E5%A0%B1%E6%96%B0%E8%81%9E/</loc>
@@ -60,11 +60,11 @@
         
         <tag>python</tag>
          
+        <tag>Selenium</tag>
+         
         <tag>Crawler</tag>
          
         <tag>Facebook</tag>
-         
-        <tag>Selenium</tag>
          
          
            
@@ -83,11 +83,11 @@
         
         <tag>爬蟲(Crawl)</tag>
          
+        <tag>104人力銀行</tag>
+         
         <tag>python</tag>
          
         <tag>Selenium</tag>
-         
-        <tag>104人力銀行</tag>
          
         <tag>requests</tag>
          
