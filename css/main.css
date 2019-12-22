@@ -1820,7 +1820,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #719887;
+  background: #9ebe9f;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2838,7 +2838,7 @@ pre .javascript .function {
 .sidebar {
   position: static;
   float: left;
-  margin-top: 400px;
+  margin-top: 300px;
   width: 240px;
   background: #f5f7f9;
   box-shadow: none;
@@ -2858,7 +2858,7 @@ pre .javascript .function {
 }
 .footer-inner {
   width: 960px;
-  padding-left: 260px;
+  padding-left: 360px;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .footer-inner {
@@ -2883,7 +2883,7 @@ pre .javascript .function {
 }
 .sidebar-position-right .footer-inner {
   padding-left: 0;
-  padding-right: 260px;
+  padding-right: 360px;
 }
 .site-brand-wrapper {
   position: relative;
