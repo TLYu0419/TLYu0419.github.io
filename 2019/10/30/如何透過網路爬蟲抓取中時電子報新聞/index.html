@@ -84,7 +84,7 @@
 <meta name="description" content="以前我們在收集新聞資料時，是透過複製、貼上的方式逐一的把將新聞的標題、時間、內文…等等資訊從網頁上複製進 Excel 的表格當中。但是當我們需要收集上千、上萬篇新聞的時候這種方法就顯得不太可行。 那我們要怎麼解決呢?其實只需要引入網路爬蟲的技術，就能透過電腦幫我們自動瀏覽、收集指定網頁的資訊。今天我們要透過 python 撰寫網路爬蟲，練習在中時電子報的網站上爬取新聞的標題、時間、類型、摘要、內文">
 <meta name="keywords" content="python,中時電子報,網路爬蟲,新聞,多線程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何透過網路爬蟲抓取中時電子報新聞">
+<meta property="og:title" content="如何透過爬蟲抓取中時新聞">
 <meta property="og:url" content="https://TLYu0419.github.io/2019/10/30/如何透過網路爬蟲抓取中時電子報新聞/index.html">
 <meta property="og:site_name" content="Tony的學習筆記">
 <meta property="og:description" content="以前我們在收集新聞資料時，是透過複製、貼上的方式逐一的把將新聞的標題、時間、內文…等等資訊從網頁上複製進 Excel 的表格當中。但是當我們需要收集上千、上萬篇新聞的時候這種方法就顯得不太可行。 那我們要怎麼解決呢?其實只需要引入網路爬蟲的技術，就能透過電腦幫我們自動瀏覽、收集指定網頁的資訊。今天我們要透過 python 撰寫網路爬蟲，練習在中時電子報的網站上爬取新聞的標題、時間、類型、摘要、內文">
@@ -99,9 +99,9 @@
 <meta property="og:image" content="https://lh3.googleusercontent.com/EgzhP7GsbJxKBGY8-MIbyEnzVZSfTAcwRw_ITzkOthcph4pRVGHFXsUGyiPufbm6V2AXeJBwzbp-gBtlvXMuothZj4d4Ox3wwyfm2GFjNgzvHtr_M3m6-WC8eipt4BeVUemEbypkric5hJN7_-z4NLy44WmQcZJMO167NBQXqmNuFonatvmdVipfEkzJOeZwuHQdrv_w0UGeKWefx63FpuhPCbAA_LzK-iN6odEJ9cPCfqTm1nMVWlKKl6tbabaj-kyEio-rihYIMrhv8Iuao0j0cVasIhMT7zusm2Of90RQlIPGqlT1vGnn5dOMmcKPXrv9-oDPURnHqnptujePrcuiDaR_mQNfC2PDSSRDg4XZVmf68rzw0H_5UT_pQLsnnuKFmCpLZtnyFz3ubU0ibgzBU0fQQM04E6xtCAvlN9kO16sPMEZzExMS7W9hKkyJDBRaAQfbBSwdaRtQsm8G2T4WAffqanzjVG53J3GSVita_LydGgZlnxcvzzn1IrkAMa43Kb0aO7Bupei3Bv6PsrUp_i67UFNkRo5shPyw0bF_ozAfVTRnL0q0QyP5n_297wbBXor2jG7zcg3sWaMvlh7W-bPvXpkh7zyzcYhT_REqlTZYCKjcr98czUKZd0wxVcp1Y6Fq8xiQM88u9J84D71jK5cS9qqf639ck7skjY11Ak19srFASAapTAAfXmkCyI88POXQvqguekwPHB80EWkpXjRuteX1oX7gvEX0qzvdcMn4=w1874-h525-no">
 <meta property="og:image" content="https://lh3.googleusercontent.com/DZu_DrjAq13cKmvz2B2vDQopBCo3uJ-U1izOWb2rkJObUZejoXxZl14ke0ETNrvbJsyrkpM3LSMKt4hNT--DMNalxuJg6774RH_9VdyNEzx4UKQd4atGw41ZhZGAoGQN4DSZNk7ihpUAfS6F-GKRtyy_pmqTBRxMXSJUVxobCTclTHTZj0YBKQ2ELHSqGJ6UkDXy2w8yVOahP2B34xv5EUvMfWSXbJ2QoFQ6dYO-x_Z9AamnpPYXu3MNIOZmiOFrkNfChu02G337g3ufdw6qAZCoXzC3hysrUpKmY69RNG1IBGs_BZj5hNQlGsGoUrdMOSbfVwezPOXPrMvrm-fFE0JqqHBNvyB-9Lm_pza9oRggCufuSdSpItCQTzfbh4D73GzT6ha9l20d1ovYru6RFwmx2SrKdBhni0rBhwkvlmHGkue83ecjKp5_XhfXRNLgIly466i9T617iil8ABpW3izK4UzrTdXd96yrsKu6aHfddX3_jET6Ib_0uT7xKs0lTN-3E2DBzXMWv97We8N22916AIW6NgvV9T1RCk_9G-ec0y9G-0wIlUieKuVI-Ie2ul1FjktP4ymcMC_k9UB7MIQP74p5r9jmM8rqaEXxohL-Fb1n92DCqWKH8iVDesWML5Js_Y2Tj6HbcApq2WlgF7d7Oe6KZX-HxvoQG3ogvTYphUW4Y5LN4K9Upq62vlyX1cjEVmU63nZIflxO8sLstkaVKmKcKcGh5hbH30Wut-sSLMJ1=w1876-h859-no">
 <meta property="og:image" content="https://lh3.googleusercontent.com/2J2k1g29zujtoSpyi0gGhYRxruAd6KSkAC9ojdDBui5qDKmi6_m_RFg7-VYEl8FVDimmOrIm8SUlzuPRR8vUZ9MSb0X5wQQMMcMZArufTCoWqOS6QZavpUKbyPn_UdFw19KUrLnHWSzHebFduhfhs2UdX1SR1yPwtQk2WB4nUgYUbHPe3RQbikQ0QhzRsDFo0EVhS6Ik-fwpGdho-8IcQLH2PNoBhB2yQF5gA9FWt3Fza9g8lCegL2h3BJ8QNJa-qzCAGj2VTpbI6dUNXpqB3opixORD28rg9xWBg9DMq70G1GANij20dzpqCqI3_IgNT7kPfC-ToMPmULkjvPwMbzOA7hdPZrbSWMIsyYrdF24pmjcNf16E7b2K5cYK6UR_OJklMXxpZKkyLSweZAUFBLAtfB3jc6HMlH9iY_oEc9adz23MCzny_qsAQou--Cnj_ituBQ1DV9ObHwhw8oDeHv3bjfSUcWlsEf90EhIjeXVB7f4dS9NciVv1JZmrMOzBQAuODAmJOm9JLtht9tGJzLzkb5IalfQmH1KIK6g8PXnAOyF4skq28b9pO6Ul5KtRkdI4cfjSPMqjHOCCORE3DALvMkS4STQatXNCXZzINaCd6va4K5iSTabiMgszqIc62ylM8fYZUwyWhkOR1H-fwoU0Nu3bHZJqAr5O-nd-fgJaxh5UfdAHRwcmZMqKufSeazXehBFDhpv1M3XJ1Y2cKsf9XHiEQt6J9sCtGBK2eonBPW4e=w1874-h476-no">
-<meta property="og:updated_time" content="2019-10-30T14:54:02.067Z">
+<meta property="og:updated_time" content="2019-12-22T05:21:26.751Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何透過網路爬蟲抓取中時電子報新聞">
+<meta name="twitter:title" content="如何透過爬蟲抓取中時新聞">
 <meta name="twitter:description" content="以前我們在收集新聞資料時，是透過複製、貼上的方式逐一的把將新聞的標題、時間、內文…等等資訊從網頁上複製進 Excel 的表格當中。但是當我們需要收集上千、上萬篇新聞的時候這種方法就顯得不太可行。 那我們要怎麼解決呢?其實只需要引入網路爬蟲的技術，就能透過電腦幫我們自動瀏覽、收集指定網頁的資訊。今天我們要透過 python 撰寫網路爬蟲，練習在中時電子報的網站上爬取新聞的標題、時間、類型、摘要、內文">
 <meta name="twitter:image" content="https://lh3.googleusercontent.com/N8gNwNU6T7-ZGiKIyCee4wq87LsHDPv23QWgou6AzpqOm-8bkkeuCG_DB44Jt6mUv3NYx0VCH5mKMRZhvI0wsGznuwTlllNLwem5faa94G8i8GO_W8xAHNNVvLY6eYNxBDfMaXEwkFOtGSeTxrd1pqF-bFKWWvnPQGUPBOYHA2CZxA657AYw1sjGIXQMMwqZCFRmzviU_7bTPuHPV0vYR71S-5sKPk6ZL23Suv5RcV5s3z1o3JbOJI7Ou6TBSLOcxskn7Y-i3t8vly1DiQAF85SaRB_8SI5hI8uO1FJnqVUuKpGKcSOkdFB3gIVV9gMxNjFlVN7m4Xt3idCZYm3x_nQ2yz-CnpAA-tXlU5-5Jjjc4aQEJHEKB01xj4vgkjb5Anc9vqA498XJsGMFT5ypGgra3wx97mfpxtFS08QViz_ogQ5DLLHQkRx8jVWqoWMUtbQIyXcCx5YwCJESJGEX7J6tNu-MDVIa2La5UiSpqC7gPFHyiLpe5N42p4aMkXOoIjQ0T5SGomzVF-kFdqfzB4NlPd8rwR0WZID4Ay-OgOg68LCwMPjDPWChbMJvTU85znuWSlCYre-WLkuB3c6nCzDVuYNPQUbaQmVurZyQgZwRP--JD-3x4HZm-OqK20zzlQRYtaaQvs6RmwEq1bYyfuSquLn1mCHztBruzxkyLSD9c9fpYonA96M6C0LcijLlJZ4pV8HMAsosApx1znI-YN6qAc-lDBW6HwHGfM8q2zus0RnY=w1840-h413-no">
 
@@ -139,7 +139,7 @@
 
 
 
-  <title>如何透過網路爬蟲抓取中時電子報新聞 | Tony的學習筆記</title>
+  <title>如何透過爬蟲抓取中時新聞 | Tony的學習筆記</title>
   
 
 
@@ -321,7 +321,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">如何透過網路爬蟲抓取中時電子報新聞</h1>
+          <h1 class="post-title" itemprop="name headline">如何透過爬蟲抓取中時新聞</h1>
         
 
         <div class="post-meta">
@@ -349,8 +349,8 @@
               
                 <span class="post-meta-item-text">更新於&#58;</span>
               
-              <time title="更新於" itemprop="dateModified" datetime="2019-10-30T22:54:02+08:00">
-                2019-10-30
+              <time title="更新於" itemprop="dateModified" datetime="2019-12-22T13:21:26+08:00">
+                2019-12-22
               </time>
             
           </span>
@@ -374,7 +374,7 @@
 
           
           
-             <span id="/2019/10/30/如何透過網路爬蟲抓取中時電子報新聞/" class="leancloud_visitors" data-flag-title="如何透過網路爬蟲抓取中時電子報新聞">
+             <span id="/2019/10/30/如何透過網路爬蟲抓取中時電子報新聞/" class="leancloud_visitors" data-flag-title="如何透過爬蟲抓取中時新聞">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -899,7 +899,7 @@
         var disqus_config = function () {
           this.page.url = 'https://TLYu0419.github.io/2019/10/30/如何透過網路爬蟲抓取中時電子報新聞/';
           this.page.identifier = '2019/10/30/如何透過網路爬蟲抓取中時電子報新聞/';
-          this.page.title = '如何透過網路爬蟲抓取中時電子報新聞';
+          this.page.title = '如何透過爬蟲抓取中時新聞';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://TLYu0419.disqus.com/embed.js';
