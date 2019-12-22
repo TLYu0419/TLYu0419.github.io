@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Tony的學習筆記</title>
+  <title>Tony 的學習筆記</title>
   
-  <subtitle>享受學習過程帶給你的快樂吧🙂</subtitle>
+  <subtitle>學習、記錄、分享</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://TLYu0419.github.io/"/>
