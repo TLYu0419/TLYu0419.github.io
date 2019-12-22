@@ -1820,7 +1820,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #9ebe9f;
+  background: #c2ff4a;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2858,7 +2858,7 @@ pre .javascript .function {
 }
 .footer-inner {
   width: 960px;
-  padding-left: 360px;
+  padding-left: 260px;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .footer-inner {
@@ -2883,7 +2883,7 @@ pre .javascript .function {
 }
 .sidebar-position-right .footer-inner {
   padding-left: 0;
-  padding-right: 360px;
+  padding-right: 260px;
 }
 .site-brand-wrapper {
   position: relative;
