@@ -85,7 +85,7 @@
 <meta name="keywords" content="中時電子報,網路爬蟲,新聞,python,多線程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何透過爬蟲抓取中時新聞">
-<meta property="og:url" content="https://TLYu0419.github.io/2019/10/30/Crawl-ChinaTimes/index.html">
+<meta property="og:url" content="https://TLYu0419.github.io/2019/10/30/WebCrawler-ChinaTimes/index.html">
 <meta property="og:site_name" content="Tony的學習筆記">
 <meta property="og:description" content="以前我們在收集新聞資料時，是透過複製、貼上的方式逐一的把將新聞的標題、時間、內文…等等資訊從網頁上複製進 Excel 的表格當中。但是當我們需要收集上千、上萬篇新聞的時候這種方法就顯得不太可行。 那我們要怎麼解決呢?其實只需要引入網路爬蟲的技術，就能透過電腦幫我們自動瀏覽、收集指定網頁的資訊。今天我們要透過 python 撰寫網路爬蟲，練習在中時電子報的網站上爬取新聞的標題、時間、類型、摘要、內文">
 <meta property="og:locale" content="zh-tw">
@@ -99,7 +99,7 @@
 <meta property="og:image" content="https://lh3.googleusercontent.com/EgzhP7GsbJxKBGY8-MIbyEnzVZSfTAcwRw_ITzkOthcph4pRVGHFXsUGyiPufbm6V2AXeJBwzbp-gBtlvXMuothZj4d4Ox3wwyfm2GFjNgzvHtr_M3m6-WC8eipt4BeVUemEbypkric5hJN7_-z4NLy44WmQcZJMO167NBQXqmNuFonatvmdVipfEkzJOeZwuHQdrv_w0UGeKWefx63FpuhPCbAA_LzK-iN6odEJ9cPCfqTm1nMVWlKKl6tbabaj-kyEio-rihYIMrhv8Iuao0j0cVasIhMT7zusm2Of90RQlIPGqlT1vGnn5dOMmcKPXrv9-oDPURnHqnptujePrcuiDaR_mQNfC2PDSSRDg4XZVmf68rzw0H_5UT_pQLsnnuKFmCpLZtnyFz3ubU0ibgzBU0fQQM04E6xtCAvlN9kO16sPMEZzExMS7W9hKkyJDBRaAQfbBSwdaRtQsm8G2T4WAffqanzjVG53J3GSVita_LydGgZlnxcvzzn1IrkAMa43Kb0aO7Bupei3Bv6PsrUp_i67UFNkRo5shPyw0bF_ozAfVTRnL0q0QyP5n_297wbBXor2jG7zcg3sWaMvlh7W-bPvXpkh7zyzcYhT_REqlTZYCKjcr98czUKZd0wxVcp1Y6Fq8xiQM88u9J84D71jK5cS9qqf639ck7skjY11Ak19srFASAapTAAfXmkCyI88POXQvqguekwPHB80EWkpXjRuteX1oX7gvEX0qzvdcMn4=w1874-h525-no">
 <meta property="og:image" content="https://lh3.googleusercontent.com/DZu_DrjAq13cKmvz2B2vDQopBCo3uJ-U1izOWb2rkJObUZejoXxZl14ke0ETNrvbJsyrkpM3LSMKt4hNT--DMNalxuJg6774RH_9VdyNEzx4UKQd4atGw41ZhZGAoGQN4DSZNk7ihpUAfS6F-GKRtyy_pmqTBRxMXSJUVxobCTclTHTZj0YBKQ2ELHSqGJ6UkDXy2w8yVOahP2B34xv5EUvMfWSXbJ2QoFQ6dYO-x_Z9AamnpPYXu3MNIOZmiOFrkNfChu02G337g3ufdw6qAZCoXzC3hysrUpKmY69RNG1IBGs_BZj5hNQlGsGoUrdMOSbfVwezPOXPrMvrm-fFE0JqqHBNvyB-9Lm_pza9oRggCufuSdSpItCQTzfbh4D73GzT6ha9l20d1ovYru6RFwmx2SrKdBhni0rBhwkvlmHGkue83ecjKp5_XhfXRNLgIly466i9T617iil8ABpW3izK4UzrTdXd96yrsKu6aHfddX3_jET6Ib_0uT7xKs0lTN-3E2DBzXMWv97We8N22916AIW6NgvV9T1RCk_9G-ec0y9G-0wIlUieKuVI-Ie2ul1FjktP4ymcMC_k9UB7MIQP74p5r9jmM8rqaEXxohL-Fb1n92DCqWKH8iVDesWML5Js_Y2Tj6HbcApq2WlgF7d7Oe6KZX-HxvoQG3ogvTYphUW4Y5LN4K9Upq62vlyX1cjEVmU63nZIflxO8sLstkaVKmKcKcGh5hbH30Wut-sSLMJ1=w1876-h859-no">
 <meta property="og:image" content="https://lh3.googleusercontent.com/2J2k1g29zujtoSpyi0gGhYRxruAd6KSkAC9ojdDBui5qDKmi6_m_RFg7-VYEl8FVDimmOrIm8SUlzuPRR8vUZ9MSb0X5wQQMMcMZArufTCoWqOS6QZavpUKbyPn_UdFw19KUrLnHWSzHebFduhfhs2UdX1SR1yPwtQk2WB4nUgYUbHPe3RQbikQ0QhzRsDFo0EVhS6Ik-fwpGdho-8IcQLH2PNoBhB2yQF5gA9FWt3Fza9g8lCegL2h3BJ8QNJa-qzCAGj2VTpbI6dUNXpqB3opixORD28rg9xWBg9DMq70G1GANij20dzpqCqI3_IgNT7kPfC-ToMPmULkjvPwMbzOA7hdPZrbSWMIsyYrdF24pmjcNf16E7b2K5cYK6UR_OJklMXxpZKkyLSweZAUFBLAtfB3jc6HMlH9iY_oEc9adz23MCzny_qsAQou--Cnj_ituBQ1DV9ObHwhw8oDeHv3bjfSUcWlsEf90EhIjeXVB7f4dS9NciVv1JZmrMOzBQAuODAmJOm9JLtht9tGJzLzkb5IalfQmH1KIK6g8PXnAOyF4skq28b9pO6Ul5KtRkdI4cfjSPMqjHOCCORE3DALvMkS4STQatXNCXZzINaCd6va4K5iSTabiMgszqIc62ylM8fYZUwyWhkOR1H-fwoU0Nu3bHZJqAr5O-nd-fgJaxh5UfdAHRwcmZMqKufSeazXehBFDhpv1M3XJ1Y2cKsf9XHiEQt6J9sCtGBK2eonBPW4e=w1874-h476-no">
-<meta property="og:updated_time" content="2019-12-22T05:23:36.657Z">
+<meta property="og:updated_time" content="2019-12-22T05:30:58.845Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何透過爬蟲抓取中時新聞">
 <meta name="twitter:description" content="以前我們在收集新聞資料時，是透過複製、貼上的方式逐一的把將新聞的標題、時間、內文…等等資訊從網頁上複製進 Excel 的表格當中。但是當我們需要收集上千、上萬篇新聞的時候這種方法就顯得不太可行。 那我們要怎麼解決呢?其實只需要引入網路爬蟲的技術，就能透過電腦幫我們自動瀏覽、收集指定網頁的資訊。今天我們要透過 python 撰寫網路爬蟲，練習在中時電子報的網站上爬取新聞的標題、時間、類型、摘要、內文">
@@ -133,7 +133,7 @@
 
 
 
-  <link rel="canonical" href="https://TLYu0419.github.io/2019/10/30/Crawl-ChinaTimes/"/>
+  <link rel="canonical" href="https://TLYu0419.github.io/2019/10/30/WebCrawler-ChinaTimes/"/>
 
 
 
@@ -304,7 +304,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://TLYu0419.github.io/2019/10/30/Crawl-ChinaTimes/">
+    <link itemprop="mainEntityOfPage" href="https://TLYu0419.github.io/2019/10/30/WebCrawler-ChinaTimes/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TLYu0419">
@@ -349,7 +349,7 @@
               
                 <span class="post-meta-item-text">更新於&#58;</span>
               
-              <time title="更新於" itemprop="dateModified" datetime="2019-12-22T13:23:36+08:00">
+              <time title="更新於" itemprop="dateModified" datetime="2019-12-22T13:30:58+08:00">
                 2019-12-22
               </time>
             
@@ -364,9 +364,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/10/30/Crawl-ChinaTimes/#comments" itemprop="discussionUrl">
+                <a href="/2019/10/30/WebCrawler-ChinaTimes/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2019/10/30/Crawl-ChinaTimes/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2019/10/30/WebCrawler-ChinaTimes/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -374,7 +374,7 @@
 
           
           
-             <span id="/2019/10/30/Crawl-ChinaTimes/" class="leancloud_visitors" data-flag-title="如何透過爬蟲抓取中時新聞">
+             <span id="/2019/10/30/WebCrawler-ChinaTimes/" class="leancloud_visitors" data-flag-title="如何透過爬蟲抓取中時新聞">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -556,8 +556,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/30/WebCrawler-ChinaTimes/" rel="next" title="如何透過爬蟲抓取中時新聞">
-                <i class="fa fa-chevron-left"></i> 如何透過爬蟲抓取中時新聞
+              <a href="/2019/05/01/Crawl-Facebook/" rel="next" title="網路爬蟲_Facebook粉絲團貼文與留言">
+                <i class="fa fa-chevron-left"></i> 網路爬蟲_Facebook粉絲團貼文與留言
               </a>
             
           </div>
@@ -565,6 +565,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/30/Crawl-ChinaTimes/" rel="prev" title="如何透過爬蟲抓取中時新聞">
+                如何透過爬蟲抓取中時新聞 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -897,8 +901,8 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://TLYu0419.github.io/2019/10/30/Crawl-ChinaTimes/';
-          this.page.identifier = '2019/10/30/Crawl-ChinaTimes/';
+          this.page.url = 'https://TLYu0419.github.io/2019/10/30/WebCrawler-ChinaTimes/';
+          this.page.identifier = '2019/10/30/WebCrawler-ChinaTimes/';
           this.page.title = '如何透過爬蟲抓取中時新聞';
         };
         var d = document, s = d.createElement('script');

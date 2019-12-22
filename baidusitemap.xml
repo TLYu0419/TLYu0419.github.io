@@ -4,6 +4,31 @@
 
     
   <url>
+    <loc>https://TLYu0419.github.io/2019/10/30/WebCrawler-ChinaTimes/</loc>
+    <lastmod>2019-12-22T05:30:58.845Z</lastmod>
+    <data>
+        <display>
+        <title>如何透過爬蟲抓取中時新聞</title>
+        <pubTime>2019-10-30T12:46:01.000Z</pubTime>
+        
+        <tag>中時電子報</tag>
+         
+        <tag>網路爬蟲</tag>
+         
+        <tag>新聞</tag>
+         
+        <tag>python</tag>
+         
+        <tag>多線程</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://TLYu0419.github.io/2019/10/30/Crawl-ChinaTimes/</loc>
     <lastmod>2019-12-22T05:23:36.657Z</lastmod>
     <data>
