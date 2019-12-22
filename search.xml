@@ -11,13 +11,13 @@
       
         <tags>
             
+            <tag> python </tag>
+            
             <tag> 中時電子報 </tag>
             
             <tag> 網路爬蟲 </tag>
             
             <tag> 新聞 </tag>
-            
-            <tag> python </tag>
             
             <tag> 多線程 </tag>
             
@@ -55,9 +55,9 @@
       
         <tags>
             
-            <tag> python </tag>
-            
             <tag> 爬蟲(Crawl) </tag>
+            
+            <tag> python </tag>
             
             <tag> Selenium </tag>
             
@@ -80,9 +80,9 @@
       
         <tags>
             
-            <tag> python </tag>
-            
             <tag> 爬蟲(Crawl) </tag>
+            
+            <tag> python </tag>
             
             <tag> SongGuo </tag>
             
@@ -99,11 +99,11 @@
       
         <tags>
             
-            <tag> python </tag>
-            
             <tag> 爬蟲(Crawl) </tag>
             
             <tag> Dcard </tag>
+            
+            <tag> python </tag>
             
         </tags>
       
