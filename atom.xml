@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>TLYu的學習筆記</title>
+  <title>Tony的學習筆記</title>
   
-  <subtitle>Happiness is a Journey.</subtitle>
+  <subtitle>享受學習過程帶給你的快樂吧🙂</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://TLYu0419.github.io/"/>
@@ -65,11 +65,11 @@
     
       <category term="python" scheme="https://TLYu0419.github.io/tags/python/"/>
     
-      <category term="Selenium" scheme="https://TLYu0419.github.io/tags/Selenium/"/>
-    
       <category term="Crawler" scheme="https://TLYu0419.github.io/tags/Crawler/"/>
     
       <category term="Facebook" scheme="https://TLYu0419.github.io/tags/Facebook/"/>
+    
+      <category term="Selenium" scheme="https://TLYu0419.github.io/tags/Selenium/"/>
     
   </entry>
   
@@ -94,11 +94,11 @@
     
       <category term="爬蟲(Crawl)" scheme="https://TLYu0419.github.io/tags/%E7%88%AC%E8%9F%B2-Crawl/"/>
     
-      <category term="104人力銀行" scheme="https://TLYu0419.github.io/tags/104%E4%BA%BA%E5%8A%9B%E9%8A%80%E8%A1%8C/"/>
-    
       <category term="python" scheme="https://TLYu0419.github.io/tags/python/"/>
     
       <category term="Selenium" scheme="https://TLYu0419.github.io/tags/Selenium/"/>
+    
+      <category term="104人力銀行" scheme="https://TLYu0419.github.io/tags/104%E4%BA%BA%E5%8A%9B%E9%8A%80%E8%A1%8C/"/>
     
       <category term="requests" scheme="https://TLYu0419.github.io/tags/requests/"/>
     
@@ -157,9 +157,9 @@
     
       <category term="爬蟲(Crawl)" scheme="https://TLYu0419.github.io/tags/%E7%88%AC%E8%9F%B2-Crawl/"/>
     
-      <category term="python" scheme="https://TLYu0419.github.io/tags/python/"/>
-    
       <category term="Dcard" scheme="https://TLYu0419.github.io/tags/Dcard/"/>
+    
+      <category term="python" scheme="https://TLYu0419.github.io/tags/python/"/>
     
   </entry>
   
