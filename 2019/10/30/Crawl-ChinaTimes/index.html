@@ -68,13 +68,13 @@
 
 
 
-  <meta name="keywords" content="python,中時電子報,網路爬蟲,新聞,多線程," />
+  <meta name="keywords" content="中時電子報,網路爬蟲,新聞,python,多線程," />
 
 
 
 
 
-  <link rel="alternate" href="/atom.xml" title="興趣沒有目的地" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="興趣" type="application/atom+xml" />
 
 
 
@@ -82,11 +82,11 @@
 
 
 <meta name="description" content="以前我們在收集新聞資料時，是透過複製、貼上的方式逐一的把將新聞的標題、時間、內文…等等資訊從網頁上複製進 Excel 的表格當中。但是當我們需要收集上千、上萬篇新聞的時候這種方法就顯得不太可行。 那我們要怎麼解決呢?其實只需要引入網路爬蟲的技術，就能透過電腦幫我們自動瀏覽、收集指定網頁的資訊。今天我們要透過 python 撰寫網路爬蟲，練習在中時電子報的網站上爬取新聞的標題、時間、類型、摘要、內文">
-<meta name="keywords" content="python,中時電子報,網路爬蟲,新聞,多線程">
+<meta name="keywords" content="中時電子報,網路爬蟲,新聞,python,多線程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何透過爬蟲抓取中時新聞">
 <meta property="og:url" content="https://TLYu0419.github.io/2019/10/30/Crawl-ChinaTimes/index.html">
-<meta property="og:site_name" content="興趣沒有目的地">
+<meta property="og:site_name" content="興趣">
 <meta property="og:description" content="以前我們在收集新聞資料時，是透過複製、貼上的方式逐一的把將新聞的標題、時間、內文…等等資訊從網頁上複製進 Excel 的表格當中。但是當我們需要收集上千、上萬篇新聞的時候這種方法就顯得不太可行。 那我們要怎麼解決呢?其實只需要引入網路爬蟲的技術，就能透過電腦幫我們自動瀏覽、收集指定網頁的資訊。今天我們要透過 python 撰寫網路爬蟲，練習在中時電子報的網站上爬取新聞的標題、時間、類型、摘要、內文">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://lh3.googleusercontent.com/N8gNwNU6T7-ZGiKIyCee4wq87LsHDPv23QWgou6AzpqOm-8bkkeuCG_DB44Jt6mUv3NYx0VCH5mKMRZhvI0wsGznuwTlllNLwem5faa94G8i8GO_W8xAHNNVvLY6eYNxBDfMaXEwkFOtGSeTxrd1pqF-bFKWWvnPQGUPBOYHA2CZxA657AYw1sjGIXQMMwqZCFRmzviU_7bTPuHPV0vYR71S-5sKPk6ZL23Suv5RcV5s3z1o3JbOJI7Ou6TBSLOcxskn7Y-i3t8vly1DiQAF85SaRB_8SI5hI8uO1FJnqVUuKpGKcSOkdFB3gIVV9gMxNjFlVN7m4Xt3idCZYm3x_nQ2yz-CnpAA-tXlU5-5Jjjc4aQEJHEKB01xj4vgkjb5Anc9vqA498XJsGMFT5ypGgra3wx97mfpxtFS08QViz_ogQ5DLLHQkRx8jVWqoWMUtbQIyXcCx5YwCJESJGEX7J6tNu-MDVIa2La5UiSpqC7gPFHyiLpe5N42p4aMkXOoIjQ0T5SGomzVF-kFdqfzB4NlPd8rwR0WZID4Ay-OgOg68LCwMPjDPWChbMJvTU85znuWSlCYre-WLkuB3c6nCzDVuYNPQUbaQmVurZyQgZwRP--JD-3x4HZm-OqK20zzlQRYtaaQvs6RmwEq1bYyfuSquLn1mCHztBruzxkyLSD9c9fpYonA96M6C0LcijLlJZ4pV8HMAsosApx1znI-YN6qAc-lDBW6HwHGfM8q2zus0RnY=w1840-h413-no">
@@ -139,7 +139,7 @@
 
 
 
-  <title>如何透過爬蟲抓取中時新聞 | 興趣沒有目的地</title>
+  <title>如何透過爬蟲抓取中時新聞 | 興趣</title>
   
 
 
@@ -169,12 +169,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">興趣沒有目的地</span>
+        <span class="site-title">興趣</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">興趣本身就是目的地</p>
+        <p class="site-subtitle">沒有目的地</p>
       
   </div>
 
@@ -307,13 +307,13 @@
     <link itemprop="mainEntityOfPage" href="https://TLYu0419.github.io/2019/10/30/Crawl-ChinaTimes/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="TLYu0419">
+      <meta itemprop="name" content="Tony">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/IMG_20180501_103746.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="興趣沒有目的地">
+      <meta itemprop="name" content="興趣">
     </span>
 
     
@@ -546,13 +546,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag"># python</a>
-          
             <a href="/tags/中時電子報/" rel="tag"># 中時電子報</a>
           
             <a href="/tags/網路爬蟲/" rel="tag"># 網路爬蟲</a>
           
             <a href="/tags/新聞/" rel="tag"># 新聞</a>
+          
+            <a href="/tags/python/" rel="tag"># python</a>
           
             <a href="/tags/多線程/" rel="tag"># 多線程</a>
           
@@ -577,8 +577,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/12/26/Crawl-GooglePlay/" rel="prev" title="抓取 Google Play上 APP的留言與評分">
-                抓取 Google Play上 APP的留言與評分 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/12/26/Crawl-GooglePlay/" rel="prev" title="如何爬取 GooglePlay 的APP留言與評分">
+                如何爬取 GooglePlay 的APP留言與評分 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -651,9 +651,9 @@
             
               <img class="site-author-image" itemprop="image"
                 src="/uploads/IMG_20180501_103746.jpg"
-                alt="TLYu0419" />
+                alt="Tony" />
             
-              <p class="site-author-name" itemprop="name">TLYu0419</p>
+              <p class="site-author-name" itemprop="name">Tony</p>
               <p class="site-description motion-element" itemprop="description">單純基於分享的理念而建立這個 Blog，希望對你/妳會有幫助：)</p>
           </div>
 
@@ -677,7 +677,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -764,7 +764,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">TLYu0419</span>
+  <span class="author" itemprop="copyrightHolder">Tony</span>
 
   
 </div>

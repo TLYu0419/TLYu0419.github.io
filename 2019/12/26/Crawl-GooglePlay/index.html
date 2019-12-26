@@ -68,13 +68,13 @@
 
 
 
-  <meta name="keywords" content="python,Selenium,網路爬蟲,評分," />
+  <meta name="keywords" content="網路爬蟲,python,評分,Selenium,GooglePlay," />
 
 
 
 
 
-  <link rel="alternate" href="/atom.xml" title="興趣沒有目的地" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="興趣" type="application/atom+xml" />
 
 
 
@@ -82,11 +82,11 @@
 
 
 <meta name="description" content="隨著行動裝置越來越普及，各家公司紛紛推出了自己的手機 APP 來降低跟客戶間的距離，如果我們想要了解客戶對於 APP 的想法，我們當然可以透過發放問卷的方式來收集客戶想法，但這種方式的缺點是會需要花費較長的時間。 另一種方式是我們可以直接到 Google Play 的 APP 頁面抓取客戶的留言，如果再搭配一些文字分析的技巧，我們就能更快速、即時的了解 APP 的優缺點。 在這篇文章我將示範怎麼透">
-<meta name="keywords" content="python,Selenium,網路爬蟲,評分">
+<meta name="keywords" content="網路爬蟲,python,評分,Selenium,GooglePlay">
 <meta property="og:type" content="article">
-<meta property="og:title" content="抓取 Google Play上 APP的留言與評分">
+<meta property="og:title" content="如何爬取 GooglePlay 的APP留言與評分">
 <meta property="og:url" content="https://TLYu0419.github.io/2019/12/26/Crawl-GooglePlay/index.html">
-<meta property="og:site_name" content="興趣沒有目的地">
+<meta property="og:site_name" content="興趣">
 <meta property="og:description" content="隨著行動裝置越來越普及，各家公司紛紛推出了自己的手機 APP 來降低跟客戶間的距離，如果我們想要了解客戶對於 APP 的想法，我們當然可以透過發放問卷的方式來收集客戶想法，但這種方式的缺點是會需要花費較長的時間。 另一種方式是我們可以直接到 Google Play 的 APP 頁面抓取客戶的留言，如果再搭配一些文字分析的技巧，我們就能更快速、即時的了解 APP 的優缺點。 在這篇文章我將示範怎麼透">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://lh3.googleusercontent.com/Qx862wPuasoREv2KBhW77KXhaNphIO3q0jgOaKfOyNNZwRbhaqF9PodY_biXwg4C8aQU1C6P3_hdJ8EbulOM50IUWlc2o743L2UTaenjmwFnZ3WKnkXTatim9LZTMkaQ42njQ8yuMqvPnxI-gtpbMl2pnFsfEOWB_Lckg7XdZeGQi8x_SADH7HShZQE_C6GsHC8J6su1zeaePL1mfAqvPnTOaKPv2DZRYO-AcRFOhtdRKadaInOGj1_s4wY2qPnwW4D433R8Ec0LU-xgHaCNcvBS-5gsgzODlIVhhg9gsY1Ziy6vybtEO0dIXWEAltizfPG0BSX8SDaQhlYjPjDz6lFb1EpNaqAXcZjm9yg69ZFg1stpZcCq0MF3HnOnlpgTp7aPaLRVJA6u7ZJ8Kz3bzJdsfkLeycWaFPxCtVcjUgSISgshA0THJnI1whko7K9BCnLjrxj9sirqT_waymA-ZIXu-4Zm4yCuBMeNKc5Tkbsdsda6xHEGs13gWliLSEJx_Uz18_3COMV73H9o9LAlP0KgE_4FM8OVySFTuuubrNaMNi7PRgHAO9SHlYF-36dsCr2ybizL_vPDk8LYiFWOhsEO8zt036jf8pz9DED47tvb7fEKIZo7w19IptHvAztqR0qRLaodfFWTA3uwJ89THJkwh4HCx111gcxIpH0ggSy2JhOr7-HcCJk=w1739-h978-no">
@@ -101,9 +101,9 @@
 <meta property="og:image" content="https://lh3.googleusercontent.com/1RY9JXc87whTGNVpHY8GNm77RarneoCpsxulPb5vj6wfXeVyWIK7fZBDibHwqNOzCts_l01rF4cRfW4DT_PgQw5TTiy2GJzPkBOHVUF5Se406acjFQeu-5aIdJaSPN2BfZUe9IcH8jsejbAkBIKV-bnLT3iSwDcQDrEWWPShM-aY6Ik-ZCVgg0ru5gEzl69wz9jxslwry5qIlm1bqfFgsr9thO8KxVdWK7izA4PkHv9KtRW09_wmPr7XxfomxanTKhe2l65vpe_oTs36w03dz8huj3tKWHo9ZafJ2N4gSqdPfiabN47tKetfHlgRY48nV99oVeIQTMSehsIm9hS7ppdygWz_h04W5oR1-q4mvIREU3wwbpojD_9ae87F4aTIiLEVHKi9TOvJ9RXkgKI-z-pShLKrrEgMcSdb0XxHMXWEQNqLSFZ3u39GRG2yJMDMmF0Fr_Tj3kj7RCqRCezX0c4OsgR81NMV6Wt5CdB6NvbxbQX2HOxfc0txXze0hdGjgwaTsBf7dFYWFCw3iKBVqlVbdE0bywKFqky1i2GnxVBWOIgTijG-B48BHy_tDhWpvxB3bUnYGtfotQsMV6HExX2T4iii8EdAfpV8zHdHEAvY3yOuN_lDUfz7Iw67VZQjVx9M7M5i3tQPYJLoOCf-s8xNk9V_XCzwwCNsYsUVfZNXK8-4CzdzGGg=w1508-h67-no">
 <meta property="og:image" content="https://lh3.googleusercontent.com/vbM-BfMd3-qRvcXEo0ROQj_xubD6sDgxRenFirWnqQyMZKTCDiOH0R3r6ygLNNzgs32iUgHYy-TotV2HlaI240JJMV4NN1dcHZvRVQtVeQx8iQsiO5yEZ3P9wwXN1PKit9q_yR0i_RcL4MR5UAa3o0VuEqPqHKKhAg7orRZu0S6_C0lFtJFPfyTRNqsiR33iFkWvZDPzOuvjjzQXWqCue7ufVALDV_B0qU_6Nx8dkNcbPJ_wLI-DEriNX8zqTVa8hU9D7rZ-zaMjNO3BtNpK7uW2x1bi-xK97eHBmK1qENnups7kIvUb4ukyKZC2t88w3thrO25vwlxgc-oyZvAXB_23CiUeE7pbGvBwypdfAqg76WDm31-RZMb_HrlhB0LaR2cXaj3Kp7JUjZNNMce4dH5WppTuVI_j5BXikdkaW_igKv0MO6i-s9Ikuuq7Dt6pJxzgjL3nWsypQAMwhGiSzoSFzYVJmLyHz85WTBbWxp5xQcX5b4YCOj3qk0I9B3vbClvj5utdmYl8XKjtGrNL8HMhwY0FqjdMXirhfFmftH4XL-bip9fU6xM__1DT0ofUgh-xo-io1hfsqWz8VutTDixxv9ry-SXwvAIOliMD9WKH2rzsa4iRo6KhpU5RvsJI7ZI8136j3AlyNMdGjY07Jx7ghy72QrGZwWMmn1JOUf36mAy_eWPUE4k=w1507-h85-no">
 <meta property="og:image" content="https://lh3.googleusercontent.com/XqGbKWIZbCLvd8iGRR41WLodgwts4h9B7NEEWBh_Mg2Xo1k07Fm8FP5i-K_si7_fq1-9EuMtyTa8a-UC7_jupFpdtg8ePU2NSZgjtxya5QV115eKFcUrQeytCRqteC-XJ13otanJFZOkbm7LwG8tt0gRrSF7qVaWaOwcG2XTLVdVrJvvAnxzrK2f1G3eQEz7gZ9zLOyZMU_X9dnMh-Tx5I7ajmYgOFs1ulghQH5S54eLD_hu62mUyGOg8qc06xH7ms1K2TTNnoifjshDMfOzU8eTbfakyoV9Wt3SiZlplLxpQ-1Hxps4SAeNrHZB2MdP3J14rR5Vjz20EWscSY6t2Z1QESIYbBS8RZO9qZG3g83WnVGA9r195OiKTXKX70wVjlPGSzz8cLPE05QXpOM9ZcL_YZAgZc5eKtI8fjcFUsyiEeUyfbVluEdYNScPOizNLsm4ovhkuzROfmTwBAo_we3qysHbqHgvvRTYOq5PKV4MjiwD0Ytmi4cvrccpt_YRzMvDCfxKWmxwmbiaEhTZNVy7nQ4JH0xxDM3akaIfu34voRjUovMfalsns28I4gK-a11Ux96saA9E1VY5AG4PY_Gy3xXKXEIYBl6dznEFW7IBJt3Wtk1x18tmlJNpW7bsnI9qBuqIyNyM-gm0NtffNhxKoV2C0ayEpLnJ0tD-AKkzPOfbGOCJWvE=w1920-h878-no">
-<meta property="og:updated_time" content="2019-12-26T12:32:40.453Z">
+<meta property="og:updated_time" content="2019-12-26T15:41:58.764Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="抓取 Google Play上 APP的留言與評分">
+<meta name="twitter:title" content="如何爬取 GooglePlay 的APP留言與評分">
 <meta name="twitter:description" content="隨著行動裝置越來越普及，各家公司紛紛推出了自己的手機 APP 來降低跟客戶間的距離，如果我們想要了解客戶對於 APP 的想法，我們當然可以透過發放問卷的方式來收集客戶想法，但這種方式的缺點是會需要花費較長的時間。 另一種方式是我們可以直接到 Google Play 的 APP 頁面抓取客戶的留言，如果再搭配一些文字分析的技巧，我們就能更快速、即時的了解 APP 的優缺點。 在這篇文章我將示範怎麼透">
 <meta name="twitter:image" content="https://lh3.googleusercontent.com/Qx862wPuasoREv2KBhW77KXhaNphIO3q0jgOaKfOyNNZwRbhaqF9PodY_biXwg4C8aQU1C6P3_hdJ8EbulOM50IUWlc2o743L2UTaenjmwFnZ3WKnkXTatim9LZTMkaQ42njQ8yuMqvPnxI-gtpbMl2pnFsfEOWB_Lckg7XdZeGQi8x_SADH7HShZQE_C6GsHC8J6su1zeaePL1mfAqvPnTOaKPv2DZRYO-AcRFOhtdRKadaInOGj1_s4wY2qPnwW4D433R8Ec0LU-xgHaCNcvBS-5gsgzODlIVhhg9gsY1Ziy6vybtEO0dIXWEAltizfPG0BSX8SDaQhlYjPjDz6lFb1EpNaqAXcZjm9yg69ZFg1stpZcCq0MF3HnOnlpgTp7aPaLRVJA6u7ZJ8Kz3bzJdsfkLeycWaFPxCtVcjUgSISgshA0THJnI1whko7K9BCnLjrxj9sirqT_waymA-ZIXu-4Zm4yCuBMeNKc5Tkbsdsda6xHEGs13gWliLSEJx_Uz18_3COMV73H9o9LAlP0KgE_4FM8OVySFTuuubrNaMNi7PRgHAO9SHlYF-36dsCr2ybizL_vPDk8LYiFWOhsEO8zt036jf8pz9DED47tvb7fEKIZo7w19IptHvAztqR0qRLaodfFWTA3uwJ89THJkwh4HCx111gcxIpH0ggSy2JhOr7-HcCJk=w1739-h978-no">
 
@@ -141,7 +141,7 @@
 
 
 
-  <title>抓取 Google Play上 APP的留言與評分 | 興趣沒有目的地</title>
+  <title>如何爬取 GooglePlay 的APP留言與評分 | 興趣</title>
   
 
 
@@ -171,12 +171,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">興趣沒有目的地</span>
+        <span class="site-title">興趣</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">興趣本身就是目的地</p>
+        <p class="site-subtitle">沒有目的地</p>
       
   </div>
 
@@ -309,13 +309,13 @@
     <link itemprop="mainEntityOfPage" href="https://TLYu0419.github.io/2019/12/26/Crawl-GooglePlay/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="TLYu0419">
+      <meta itemprop="name" content="Tony">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/uploads/IMG_20180501_103746.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="興趣沒有目的地">
+      <meta itemprop="name" content="興趣">
     </span>
 
     
@@ -323,7 +323,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">抓取 Google Play上 APP的留言與評分</h1>
+          <h1 class="post-title" itemprop="name headline">如何爬取 GooglePlay 的APP留言與評分</h1>
         
 
         <div class="post-meta">
@@ -351,7 +351,7 @@
               
                 <span class="post-meta-item-text">更新於&#58;</span>
               
-              <time title="更新於" itemprop="dateModified" datetime="2019-12-26T20:32:40+08:00">
+              <time title="更新於" itemprop="dateModified" datetime="2019-12-26T23:41:58+08:00">
                 2019-12-26
               </time>
             
@@ -376,7 +376,7 @@
 
           
           
-             <span id="/2019/12/26/Crawl-GooglePlay/" class="leancloud_visitors" data-flag-title="抓取 Google Play上 APP的留言與評分">
+             <span id="/2019/12/26/Crawl-GooglePlay/" class="leancloud_visitors" data-flag-title="如何爬取 GooglePlay 的APP留言與評分">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -498,13 +498,15 @@
       
         <div class="post-tags">
           
+            <a href="/tags/網路爬蟲/" rel="tag"># 網路爬蟲</a>
+          
             <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/評分/" rel="tag"># 評分</a>
           
             <a href="/tags/Selenium/" rel="tag"># Selenium</a>
           
-            <a href="/tags/網路爬蟲/" rel="tag"># 網路爬蟲</a>
-          
-            <a href="/tags/評分/" rel="tag"># 評分</a>
+            <a href="/tags/GooglePlay/" rel="tag"># GooglePlay</a>
           
         </div>
       
@@ -597,9 +599,9 @@
             
               <img class="site-author-image" itemprop="image"
                 src="/uploads/IMG_20180501_103746.jpg"
-                alt="TLYu0419" />
+                alt="Tony" />
             
-              <p class="site-author-name" itemprop="name">TLYu0419</p>
+              <p class="site-author-name" itemprop="name">Tony</p>
               <p class="site-description motion-element" itemprop="description">單純基於分享的理念而建立這個 Blog，希望對你/妳會有幫助：)</p>
           </div>
 
@@ -623,7 +625,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -710,7 +712,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">TLYu0419</span>
+  <span class="author" itemprop="copyrightHolder">Tony</span>
 
   
 </div>
@@ -860,7 +862,7 @@
         var disqus_config = function () {
           this.page.url = 'https://TLYu0419.github.io/2019/12/26/Crawl-GooglePlay/';
           this.page.identifier = '2019/12/26/Crawl-GooglePlay/';
-          this.page.title = '抓取 Google Play上 APP的留言與評分';
+          this.page.title = '如何爬取 GooglePlay 的APP留言與評分';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://TLYu0419.disqus.com/embed.js';
