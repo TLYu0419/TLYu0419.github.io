@@ -5,19 +5,19 @@
     
   <url>
     <loc>https://TLYu0419.github.io/2019/12/26/Crawl-GooglePlay/</loc>
-    <lastmod>2019-12-26T12:23:35.851Z</lastmod>
+    <lastmod>2019-12-26T12:32:40.453Z</lastmod>
     <data>
         <display>
         <title>抓取 Google Play上 APP的留言與評分</title>
         <pubTime>2019-12-26T10:15:22.000Z</pubTime>
         
-        <tag>網路爬蟲</tag>
-         
         <tag>python</tag>
          
-        <tag>情感</tag>
-         
         <tag>Selenium</tag>
+         
+        <tag>網路爬蟲</tag>
+         
+        <tag>評分</tag>
          
          
            
@@ -34,13 +34,13 @@
         <title>如何透過爬蟲抓取中時新聞</title>
         <pubTime>2019-10-30T12:46:01.000Z</pubTime>
         
+        <tag>python</tag>
+         
         <tag>中時電子報</tag>
          
         <tag>網路爬蟲</tag>
          
         <tag>新聞</tag>
-         
-        <tag>python</tag>
          
         <tag>多線程</tag>
          
@@ -81,13 +81,13 @@
         <title>網路爬蟲_Facebook粉絲團貼文與留言</title>
         <pubTime>2019-05-01T10:40:39.000Z</pubTime>
         
-        <tag>python</tag>
-         
-        <tag>Selenium</tag>
-         
         <tag>Crawler</tag>
          
         <tag>Facebook</tag>
+         
+        <tag>python</tag>
+         
+        <tag>Selenium</tag>
          
          
            
@@ -106,9 +106,9 @@
         
         <tag>python</tag>
          
-        <tag>爬蟲(Crawl)</tag>
-         
         <tag>Selenium</tag>
+         
+        <tag>爬蟲(Crawl)</tag>
          
         <tag>104人力銀行</tag>
          
