@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="kXxCbQDO6XajMMXlTzIMZ5reUArY4PDB79OFcuYvw-c" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/Data.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/Data.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/Data.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/Data.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="網路爬蟲,python,情感,Selenium," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="興趣沒有目的地" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="隨著行動裝置越來越普及，各家公司紛紛推出了自己的手機 APP 來降低跟客戶間的距離，如果我們想要了解客戶對於 APP 的想法，我們當然可以透過發放問卷的方式來收集客戶想法，但這種方式的缺點是會需要花費較長的時間，另一種方式我們可以考慮直接到 Google Play 商店抓取客戶的留言，如果再搭配一些文字分析的技巧，我們就能更快速、即時的了解 APP 的優缺點。 在這篇文章我將示範怎麼透過 Sele">
+<meta name="keywords" content="網路爬蟲,python,情感,Selenium">
+<meta property="og:type" content="article">
+<meta property="og:title" content="抓取 Google Play上 APP的留言與評分">
+<meta property="og:url" content="https://TLYu0419.github.io/2019/12/26/Crawl-GooglePlay/index.html">
+<meta property="og:site_name" content="興趣沒有目的地">
+<meta property="og:description" content="隨著行動裝置越來越普及，各家公司紛紛推出了自己的手機 APP 來降低跟客戶間的距離，如果我們想要了解客戶對於 APP 的想法，我們當然可以透過發放問卷的方式來收集客戶想法，但這種方式的缺點是會需要花費較長的時間，另一種方式我們可以考慮直接到 Google Play 商店抓取客戶的留言，如果再搭配一些文字分析的技巧，我們就能更快速、即時的了解 APP 的優缺點。 在這篇文章我將示範怎麼透過 Sele">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://lh3.googleusercontent.com/Qx862wPuasoREv2KBhW77KXhaNphIO3q0jgOaKfOyNNZwRbhaqF9PodY_biXwg4C8aQU1C6P3_hdJ8EbulOM50IUWlc2o743L2UTaenjmwFnZ3WKnkXTatim9LZTMkaQ42njQ8yuMqvPnxI-gtpbMl2pnFsfEOWB_Lckg7XdZeGQi8x_SADH7HShZQE_C6GsHC8J6su1zeaePL1mfAqvPnTOaKPv2DZRYO-AcRFOhtdRKadaInOGj1_s4wY2qPnwW4D433R8Ec0LU-xgHaCNcvBS-5gsgzODlIVhhg9gsY1Ziy6vybtEO0dIXWEAltizfPG0BSX8SDaQhlYjPjDz6lFb1EpNaqAXcZjm9yg69ZFg1stpZcCq0MF3HnOnlpgTp7aPaLRVJA6u7ZJ8Kz3bzJdsfkLeycWaFPxCtVcjUgSISgshA0THJnI1whko7K9BCnLjrxj9sirqT_waymA-ZIXu-4Zm4yCuBMeNKc5Tkbsdsda6xHEGs13gWliLSEJx_Uz18_3COMV73H9o9LAlP0KgE_4FM8OVySFTuuubrNaMNi7PRgHAO9SHlYF-36dsCr2ybizL_vPDk8LYiFWOhsEO8zt036jf8pz9DED47tvb7fEKIZo7w19IptHvAztqR0qRLaodfFWTA3uwJ89THJkwh4HCx111gcxIpH0ggSy2JhOr7-HcCJk=w1739-h978-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/m6PjNPESUqsilH1DNfaURaID1HaNb3anLF-uaT-XCTgycg9oLqB2lQZ_NcmQKFRfpuHMl7YUCHtH3BH0i0HNLKMkJyFfPGu5t1fPk1PIkdTxHDSSDV4NZQ4-hhEEMc8LAxQ_G-hdgHP6HBY9nssAUL7y6_J-ku-V1ascTZKYCXo3-edYw9sB7zwkSm10CWC5aWp4hnmArynEN_d1aleig5mEznwNf7EaZBEYcSlpsc69z8hNhDBUEOJe9aWwy-xKEsqJpblp0uYN8Il1HSxJ0FgO4nhipl2ccOBk6CWAFntPTERNwzLqSwTD6kRGvQ33k0MtMQYXX6LLD6LzNsrxZnqCV02aq0L4-esbKSiHUZXaaF3tUiAWS-hlgl8VDtgk5AYnbFQdaOKf4pUm-r-tezaLx1nLy-HmF8v26t0PpynQ5gU7eJFqzHRxMxdarxC3yCocA4Y3J_a9vDIorMZS5B0lgS4noUWs3gx0AKx0JjBdJ31PQogVQ35f4bmaCTY8YWRsL2eHD7sN7tlWffRt0b6evN7TzTz-GFm_lcX-oanvBYrEmRDvXnk_pm2eMfzw7NGVB43FHSLLnRYuZL5Z-wTd6jwNN8raTLE9uYIPNSMPnWFoNcJCq3JrjfmLJFyaHNS8JzK_KvJuTJJMTaay6ZPkO5YmrLqXco13aeXfAjh2f7fCiU3bnWI=w1509-h90-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/Q-aLaTmFZBwybQc6pPcSivze-ZG2E522Cw_BvGeZVASDwhkGgMjZ8n7vqYrmaHJcvMnvCs-6ZA7fk8_sQ5AVl3iHlAaw_TRphrbOxKXpe2PY-BDG2LUdm9DSCANE94tcYbVmKM9bzp3QDEI4BgDwpAYM2A4qx6WEV-EKA9Kekn5lq9ei2nOW8XS5YaaDIYl69IX8W3m1jlGzL-3lHfGd9naur1ZO0UyWMI1VRv3NHq7vqtIksvFqzjq7lMNlvJdM_Snz3Zn7WT2uUGhaIKnM8v1_1WP4epC8mBQ288J4Beb0jYtE7_vNNBHkl7yKz07DMHTek6TqGQQ-qcVkUIGXwoMnZax3WeopWI8TpEzLi-_UnyDaZig34D03FNsnJ1W01OEIkG11VBFaGXcQiqCb7_EkTCIOxK9w5EEe_UQSzOOXFlf4ZnEXz74DCpB2tDZtkFS6tsyb__l-r1hTpHYI97fFfurMwKZsmHbfSqQPrT4CBesCe59L6h8omWRKztlo4wfgcwU2n3U-Zl5Gejr8PWdJ0yZw3qhla7lcFtl6PqGJPjRYVlIwJJjj7QcqjhSrbkW_AZKptRJ0hEif0OaePX6-Y2X4invdY2BhNZH-iJjwxNXWDRW0iILf6C7oOX-c4vCEjXUkJTaklQQQk_c3Dge55Oz7whEuSn5TG8h1uscvQKE7eMSy7_4=w1515-h145-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/iK91grOv8nJJe4FDiQ4EDMeSB0Dg-yDioEz-LMSjaQbXukez5NMFgmabHlK1SBvUlwKvKnr8mUE8CKP0ZSz7bwuuOW8Nu6E_2uy6UTaUX8RTtsAiq_A3wWQMzYJ7sL3S_FKRWQW7FB1JrOtpGXLMExfVf5jnqSYbMvY-WNx5yLG_pnuGQrGyaXFsDARcOB1JeKt-AqiXnHOTdLBk6kZU7HoTsbJF1o8SyX60weQT1UJxGCqeNri_2wAsvezEPBk42dAr3WYFW2mEXjYMPShYIYRlL1eXZt5BaY1FB3QGj4dTgQRX0v9tPoinE15TLs9Zo8batCY0ypPWmLcnms-W6PVpgpbHwxQeBfgJmrgvF9QC8cOM1maLW0QSUbMLvZyIq72_3TVpd89mKmxdTfgpCHeoY0ks2vsnGTt2pfdk5Ax_hNsEgno4Kq08qZR-V1fZS7SkRvyErn-GwJX6ZZNAtEvWAw3PSsJb8Lx-aiXZusEo8NfPMvtwpISPWtsK11D93FgoBt9SxljPYKXlJZcgaLa3imS0gxW-Z281lyrTlo4u5OR2IdGRYKZ0Y6AwOBuN2gv8OjYAwgjIaE7Cv2zouISx2nzW5I2y9NZFRV4HADtw8N_y_KCNsPuZBjixl17-ycpZ561DvcgYxNrx9fVcX9nf_He07Bl93q_8uFNbeEpB5nfBVREcmGg=w1739-h978-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/CPmCuDKJAP0lKEsfhV3lyzFbmMqwGFYpTF7BKQQhfSeR9W_711fAYqdc5kw_1Oq4eDf2EPaHk0tD9rH8HkEBdzIC9X34COP-rMNcQSHhk4zKiOkcJv2of6XIdSJkDiVD4vaxVT0lNB0vYiRk4GfYzPTxXtSnIrKw_u1fsQbByIkHpaMwJw8mBX9yAidHabYigCr9M0dYxJdQEU1d2MXY1VkVyRCqdm_KFa6RPtfFKny59VtyVp673hP2h9-J8xLS6f2T36d_F3IgDSIRlwi_lcKTtYfqn5jT4ZcHxNKNOlSjS56xmSZhIKFE4h4c4LdKVMbaV4sUPJK1YVA5xYGyXK6AvCLeai6p5-kCUz2lzvZ-_gaVPx2Kg_aWZmMJ8xkZ7k23mIxi09HD3cciqPRbkaNSFz0MVjRQ_b5bS1sVruCWL8tOicebg1PxU6TlWPWLLUUhf-Gykca93JeTqb0HFyGt1_JJQOtwoyytn7mijt9NOq6r0-7cFcFWfkjaRenMtTaChMaIZdwb7ginzBERQ_-FRLcEKCkLSnxKokFZlCJz14VF2ma3c1Df1MTnj5NofROUZytFsc_FrASzcaofbDMYg73rshXlStpVZbWJnOg8-s6SOlfw0zmTfTZsO6YC2iRSyv2G6pCrmC_K4d7oLTcMbjeYlhzQjQTipbr0_PNeAbwWJUhYwBc=w1507-h295-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/UvNjhu7xwKq7RLikJcYCBBGrb4Wm39RkvznDeFyie1BpQ2KrIde4jTHHRP8jqzBUfZ4X8-V9fUSAbboYHamony1jA0D7fvReTQsvyhTcPHXLOIscas7VIRktvVYiakbEs7D-K_nGKCxkJ-GaT3q7P_B70W3sg7bb0DWDXGRI3m8V0ea4go5v13Il0haW4xmrPSaRMj-sAnvruTXHCTBo8gp_P1MXWefqC3xv0FUqN1jCenbQD4eKsUYvcrN-KCzzMgfYEBxfdY8hCCvLegs-lXF3o80OOLXdsYaFPIa0U9Ft0inFzrFKlSrNl8-10JNns6vjXaGXYDarC0QvE6XQPd1y3YbgpUKByYUPmpD5w5I7JpaObmr0HuoW-M8OZEWcVVF3RfrhcSZrxoN0n5_Tl1lqIuFT2P6DnPtFbJpjeqUftuGA2NBsy-C9nM8BkbZwaey5YZ0IU0QOI1PsH_2-ErjGKvpR3xmeT7JOUBjtB4SQNtizVOYEndFA12f34rY2NFj_v6tOMjAXGTiGREBulOoyLeaPk5VSm8IKO9iCJEQxBxEABU-yMFmd-M5QTYz1SemeQH5vxDQe_Y4dsc8UavCTklEOY-wpMYXLIaIf3icU47NvSCzrSYcOEwlHL0kSa_i7Ppo_7MnXgW1TIcCvD2DsY-KMw6cmyBdp1C55HSmkDUP_70n6c4c=w1514-h242-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/YKSV2CFs-TGvnbnBzWP1PvJczTioKJzUyJA_x7eQqli6G3pYL2W2rTrtwyGfc2wYprI_dLKngQroECIGbDtZPiWu9xnTzI9_w28iPGlVZfmJIgVgaHH6mRjzkB6ADzwF43KaOxdFAUK4mW6xsF0wimz8VD4w8UEeGGkuv6-AixwNZ98WVpQpEu5caBwnENIg01XJb2bzxJrpCJjCFN3U2qCkrqizcTSAmsGYuEgLekX8IE2TomJiONQ-oHB_6FRNb5Wx9WjwOlC1_xwaRKrZvAQyzKhXrASiOdHHHLKRsh_VZqPGZrEYyaq76XaXob4fqQPzmyBSZ3hYaEMi_2cdYPL0ms4OU33l8_AxQhfS0mlOrdQ6vM04vXwJBczOGDTbmTmlBUp5qWQiLDxf4InOn05_dz-G1AWFiEtA9lVQtX-ElErhQcc3glerWarN5e9UE3zxMf-xp3Qgr0HXqj2ynRM4mb8YONNUnJYkJbWZ-kdNeofsgeC6t9BOQjk28K1KtP4sYABZwOKkDg_W_X1L_m2EIOfW0Y16pLvTjBAzBnf5xTFkN6lsa0lLn77za9aYZOwL4sim_nT2bSLrdimF5Ay5i8x58Mrx4e-B8MrDxCGTwhPS9V7ZcAuxSunO8yavq_1T4z9lrkCWSFCE-ry0uMoXUnE96y5LHu15D2lFsMTUR4HEzYuaRGM=w1739-h978-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/QJzwab2aj4SjQsxIbBOoMslSEMT7MA2PCbOg_aE92OI2q84TG0hg6rF6DeM01CbGFdiEG7zwpvLIAjh0JdoqJNeifckNUfjG_vQ6rknESmueaIAk1zEnSJj639PUXUsoTW7KRZyJM9WxMXj7KE4RiWWpaEmTrTMphtNJdANc5lv_zoQXz-1NNldLQPY1yBy7JZJdXuOyJj_L4K02YiAlpLpFKKddjFAFOB_jaVi__THoBy89psEiRd-sNCtTkTiXomMljFFsIeDIRaI5hccd-qo79IbbHg4mEoFd31LsRVdY99fGL7ymlnfwRFu0zehLhxQH6AcBiR1eARxoaw0OzI2M6KB8f_r7HdnmPMchveH4j8XJNbfChP_b5muiC1U00Todp6ETwhUu2e63CO5W9tCM9iwnwPsXTCNqZU29pf5QgiAQ3er6GFDRtzmHS6wIYfspnYBy0LKkC7-NotkOpV7zWBu_zfS4RcGwKZcX1XOmqI72Rgn9G9p8Vt5v5UaVFOQQobNwxv9NKeGo0meUavK9k7XdhqZiKM6XWjd6S5kyMXeT3f1e63VzkYPt2btXNyoyosKpE4bSJPh8f4O2pHXcmBv8N1HvbREh489KD2R7PvHZliJE6VT_cNIdJ6gNl-LgSWwkCeNLfiy23ic2hNSDvH1kyLhsVbNhBZuosHL14Yl853lTM1Y=w1512-h168-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/8kbpnn8SQruf0Xfl4IfWlcyLFat45mArTP1BpKHfYvfORfxBETYjBBNSZwfldIfr6bXfYUS8vuI_DT1qGK3bnR4fbbUAnK0PPby4q7YhbiA65iwb5GkAtjJkF0_kIfCG6aH_RmHPO3MHciwm5HL7l5_MzrA36P5s1RVpIsG86SgBHbbNxM7E0aDHBe6Bao50Vq0T4dcjBvbA3gntftpCo_lUpI5718IyNwbZew4LP7SssN1wNdGCoQfY7k4EA-teS7Ob3F_tRem0CoSSL_t3q30CKDHy0iNwV6Lkxfv-0qXU7GYQpwh58G7HSdBffew3zoZcyAg5hhU1v5lmKeKvY0rPnnh9ilhOJ5JgsVhV4mv7mhbf8g6jrRV1HW2I_ahu6uvcgl-8EbRqApN3xbtR-J47V7qBMRLozhHyBP3ylvB-1RgvLSRB7nIRZqYJLmDXAjc8b2HZ5HvtKJ3qtnA5Hq0Ja3A6bE48m3yBARewfD-AQ5QWktrB0MfhNSpnMGSAgDc_pzkLy1DqTrQaZt56pQURsSxOuud09Wga_tjG6WDxBCFZxu9p93hqN4b44kd-Qdq9a51LT9FjOlkDb95tXsZU7OoqmQoZIVgtYCGl2ywm5EBMxjZ-DnShlB2OypWegn-Jzrs5Z8rGYGDqXEk7caC6VqvpPSmAJXJqG6Ju0EJQf71L_bBG84g=w1510-h478-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/1RY9JXc87whTGNVpHY8GNm77RarneoCpsxulPb5vj6wfXeVyWIK7fZBDibHwqNOzCts_l01rF4cRfW4DT_PgQw5TTiy2GJzPkBOHVUF5Se406acjFQeu-5aIdJaSPN2BfZUe9IcH8jsejbAkBIKV-bnLT3iSwDcQDrEWWPShM-aY6Ik-ZCVgg0ru5gEzl69wz9jxslwry5qIlm1bqfFgsr9thO8KxVdWK7izA4PkHv9KtRW09_wmPr7XxfomxanTKhe2l65vpe_oTs36w03dz8huj3tKWHo9ZafJ2N4gSqdPfiabN47tKetfHlgRY48nV99oVeIQTMSehsIm9hS7ppdygWz_h04W5oR1-q4mvIREU3wwbpojD_9ae87F4aTIiLEVHKi9TOvJ9RXkgKI-z-pShLKrrEgMcSdb0XxHMXWEQNqLSFZ3u39GRG2yJMDMmF0Fr_Tj3kj7RCqRCezX0c4OsgR81NMV6Wt5CdB6NvbxbQX2HOxfc0txXze0hdGjgwaTsBf7dFYWFCw3iKBVqlVbdE0bywKFqky1i2GnxVBWOIgTijG-B48BHy_tDhWpvxB3bUnYGtfotQsMV6HExX2T4iii8EdAfpV8zHdHEAvY3yOuN_lDUfz7Iw67VZQjVx9M7M5i3tQPYJLoOCf-s8xNk9V_XCzwwCNsYsUVfZNXK8-4CzdzGGg=w1508-h67-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/vbM-BfMd3-qRvcXEo0ROQj_xubD6sDgxRenFirWnqQyMZKTCDiOH0R3r6ygLNNzgs32iUgHYy-TotV2HlaI240JJMV4NN1dcHZvRVQtVeQx8iQsiO5yEZ3P9wwXN1PKit9q_yR0i_RcL4MR5UAa3o0VuEqPqHKKhAg7orRZu0S6_C0lFtJFPfyTRNqsiR33iFkWvZDPzOuvjjzQXWqCue7ufVALDV_B0qU_6Nx8dkNcbPJ_wLI-DEriNX8zqTVa8hU9D7rZ-zaMjNO3BtNpK7uW2x1bi-xK97eHBmK1qENnups7kIvUb4ukyKZC2t88w3thrO25vwlxgc-oyZvAXB_23CiUeE7pbGvBwypdfAqg76WDm31-RZMb_HrlhB0LaR2cXaj3Kp7JUjZNNMce4dH5WppTuVI_j5BXikdkaW_igKv0MO6i-s9Ikuuq7Dt6pJxzgjL3nWsypQAMwhGiSzoSFzYVJmLyHz85WTBbWxp5xQcX5b4YCOj3qk0I9B3vbClvj5utdmYl8XKjtGrNL8HMhwY0FqjdMXirhfFmftH4XL-bip9fU6xM__1DT0ofUgh-xo-io1hfsqWz8VutTDixxv9ry-SXwvAIOliMD9WKH2rzsa4iRo6KhpU5RvsJI7ZI8136j3AlyNMdGjY07Jx7ghy72QrGZwWMmn1JOUf36mAy_eWPUE4k=w1507-h85-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/XqGbKWIZbCLvd8iGRR41WLodgwts4h9B7NEEWBh_Mg2Xo1k07Fm8FP5i-K_si7_fq1-9EuMtyTa8a-UC7_jupFpdtg8ePU2NSZgjtxya5QV115eKFcUrQeytCRqteC-XJ13otanJFZOkbm7LwG8tt0gRrSF7qVaWaOwcG2XTLVdVrJvvAnxzrK2f1G3eQEz7gZ9zLOyZMU_X9dnMh-Tx5I7ajmYgOFs1ulghQH5S54eLD_hu62mUyGOg8qc06xH7ms1K2TTNnoifjshDMfOzU8eTbfakyoV9Wt3SiZlplLxpQ-1Hxps4SAeNrHZB2MdP3J14rR5Vjz20EWscSY6t2Z1QESIYbBS8RZO9qZG3g83WnVGA9r195OiKTXKX70wVjlPGSzz8cLPE05QXpOM9ZcL_YZAgZc5eKtI8fjcFUsyiEeUyfbVluEdYNScPOizNLsm4ovhkuzROfmTwBAo_we3qysHbqHgvvRTYOq5PKV4MjiwD0Ytmi4cvrccpt_YRzMvDCfxKWmxwmbiaEhTZNVy7nQ4JH0xxDM3akaIfu34voRjUovMfalsns28I4gK-a11Ux96saA9E1VY5AG4PY_Gy3xXKXEIYBl6dznEFW7IBJt3Wtk1x18tmlJNpW7bsnI9qBuqIyNyM-gm0NtffNhxKoV2C0ayEpLnJ0tD-AKkzPOfbGOCJWvE=w1920-h878-no">
+<meta property="og:updated_time" content="2019-12-26T12:23:35.851Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="抓取 Google Play上 APP的留言與評分">
+<meta name="twitter:description" content="隨著行動裝置越來越普及，各家公司紛紛推出了自己的手機 APP 來降低跟客戶間的距離，如果我們想要了解客戶對於 APP 的想法，我們當然可以透過發放問卷的方式來收集客戶想法，但這種方式的缺點是會需要花費較長的時間，另一種方式我們可以考慮直接到 Google Play 商店抓取客戶的留言，如果再搭配一些文字分析的技巧，我們就能更快速、即時的了解 APP 的優缺點。 在這篇文章我將示範怎麼透過 Sele">
+<meta name="twitter:image" content="https://lh3.googleusercontent.com/Qx862wPuasoREv2KBhW77KXhaNphIO3q0jgOaKfOyNNZwRbhaqF9PodY_biXwg4C8aQU1C6P3_hdJ8EbulOM50IUWlc2o743L2UTaenjmwFnZ3WKnkXTatim9LZTMkaQ42njQ8yuMqvPnxI-gtpbMl2pnFsfEOWB_Lckg7XdZeGQi8x_SADH7HShZQE_C6GsHC8J6su1zeaePL1mfAqvPnTOaKPv2DZRYO-AcRFOhtdRKadaInOGj1_s4wY2qPnwW4D433R8Ec0LU-xgHaCNcvBS-5gsgzODlIVhhg9gsY1Ziy6vybtEO0dIXWEAltizfPG0BSX8SDaQhlYjPjDz6lFb1EpNaqAXcZjm9yg69ZFg1stpZcCq0MF3HnOnlpgTp7aPaLRVJA6u7ZJ8Kz3bzJdsfkLeycWaFPxCtVcjUgSISgshA0THJnI1whko7K9BCnLjrxj9sirqT_waymA-ZIXu-4Zm4yCuBMeNKc5Tkbsdsda6xHEGs13gWliLSEJx_Uz18_3COMV73H9o9LAlP0KgE_4FM8OVySFTuuubrNaMNi7PRgHAO9SHlYF-36dsCr2ybizL_vPDk8LYiFWOhsEO8zt036jf8pz9DED47tvb7fEKIZo7w19IptHvAztqR0qRLaodfFWTA3uwJ89THJkwh4HCx111gcxIpH0ggSy2JhOr7-HcCJk=w1739-h978-no">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://TLYu0419.github.io/2019/12/26/Crawl-GooglePlay/"/>
+
+
+
+
+
+  <title>抓取 Google Play上 APP的留言與評分 | 興趣沒有目的地</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">興趣沒有目的地</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">興趣本身就是目的地</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            關於
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            檢索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://TLYu0419.github.io/2019/12/26/Crawl-GooglePlay/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TLYu0419">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/IMG_20180501_103746.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="興趣沒有目的地">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">抓取 Google Play上 APP的留言與評分</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-12-26T18:15:22+08:00">
+                2019-12-26
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新於&#58;</span>
+              
+              <time title="更新於" itemprop="dateModified" datetime="2019-12-26T20:23:35+08:00">
+                2019-12-26
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/12/26/Crawl-GooglePlay/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/12/26/Crawl-GooglePlay/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/12/26/Crawl-GooglePlay/" class="leancloud_visitors" data-flag-title="抓取 Google Play上 APP的留言與評分">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">閱讀次數&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>隨著行動裝置越來越普及，各家公司紛紛推出了自己的手機 APP 來降低跟客戶間的距離，如果我們想要了解客戶對於 APP 的想法，我們當然可以透過發放問卷的方式來收集客戶想法，但這種方式的缺點是會需要花費較長的時間，另一種方式我們可以考慮直接到 Google Play 商店抓取客戶的留言，如果再搭配一些文字分析的技巧，我們就能更快速、即時的了解 APP 的優缺點。</p>
+<p>在這篇文章我將示範怎麼透過 Selenium 幫我們自動抓取Google Play 上 Foodpanda 的客戶評分與留言等資料</p>
+<a id="more"></a>
+<h1>最終成果</h1>
+<p>老樣子我們先看最後的成果，我們最終會將左邊的客戶留言轉成格式化的 excel 表格<br>
+<img src="https://lh3.googleusercontent.com/Qx862wPuasoREv2KBhW77KXhaNphIO3q0jgOaKfOyNNZwRbhaqF9PodY_biXwg4C8aQU1C6P3_hdJ8EbulOM50IUWlc2o743L2UTaenjmwFnZ3WKnkXTatim9LZTMkaQ42njQ8yuMqvPnxI-gtpbMl2pnFsfEOWB_Lckg7XdZeGQi8x_SADH7HShZQE_C6GsHC8J6su1zeaePL1mfAqvPnTOaKPv2DZRYO-AcRFOhtdRKadaInOGj1_s4wY2qPnwW4D433R8Ec0LU-xgHaCNcvBS-5gsgzODlIVhhg9gsY1Ziy6vybtEO0dIXWEAltizfPG0BSX8SDaQhlYjPjDz6lFb1EpNaqAXcZjm9yg69ZFg1stpZcCq0MF3HnOnlpgTp7aPaLRVJA6u7ZJ8Kz3bzJdsfkLeycWaFPxCtVcjUgSISgshA0THJnI1whko7K9BCnLjrxj9sirqT_waymA-ZIXu-4Zm4yCuBMeNKc5Tkbsdsda6xHEGs13gWliLSEJx_Uz18_3COMV73H9o9LAlP0KgE_4FM8OVySFTuuubrNaMNi7PRgHAO9SHlYF-36dsCr2ybizL_vPDk8LYiFWOhsEO8zt036jf8pz9DED47tvb7fEKIZo7w19IptHvAztqR0qRLaodfFWTA3uwJ89THJkwh4HCx111gcxIpH0ggSy2JhOr7-HcCJk=w1739-h978-no" alt=""></p>
+<h1>爬蟲流程</h1>
+<p>這次的爬蟲會經過的流程如果</p>
+<ol>
+<li>安裝套件</li>
+<li>載入套件</li>
+<li>選擇想爬的頁面</li>
+<li>加載更多留言</li>
+<li>檢視完整留言</li>
+<li>解析資料</li>
+<li>保存資料</li>
+</ol>
+<h2 id="安裝套件"><a class="header-anchor" href="#安裝套件">¶</a>安裝套件</h2>
+<p>這次的爬蟲會需要使用Selenium，安裝的方法如下<br>
+<img src="https://lh3.googleusercontent.com/m6PjNPESUqsilH1DNfaURaID1HaNb3anLF-uaT-XCTgycg9oLqB2lQZ_NcmQKFRfpuHMl7YUCHtH3BH0i0HNLKMkJyFfPGu5t1fPk1PIkdTxHDSSDV4NZQ4-hhEEMc8LAxQ_G-hdgHP6HBY9nssAUL7y6_J-ku-V1ascTZKYCXo3-edYw9sB7zwkSm10CWC5aWp4hnmArynEN_d1aleig5mEznwNf7EaZBEYcSlpsc69z8hNhDBUEOJe9aWwy-xKEsqJpblp0uYN8Il1HSxJ0FgO4nhipl2ccOBk6CWAFntPTERNwzLqSwTD6kRGvQ33k0MtMQYXX6LLD6LzNsrxZnqCV02aq0L4-esbKSiHUZXaaF3tUiAWS-hlgl8VDtgk5AYnbFQdaOKf4pUm-r-tezaLx1nLy-HmF8v26t0PpynQ5gU7eJFqzHRxMxdarxC3yCocA4Y3J_a9vDIorMZS5B0lgS4noUWs3gx0AKx0JjBdJ31PQogVQ35f4bmaCTY8YWRsL2eHD7sN7tlWffRt0b6evN7TzTz-GFm_lcX-oanvBYrEmRDvXnk_pm2eMfzw7NGVB43FHSLLnRYuZL5Z-wTd6jwNN8raTLE9uYIPNSMPnWFoNcJCq3JrjfmLJFyaHNS8JzK_KvJuTJJMTaay6ZPkO5YmrLqXco13aeXfAjh2f7fCiU3bnWI=w1509-h90-no" alt=""></p>
+<h2 id="載入套件"><a class="header-anchor" href="#載入套件">¶</a>載入套件</h2>
+<p>載入需要使用到的套件<br>
+<img src="https://lh3.googleusercontent.com/Q-aLaTmFZBwybQc6pPcSivze-ZG2E522Cw_BvGeZVASDwhkGgMjZ8n7vqYrmaHJcvMnvCs-6ZA7fk8_sQ5AVl3iHlAaw_TRphrbOxKXpe2PY-BDG2LUdm9DSCANE94tcYbVmKM9bzp3QDEI4BgDwpAYM2A4qx6WEV-EKA9Kekn5lq9ei2nOW8XS5YaaDIYl69IX8W3m1jlGzL-3lHfGd9naur1ZO0UyWMI1VRv3NHq7vqtIksvFqzjq7lMNlvJdM_Snz3Zn7WT2uUGhaIKnM8v1_1WP4epC8mBQ288J4Beb0jYtE7_vNNBHkl7yKz07DMHTek6TqGQQ-qcVkUIGXwoMnZax3WeopWI8TpEzLi-_UnyDaZig34D03FNsnJ1W01OEIkG11VBFaGXcQiqCb7_EkTCIOxK9w5EEe_UQSzOOXFlf4ZnEXz74DCpB2tDZtkFS6tsyb__l-r1hTpHYI97fFfurMwKZsmHbfSqQPrT4CBesCe59L6h8omWRKztlo4wfgcwU2n3U-Zl5Gejr8PWdJ0yZw3qhla7lcFtl6PqGJPjRYVlIwJJjj7QcqjhSrbkW_AZKptRJ0hEif0OaePX6-Y2X4invdY2BhNZH-iJjwxNXWDRW0iILf6C7oOX-c4vCEjXUkJTaklQQQk_c3Dge55Oz7whEuSn5TG8h1uscvQKE7eMSy7_4=w1515-h145-no" alt=""></p>
+<h2 id="選擇想爬的頁面"><a class="header-anchor" href="#選擇想爬的頁面">¶</a>選擇想爬的頁面</h2>
+<p>在此以 <a href="https://play.google.com/store/apps/details?id=com.global.foodpanda.android&amp;hl=zh_TW&amp;showAllReviews=true" target="_blank" rel="noopener">Foodpanda APP</a> 頁面作為範例，想爬其他網站的話自己更改連結即可!</p>
+<p><img src="https://lh3.googleusercontent.com/iK91grOv8nJJe4FDiQ4EDMeSB0Dg-yDioEz-LMSjaQbXukez5NMFgmabHlK1SBvUlwKvKnr8mUE8CKP0ZSz7bwuuOW8Nu6E_2uy6UTaUX8RTtsAiq_A3wWQMzYJ7sL3S_FKRWQW7FB1JrOtpGXLMExfVf5jnqSYbMvY-WNx5yLG_pnuGQrGyaXFsDARcOB1JeKt-AqiXnHOTdLBk6kZU7HoTsbJF1o8SyX60weQT1UJxGCqeNri_2wAsvezEPBk42dAr3WYFW2mEXjYMPShYIYRlL1eXZt5BaY1FB3QGj4dTgQRX0v9tPoinE15TLs9Zo8batCY0ypPWmLcnms-W6PVpgpbHwxQeBfgJmrgvF9QC8cOM1maLW0QSUbMLvZyIq72_3TVpd89mKmxdTfgpCHeoY0ks2vsnGTt2pfdk5Ax_hNsEgno4Kq08qZR-V1fZS7SkRvyErn-GwJX6ZZNAtEvWAw3PSsJb8Lx-aiXZusEo8NfPMvtwpISPWtsK11D93FgoBt9SxljPYKXlJZcgaLa3imS0gxW-Z281lyrTlo4u5OR2IdGRYKZ0Y6AwOBuN2gv8OjYAwgjIaE7Cv2zouISx2nzW5I2y9NZFRV4HADtw8N_y_KCNsPuZBjixl17-ycpZ561DvcgYxNrx9fVcX9nf_He07Bl93q_8uFNbeEpB5nfBVREcmGg=w1739-h978-no" alt=""></p>
+<p><img src="https://lh3.googleusercontent.com/CPmCuDKJAP0lKEsfhV3lyzFbmMqwGFYpTF7BKQQhfSeR9W_711fAYqdc5kw_1Oq4eDf2EPaHk0tD9rH8HkEBdzIC9X34COP-rMNcQSHhk4zKiOkcJv2of6XIdSJkDiVD4vaxVT0lNB0vYiRk4GfYzPTxXtSnIrKw_u1fsQbByIkHpaMwJw8mBX9yAidHabYigCr9M0dYxJdQEU1d2MXY1VkVyRCqdm_KFa6RPtfFKny59VtyVp673hP2h9-J8xLS6f2T36d_F3IgDSIRlwi_lcKTtYfqn5jT4ZcHxNKNOlSjS56xmSZhIKFE4h4c4LdKVMbaV4sUPJK1YVA5xYGyXK6AvCLeai6p5-kCUz2lzvZ-_gaVPx2Kg_aWZmMJ8xkZ7k23mIxi09HD3cciqPRbkaNSFz0MVjRQ_b5bS1sVruCWL8tOicebg1PxU6TlWPWLLUUhf-Gykca93JeTqb0HFyGt1_JJQOtwoyytn7mijt9NOq6r0-7cFcFWfkjaRenMtTaChMaIZdwb7ginzBERQ_-FRLcEKCkLSnxKokFZlCJz14VF2ma3c1Df1MTnj5NofROUZytFsc_FrASzcaofbDMYg73rshXlStpVZbWJnOg8-s6SOlfw0zmTfTZsO6YC2iRSyv2G6pCrmC_K4d7oLTcMbjeYlhzQjQTipbr0_PNeAbwWJUhYwBc=w1507-h295-no" alt=""></p>
+<h2 id="加載更多留言"><a class="header-anchor" href="#加載更多留言">¶</a>加載更多留言</h2>
+<ul>
+<li>透過觀察的方式可以發現，當網頁滾動到最底部的時候會自動加載更多留言，但是每加載5次會需要點擊一次「顯示更多內容」</li>
+<li>另外需要留意第一次與第二次之後的「顯示更多內容」是不同的按鈕，所以在這裡使用了一個 try 函數</li>
+<li>在這裡我設定做 10個點擊「顯示更多內容」，實際上可以依據資料量的大小自行增加或減少<br>
+<img src="https://lh3.googleusercontent.com/UvNjhu7xwKq7RLikJcYCBBGrb4Wm39RkvznDeFyie1BpQ2KrIde4jTHHRP8jqzBUfZ4X8-V9fUSAbboYHamony1jA0D7fvReTQsvyhTcPHXLOIscas7VIRktvVYiakbEs7D-K_nGKCxkJ-GaT3q7P_B70W3sg7bb0DWDXGRI3m8V0ea4go5v13Il0haW4xmrPSaRMj-sAnvruTXHCTBo8gp_P1MXWefqC3xv0FUqN1jCenbQD4eKsUYvcrN-KCzzMgfYEBxfdY8hCCvLegs-lXF3o80OOLXdsYaFPIa0U9Ft0inFzrFKlSrNl8-10JNns6vjXaGXYDarC0QvE6XQPd1y3YbgpUKByYUPmpD5w5I7JpaObmr0HuoW-M8OZEWcVVF3RfrhcSZrxoN0n5_Tl1lqIuFT2P6DnPtFbJpjeqUftuGA2NBsy-C9nM8BkbZwaey5YZ0IU0QOI1PsH_2-ErjGKvpR3xmeT7JOUBjtB4SQNtizVOYEndFA12f34rY2NFj_v6tOMjAXGTiGREBulOoyLeaPk5VSm8IKO9iCJEQxBxEABU-yMFmd-M5QTYz1SemeQH5vxDQe_Y4dsc8UavCTklEOY-wpMYXLIaIf3icU47NvSCzrSYcOEwlHL0kSa_i7Ppo_7MnXgW1TIcCvD2DsY-KMw6cmyBdp1C55HSmkDUP_70n6c4c=w1514-h242-no" alt=""></li>
+</ul>
+<h2 id="檢視完整留言"><a class="header-anchor" href="#檢視完整留言">¶</a>檢視完整留言</h2>
+<ul>
+<li>對於長度較長的留言需要另外點擊「完整留言」的按鈕才會顯示完整留言，顯示後我們才能抓到資料!</li>
+<li>這裡我找的是頁面中有沒有「完整留言」的按鈕可以點擊，有的話就點擊將留言展開</li>
+</ul>
+<p><img src="https://lh3.googleusercontent.com/YKSV2CFs-TGvnbnBzWP1PvJczTioKJzUyJA_x7eQqli6G3pYL2W2rTrtwyGfc2wYprI_dLKngQroECIGbDtZPiWu9xnTzI9_w28iPGlVZfmJIgVgaHH6mRjzkB6ADzwF43KaOxdFAUK4mW6xsF0wimz8VD4w8UEeGGkuv6-AixwNZ98WVpQpEu5caBwnENIg01XJb2bzxJrpCJjCFN3U2qCkrqizcTSAmsGYuEgLekX8IE2TomJiONQ-oHB_6FRNb5Wx9WjwOlC1_xwaRKrZvAQyzKhXrASiOdHHHLKRsh_VZqPGZrEYyaq76XaXob4fqQPzmyBSZ3hYaEMi_2cdYPL0ms4OU33l8_AxQhfS0mlOrdQ6vM04vXwJBczOGDTbmTmlBUp5qWQiLDxf4InOn05_dz-G1AWFiEtA9lVQtX-ElErhQcc3glerWarN5e9UE3zxMf-xp3Qgr0HXqj2ynRM4mb8YONNUnJYkJbWZ-kdNeofsgeC6t9BOQjk28K1KtP4sYABZwOKkDg_W_X1L_m2EIOfW0Y16pLvTjBAzBnf5xTFkN6lsa0lLn77za9aYZOwL4sim_nT2bSLrdimF5Ay5i8x58Mrx4e-B8MrDxCGTwhPS9V7ZcAuxSunO8yavq_1T4z9lrkCWSFCE-ry0uMoXUnE96y5LHu15D2lFsMTUR4HEzYuaRGM=w1739-h978-no" alt=""></p>
+<p><img src="https://lh3.googleusercontent.com/QJzwab2aj4SjQsxIbBOoMslSEMT7MA2PCbOg_aE92OI2q84TG0hg6rF6DeM01CbGFdiEG7zwpvLIAjh0JdoqJNeifckNUfjG_vQ6rknESmueaIAk1zEnSJj639PUXUsoTW7KRZyJM9WxMXj7KE4RiWWpaEmTrTMphtNJdANc5lv_zoQXz-1NNldLQPY1yBy7JZJdXuOyJj_L4K02YiAlpLpFKKddjFAFOB_jaVi__THoBy89psEiRd-sNCtTkTiXomMljFFsIeDIRaI5hccd-qo79IbbHg4mEoFd31LsRVdY99fGL7ymlnfwRFu0zehLhxQH6AcBiR1eARxoaw0OzI2M6KB8f_r7HdnmPMchveH4j8XJNbfChP_b5muiC1U00Todp6ETwhUu2e63CO5W9tCM9iwnwPsXTCNqZU29pf5QgiAQ3er6GFDRtzmHS6wIYfspnYBy0LKkC7-NotkOpV7zWBu_zfS4RcGwKZcX1XOmqI72Rgn9G9p8Vt5v5UaVFOQQobNwxv9NKeGo0meUavK9k7XdhqZiKM6XWjd6S5kyMXeT3f1e63VzkYPt2btXNyoyosKpE4bSJPh8f4O2pHXcmBv8N1HvbREh489KD2R7PvHZliJE6VT_cNIdJ6gNl-LgSWwkCeNLfiy23ic2hNSDvH1kyLhsVbNhBZuosHL14Yl853lTM1Y=w1512-h168-no" alt=""></p>
+<h2 id="解析資料"><a class="header-anchor" href="#解析資料">¶</a>解析資料</h2>
+<ul>
+<li>當我們把所有資料加載完成後，我們的資料是html的半結構化的網頁資料</li>
+<li>因此我們在這裡需要透過BeautifulSoup來幫我們把資料轉成DataFrame</li>
+</ul>
+<p><img src="https://lh3.googleusercontent.com/8kbpnn8SQruf0Xfl4IfWlcyLFat45mArTP1BpKHfYvfORfxBETYjBBNSZwfldIfr6bXfYUS8vuI_DT1qGK3bnR4fbbUAnK0PPby4q7YhbiA65iwb5GkAtjJkF0_kIfCG6aH_RmHPO3MHciwm5HL7l5_MzrA36P5s1RVpIsG86SgBHbbNxM7E0aDHBe6Bao50Vq0T4dcjBvbA3gntftpCo_lUpI5718IyNwbZew4LP7SssN1wNdGCoQfY7k4EA-teS7Ob3F_tRem0CoSSL_t3q30CKDHy0iNwV6Lkxfv-0qXU7GYQpwh58G7HSdBffew3zoZcyAg5hhU1v5lmKeKvY0rPnnh9ilhOJ5JgsVhV4mv7mhbf8g6jrRV1HW2I_ahu6uvcgl-8EbRqApN3xbtR-J47V7qBMRLozhHyBP3ylvB-1RgvLSRB7nIRZqYJLmDXAjc8b2HZ5HvtKJ3qtnA5Hq0Ja3A6bE48m3yBARewfD-AQ5QWktrB0MfhNSpnMGSAgDc_pzkLy1DqTrQaZt56pQURsSxOuud09Wga_tjG6WDxBCFZxu9p93hqN4b44kd-Qdq9a51LT9FjOlkDb95tXsZU7OoqmQoZIVgtYCGl2ywm5EBMxjZ-DnShlB2OypWegn-Jzrs5Z8rGYGDqXEk7caC6VqvpPSmAJXJqG6Ju0EJQf71L_bBG84g=w1510-h478-no" alt=""></p>
+<h2 id="保存資料"><a class="header-anchor" href="#保存資料">¶</a>保存資料</h2>
+<ul>
+<li>在辛苦(?)的抓完資料後，最後就只剩下把資料保存下來囉!</li>
+<li>先跟 Google Drive 空間串接，再將資料存在 Google Drive 上</li>
+<li>資料放在 Google Drive 上的 Colab Notebooks 資料夾中<br>
+<img src="https://lh3.googleusercontent.com/1RY9JXc87whTGNVpHY8GNm77RarneoCpsxulPb5vj6wfXeVyWIK7fZBDibHwqNOzCts_l01rF4cRfW4DT_PgQw5TTiy2GJzPkBOHVUF5Se406acjFQeu-5aIdJaSPN2BfZUe9IcH8jsejbAkBIKV-bnLT3iSwDcQDrEWWPShM-aY6Ik-ZCVgg0ru5gEzl69wz9jxslwry5qIlm1bqfFgsr9thO8KxVdWK7izA4PkHv9KtRW09_wmPr7XxfomxanTKhe2l65vpe_oTs36w03dz8huj3tKWHo9ZafJ2N4gSqdPfiabN47tKetfHlgRY48nV99oVeIQTMSehsIm9hS7ppdygWz_h04W5oR1-q4mvIREU3wwbpojD_9ae87F4aTIiLEVHKi9TOvJ9RXkgKI-z-pShLKrrEgMcSdb0XxHMXWEQNqLSFZ3u39GRG2yJMDMmF0Fr_Tj3kj7RCqRCezX0c4OsgR81NMV6Wt5CdB6NvbxbQX2HOxfc0txXze0hdGjgwaTsBf7dFYWFCw3iKBVqlVbdE0bywKFqky1i2GnxVBWOIgTijG-B48BHy_tDhWpvxB3bUnYGtfotQsMV6HExX2T4iii8EdAfpV8zHdHEAvY3yOuN_lDUfz7Iw67VZQjVx9M7M5i3tQPYJLoOCf-s8xNk9V_XCzwwCNsYsUVfZNXK8-4CzdzGGg=w1508-h67-no" alt=""><br>
+<img src="https://lh3.googleusercontent.com/vbM-BfMd3-qRvcXEo0ROQj_xubD6sDgxRenFirWnqQyMZKTCDiOH0R3r6ygLNNzgs32iUgHYy-TotV2HlaI240JJMV4NN1dcHZvRVQtVeQx8iQsiO5yEZ3P9wwXN1PKit9q_yR0i_RcL4MR5UAa3o0VuEqPqHKKhAg7orRZu0S6_C0lFtJFPfyTRNqsiR33iFkWvZDPzOuvjjzQXWqCue7ufVALDV_B0qU_6Nx8dkNcbPJ_wLI-DEriNX8zqTVa8hU9D7rZ-zaMjNO3BtNpK7uW2x1bi-xK97eHBmK1qENnups7kIvUb4ukyKZC2t88w3thrO25vwlxgc-oyZvAXB_23CiUeE7pbGvBwypdfAqg76WDm31-RZMb_HrlhB0LaR2cXaj3Kp7JUjZNNMce4dH5WppTuVI_j5BXikdkaW_igKv0MO6i-s9Ikuuq7Dt6pJxzgjL3nWsypQAMwhGiSzoSFzYVJmLyHz85WTBbWxp5xQcX5b4YCOj3qk0I9B3vbClvj5utdmYl8XKjtGrNL8HMhwY0FqjdMXirhfFmftH4XL-bip9fU6xM__1DT0ofUgh-xo-io1hfsqWz8VutTDixxv9ry-SXwvAIOliMD9WKH2rzsa4iRo6KhpU5RvsJI7ZI8136j3AlyNMdGjY07Jx7ghy72QrGZwWMmn1JOUf36mAy_eWPUE4k=w1507-h85-no" alt=""></li>
+</ul>
+<p><img src="https://lh3.googleusercontent.com/XqGbKWIZbCLvd8iGRR41WLodgwts4h9B7NEEWBh_Mg2Xo1k07Fm8FP5i-K_si7_fq1-9EuMtyTa8a-UC7_jupFpdtg8ePU2NSZgjtxya5QV115eKFcUrQeytCRqteC-XJ13otanJFZOkbm7LwG8tt0gRrSF7qVaWaOwcG2XTLVdVrJvvAnxzrK2f1G3eQEz7gZ9zLOyZMU_X9dnMh-Tx5I7ajmYgOFs1ulghQH5S54eLD_hu62mUyGOg8qc06xH7ms1K2TTNnoifjshDMfOzU8eTbfakyoV9Wt3SiZlplLxpQ-1Hxps4SAeNrHZB2MdP3J14rR5Vjz20EWscSY6t2Z1QESIYbBS8RZO9qZG3g83WnVGA9r195OiKTXKX70wVjlPGSzz8cLPE05QXpOM9ZcL_YZAgZc5eKtI8fjcFUsyiEeUyfbVluEdYNScPOizNLsm4ovhkuzROfmTwBAo_we3qysHbqHgvvRTYOq5PKV4MjiwD0Ytmi4cvrccpt_YRzMvDCfxKWmxwmbiaEhTZNVy7nQ4JH0xxDM3akaIfu34voRjUovMfalsns28I4gK-a11Ux96saA9E1VY5AG4PY_Gy3xXKXEIYBl6dznEFW7IBJt3Wtk1x18tmlJNpW7bsnI9qBuqIyNyM-gm0NtffNhxKoV2C0ayEpLnJ0tD-AKkzPOfbGOCJWvE=w1920-h878-no" alt=""></p>
+<h2 id="後記"><a class="header-anchor" href="#後記">¶</a>後記</h2>
+<ul>
+<li>我將程式碼都放在Colab上了，如果你/妳有想要抓取的網頁，可以直接打開這份 <a href="https://drive.google.com/file/d/1_jgNnCa8SYXJK-XO3VzG6TdvZ4JMK11u/view?usp=sharing" target="_blank" rel="noopener">GooglePlay_Crawler.ipynb</a> 執行程式!</li>
+<li>如果有問題的話歡迎在底下留言或寫信給我，最後祝大家聖誕節快樂囉🙂</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+
+    <div>
+      
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文結束<i class="fa fa-paw"></i>感謝你的閱讀-------------</div>
+    
+</div>
+      
+    </div>
+    
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/網路爬蟲/" rel="tag"># 網路爬蟲</a>
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/情感/" rel="tag"># 情感</a>
+          
+            <a href="/tags/Selenium/" rel="tag"># Selenium</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/30/Crawl-ChinaTimes/" rel="next" title="如何透過爬蟲抓取中時新聞">
+                <i class="fa fa-chevron-left"></i> 如何透過爬蟲抓取中時新聞
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container">
+    </div>
+  
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/IMG_20180501_103746.jpg"
+                alt="TLYu0419" />
+            
+              <p class="site-author-name" itemprop="name">TLYu0419</p>
+              <p class="site-description motion-element" itemprop="description">單純基於分享的理念而建立這個 Blog，希望對你/妳會有幫助：)</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">標籤</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/TLYu0419" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:TLYu0419@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">最終成果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">爬蟲流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安裝套件"><span class="nav-number">2.1.</span> <span class="nav-text">¶安裝套件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#載入套件"><span class="nav-number">2.2.</span> <span class="nav-text">¶載入套件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#選擇想爬的頁面"><span class="nav-number">2.3.</span> <span class="nav-text">¶選擇想爬的頁面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加載更多留言"><span class="nav-number">2.4.</span> <span class="nav-text">¶加載更多留言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#檢視完整留言"><span class="nav-number">2.5.</span> <span class="nav-text">¶檢視完整留言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解析資料"><span class="nav-number">2.6.</span> <span class="nav-text">¶解析資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#保存資料"><span class="nav-number">2.7.</span> <span class="nav-text">¶保存資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#後記"><span class="nav-number">2.8.</span> <span class="nav-text">¶後記</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TLYu0419</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://TLYu0419.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://TLYu0419.github.io/2019/12/26/Crawl-GooglePlay/';
+          this.page.identifier = '2019/12/26/Crawl-GooglePlay/';
+          this.page.title = '抓取 Google Play上 APP的留言與評分';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://TLYu0419.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '472262983d806bce741f',
+          clientSecret: '29553bfe1525442b7fa3cbd48c6f4696ebc67ec4',
+          repo: 'tlyu0419.github.io',
+          owner: 'TLYu0419',
+          admin: ['TLYu0419'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("qnSPyuKGWkfaxQ8kfY9WwHg3-gzGzoHsz", "lhHv5GaYGHkqxygYev4s6VUq");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

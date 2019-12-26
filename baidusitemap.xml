@@ -4,6 +4,29 @@
 
     
   <url>
+    <loc>https://TLYu0419.github.io/2019/12/26/Crawl-GooglePlay/</loc>
+    <lastmod>2019-12-26T12:23:35.851Z</lastmod>
+    <data>
+        <display>
+        <title>抓取 Google Play上 APP的留言與評分</title>
+        <pubTime>2019-12-26T10:15:22.000Z</pubTime>
+        
+        <tag>網路爬蟲</tag>
+         
+        <tag>python</tag>
+         
+        <tag>情感</tag>
+         
+        <tag>Selenium</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://TLYu0419.github.io/2019/10/30/Crawl-ChinaTimes/</loc>
     <lastmod>2019-12-22T05:23:36.657Z</lastmod>
     <data>
@@ -60,11 +83,11 @@
         
         <tag>python</tag>
          
+        <tag>Selenium</tag>
+         
         <tag>Crawler</tag>
          
         <tag>Facebook</tag>
-         
-        <tag>Selenium</tag>
          
          
            
