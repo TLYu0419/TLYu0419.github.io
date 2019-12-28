@@ -11,13 +11,13 @@
         <title>如何爬取 GooglePlay 的APP留言與評分</title>
         <pubTime>2019-12-26T10:15:22.000Z</pubTime>
         
-        <tag>網路爬蟲</tag>
-         
         <tag>python</tag>
          
-        <tag>Selenium</tag>
+        <tag>網路爬蟲</tag>
          
         <tag>評分</tag>
+         
+        <tag>Selenium</tag>
          
         <tag>GooglePlay</tag>
          
@@ -36,13 +36,13 @@
         <title>如何透過爬蟲抓取中時新聞</title>
         <pubTime>2019-10-30T12:46:01.000Z</pubTime>
         
+        <tag>python</tag>
+         
         <tag>中時電子報</tag>
          
         <tag>網路爬蟲</tag>
          
         <tag>新聞</tag>
-         
-        <tag>python</tag>
          
         <tag>多線程</tag>
          
@@ -62,9 +62,9 @@
         <title>爬蟲 - 爬取松果購物商品資訊</title>
         <pubTime>2019-04-07T12:53:39.000Z</pubTime>
         
-        <tag>python</tag>
-         
         <tag>爬蟲(Crawl)</tag>
+         
+        <tag>python</tag>
          
         <tag>SongGuo</tag>
          
@@ -85,11 +85,11 @@
         
         <tag>python</tag>
          
+        <tag>Selenium</tag>
+         
         <tag>Crawler</tag>
          
         <tag>Facebook</tag>
-         
-        <tag>Selenium</tag>
          
          
            
@@ -106,11 +106,11 @@
         <title>爬蟲_104人力銀行工作清單</title>
         <pubTime>2019-04-18T14:18:06.000Z</pubTime>
         
+        <tag>爬蟲(Crawl)</tag>
+         
         <tag>python</tag>
          
         <tag>Selenium</tag>
-         
-        <tag>爬蟲(Crawl)</tag>
          
         <tag>104人力銀行</tag>
          
@@ -133,11 +133,11 @@
         <title>爬蟲 - 爬取Dcard文章</title>
         <pubTime>2019-04-06T10:03:39.000Z</pubTime>
         
-        <tag>python</tag>
-         
         <tag>爬蟲(Crawl)</tag>
          
         <tag>Dcard</tag>
+         
+        <tag>python</tag>
          
          
            
