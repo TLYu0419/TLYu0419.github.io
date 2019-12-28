@@ -417,7 +417,7 @@ table>tbody>tr:hover {
 caption,
 th,
 td {
-  padding: 8px;
+  padding: 14px;
   text-align: left;
   vertical-align: middle;
   font-weight: normal;
@@ -429,7 +429,7 @@ td {
 }
 th {
   padding-bottom: 10px;
-  font-weight: 700;
+  font-weight: 1000;
 }
 td {
   border-bottom-width: 1px;
@@ -1820,7 +1820,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #81984b;
+  background: #ff017e;
 }
 .links-of-blogroll {
   font-size: 13px;
