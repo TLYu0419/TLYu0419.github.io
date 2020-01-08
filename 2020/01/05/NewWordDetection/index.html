@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="NLP,新詞偵測,中文斷詞技術," />
+  <meta name="keywords" content="NLP,新詞偵測,中文斷詞技術,Entropy,PMI," />
 
 
 
@@ -82,20 +82,20 @@
 
 
 <meta name="description" content="談到自然語言處理(NLP)的中文斷詞技術，我們通常都會直接聯想並使用 Jieba 套件，網路上也有許多人分享了 Jieba 套件的功能介紹與使用方法。但是當我在使用是卻感到非常困惑，困惑的地方在於，隨著時代的演進會不斷產生新的詞彙，那麼我們透過「過去定義好的字典，適合用來分析未來的資料嗎?」">
-<meta name="keywords" content="NLP,新詞偵測,中文斷詞技術">
+<meta name="keywords" content="NLP,新詞偵測,中文斷詞技術,Entropy,PMI">
 <meta property="og:type" content="article">
-<meta property="og:title" content="中文斷詞中的新詞偵測">
+<meta property="og:title" content="中文斷詞的新詞偵測技術">
 <meta property="og:url" content="https://TLYu0419.github.io/2020/01/05/NewWordDetection/index.html">
 <meta property="og:site_name" content="旅程">
 <meta property="og:description" content="談到自然語言處理(NLP)的中文斷詞技術，我們通常都會直接聯想並使用 Jieba 套件，網路上也有許多人分享了 Jieba 套件的功能介紹與使用方法。但是當我在使用是卻感到非常困惑，困惑的地方在於，隨著時代的演進會不斷產生新的詞彙，那麼我們透過「過去定義好的字典，適合用來分析未來的資料嗎?」">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:image" content="https://lh3.googleusercontent.com/je86PsA6wWRBfWaPPrSHprH-hWXbMs7pKDzIVo2CgMIOt5-gOJQ15edXzn85vAjmXSa9lRZ6gwvvmIfZZFD30kLxFJSFuei72cAezGTFypnCSrvNNjOuB3yJ-E0FDcqs2MHgTZFwQLCXFfpeeia_5YlsGCMwR5pBf09JjH6ouvpFRnp814D0XjZZ6CnkgwAKIoTFWgfjDLPKEEuQy5mBj2qZFUwapy_pYaD-uZVpGbi1GHryjV040drFq_qdGajzXTInW-9ZB5khE6WGgjqJXnHsssYWkG3ZgvhU19SjJoL50YtTyRFPUsAxB5aMIOPEZmjiJrFUXlAgTDnzsOMPgEA_wRyOnR2fYrKv3uo4-7ZxVYr_wS8G66SMWQ0t9TZE_YeSi8bHEepBumhhOhnNJSq6_MGg1W0fEjhiMYMnQqnCoxH4LQvRbLL-u2KDUUEentpTvvBNJ1vpDjjJF0yE59L_5OYWagiKAzmkWypSKM3ppJwvp3NoUWJ7YvSYQAsMyksZIFGXRF1yJfJzdx_whbKXwp6D3J1Att5OulniXb9KMXLnCOE1Ub-Pt5tLQHn_KWfSEEWZg5ZgyFPY6-6QyKjliUw5Lb3H0OXcxtckqmbNIpCmPgysXlszB8vVlHtxxcBd4JgGA6Lqb3QqJgwcExDQGfDPn5KyLrAE6naPevxD6Kyv7hz-4UM=w1739-h978-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/QrO9iVtj3wRRD5XdFthCmWSBgt9M6RL8F7Vybl5znE51klcQ76gXvCIXPXjVVawWFEdOkqrTXrFQgrP3Elaxsu6AFrdP6i9EHlod0cfMWvfZ4074I6Y72c_CL6b50EnezeG1HhoB7EiXjJYfUgS1Q-KOAL1V0n3g_QCb4IA6n2BmvchzK3PfIvj1GEOfouEPNqnx_cXNg6WD0gQsoMd6eQ8FhPtGuNIrpQk3xaPbBYrGf-eePIu1VdfVxZCt8-JvfI4W3k6fURWm_1l9oYqCraa4kyGc42hIT3ZgqunP88RhQixMiqncpl30Wtitsf8e_gTRvee6KRO-ZlnNkPd3XA6UjL70yf_GJfzO7Elzfv3bo4Augg-VKeEOI36Q8zvNwTshZHFH1eXsCXhOAZNBUJoCe5M3sMa1XPGGTevder5rvAgbiJVyskWbQvTtzRHlcH_Zs3SM75Vdhwoc6DjExPl-OKqNCZrP5W21dKAF0ztB-ANhDvyfvOfOhj0Snf7Jqma3ZS1LHf-68BmLbYVJCvhjwSrBwO1Q2UfuMgYm78CY2zOM2SZzq2m9o3vwZT2JF42jjSQpSVwM_1twCoNAKU_3eQomMDZ9Exe1Z2HYUn4eF_f-fxRBskgg53Dql9xOgmRKORdsaO3Na0FImqGVi4Sln3JNxDRAgVqPrVwYEVfEWo6klfNdnuGnb6mL=s1739-w1739-h978-no">
 <meta property="og:image" content="https://lh3.googleusercontent.com/PQF2PmC-umwOwqeOuZfEg8tNyBFvTw2ibXq7B0JsE6VPYQFbUW2phD-oG2GiDYE5JFIjmwaku4NMKCBx_tPh6BaqjJTzTupcCVL_J90zG8-eiEUdc1mDEokcyVtpeLRkNXvR2fFfb0iOZQ25Fw2grPsl5EoXv50EZlvyUZziX-xDfLefyBq6oN_r1IZVQwoDErjelva5OI1yCrc8kNtRWHVncuSKaaNtkSHLeL-mNuj7qjAg9Xhnp4_ovSXOIpYGHw7xouEsyYL0xS_2j_pYRUAHvmhiwU9hbij8mlqIXAeGUpvjECpVAFgGdywjnmrbqg6WrTxmPY8z_IdEScKVJ0sCBDBApn6RUBXxQSrLwr6j4R6-c0awNKnzi04gDssFV0RkIJueZmRNbAAUhGpnCW4ZGJLezFyNtLdfUhmyS2NsevOSdPKGyQLvngcde2zPCHNOqi9beLUF1UkFaVoeVJPbfRsM3XFxRuY9NKdnM1No_PA2AMypeOKsmnxviRH193T43GLnBHZ5d8CQw7yjzKdJv2eOJzeqzS1DZtwvSoGhsaUYCZqDdXC1xnLtpJwJcbXxfXsxdT508IORqnHHEuPrNIRXd4O2W7ZRUHG8fIeSLoe_A7m2bOiwv1ybMekCw0FV-YUZKSJ3_XUQn0TNFZIIZLuSTBGOwV4R9JNuCMrX1qekELJP7ro=w1056-h978-no">
-<meta property="og:updated_time" content="2020-01-08T16:33:17.044Z">
+<meta property="og:updated_time" content="2020-01-08T16:42:18.793Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="中文斷詞中的新詞偵測">
+<meta name="twitter:title" content="中文斷詞的新詞偵測技術">
 <meta name="twitter:description" content="談到自然語言處理(NLP)的中文斷詞技術，我們通常都會直接聯想並使用 Jieba 套件，網路上也有許多人分享了 Jieba 套件的功能介紹與使用方法。但是當我在使用是卻感到非常困惑，困惑的地方在於，隨著時代的演進會不斷產生新的詞彙，那麼我們透過「過去定義好的字典，適合用來分析未來的資料嗎?」">
-<meta name="twitter:image" content="https://lh3.googleusercontent.com/je86PsA6wWRBfWaPPrSHprH-hWXbMs7pKDzIVo2CgMIOt5-gOJQ15edXzn85vAjmXSa9lRZ6gwvvmIfZZFD30kLxFJSFuei72cAezGTFypnCSrvNNjOuB3yJ-E0FDcqs2MHgTZFwQLCXFfpeeia_5YlsGCMwR5pBf09JjH6ouvpFRnp814D0XjZZ6CnkgwAKIoTFWgfjDLPKEEuQy5mBj2qZFUwapy_pYaD-uZVpGbi1GHryjV040drFq_qdGajzXTInW-9ZB5khE6WGgjqJXnHsssYWkG3ZgvhU19SjJoL50YtTyRFPUsAxB5aMIOPEZmjiJrFUXlAgTDnzsOMPgEA_wRyOnR2fYrKv3uo4-7ZxVYr_wS8G66SMWQ0t9TZE_YeSi8bHEepBumhhOhnNJSq6_MGg1W0fEjhiMYMnQqnCoxH4LQvRbLL-u2KDUUEentpTvvBNJ1vpDjjJF0yE59L_5OYWagiKAzmkWypSKM3ppJwvp3NoUWJ7YvSYQAsMyksZIFGXRF1yJfJzdx_whbKXwp6D3J1Att5OulniXb9KMXLnCOE1Ub-Pt5tLQHn_KWfSEEWZg5ZgyFPY6-6QyKjliUw5Lb3H0OXcxtckqmbNIpCmPgysXlszB8vVlHtxxcBd4JgGA6Lqb3QqJgwcExDQGfDPn5KyLrAE6naPevxD6Kyv7hz-4UM=w1739-h978-no">
+<meta name="twitter:image" content="https://lh3.googleusercontent.com/QrO9iVtj3wRRD5XdFthCmWSBgt9M6RL8F7Vybl5znE51klcQ76gXvCIXPXjVVawWFEdOkqrTXrFQgrP3Elaxsu6AFrdP6i9EHlod0cfMWvfZ4074I6Y72c_CL6b50EnezeG1HhoB7EiXjJYfUgS1Q-KOAL1V0n3g_QCb4IA6n2BmvchzK3PfIvj1GEOfouEPNqnx_cXNg6WD0gQsoMd6eQ8FhPtGuNIrpQk3xaPbBYrGf-eePIu1VdfVxZCt8-JvfI4W3k6fURWm_1l9oYqCraa4kyGc42hIT3ZgqunP88RhQixMiqncpl30Wtitsf8e_gTRvee6KRO-ZlnNkPd3XA6UjL70yf_GJfzO7Elzfv3bo4Augg-VKeEOI36Q8zvNwTshZHFH1eXsCXhOAZNBUJoCe5M3sMa1XPGGTevder5rvAgbiJVyskWbQvTtzRHlcH_Zs3SM75Vdhwoc6DjExPl-OKqNCZrP5W21dKAF0ztB-ANhDvyfvOfOhj0Snf7Jqma3ZS1LHf-68BmLbYVJCvhjwSrBwO1Q2UfuMgYm78CY2zOM2SZzq2m9o3vwZT2JF42jjSQpSVwM_1twCoNAKU_3eQomMDZ9Exe1Z2HYUn4eF_f-fxRBskgg53Dql9xOgmRKORdsaO3Na0FImqGVi4Sln3JNxDRAgVqPrVwYEVfEWo6klfNdnuGnb6mL=s1739-w1739-h978-no">
 
 
 
@@ -131,7 +131,7 @@
 
 
 
-  <title>中文斷詞中的新詞偵測 | 旅程</title>
+  <title>中文斷詞的新詞偵測技術 | 旅程</title>
   
 
 
@@ -313,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">中文斷詞中的新詞偵測</h1>
+          <h1 class="post-title" itemprop="name headline">中文斷詞的新詞偵測技術</h1>
         
 
         <div class="post-meta">
@@ -341,7 +341,7 @@
               
                 <span class="post-meta-item-text">更新於&#58;</span>
               
-              <time title="更新於" itemprop="dateModified" datetime="2020-01-09T00:33:17+08:00">
+              <time title="更新於" itemprop="dateModified" datetime="2020-01-09T00:42:18+08:00">
                 2020-01-09
               </time>
             
@@ -355,7 +355,7 @@
 
           
           
-             <span id="/2020/01/05/NewWordDetection/" class="leancloud_visitors" data-flag-title="中文斷詞中的新詞偵測">
+             <span id="/2020/01/05/NewWordDetection/" class="leancloud_visitors" data-flag-title="中文斷詞的新詞偵測技術">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -430,7 +430,7 @@
 <li>FROM：新聞網站</li>
 <li>LINK：新聞網址</li>
 </ul>
-<p><img src="https://lh3.googleusercontent.com/je86PsA6wWRBfWaPPrSHprH-hWXbMs7pKDzIVo2CgMIOt5-gOJQ15edXzn85vAjmXSa9lRZ6gwvvmIfZZFD30kLxFJSFuei72cAezGTFypnCSrvNNjOuB3yJ-E0FDcqs2MHgTZFwQLCXFfpeeia_5YlsGCMwR5pBf09JjH6ouvpFRnp814D0XjZZ6CnkgwAKIoTFWgfjDLPKEEuQy5mBj2qZFUwapy_pYaD-uZVpGbi1GHryjV040drFq_qdGajzXTInW-9ZB5khE6WGgjqJXnHsssYWkG3ZgvhU19SjJoL50YtTyRFPUsAxB5aMIOPEZmjiJrFUXlAgTDnzsOMPgEA_wRyOnR2fYrKv3uo4-7ZxVYr_wS8G66SMWQ0t9TZE_YeSi8bHEepBumhhOhnNJSq6_MGg1W0fEjhiMYMnQqnCoxH4LQvRbLL-u2KDUUEentpTvvBNJ1vpDjjJF0yE59L_5OYWagiKAzmkWypSKM3ppJwvp3NoUWJ7YvSYQAsMyksZIFGXRF1yJfJzdx_whbKXwp6D3J1Att5OulniXb9KMXLnCOE1Ub-Pt5tLQHn_KWfSEEWZg5ZgyFPY6-6QyKjliUw5Lb3H0OXcxtckqmbNIpCmPgysXlszB8vVlHtxxcBd4JgGA6Lqb3QqJgwcExDQGfDPn5KyLrAE6naPevxD6Kyv7hz-4UM=w1739-h978-no" alt=""></p>
+<p><img src="https://lh3.googleusercontent.com/QrO9iVtj3wRRD5XdFthCmWSBgt9M6RL8F7Vybl5znE51klcQ76gXvCIXPXjVVawWFEdOkqrTXrFQgrP3Elaxsu6AFrdP6i9EHlod0cfMWvfZ4074I6Y72c_CL6b50EnezeG1HhoB7EiXjJYfUgS1Q-KOAL1V0n3g_QCb4IA6n2BmvchzK3PfIvj1GEOfouEPNqnx_cXNg6WD0gQsoMd6eQ8FhPtGuNIrpQk3xaPbBYrGf-eePIu1VdfVxZCt8-JvfI4W3k6fURWm_1l9oYqCraa4kyGc42hIT3ZgqunP88RhQixMiqncpl30Wtitsf8e_gTRvee6KRO-ZlnNkPd3XA6UjL70yf_GJfzO7Elzfv3bo4Augg-VKeEOI36Q8zvNwTshZHFH1eXsCXhOAZNBUJoCe5M3sMa1XPGGTevder5rvAgbiJVyskWbQvTtzRHlcH_Zs3SM75Vdhwoc6DjExPl-OKqNCZrP5W21dKAF0ztB-ANhDvyfvOfOhj0Snf7Jqma3ZS1LHf-68BmLbYVJCvhjwSrBwO1Q2UfuMgYm78CY2zOM2SZzq2m9o3vwZT2JF42jjSQpSVwM_1twCoNAKU_3eQomMDZ9Exe1Z2HYUn4eF_f-fxRBskgg53Dql9xOgmRKORdsaO3Na0FImqGVi4Sln3JNxDRAgVqPrVwYEVfEWo6klfNdnuGnb6mL=s1739-w1739-h978-no" alt=""></p>
 <h1>資料前處理</h1>
 <h2 id="只保留中文字"><a class="header-anchor" href="#只保留中文字">¶</a>只保留中文字</h2>
 <p>因為這裡是想要找出中文的新詞，因此在這裡先將新聞內文中的英文、數字、標點符號、emoji…等等的資料濾除，讓我們的語料庫只單純的保留下中文的文字，而中文字在 Unicode 的編碼落在「\u4e00」與「\u9fa5」之間，因此我們在這裡透過以下的正則表達式來保留我們需要的中文資料</p>
@@ -458,8 +458,7 @@
 <h2 id="檢測指標2：內部凝固度-pmi"><a class="header-anchor" href="#檢測指標2：內部凝固度-pmi">¶</a>檢測指標2：內部凝固度(PMI)</h2>
 <blockquote>
 <ul>
-<li>檢視兩個詞是不是獨立出現，以「電影院」這個詞為例，如果我們想知道「電影」和「院」究竟是「電影院」，還是「電影」和「院」，我們就可以透過機率的方式來進行計算。</li>
-<li>如果兩個詞是完全獨立的詞的話 「電影院」在文章中的出現機率，應該會與 出現「電影」的機率和 出現「院」的機率乘積的值 兩者會接近，這時候表示兩者可能是偶然拼接到一起的。</li>
+<li>以「電影院」為例，如果「電影」和「院」兩個詞是完全獨立的詞的話 「電影院」在文章中的出現機率，應該會與 出現「電影」的機率和 出現「院」的機率乘積的值 兩者會接近，這時候表示兩者可能是偶然拼接到一起的。</li>
 <li>但如果「電影院」出現機率遠高於「電影」的機率 乘上 「院」的機率的話，表示兩個詞並不獨立，也就是這兩個詞可能是一個詞。</li>
 </ul>
 </blockquote>
@@ -467,14 +466,15 @@
 <blockquote>
 <ul>
 <li>除了看內部內部凝固度之外，還需要進一步看外部的表現。如果一個文本片段能夠算作一個詞的話，它應該能夠靈活地出現在各種不同的環境中，具有非常豐富的左鄰字集合和右鄰字集合。</li>
-<li>以「被子」和「輩子」為例，我們可以說「買被子」、「蓋被子」、「進被子」、「好被子」、「這被子」等等，在「被子」前面加各種字；但「輩子」的用法卻非常固定，除了「一輩子」、「這輩子」、「上輩子」、「下輩子」，基本上「輩子」前面不能加別的字了。</li>
-<li>「輩子」這個文本片段前面可以出現的字太有限，以至於直覺上我們可能會認為，「輩子」並不單獨成詞，真正成詞的其實是「一輩子」、「這輩子」之類的整體。</li>
+<li>以「被子」和「輩子」為例，我們可以說「買被子」、「蓋被子」、「進被子」、「好被子」、「這被子」等等，在「被子」前面加各種字；但「輩子」的用法卻非常固定，除了「一輩子」、「這輩子」、「上輩子」、「下輩子」，基本上「輩子」前面不能加別的字了。「輩子」這個文本片段前面可以出現的字太有限，以至於直覺上我們可能會認為，「輩子」並不單獨成詞，真正成詞的其實是「一輩子」、「這輩子」之類的整體。</li>
 </ul>
 </blockquote>
 <h2 id="綜合評分"><a class="header-anchor" href="#綜合評分">¶</a>綜合評分</h2>
 <blockquote>
-<p>這裡透過簡單的加總凝固度和自由度的得分來幫各個詞評分，接著我們就可以按照這個評分對資料集排序，並且自行決定合適的閾值(Threshold)，來選擇要選幾分以上的詞作為我們的專屬字典。<br>
-實際在使用時，可以再自行調整這個綜合評分應該如何加權計算。</p>
+<ul>
+<li>這裡透過簡單的加總凝固度和自由度的得分來幫各個詞評分，接著我們就可以按照這個評分對資料集排序，並且自行決定合適的閾值(Threshold)，來選擇要選幾分以上的詞作為我們的專屬字典。</li>
+<li>實際在使用時，可以再自行調整這個綜合評分應該如何加權計算。</li>
+</ul>
 </blockquote>
 <h1>新詞偵測實作</h1>
 <ul>
@@ -565,6 +565,10 @@
             <a href="/tags/新詞偵測/" rel="tag"># 新詞偵測</a>
           
             <a href="/tags/中文斷詞技術/" rel="tag"># 中文斷詞技術</a>
+          
+            <a href="/tags/Entropy/" rel="tag"># Entropy</a>
+          
+            <a href="/tags/PMI/" rel="tag"># PMI</a>
           
         </div>
       
@@ -683,7 +687,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
