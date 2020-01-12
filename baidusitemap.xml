@@ -4,6 +4,27 @@
 
     
   <url>
+    <loc>https://TLYu0419.github.io/2019/04/07/Crawl-SongGuo/</loc>
+    <lastmod>2020-01-12T08:08:52.401Z</lastmod>
+    <data>
+        <display>
+        <title>爬蟲 - 爬取松果購物商品資訊</title>
+        <pubTime>2019-04-07T12:53:39.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>爬蟲(Crawl)</tag>
+         
+        <tag>SongGuo</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://TLYu0419.github.io/2020/01/05/NewWordDetection/</loc>
     <lastmod>2020-01-08T16:48:34.217Z</lastmod>
     <data>
@@ -36,11 +57,11 @@
         <title>透過網路爬蟲抓取1111人力銀行的公司資料</title>
         <pubTime>2019-12-29T09:04:51.000Z</pubTime>
         
-        <tag>1111人力銀行</tag>
+        <tag>網路爬蟲</tag>
          
         <tag>python</tag>
          
-        <tag>網路爬蟲</tag>
+        <tag>1111人力銀行</tag>
          
          
            
@@ -57,9 +78,9 @@
         <title>如何爬取 GooglePlay 的APP留言與評分</title>
         <pubTime>2019-12-26T10:15:22.000Z</pubTime>
         
-        <tag>python</tag>
-         
         <tag>網路爬蟲</tag>
+         
+        <tag>python</tag>
          
         <tag>Selenium</tag>
          
@@ -82,13 +103,13 @@
         <title>如何透過爬蟲抓取中時新聞</title>
         <pubTime>2019-10-30T12:46:01.000Z</pubTime>
         
-        <tag>python</tag>
+        <tag>中時電子報</tag>
          
         <tag>網路爬蟲</tag>
          
-        <tag>中時電子報</tag>
-         
         <tag>新聞</tag>
+         
+        <tag>python</tag>
          
         <tag>多線程</tag>
          
@@ -99,27 +120,6 @@
     </url>
 
     
-    
-  <url>
-    <loc>https://TLYu0419.github.io/2019/04/07/Crawl-SongGuo/</loc>
-    <lastmod>2019-11-19T04:33:01.002Z</lastmod>
-    <data>
-        <display>
-        <title>爬蟲 - 爬取松果購物商品資訊</title>
-        <pubTime>2019-04-07T12:53:39.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-        <tag>爬蟲(Crawl)</tag>
-         
-        <tag>SongGuo</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
     
   <url>
     <loc>https://TLYu0419.github.io/2019/05/01/Crawl-Facebook/</loc>
