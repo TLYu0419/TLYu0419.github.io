@@ -4,6 +4,27 @@
 
     
   <url>
+    <loc>https://TLYu0419.github.io/2020/02/07/WebCrawler-ProxyPool/</loc>
+    <lastmod>2020-02-14T13:28:10.093Z</lastmod>
+    <data>
+        <display>
+        <title>如何建構代理IP的清單(Proxy Pool)</title>
+        <pubTime>2020-02-06T16:57:05.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>Proxy pool</tag>
+         
+        <tag>Colab</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://TLYu0419.github.io/2019/04/07/Crawl-SongGuo/</loc>
     <lastmod>2020-01-12T08:08:52.401Z</lastmod>
     <data>
@@ -131,11 +152,11 @@
         
         <tag>python</tag>
          
-        <tag>Selenium</tag>
-         
         <tag>Crawler</tag>
          
         <tag>Facebook</tag>
+         
+        <tag>Selenium</tag>
          
          
            
@@ -156,9 +177,9 @@
          
         <tag>爬蟲(Crawl)</tag>
          
-        <tag>104人力銀行</tag>
-         
         <tag>Selenium</tag>
+         
+        <tag>104人力銀行</tag>
          
         <tag>requests</tag>
          
