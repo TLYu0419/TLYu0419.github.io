@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://TLYu0419.github.io/2020/02/07/WebCrawler-ProxyPool/</loc>
-    <lastmod>2020-02-14T13:28:10.093Z</lastmod>
+    <lastmod>2020-02-14T13:33:15.055Z</lastmod>
     <data>
         <display>
         <title>如何建構代理IP的清單(Proxy Pool)</title>
@@ -103,9 +103,9 @@
          
         <tag>python</tag>
          
-        <tag>Selenium</tag>
-         
         <tag>評分</tag>
+         
+        <tag>Selenium</tag>
          
         <tag>GooglePlay</tag>
          
@@ -152,11 +152,11 @@
         
         <tag>python</tag>
          
+        <tag>Selenium</tag>
+         
         <tag>Crawler</tag>
          
         <tag>Facebook</tag>
-         
-        <tag>Selenium</tag>
          
          
            
