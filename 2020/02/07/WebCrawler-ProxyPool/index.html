@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="python,Proxy pool,Colab," />
+  <meta name="keywords" content="python,Proxy pool,Colab,代理IP," />
 
 
 
@@ -81,22 +81,22 @@
 
 
 
-<meta name="description" content="當我們在進行網路爬蟲時，或多或少都會碰到網站設置的反爬蟲機制，其中簡單的是檢查headers(瀏覽器參數)，複雜些的則會「鎖定大量訪問的IP」、「圖形驗證碼」、「登入」…等等，不過既然有「反爬蟲機制」，當然也就會有「反反爬蟲機制」囉！ 今天我要介紹的就是如何建構代理IP的清單(Proxy Pool)，透過代理IP來爬資料我們就可以避開「鎖定大量訪問的IP」的反爬蟲機制！">
-<meta name="keywords" content="python,Proxy pool,Colab">
+<meta name="description" content="當我們在進行網路爬蟲時，或多或少都會碰到網站設置的反爬蟲機制，其中簡單的是檢查headers(瀏覽器參數)，複雜些的則會「鎖定大量訪問的IP」、「圖形驗證碼」、「登入」…等等，不過既然有「反爬蟲機制」，當然也就會有「反反爬蟲機制」囉！ 今天我要介紹的就是如何建構代理IP的清單( Proxy Pool )，透過代理IP來爬資料我們就可以避開「鎖定大量訪問的IP」的反爬蟲機制！">
+<meta name="keywords" content="python,Proxy pool,Colab,代理IP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何建構代理IP的清單(Proxy Pool)">
 <meta property="og:url" content="https://TLYu0419.github.io/2020/02/07/WebCrawler-ProxyPool/index.html">
 <meta property="og:site_name" content="旅程">
-<meta property="og:description" content="當我們在進行網路爬蟲時，或多或少都會碰到網站設置的反爬蟲機制，其中簡單的是檢查headers(瀏覽器參數)，複雜些的則會「鎖定大量訪問的IP」、「圖形驗證碼」、「登入」…等等，不過既然有「反爬蟲機制」，當然也就會有「反反爬蟲機制」囉！ 今天我要介紹的就是如何建構代理IP的清單(Proxy Pool)，透過代理IP來爬資料我們就可以避開「鎖定大量訪問的IP」的反爬蟲機制！">
+<meta property="og:description" content="當我們在進行網路爬蟲時，或多或少都會碰到網站設置的反爬蟲機制，其中簡單的是檢查headers(瀏覽器參數)，複雜些的則會「鎖定大量訪問的IP」、「圖形驗證碼」、「登入」…等等，不過既然有「反爬蟲機制」，當然也就會有「反反爬蟲機制」囉！ 今天我要介紹的就是如何建構代理IP的清單( Proxy Pool )，透過代理IP來爬資料我們就可以避開「鎖定大量訪問的IP」的反爬蟲機制！">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://lh3.googleusercontent.com/XpGOGzFPJSsJCsI-MzGD_ORk0vn5NwA87omrsJVE_8HVRYoG87U3zoM-XKhmFOxIpEZQwmiBbBXNpgxwNv0tLixnBEU-Bo-h4E0Ok34onfxN9oy5O7DXxQ9nWhRaOb8ci1XvUPzE-ClXI2M-JPP1EgihddnAgri9Pb63_226MgvgsgQuyTnMZfWurLu196MauyPrMX8AcKTjQuapdowKcnQEdY3zvWIDWUuNrQLvFE3G46ZuVaseGforOsmMEW1pfmilDlHBNuOxwDcVQIgkN4HQ5Jk8jCulT3dIt9d3FuojR_pYV75193kNoMtjAddILBrLIJM7MfL9sdfWhSsE-51DF6rvZCitwTpLfBgtnwtcQeJ62fqDQ-xU9Fn6PX5xYEsb0SZ-wlQurHnO8tPGjaD7yhvp-0C1e2Tx42vfSj-Y7vRQ3iL-d4rz35dkhW4K5Qom0scT2g7MY8ps5M6mSZwamcp64k0h_7hyPaI3rmN3ripo5J3KV7pVioeCdAjsoIhHiGc3fbp6Jg6RjhfGA6OfDq_vWdU3w2M8weE6wzYGnyhBDJR8jR3EgqXgDiwd0XVYfIzOtjMrd4Ee4pRSwjp-8IXFNKmivla0firDAV66rZjhR6r1GEGL98QLQKbYqrtOWeUMS0c-4yzmuPDd2N1n97AgKWHIKmQz4VexSa3D9e8yvN5-gnd8xrO4=s1843-w1843-h978-no">
 <meta property="og:image" content="https://lh3.googleusercontent.com/HF1yxLSPCmhAmznlUHSYZvtCSJxq3j1iFUCkUAcV-bwrg68VdWjTJ8-yftiPk6ORvTRLqPXcc5OLZlIrazmEbn7xanaR-rThHD3FLGbyicPlzrQFPyJdSDp4MKxs7SFnQUYMPkZLgmtUvxhqUjZ3L4tDkgS8SsGlFmyRctMhDswo54WVildO-8uKLSZqr4LfADtvcHtZyN3wCN4lMCve2HRQNJ0gXksenMO1zEZRrkVQRn-JBGoKVWfJr-hWyRbHW8Y5FJ-lYw4jFBsh-BuSMMOMxnY8gopsKMKMuXuRawq8dlyXcr51XE5oMdgET-NAYeOHDiIPoPnyfzSUgYyGxTk09YmJaxwEa9vizZbUxGFuPjQbjG2o8HEMTbrJvRjy2t4nb8tmZo_TV-poF02atWOgOD_0crjuNh6KN-EDZQtIzngiUIKYiFymIJVDqNttoxrP4ZrD0nradgiZyRizE2LM_vqvxlcNi4Am99QqXQXIkOCwkwXu_GVnORYQDKR-cyBLjxAEEnAfxtkN1eJkw_AUYJMc3USJ9OjssS-fb6LuW0fz_NoDPt2nvY_sQgGgYWV2JvYzRko1xhyTX6VXIcT0FtALdSTI-0AhmOmYK2qnJYgGu2ptcgU_cMGP96_JddKo3X7U9nCQv0W-LpYNmLCbUmdp2sgkHDN-3xUpX_CaMyLfIBqlWSNRR4PH=s1847-w1847-h978-no">
 <meta property="og:image" content="https://lh3.googleusercontent.com/CGeuFhe8iXsa5pjHhebVPdhvuXLxFZEME5K55ltXIrW7R0cs_5vNtqLOyFAodq3xKjnQ2Jru9e8LyUwOEdL0HB2EInDmFSmINibDbxAqDYLAxrVFkC5VQE0oHn4YGnG_E_dtiilFno68oAUETCGl5fvA3_w0tGc_xYmZt63w99k43z3_ezcdVtI00NIA1eWo5NciUw1ZTyGP9P5Booa20aesNixxjxelc7mvo85Piou_trbzxiZXF9kyeeo6MNZEMHZrmSViih8gtlddX2cX8sHgjWK75M1-JFtNfIHYzKIy9ixVbSdk4BKgIMNZSFEKYA3pgkxlAeVevp3Kb5DcdZ685Lql2hIbM8k1ITlMeZjPrDMMIX4wlr51RvgGbwa5ExjU4oJRPVSULgXqZQm6ZETPzh7w8cgFgFhxhMQoUKhh6g4hbH_aLFYxRaogGOBgClRHzvyf7_BG2mS5OkR1nRsoaUG_IQeS08jA_UvwAozD61Qr8FVwo4MgES4XCx7TJWyfkHWFfqaKwFDs2Z1yTjp8CNnTMqf32_agdCp_Tl5wetd3oWePWmCirxvkYbizsTf3Mdh4tjYsV7la2mVeHAhrlLZPxaYcIw9TGC4G9NuD5ro5AmAankdTleDbhHnobISJSac3e9D-XENBbUFmjw0gG5_baxw9TquXqvwXLb6Lh3yVKar3ZyY=w702-h588-no">
 <meta property="og:image" content="https://lh3.googleusercontent.com/mpJ3CTXL5OYoijGnd95bm8wFJut98UpcDT_gvwSuVrs9-ydMWReaKtgZZ-vza355xH7SndLwguEMpUite5HkGrUx-WxZPTzfIElrDmEAvyDvGQH8EdOCCDhgzKypMwX_2W_o9v-IMGoV3xooKL3QA-hII3HO-iO88n9ZprIrEdg7ib0oWAKk668XfTHbo0DAWGz2p7DrAJ9tMDzzHvc7tzhcRnRr7QU3caDLaqk6PeSwOppEyl-fRYDKiFrzD5HEzj9GFISTDsHoi5GX4cJBgCi4PvOgN1aCJNcjqlGn6Pn-YEuc2d6pYOX6YEWem_BbaLux-qEKRxtBM6AG9oCGcQVw8VUH1tP4H9cSceHtDoQTQgIqoNrepE-CJTXWX64bpayXQE1umVpWheXIeA_zbHl8YC0rs8x52HEkBrZoIoQ3ZisQF-JS2hQstQXrDFef8hOtTZtKOXk3fh-ihIzR-QGSFXhkJzdw4zhrjo9Vxp_mJzmgL5Az8il9KFsY0kbLhJAY4G9LhR6hkMvE_1NsPgdxwLUyAzwZzlTs3CagQppyxehkJCx67SzWn2L3VGbshqSC9q8_OvZbc-IRpyvgjdH9mCBe_eFb4f90KyUByZDudiviIb00qInmNFfjPaP3Q0QJuQ30QyvIeXGC2T7LDLIGlOPisbxlsEfYOOlg1vbRnoL2k4UI2l8=w394-h820-no">
-<meta property="og:updated_time" content="2020-02-14T13:33:15.055Z">
+<meta property="og:updated_time" content="2020-02-14T13:41:48.446Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何建構代理IP的清單(Proxy Pool)">
-<meta name="twitter:description" content="當我們在進行網路爬蟲時，或多或少都會碰到網站設置的反爬蟲機制，其中簡單的是檢查headers(瀏覽器參數)，複雜些的則會「鎖定大量訪問的IP」、「圖形驗證碼」、「登入」…等等，不過既然有「反爬蟲機制」，當然也就會有「反反爬蟲機制」囉！ 今天我要介紹的就是如何建構代理IP的清單(Proxy Pool)，透過代理IP來爬資料我們就可以避開「鎖定大量訪問的IP」的反爬蟲機制！">
+<meta name="twitter:description" content="當我們在進行網路爬蟲時，或多或少都會碰到網站設置的反爬蟲機制，其中簡單的是檢查headers(瀏覽器參數)，複雜些的則會「鎖定大量訪問的IP」、「圖形驗證碼」、「登入」…等等，不過既然有「反爬蟲機制」，當然也就會有「反反爬蟲機制」囉！ 今天我要介紹的就是如何建構代理IP的清單( Proxy Pool )，透過代理IP來爬資料我們就可以避開「鎖定大量訪問的IP」的反爬蟲機制！">
 <meta name="twitter:image" content="https://lh3.googleusercontent.com/XpGOGzFPJSsJCsI-MzGD_ORk0vn5NwA87omrsJVE_8HVRYoG87U3zoM-XKhmFOxIpEZQwmiBbBXNpgxwNv0tLixnBEU-Bo-h4E0Ok34onfxN9oy5O7DXxQ9nWhRaOb8ci1XvUPzE-ClXI2M-JPP1EgihddnAgri9Pb63_226MgvgsgQuyTnMZfWurLu196MauyPrMX8AcKTjQuapdowKcnQEdY3zvWIDWUuNrQLvFE3G46ZuVaseGforOsmMEW1pfmilDlHBNuOxwDcVQIgkN4HQ5Jk8jCulT3dIt9d3FuojR_pYV75193kNoMtjAddILBrLIJM7MfL9sdfWhSsE-51DF6rvZCitwTpLfBgtnwtcQeJ62fqDQ-xU9Fn6PX5xYEsb0SZ-wlQurHnO8tPGjaD7yhvp-0C1e2Tx42vfSj-Y7vRQ3iL-d4rz35dkhW4K5Qom0scT2g7MY8ps5M6mSZwamcp64k0h_7hyPaI3rmN3ripo5J3KV7pVioeCdAjsoIhHiGc3fbp6Jg6RjhfGA6OfDq_vWdU3w2M8weE6wzYGnyhBDJR8jR3EgqXgDiwd0XVYfIzOtjMrd4Ee4pRSwjp-8IXFNKmivla0firDAV66rZjhR6r1GEGL98QLQKbYqrtOWeUMS0c-4yzmuPDd2N1n97AgKWHIKmQz4VexSa3D9e8yvN5-gnd8xrO4=s1843-w1843-h978-no">
 
 
@@ -343,7 +343,7 @@
               
                 <span class="post-meta-item-text">更新於&#58;</span>
               
-              <time title="更新於" itemprop="dateModified" datetime="2020-02-14T21:33:15+08:00">
+              <time title="更新於" itemprop="dateModified" datetime="2020-02-14T21:41:48+08:00">
                 2020-02-14
               </time>
             
@@ -389,7 +389,7 @@
 
       
         <p>當我們在進行網路爬蟲時，或多或少都會碰到網站設置的反爬蟲機制，其中簡單的是檢查headers(瀏覽器參數)，複雜些的則會「鎖定大量訪問的IP」、「圖形驗證碼」、「登入」…等等，不過既然有「反爬蟲機制」，當然也就會有「反反爬蟲機制」囉！</p>
-<p>今天我要介紹的就是如何建構代理IP的清單(Proxy Pool)，透過代理IP來爬資料我們就可以避開「鎖定大量訪問的IP」的反爬蟲機制！</p>
+<p>今天我要介紹的就是如何建構代理IP的清單( Proxy Pool )，透過代理IP來爬資料我們就可以避開「鎖定大量訪問的IP」的反爬蟲機制！</p>
 <a id="more"></a>
 <h1>文章架構</h1>
 <ul>
@@ -464,8 +464,9 @@
 </ul>
 <h1>後續</h1>
 <ul>
-<li>之前在透過 Facebook 的 graphql/api 爬貼文時，會發現每個 IP 大約開啟 1,000 則貼文後就會被封鎖 IP 了。這時候我們當然可以手動的 開啟/關閉 手機的飛航模式，讓手機重新抓基地台的訊號，藉此達到替換 IP 的目的，但這樣的過程畢竟還是有些麻煩。這時候我們如果透過代理 IP 來爬資料，就不用頻繁的進行換IP的工作囉~</li>
-<li>程式可以直接在這邊執行/下載：<a href="https://colab.research.google.com/drive/1PgALsr6iArpUE4NHt4GJw2TkiGH7we-m" target="_blank" rel="noopener">GetProxy.ipynb</a></li>
+<li>之前在透過 Facebook 的 graphql/api 爬貼文時，會發現每個 IP 大約開啟 1,000 則貼文後就會被封鎖 IP 了。</li>
+<li>當資料量小的時候，我們當然可以透過手動的 開啟/關閉 手機的飛航模式，讓手機重新抓基地台的訊號，藉此達到替換 IP 的目的，但如果我們需要抓上萬則留言的話，就會需要透過代理 IP 的方式來爬資料了!</li>
+<li>有問題歡迎在底下留言，而程式可以直接在這邊執行/下載：<a href="https://colab.research.google.com/drive/1PgALsr6iArpUE4NHt4GJw2TkiGH7we-m" target="_blank" rel="noopener">GetProxy.ipynb</a></li>
 </ul>
 
       
@@ -500,6 +501,8 @@
             <a href="/tags/Proxy-pool/" rel="tag"># Proxy pool</a>
           
             <a href="/tags/Colab/" rel="tag"># Colab</a>
+          
+            <a href="/tags/代理IP/" rel="tag"># 代理IP</a>
           
         </div>
       
@@ -618,7 +621,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
