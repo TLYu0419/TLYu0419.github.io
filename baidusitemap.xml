@@ -4,6 +4,29 @@
 
     
   <url>
+    <loc>https://TLYu0419.github.io/2020/03/17/Crawl-Facebook-Pages/</loc>
+    <lastmod>2020-03-17T15:35:23.147Z</lastmod>
+    <data>
+        <display>
+        <title>Facebook粉絲專頁爬蟲心得</title>
+        <pubTime>2020-03-17T04:35:30.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>Facebook</tag>
+         
+        <tag>requests</tag>
+         
+        <tag>Web Crawler</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://TLYu0419.github.io/2020/02/27/Crawl-PageBoard/</loc>
     <lastmod>2020-02-29T02:23:59.090Z</lastmod>
     <data>
@@ -36,9 +59,9 @@
         
         <tag>python</tag>
          
-        <tag>Google Trends</tag>
-         
         <tag>Web Crawler</tag>
+         
+        <tag>Google Trends</tag>
          
          
            
@@ -198,9 +221,9 @@
         
         <tag>python</tag>
          
-        <tag>Crawler</tag>
-         
         <tag>Facebook</tag>
+         
+        <tag>Crawler</tag>
          
         <tag>Selenium</tag>
          
@@ -221,13 +244,13 @@
         
         <tag>python</tag>
          
+        <tag>requests</tag>
+         
         <tag>Selenium</tag>
          
         <tag>爬蟲(Crawl)</tag>
          
         <tag>104人力銀行</tag>
-         
-        <tag>requests</tag>
          
         <tag>BeautifulSoup</tag>
          
