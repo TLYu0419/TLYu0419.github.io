@@ -84,7 +84,7 @@
 <meta name="description" content="先前曾發表過 網路爬蟲_Facebook粉絲團貼文與留言 的文章，可以透過 Selenium 來抓取 Facebook 粉絲專頁的貼文與留言，但由於 Selenium 的效率實在太慢了，因此這篇文章是記錄我嘗試用 request 抓取資料的心得，並且於文末附上台灣的2020總統大選三位候選人從 2019年 1 月至 2020 年 2 月間的貼文與留言資料~">
 <meta name="keywords" content="python,Facebook,requests,Web Crawler">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Facebook粉絲專頁爬蟲心得">
+<meta property="og:title" content="Facebook粉絲專頁爬蟲筆記">
 <meta property="og:url" content="https://TLYu0419.github.io/2020/03/17/Crawl-Facebook-Pages/index.html">
 <meta property="og:site_name" content="旅程">
 <meta property="og:description" content="先前曾發表過 網路爬蟲_Facebook粉絲團貼文與留言 的文章，可以透過 Selenium 來抓取 Facebook 粉絲專頁的貼文與留言，但由於 Selenium 的效率實在太慢了，因此這篇文章是記錄我嘗試用 request 抓取資料的心得，並且於文末附上台灣的2020總統大選三位候選人從 2019年 1 月至 2020 年 2 月間的貼文與留言資料~">
@@ -99,9 +99,9 @@
 <meta property="og:image" content="https://lh3.googleusercontent.com/HwVy6hgv1cIaV-bsqpggVKIbioHOAAvFHDYRA5nwaRSCERE18fthrIEliwvdPMpnF8iyQCdUt6HsC0nT3mbFyXVwBm9tFULzN0oD7O2oSjrMLBUr7LKlKzl_GoGOCIVeEl6ct9jKo8eO78hSiFgr698oPBQyO6TQxUC3qN6PZNxVaT-DKWjQWenLodkrblduc94EXnwEMqT98Xja0nprsFSm_FJKQd9ctweJcrYqm5Ndv2fCzAcIeavK0o23ng_BBiTBXi6GFTsEQo2AjfIBvp5huTmG2ULDcvLqJFzFCJwOtCoEcfq_vM-qP8KOyju7KB35IYOsVNY9Q-o4jjFyGZ_ullXxkPOcr-eiWOcdo8_7HycA_4gL_EY4phA1549igwtI6T1Bt1xYWZnEcLJQgSdufO-VkP2HwZvLTH9-DxBMFSEXHUKXdDILfsCUwrNKreEoprgJwxHwve7sH4mQ8DgIepMhcmxiy-vXxq6hzy52gBFoA4Uqah6Aku2zTctdYCCH5g5c7I0VX8wIWeNKqZYbZ977iJFyMY4LJPr1I99cJJg2du2UQV-21EENhTFN90xbKUaS2IpLa-8xXGJlMr157V2SJSIqsojRfSJ42yXoxFfHAva9iaSPvW8K0maS8s8dTMze-7hwp825PMM_ft9c2_BlbhBKbGDbsVj1nKRFjFuLr9C0CZ2y7fx29gC3C2byE4eVP9wTtchw-XVm5-4_1uLukfOz2oqXjQrkdl2MkgtxxVVj4wM=w849-h929-no">
 <meta property="og:image" content="https://lh3.googleusercontent.com/SDCISaMhAgQaA2Z1E8eLyZKBOiHS8CyZbOeDDAPvKvcsDtGLt-A0islLxu8c38oYoNkPvO8uCjRKSQnxQILMlmhAtTCShOWVMomEdz3gQunhMgS_rsXYQxASvMJj4KcUq1Mvm0bZK_e-o7i0y0iFGvqpscKydrgIqiCE1QeYkCqmPH34F7GdQqNwfqVm2wz6UYuMhsgYNNZO0Pc3s9zJwQzQ4ZlV1Egcf25awcIbSJq57OZP_94EpR6VgJ2XmSdktjsHtvK86FYWQMiTTVDnLizLBhaICuFK75yK9rWGkhysY0tyNpZ_fZovIgTEoNGV1mUHGr3l8stJSq1yLei8Cu6GkUp6Vd3o_yhYPaoBJwc5R_5h7IZiECIuzSJ_Fz5cuBetNhxZRhN6ZWtwZw-QHh65J_3obaYUfi-E1tEiWtXDySY1_iewisn3D_P7yweBfUOVEC-OKE6tgQu5qRJIaqUYLSD_vo8I90Wung51YOHDCBVsKjr7HtwcP5HxGblCAKBN_iD-7coXIkjcX3nNUa0R1MWT83MzO2T7S5yECzJBzC4YV7SCg0eDTTUzTQDKPAyFmIkl8fVVZNuwJVnOxkOTsZ9x1QL39Pac3whhEnxOOopY62x58iGFsMGcpFp-QG41l2zB2k47Db5R2gJrNnW_cf5clq7Ky_4DULAiGlTb5tj7uLGNzFf69PB9wy5KBo9J2JFtlYQT6q-F7rSJCSNOyNYZ_8BWK52coliIbTgQW06dk5jVHbo=w1847-h822-no">
 <meta property="og:image" content="https://lh3.googleusercontent.com/Khu49E5W45JG8gvzz1YD5An01Rf_iq9kl8FHLFt0Xa3Hxk5LZmtZzVtFjYLT_0CC8RsfUs0pbwWNzGz6IJ-bjH-XcJQ2EF1A0hXE_4upfhRxSGq-o1ZK25z7Hnw5JwYvft6cCi-VOIQZaUMHnN8PvHLzDr7Ghv8dk1O8Q61joi5p3MdyUpo9ISrKNPBr8_D98Jl8grYgDeeGyR-wt_jfWabZstR9dKuCmb8COQC5pVvgmliev0oT_lvQ2lbRTWYvgbm9IxI2E-JhToDdTMdDAsuW-5v_QePy82g4jKst40Yw-311LVoBnSMAd2UH6zs5kXNa2CelLUiSpI_AQCuoR7ivb8mkBq7tE7UDnvOhduzNetayY9G-u_adgYhJqKVJuANKM_mV_sMzVQcQuvnAI-jNCMiqWJSD7b5Ne1xg9RY14YEBynh09H5G7TXkP8PmejVDwyRR4HK9box9mdvZBVam7bGvozedrSpDRynCoE2NOr9-rmjeeBiwBUOekJv4HF9Yl_2KTkFBG6GY95onp6cHkn-2U09cf1Tajq0sqrMNfBTxXG96wW2OxzeDRFeW5YbeY-dvWr6-AsGy30tS9wn3txHTZ9c3Yjb8IyBv1ODXz4x4iqkP9yrktH4lQHVvh5qhTozfbZC6-y7U8kYG5eY1VKEHxlnBxFiUiKwKQ27P2nzt7fgiJC_ZKccIF1ObEQDgcdZhqbXkhrPd2YFFXiOY5kkt6JerrDR5r6Em9nJnHkler9PH5FA=w1845-h830-no">
-<meta property="og:updated_time" content="2020-03-17T15:35:23.147Z">
+<meta property="og:updated_time" content="2020-03-17T15:38:45.682Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Facebook粉絲專頁爬蟲心得">
+<meta name="twitter:title" content="Facebook粉絲專頁爬蟲筆記">
 <meta name="twitter:description" content="先前曾發表過 網路爬蟲_Facebook粉絲團貼文與留言 的文章，可以透過 Selenium 來抓取 Facebook 粉絲專頁的貼文與留言，但由於 Selenium 的效率實在太慢了，因此這篇文章是記錄我嘗試用 request 抓取資料的心得，並且於文末附上台灣的2020總統大選三位候選人從 2019年 1 月至 2020 年 2 月間的貼文與留言資料~">
 <meta name="twitter:image" content="https://lh3.googleusercontent.com/cVJxdsY25nJinI9_OHsu4m4KBzKm7xXB1BQAP6bpvO7bj4buMJ0CiUrXT0J7e21Qi7Kf0vhGmqIROHISQhwZu9XH0kqoifKT8oYaCqhFP4Q83xZDfvtCb8Fc8tn6P8v9EKjeCGssai_A5lRqmSFVviH1xb50hY8gHoPPPJ_6fP3IUgNNtTgiyXtb2SGcb5Vagml-z8PYn8y5z0ZvjzqVBcIoyZqGYQ5ezzNr7ali3aV4_oOC-okBWzhhSnHVgbaSp5gtkBPjF3p8mdNdtp9ZzvJ3lgIjqLszGEjs_rdzWgXDfmSpjdFBcY4I8Rzycb9_fad5AjcDuXqasKQ_PF9LJdlSXOpU34Rva0yecpU_yYC8cAfD9hP7sKuQyq1VS0sfwcuc4gVHGoX7vbCcD3lcKQ8bI80OZaABqkeUy9cORoYaNtv_7zO7skCeCENWA9oB3UKDewUMzZrPO7j7iajXStiwPEWKNJAavPgItGMJQI_OAQ-jieIvcnQ7vA4S1VnefP1qQdD9_QpFcoR4fTaXAgaun5BuxKe9IvDBNItC-cqZ3a0xGIXKfSEhRkztM2jA5Ib66RgWgEsT34CgyUxY1W6FzdDc_FCcuJga_dnCfDOpOeaeGEHNcNP2wxrlZDqE7mIBtP5YP3dcfLPa_g01yb5QH2NOp8gq2npShQR4UTNzn36HkvMcAU5jtfOBfgHWBOivGkSIWvSH9DG9F7saq2DKul1wQYQT_IRrGvQmkITsZQqWPh7Y52k=w1118-h929-no">
 
@@ -139,7 +139,7 @@
 
 
 
-  <title>Facebook粉絲專頁爬蟲心得 | 旅程</title>
+  <title>Facebook粉絲專頁爬蟲筆記 | 旅程</title>
   
 
 
@@ -321,7 +321,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Facebook粉絲專頁爬蟲心得</h1>
+          <h1 class="post-title" itemprop="name headline">Facebook粉絲專頁爬蟲筆記</h1>
         
 
         <div class="post-meta">
@@ -349,7 +349,7 @@
               
                 <span class="post-meta-item-text">更新於&#58;</span>
               
-              <time title="更新於" itemprop="dateModified" datetime="2020-03-17T23:35:23+08:00">
+              <time title="更新於" itemprop="dateModified" datetime="2020-03-17T23:38:45+08:00">
                 2020-03-17
               </time>
             
@@ -363,7 +363,7 @@
 
           
           
-             <span id="/2020/03/17/Crawl-Facebook-Pages/" class="leancloud_visitors" data-flag-title="Facebook粉絲專頁爬蟲心得">
+             <span id="/2020/03/17/Crawl-Facebook-Pages/" class="leancloud_visitors" data-flag-title="Facebook粉絲專頁爬蟲筆記">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
