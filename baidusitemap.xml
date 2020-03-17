@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://TLYu0419.github.io/2020/03/17/Crawl-Facebook-Pages/</loc>
-    <lastmod>2020-03-17T15:38:45.682Z</lastmod>
+    <lastmod>2020-03-17T15:40:42.110Z</lastmod>
     <data>
         <display>
         <title>Facebook粉絲專頁爬蟲筆記</title>
@@ -221,9 +221,9 @@
         
         <tag>python</tag>
          
-        <tag>Crawler</tag>
-         
         <tag>Facebook</tag>
+         
+        <tag>Crawler</tag>
          
         <tag>Selenium</tag>
          
@@ -246,9 +246,9 @@
          
         <tag>爬蟲(Crawl)</tag>
          
-        <tag>Selenium</tag>
-         
         <tag>requests</tag>
+         
+        <tag>Selenium</tag>
          
         <tag>104人力銀行</tag>
          
