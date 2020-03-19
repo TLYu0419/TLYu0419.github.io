@@ -118,9 +118,9 @@
       
         <tags>
             
-            <tag> python </tag>
-            
             <tag> 網路爬蟲 </tag>
+            
+            <tag> python </tag>
             
             <tag> 1111人力銀行 </tag>
             
@@ -137,9 +137,9 @@
       
         <tags>
             
-            <tag> python </tag>
-            
             <tag> 網路爬蟲 </tag>
+            
+            <tag> python </tag>
             
             <tag> Selenium </tag>
             
@@ -160,13 +160,13 @@
       
         <tags>
             
-            <tag> python </tag>
-            
             <tag> 中時電子報 </tag>
             
             <tag> 網路爬蟲 </tag>
             
             <tag> 新聞 </tag>
+            
+            <tag> python </tag>
             
             <tag> 多線程 </tag>
             
@@ -187,9 +187,9 @@
             
             <tag> Facebook </tag>
             
-            <tag> Selenium </tag>
-            
             <tag> Crawler </tag>
+            
+            <tag> Selenium </tag>
             
         </tags>
       
@@ -204,15 +204,15 @@
       
         <tags>
             
-            <tag> 爬蟲(Crawl) </tag>
-            
             <tag> python </tag>
+            
+            <tag> 爬蟲(Crawl) </tag>
             
             <tag> requests </tag>
             
-            <tag> 104人力銀行 </tag>
-            
             <tag> Selenium </tag>
+            
+            <tag> 104人力銀行 </tag>
             
             <tag> BeautifulSoup </tag>
             
@@ -229,9 +229,9 @@
       
         <tags>
             
-            <tag> 爬蟲(Crawl) </tag>
-            
             <tag> python </tag>
+            
+            <tag> 爬蟲(Crawl) </tag>
             
             <tag> SongGuo </tag>
             
@@ -248,11 +248,11 @@
       
         <tags>
             
+            <tag> python </tag>
+            
             <tag> 爬蟲(Crawl) </tag>
             
             <tag> Dcard </tag>
-            
-            <tag> python </tag>
             
         </tags>
       
