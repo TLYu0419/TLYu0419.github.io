@@ -91,7 +91,7 @@
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://lh3.googleusercontent.com/Tn37TAEzkC9SspiUXXx7ohUpi1DpUwfDW-3dfuRee4T39AZjFm6PAGPOo7Zsf4bEGcrFoXpqRxMHJXXsEY5yOrQobHPx-4ps9_2RY_w--u8xO8GHSEKeZHV1BnxoUNr2CMKzgEfBBbv-5Ihu4vNZOz4XGukSTtmDpoWbfap5MKKlFQHaRmcqA57-Bl4Ze5uPoTWzlv-_bbmrcqQDKa5Es6J329Y6kLcBtEjUp59LEfoQYzAKM0sb6JeyaEE1H3qaLxRgyhMa6aqRkDGe_brOraHhMqT6fKBoXLAxtCtiocKanbCd3qR0AWdBgTIUuE_Sc5NbM3q4H1jFnK4B2CckaTsWafQDZEquzi1NwvaX0088BXKRzZ7rDDtk7RmCCDH0gYdG6U908B5F5IsnYgul9DteN4q80MDhLRIZffT7VcIbmMTK7IbteGcKucLp7mx-dWrk2t2UT0YoSl2-x5NEHRyIVHrIq3UNC5X_PLzmX_FPaP3ERR3uNWb1Erj4Zs6hqOz9QIEr7IbXr7vAuNHV02Kfn6jTTCOEcDisruFiI10VYn9SQ1haTDSYNm3fl1j910SSQ2LN-oHceV4K93Jrp_IGD3FfQwbhu2lwHatz4u_-3-VzM3giZO9r90x-xZsiQoHeDnUAm-tzo82zbEqYEzcp_wMEh7Nbho0ZqhUr-wxc9iDkyjXK5WccdGiP0KmJfKBL_SAu6DjYpDvooL6K56JqDWxr2ltjBMd1iPk1o75btqQxm2re9nQ=w932-h929-no">
 <meta property="og:image" content="https://lh3.googleusercontent.com/hQuCXfMrkfDRpZ5oE4B_qYPMgASLxpGR3XB_mXlx79bl1xeYbZWsKKVZxGR8pqbPP50MaqBvZV-RA-0DpwdMF5bcqQ707BWWMw-1jkVyqMDYWCpTcmWci8I4gxri3rvjWvF0ifZoZziZ4byAIP5wFPDc-jtmD2rNn72BI1RCqg0O1oEGpMXa_ZXixOzY10NpvyoJjUPuN1NsBu9sDVYso1ZpctdpsN__h90sEvKXj3EzGv6mjVUSD_XTdZ7NVBrjkM3-bn2-Lf3m-9lTnyebsJjovLdtENwYf2CP-RP0oIbiVRfEOiEkrvMCTwV8NyC4pF9FDKabHl48A7att1Q8rpFirIjHYil5UG46PYR8wsio6AFuq1Jtcg-PHdMHXgL4CNyjgG3_7i1CSW8Ls9fThua3cTLZpovZ7oAg8h2VaFz_kTCJ0iR-XLxKYMKPoFzaH1iBhS7lt7jhLu12gltGGXnyXo55fVQYql3lC6f8sGiMxYx9_n4_WM3bYWVik7OLnGn_9AM7kx8wl0KRTLIqCCFuTwHqMwdQO0eso13aoZ8_jphegrYa0dUkuGUKajyDt-dExnkMEE6UAfncuH0MWTeU3zA0g5yWVLpP7mkuynEYCvM8DPFSTHcvF36i5DdynMqdfrUr1WmMrOgfj6OqH5JwuIDh2cu0X4QNNEWFVUEbOxWsc0LzVwN-gCoCNhS16MWvcGTQM_3Tg8jd8TJIUo7mwQHAgxSarbANcS1Zx9CzlRhFaIGz0vU=w1115-h929-no">
-<meta property="og:updated_time" content="2020-04-05T07:51:51.130Z">
+<meta property="og:updated_time" content="2020-04-05T07:59:11.884Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="文本分類大亂鬥_文本特徵處理與機器學習模型綜合分析">
 <meta name="twitter:description" content="當我們在進行自然語言處理(NLP)中的文本分類任務時，我們常常會看到文本特徵有相當多種的處理方式，如詞頻、TF-IDF、word2vec…；而在處理完特徵後的建模階段也有相當多的機器學習與深度學習的演算法。你是不是也跟我一樣好奇這些文本特徵處理與機器學習模型各自組合在一起的時候會有怎樣的結果呢? 這篇文章將嘗試分析 5 萬篇 聯合新聞網站 的新聞，利用新聞的內文來預測新聞的類型(共 10分類)，在">
@@ -341,7 +341,7 @@
               
                 <span class="post-meta-item-text">更新於&#58;</span>
               
-              <time title="更新於" itemprop="dateModified" datetime="2020-04-05T15:51:51+08:00">
+              <time title="更新於" itemprop="dateModified" datetime="2020-04-05T15:59:11+08:00">
                 2020-04-05
               </time>
             
@@ -611,24 +611,26 @@
 </ul>
 <h1>預測結果解析</h1>
 <ul>
-<li>從分析圖的結果來看，模型在區分政治類新聞(類型3)與總統大選觀測站類的新聞(類型8)時是比較吃力的，互相預測錯129/130個樣本。但是我們透過事後的檢視則會知道其實這兩類新聞的性質非常相近，實際在使用時可以思考是否有必要區分出這兩個類別，或著直接將兩者合併成政治類新聞即可。
+<li>
+<p>從分析圖的結果來看，模型在區分政治類新聞(類型3)與總統大選觀測站類的新聞(類型8)時是比較吃力的，互相預測錯129/130個樣本。但是我們透過事後的檢視則會知道其實這兩類新聞的性質非常相近，實際在使用時可以思考是否有必要區分出這兩個類別，或著直接將兩者合併成政治類新聞即可。</p>
 <ul>
-<li>前面有將目標變數的10個類別透過 Label Encoding 轉換成數值資料，各個數值對應的類別如下：
-<ol start="0">
-<li>NBA</li>
-<li>全球財經</li>
-<li>國際焦點</li>
-<li>政治</li>
-<li>流行消費</li>
-<li>生活新聞</li>
-<li>產業綜合</li>
-<li>科技產業</li>
-<li>總統大選觀測站</li>
-<li>金融要聞</li>
-</ol>
-</li>
-<li><img src="https://lh3.googleusercontent.com/hQuCXfMrkfDRpZ5oE4B_qYPMgASLxpGR3XB_mXlx79bl1xeYbZWsKKVZxGR8pqbPP50MaqBvZV-RA-0DpwdMF5bcqQ707BWWMw-1jkVyqMDYWCpTcmWci8I4gxri3rvjWvF0ifZoZziZ4byAIP5wFPDc-jtmD2rNn72BI1RCqg0O1oEGpMXa_ZXixOzY10NpvyoJjUPuN1NsBu9sDVYso1ZpctdpsN__h90sEvKXj3EzGv6mjVUSD_XTdZ7NVBrjkM3-bn2-Lf3m-9lTnyebsJjovLdtENwYf2CP-RP0oIbiVRfEOiEkrvMCTwV8NyC4pF9FDKabHl48A7att1Q8rpFirIjHYil5UG46PYR8wsio6AFuq1Jtcg-PHdMHXgL4CNyjgG3_7i1CSW8Ls9fThua3cTLZpovZ7oAg8h2VaFz_kTCJ0iR-XLxKYMKPoFzaH1iBhS7lt7jhLu12gltGGXnyXo55fVQYql3lC6f8sGiMxYx9_n4_WM3bYWVik7OLnGn_9AM7kx8wl0KRTLIqCCFuTwHqMwdQO0eso13aoZ8_jphegrYa0dUkuGUKajyDt-dExnkMEE6UAfncuH0MWTeU3zA0g5yWVLpP7mkuynEYCvM8DPFSTHcvF36i5DdynMqdfrUr1WmMrOgfj6OqH5JwuIDh2cu0X4QNNEWFVUEbOxWsc0LzVwN-gCoCNhS16MWvcGTQM_3Tg8jd8TJIUo7mwQHAgxSarbANcS1Zx9CzlRhFaIGz0vU=w1115-h929-no" alt=""></li>
+<li>
+<p>前面有將目標變數的10個類別透過 Label Encoding 轉換成數值資料，各個數值對應的類別如下：</p>
+<ul>
+<li>0: NBA</li>
+<li>1: 全球財經</li>
+<li>2: 國際焦點</li>
+<li>3: 政治</li>
+<li>4: 流行消費</li>
+<li>5: 生活新聞</li>
+<li>6: 產業綜合</li>
+<li>7: 科技產業</li>
+<li>8: 總統大選觀測站</li>
+<li>9: 金融要聞</li>
 </ul>
+</li>
+</ul>
+<p><img src="https://lh3.googleusercontent.com/hQuCXfMrkfDRpZ5oE4B_qYPMgASLxpGR3XB_mXlx79bl1xeYbZWsKKVZxGR8pqbPP50MaqBvZV-RA-0DpwdMF5bcqQ707BWWMw-1jkVyqMDYWCpTcmWci8I4gxri3rvjWvF0ifZoZziZ4byAIP5wFPDc-jtmD2rNn72BI1RCqg0O1oEGpMXa_ZXixOzY10NpvyoJjUPuN1NsBu9sDVYso1ZpctdpsN__h90sEvKXj3EzGv6mjVUSD_XTdZ7NVBrjkM3-bn2-Lf3m-9lTnyebsJjovLdtENwYf2CP-RP0oIbiVRfEOiEkrvMCTwV8NyC4pF9FDKabHl48A7att1Q8rpFirIjHYil5UG46PYR8wsio6AFuq1Jtcg-PHdMHXgL4CNyjgG3_7i1CSW8Ls9fThua3cTLZpovZ7oAg8h2VaFz_kTCJ0iR-XLxKYMKPoFzaH1iBhS7lt7jhLu12gltGGXnyXo55fVQYql3lC6f8sGiMxYx9_n4_WM3bYWVik7OLnGn_9AM7kx8wl0KRTLIqCCFuTwHqMwdQO0eso13aoZ8_jphegrYa0dUkuGUKajyDt-dExnkMEE6UAfncuH0MWTeU3zA0g5yWVLpP7mkuynEYCvM8DPFSTHcvF36i5DdynMqdfrUr1WmMrOgfj6OqH5JwuIDh2cu0X4QNNEWFVUEbOxWsc0LzVwN-gCoCNhS16MWvcGTQM_3Tg8jd8TJIUo7mwQHAgxSarbANcS1Zx9CzlRhFaIGz0vU=w1115-h929-no" alt=""></p>
 </li>
 </ul>
 <h1>後記</h1>
