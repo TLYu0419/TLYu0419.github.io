@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="kXxCbQDO6XajMMXlTzIMZ5reUArY4PDB79OFcuYvw-c" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/Data.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/Data.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/Data.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/Data.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="文本分類,聯合新聞,TF-IDF,word2vec,Machine Learning,Deep Learning," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="旅程" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="當我們在進行自然語言處理(NLP)中的文本分類任務時，我們常常會看到文本特徵有相當多種的處理方式，如詞頻、TF-IDF、word2vec…；而在處理完特徵後的建模階段也有相當多的機器學習與深度學習的演算法。你是不是也跟我一樣好奇這些文本特徵處理與機器學習模型各自組合在一起的時候會有怎樣的結果呢? 這篇文章將嘗試分析 5 萬篇 聯合新聞網站 的新聞，利用新聞的內文來預測新聞的類型(共 10分類)，在">
+<meta name="keywords" content="文本分類,聯合新聞,TF-IDF,word2vec,Machine Learning,Deep Learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文本分類大亂鬥_文本特徵處理與機器學習模型綜合分析">
+<meta property="og:url" content="https://TLYu0419.github.io/2020/04/04/Text-Classification/index.html">
+<meta property="og:site_name" content="旅程">
+<meta property="og:description" content="當我們在進行自然語言處理(NLP)中的文本分類任務時，我們常常會看到文本特徵有相當多種的處理方式，如詞頻、TF-IDF、word2vec…；而在處理完特徵後的建模階段也有相當多的機器學習與深度學習的演算法。你是不是也跟我一樣好奇這些文本特徵處理與機器學習模型各自組合在一起的時候會有怎樣的結果呢? 這篇文章將嘗試分析 5 萬篇 聯合新聞網站 的新聞，利用新聞的內文來預測新聞的類型(共 10分類)，在">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://lh3.googleusercontent.com/Tn37TAEzkC9SspiUXXx7ohUpi1DpUwfDW-3dfuRee4T39AZjFm6PAGPOo7Zsf4bEGcrFoXpqRxMHJXXsEY5yOrQobHPx-4ps9_2RY_w--u8xO8GHSEKeZHV1BnxoUNr2CMKzgEfBBbv-5Ihu4vNZOz4XGukSTtmDpoWbfap5MKKlFQHaRmcqA57-Bl4Ze5uPoTWzlv-_bbmrcqQDKa5Es6J329Y6kLcBtEjUp59LEfoQYzAKM0sb6JeyaEE1H3qaLxRgyhMa6aqRkDGe_brOraHhMqT6fKBoXLAxtCtiocKanbCd3qR0AWdBgTIUuE_Sc5NbM3q4H1jFnK4B2CckaTsWafQDZEquzi1NwvaX0088BXKRzZ7rDDtk7RmCCDH0gYdG6U908B5F5IsnYgul9DteN4q80MDhLRIZffT7VcIbmMTK7IbteGcKucLp7mx-dWrk2t2UT0YoSl2-x5NEHRyIVHrIq3UNC5X_PLzmX_FPaP3ERR3uNWb1Erj4Zs6hqOz9QIEr7IbXr7vAuNHV02Kfn6jTTCOEcDisruFiI10VYn9SQ1haTDSYNm3fl1j910SSQ2LN-oHceV4K93Jrp_IGD3FfQwbhu2lwHatz4u_-3-VzM3giZO9r90x-xZsiQoHeDnUAm-tzo82zbEqYEzcp_wMEh7Nbho0ZqhUr-wxc9iDkyjXK5WccdGiP0KmJfKBL_SAu6DjYpDvooL6K56JqDWxr2ltjBMd1iPk1o75btqQxm2re9nQ=w932-h929-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/hQuCXfMrkfDRpZ5oE4B_qYPMgASLxpGR3XB_mXlx79bl1xeYbZWsKKVZxGR8pqbPP50MaqBvZV-RA-0DpwdMF5bcqQ707BWWMw-1jkVyqMDYWCpTcmWci8I4gxri3rvjWvF0ifZoZziZ4byAIP5wFPDc-jtmD2rNn72BI1RCqg0O1oEGpMXa_ZXixOzY10NpvyoJjUPuN1NsBu9sDVYso1ZpctdpsN__h90sEvKXj3EzGv6mjVUSD_XTdZ7NVBrjkM3-bn2-Lf3m-9lTnyebsJjovLdtENwYf2CP-RP0oIbiVRfEOiEkrvMCTwV8NyC4pF9FDKabHl48A7att1Q8rpFirIjHYil5UG46PYR8wsio6AFuq1Jtcg-PHdMHXgL4CNyjgG3_7i1CSW8Ls9fThua3cTLZpovZ7oAg8h2VaFz_kTCJ0iR-XLxKYMKPoFzaH1iBhS7lt7jhLu12gltGGXnyXo55fVQYql3lC6f8sGiMxYx9_n4_WM3bYWVik7OLnGn_9AM7kx8wl0KRTLIqCCFuTwHqMwdQO0eso13aoZ8_jphegrYa0dUkuGUKajyDt-dExnkMEE6UAfncuH0MWTeU3zA0g5yWVLpP7mkuynEYCvM8DPFSTHcvF36i5DdynMqdfrUr1WmMrOgfj6OqH5JwuIDh2cu0X4QNNEWFVUEbOxWsc0LzVwN-gCoCNhS16MWvcGTQM_3Tg8jd8TJIUo7mwQHAgxSarbANcS1Zx9CzlRhFaIGz0vU=w1115-h929-no">
+<meta property="og:updated_time" content="2020-04-05T07:51:51.130Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="文本分類大亂鬥_文本特徵處理與機器學習模型綜合分析">
+<meta name="twitter:description" content="當我們在進行自然語言處理(NLP)中的文本分類任務時，我們常常會看到文本特徵有相當多種的處理方式，如詞頻、TF-IDF、word2vec…；而在處理完特徵後的建模階段也有相當多的機器學習與深度學習的演算法。你是不是也跟我一樣好奇這些文本特徵處理與機器學習模型各自組合在一起的時候會有怎樣的結果呢? 這篇文章將嘗試分析 5 萬篇 聯合新聞網站 的新聞，利用新聞的內文來預測新聞的類型(共 10分類)，在">
+<meta name="twitter:image" content="https://lh3.googleusercontent.com/Tn37TAEzkC9SspiUXXx7ohUpi1DpUwfDW-3dfuRee4T39AZjFm6PAGPOo7Zsf4bEGcrFoXpqRxMHJXXsEY5yOrQobHPx-4ps9_2RY_w--u8xO8GHSEKeZHV1BnxoUNr2CMKzgEfBBbv-5Ihu4vNZOz4XGukSTtmDpoWbfap5MKKlFQHaRmcqA57-Bl4Ze5uPoTWzlv-_bbmrcqQDKa5Es6J329Y6kLcBtEjUp59LEfoQYzAKM0sb6JeyaEE1H3qaLxRgyhMa6aqRkDGe_brOraHhMqT6fKBoXLAxtCtiocKanbCd3qR0AWdBgTIUuE_Sc5NbM3q4H1jFnK4B2CckaTsWafQDZEquzi1NwvaX0088BXKRzZ7rDDtk7RmCCDH0gYdG6U908B5F5IsnYgul9DteN4q80MDhLRIZffT7VcIbmMTK7IbteGcKucLp7mx-dWrk2t2UT0YoSl2-x5NEHRyIVHrIq3UNC5X_PLzmX_FPaP3ERR3uNWb1Erj4Zs6hqOz9QIEr7IbXr7vAuNHV02Kfn6jTTCOEcDisruFiI10VYn9SQ1haTDSYNm3fl1j910SSQ2LN-oHceV4K93Jrp_IGD3FfQwbhu2lwHatz4u_-3-VzM3giZO9r90x-xZsiQoHeDnUAm-tzo82zbEqYEzcp_wMEh7Nbho0ZqhUr-wxc9iDkyjXK5WccdGiP0KmJfKBL_SAu6DjYpDvooL6K56JqDWxr2ltjBMd1iPk1o75btqQxm2re9nQ=w932-h929-no">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://TLYu0419.github.io/2020/04/04/Text-Classification/"/>
+
+
+
+
+
+  <title>文本分類大亂鬥_文本特徵處理與機器學習模型綜合分析 | 旅程</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">旅程</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            關於
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            檢索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://TLYu0419.github.io/2020/04/04/Text-Classification/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tony">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/IMG_20180501_103746.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="旅程">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">文本分類大亂鬥_文本特徵處理與機器學習模型綜合分析</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2020-04-04T14:40:23+08:00">
+                2020-04-04
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新於&#58;</span>
+              
+              <time title="更新於" itemprop="dateModified" datetime="2020-04-05T15:51:51+08:00">
+                2020-04-05
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/04/04/Text-Classification/" class="leancloud_visitors" data-flag-title="文本分類大亂鬥_文本特徵處理與機器學習模型綜合分析">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">閱讀次數&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>當我們在進行自然語言處理(NLP)中的文本分類任務時，我們常常會看到文本特徵有相當多種的處理方式，如詞頻、TF-IDF、word2vec…；而在處理完特徵後的建模階段也有相當多的機器學習與深度學習的演算法。你是不是也跟我一樣好奇這些文本特徵處理與機器學習模型各自組合在一起的時候會有怎樣的結果呢?</p>
+<p>這篇文章將嘗試分析 5 萬篇 <a href="https://udn.com/news/index" target="_blank" rel="noopener">聯合新聞網站</a> 的新聞，利用新聞的內文來預測新聞的類型(共 10分類)，在此感謝 <a href="https://udn.com/news/index" target="_blank" rel="noopener">聯合新聞網站</a> 提供這些豐富的資料!</p>
+<a id="more"></a>
+<p>我們直接先來看測試的結果吧!在這張圖中的 X 軸是在測試資料上的準確度，Y 軸是模型的訓練時間。如果點越接近左下，表示模型的準確度跟訓練時間都很低，如果越接近右上則表示準確度和訓練時間都很高。而如果接近左上，表示模型訓練很久但是模型並不准，接近右下則表示訓練速度很快而且準確度很高。<br>
+<img src="https://lh3.googleusercontent.com/Tn37TAEzkC9SspiUXXx7ohUpi1DpUwfDW-3dfuRee4T39AZjFm6PAGPOo7Zsf4bEGcrFoXpqRxMHJXXsEY5yOrQobHPx-4ps9_2RY_w--u8xO8GHSEKeZHV1BnxoUNr2CMKzgEfBBbv-5Ihu4vNZOz4XGukSTtmDpoWbfap5MKKlFQHaRmcqA57-Bl4Ze5uPoTWzlv-_bbmrcqQDKa5Es6J329Y6kLcBtEjUp59LEfoQYzAKM0sb6JeyaEE1H3qaLxRgyhMa6aqRkDGe_brOraHhMqT6fKBoXLAxtCtiocKanbCd3qR0AWdBgTIUuE_Sc5NbM3q4H1jFnK4B2CckaTsWafQDZEquzi1NwvaX0088BXKRzZ7rDDtk7RmCCDH0gYdG6U908B5F5IsnYgul9DteN4q80MDhLRIZffT7VcIbmMTK7IbteGcKucLp7mx-dWrk2t2UT0YoSl2-x5NEHRyIVHrIq3UNC5X_PLzmX_FPaP3ERR3uNWb1Erj4Zs6hqOz9QIEr7IbXr7vAuNHV02Kfn6jTTCOEcDisruFiI10VYn9SQ1haTDSYNm3fl1j910SSQ2LN-oHceV4K93Jrp_IGD3FfQwbhu2lwHatz4u_-3-VzM3giZO9r90x-xZsiQoHeDnUAm-tzo82zbEqYEzcp_wMEh7Nbho0ZqhUr-wxc9iDkyjXK5WccdGiP0KmJfKBL_SAu6DjYpDvooL6K56JqDWxr2ltjBMd1iPk1o75btqQxm2re9nQ=w932-h929-no" alt=""></p>
+<h1>載入使用套件</h1>
+<p>TensorFlow 近期推出 2.0 的版本了，如果要使用舊版的 TensorFlow 需要輸入以下指令指定 1.x 的版本</p>
+<p>因為這篇文章比較了相當多種模型，因此在這裡使用了相當多的套件，直接全部載入即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">%tensorflow_version <span class="number">1.</span>x</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"><span class="keyword">from</span> gensim.models <span class="keyword">import</span> Word2Vec</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> sqlite3</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> jieba</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> matplotlib <span class="keyword">as</span> mpl</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> LabelEncoder</span><br><span class="line"><span class="keyword">from</span> sklearn.feature_extraction.text <span class="keyword">import</span> CountVectorizer, TfidfVectorizer</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> MinMaxScaler</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> cross_val_score, GridSearchCV, train_test_split, cross_validate, RandomizedSearchCV</span><br><span class="line"><span class="keyword">from</span> sklearn.feature_extraction.text <span class="keyword">import</span> CountVectorizer, TfidfVectorizer</span><br><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC</span><br><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> MultinomialNB  </span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression </span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier  </span><br><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> GradientBoostingClassifier, RandomForestClassifier </span><br><span class="line"><span class="keyword">import</span> xgboost <span class="keyword">as</span> xgb</span><br><span class="line"><span class="keyword">import</span> lightgbm <span class="keyword">as</span> lgb</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> metrics</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> keras.utils <span class="keyword">import</span> to_categorical</span><br><span class="line"><span class="keyword">from</span> tensorflow.python.keras <span class="keyword">import</span> layers, models, optimizers</span><br><span class="line"><span class="keyword">from</span> tensorflow.python.keras.layers <span class="keyword">import</span> Conv1D, MaxPooling1D, Embedding</span><br><span class="line"><span class="keyword">from</span> tensorflow.python.keras.preprocessing <span class="keyword">import</span> text, sequence</span><br><span class="line"><span class="keyword">from</span> tensorflow.python.keras.layers <span class="keyword">import</span> Dense, Input, Flatten, Dropout, LSTM, BatchNormalization</span><br><span class="line"><span class="keyword">from</span> tensorflow.python.keras <span class="keyword">import</span> Sequential</span><br><span class="line"><span class="keyword">from</span> tensorflow.python <span class="keyword">import</span> keras</span><br><span class="line"><span class="keyword">from</span> tensorflow.python.keras.callbacks <span class="keyword">import</span> EarlyStopping</span><br></pre></td></tr></table></figure>
+<h1>讀取資料</h1>
+<p>如開頭所述，這次使用的資料是來自聯合新聞網站的 5萬則新聞，<a href="https://drive.google.com/file/d/1VlBVVcWD4n3_CrOYfw4jm8bbSyeOXmRc/view?usp=sharing" target="_blank" rel="noopener">點我下載udn新聞</a>，這份資料中包含了政治、國際焦點、全球財經…等 10 個類型的新聞，每個類型下各有5000則。為了簡化分析的流程，我直接先對標題與新聞內容進行斷詞。在資料的讀取方式與各個欄位的說明如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 這邊記得替換成檔案的路徑</span></span><br><span class="line">df = pd.read_pickle(<span class="string">'/content/drive/.../undnews.pickle'</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>TITLE：新聞標題</li>
+<li>CATE：新聞類型(大類)</li>
+<li>SUB：新聞類型(小類)</li>
+<li>CONTENT：新聞內文</li>
+<li>KEYWORDS：新聞關鍵詞</li>
+<li>SUB2：對SUB欄位做的 Lable Encoding，後續在建模時使用</li>
+<li>TITLE_SEG：針對 TITLE 欄位做的斷詞結果</li>
+<li>CONTENT_SEG：針對 CONTENT 欄位做的斷詞結果</li>
+</ul>
+<p>讀取完資料後就可以切分訓練/測試資料囉</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 將資料中切出 20% 作為測試資料</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(df[<span class="string">'CONTENT_SEG'</span>], df[<span class="string">'SUB2'</span>], test_size=<span class="number">0.2</span>, random_state=<span class="number">42</span>)</span><br><span class="line">print(X_train.shape, X_test.shape, y_train.shape, y_test.shape)</span><br></pre></td></tr></table></figure>
+<h1>文本特徵處理</h1>
+<ul>
+<li>
+<p>CountVector：計算文本中每個詞出現的次數，整理出來的維度數是文本中所有詞的數量</p>
+<ul>
+<li>這邊執行完會看到 counts_train 是40000 * 49471的矩陣。</li>
+<li>CountVectorizer 函數中有的 min_df 的函數，可以過濾掉出現次數太少的詞，幫助我們排除到許多雜訊。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">count_vect = CountVectorizer(analyzer=<span class="string">'word'</span>, token_pattern=<span class="string">r'\w&#123;1,&#125;'</span>, min_df=<span class="number">10</span>)</span><br><span class="line">count_vect.fit(df[<span class="string">'CONTENT_SEG'</span>])</span><br><span class="line">counts_train = CountVectorizer(vocabulary=count_vect.vocabulary_).fit_transform(X_train)</span><br><span class="line">counts_test = CountVectorizer(vocabulary=count_vect.vocabulary_).fit_transform(X_test)</span><br><span class="line">counts_train</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>TFIDFVector：在 CountVector 的基礎上，進一步考量文本的長度資訊(TF)與每個詞在多少文本中出現的狀況(IDF)的分數。</p>
+<ul>
+<li>這邊執行完會看到 tfidf_train 是40000 * 49471的矩陣。</li>
+<li>TfidfVectorizer 函數中同樣有 min_df 的函數，可以過濾掉出現次數太少的詞，幫助我們排除到許多雜訊。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tfidf_vect = TfidfVectorizer(analyzer=<span class="string">'word'</span>, token_pattern=<span class="string">r'\w&#123;1,&#125;'</span>, min_df=<span class="number">10</span>)</span><br><span class="line">tfidf_vect.fit(df[<span class="string">'CONTENT_SEG'</span>])</span><br><span class="line">tfidf_train = TfidfVectorizer(vocabulary=tfidf_vect.vocabulary_).fit_transform(X_train)</span><br><span class="line">tfidf_test = TfidfVectorizer(vocabulary=tfidf_vect.vocabulary_).fit_transform(X_test)</span><br><span class="line">tfidf_train</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>word2vec：詞向量是用一個多維度的向量來表示詞意的方法，用這個方法可以解決 CountVector/TFIDFVector 在處理文本特徵的資料時出現非常龐大且稀疏的矩陣的問題。詞向量的取得方式有以下兩種</p>
+<ul>
+<li>
+<p>運用我們這裡的資料自行訓練詞向量</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">program = os.path.basename(sys.argv[<span class="number">0</span>])</span><br><span class="line">logger = logging.getLogger(program)</span><br><span class="line">logging.basicConfig(format=<span class="string">'%(asctime)s : %(levelname)s : %(message)s'</span>, level=logging.INFO)</span><br><span class="line">logger.info(<span class="string">"running %s"</span> % <span class="string">' '</span>.join(sys.argv))</span><br><span class="line">w2v_model = Word2Vec(df[<span class="string">'CONTENT_SEG'</span>].apply(<span class="keyword">lambda</span> x: x.split(<span class="string">' '</span>,<span class="number">-1</span>)), <span class="comment"># input要是list不是str</span></span><br><span class="line">                     min_count=<span class="number">10</span>,</span><br><span class="line">                     size=<span class="number">200</span>,</span><br><span class="line">                     workers=multiprocessing.cpu_count())  <span class="comment"># 訓練skip-gram模型</span></span><br></pre></td></tr></table></figure>
+<p>訓練完成後我們就可以簡單將文本中每個詞的向量加總後平均，藉以表示這個文本的意義。由於我們的新聞數量較多，這裡的運算會需要 1小時左右。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">AvgVector</span><span class="params">(w2v_model, sentence)</span>:</span></span><br><span class="line">vec = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> sentence.split(<span class="string">' '</span>, <span class="number">-1</span>):</span><br><span class="line">    <span class="keyword">if</span> i <span class="keyword">in</span> w2v_model.wv.index2word:</span><br><span class="line">        vec.append(w2v_model[i])</span><br><span class="line">vector = np.mean(vec, axis=<span class="number">0</span>)</span><br><span class="line">vector = pd.Series(vector)</span><br><span class="line"><span class="keyword">return</span> vector</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line">w2v_train = X_train.apply(<span class="keyword">lambda</span> x: AvgVector(w2v_model, x))</span><br><span class="line">w2v_test = X_test.apply(<span class="keyword">lambda</span> x: AvgVector(w2v_model, x))</span><br><span class="line">w2v_train.shape</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>借用外部大量的文本訓練而得的詞向量</p>
+<p>這是我抓取<a href="https://zh.wikipedia.org/wiki/%E7%BB%B4%E5%9F%BA%E7%99%BE%E7%A7%91" target="_blank" rel="noopener">維基百科</a>的33萬則頁面後，訓練出的詞向量，可以直接下載這 3個檔案放在同一個資料夾後讀取model檔即可使用</p>
+<ul>
+<li><a href="https://drive.google.com/file/d/1MY8zMmiGTV5yW1c2-_Yu1xqdZ35I4TU9/view?usp=sharing" target="_blank" rel="noopener">wiki.zh.text.model</a></li>
+<li><a href="https://drive.google.com/file/d/1A4D1-2m_0NGaFTgTd7WMZTXkWRZ-Gg9R/view?usp=sharing" target="_blank" rel="noopener">wiki.zh.text.model.trainables.syn1neg.npy</a></li>
+<li><a href="https://drive.google.com/file/d/1x83QuJ9TD0vN5c-NPVQC70dRKoDJRLJG/view?usp=sharing" target="_blank" rel="noopener">wiki.zh.text.model.wv.vectors.npy</a></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 直接讀取詞向量的模型即可</span></span><br><span class="line">pretrain_w2v_model = Word2Vec.load(<span class="string">'/content/drive/Shared drives/Colab Notebooks/NLP/202003_機器學習大亂鬥_新聞文本分類/wordvec_wiki/wiki.zh.text.model'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h1>機器學習模型</h1>
+<ul>
+<li>
+<p>Logistic Regression</p>
+<p>參考資料：<a href="https://www.analyticsvidhya.com/blog/2015/11/beginners-guide-on-logistic-regression-in-r/" target="_blank" rel="noopener">Simple Guide to Logistic Regression in R and Python</a></p>
+<ul>
+<li>
+<p>詞頻特徵</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line">clf = LogisticRegression(max_iter=<span class="number">1000</span>, n_jobs=<span class="number">-1</span>)   </span><br><span class="line">clf.fit(counts_train, y_train)</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">40</span>, <span class="string">' Score on Counts feature '</span>, <span class="string">'='</span>*<span class="number">40</span>)</span><br><span class="line">print(<span class="string">'Score on Train: '</span>, metrics.accuracy_score(y_train, clf.predict(counts_train)))</span><br><span class="line">print(<span class="string">'Score on Test: '</span>, metrics.accuracy_score(y_test, clf.predict(counts_test)))</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>TFIDF特徵</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line">clf = LogisticRegression(max_iter=<span class="number">1000</span>, n_jobs=<span class="number">-1</span>)   </span><br><span class="line">clf.fit(tfidf_train, y_train)</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">40</span>, <span class="string">' Score on TFIDF feature '</span>, <span class="string">'='</span>*<span class="number">40</span>)</span><br><span class="line">print(<span class="string">'Score on Train: '</span>, metrics.accuracy_score(y_train, clf.predict(tfidf_train)))</span><br><span class="line">print(<span class="string">'Score on Test: '</span>, metrics.accuracy_score(y_test, clf.predict(tfidf_test)))</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>平均詞向量特徵</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line">clf = LogisticRegression(max_iter=<span class="number">1000</span>, n_jobs=<span class="number">-1</span>)   </span><br><span class="line">clf.fit(w2v_train, y_train)</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">40</span>, <span class="string">' Score on AvgVector feature '</span>, <span class="string">'='</span>*<span class="number">40</span>)</span><br><span class="line">print(<span class="string">'Score on Train: '</span>, metrics.accuracy_score(y_train, clf.predict(w2v_train)))</span><br><span class="line">print(<span class="string">'Score on Test: '</span>, metrics.accuracy_score(y_test, clf.predict(w2v_test)))</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li>
+<p>Naive Bayes</p>
+<p>參考資料：<a href="https://www.analyticsvidhya.com/blog/2017/09/naive-bayes-explained/" target="_blank" rel="noopener">6 Easy Steps to Learn Naive Bayes Algorithm with codes in Python and R</a></p>
+<ul>
+<li>
+<p>詞頻特徵</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line">param_grid = &#123;<span class="string">'alpha'</span>:[<span class="number">1.4</span>, <span class="number">1.2</span>, <span class="number">1</span>, <span class="number">0.8</span>, <span class="number">0.6</span>]&#125;</span><br><span class="line">estimators = GridSearchCV(estimator = MultinomialNB(),</span><br><span class="line">                      param_grid = param_grid,</span><br><span class="line">                      n_jobs = <span class="number">-1</span>,</span><br><span class="line">                      cv = <span class="number">5</span>)</span><br><span class="line">estimators.fit(counts_train, y_train)</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">40</span>, <span class="string">' Score on CV result '</span>, <span class="string">'='</span>*<span class="number">40</span>)</span><br><span class="line">print(<span class="string">'Best Score: '</span>, estimators.best_score_)</span><br><span class="line">print(<span class="string">'Best Params: '</span>, estimators.best_params_)</span><br><span class="line">clf = MultinomialNB(alpha = estimators.best_params_[<span class="string">'alpha'</span>])   </span><br><span class="line">clf.fit(counts_train, y_train)</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">40</span>, <span class="string">' Score on Counts feature '</span>, <span class="string">'='</span>*<span class="number">40</span>)</span><br><span class="line">print(<span class="string">'Score on Train: '</span>, metrics.accuracy_score(y_train, clf.predict(counts_train)))</span><br><span class="line">print(<span class="string">'Score on Test: '</span>, metrics.accuracy_score(y_test, clf.predict(counts_test)))</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>TFIDF特徵</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line">param_grid = &#123;<span class="string">'alpha'</span>:[<span class="number">1.4</span>, <span class="number">1.2</span>, <span class="number">1</span>, <span class="number">0.8</span>, <span class="number">0.6</span>]&#125;</span><br><span class="line">estimators = GridSearchCV(estimator = MultinomialNB(),</span><br><span class="line">                      param_grid = param_grid,</span><br><span class="line">                      n_jobs = <span class="number">-1</span>,</span><br><span class="line">                      cv = <span class="number">5</span>)</span><br><span class="line">estimators.fit(tfidf_train, y_train)</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">40</span>, <span class="string">' Score on CV result '</span>, <span class="string">'='</span>*<span class="number">40</span>)</span><br><span class="line">print(<span class="string">'Best Score: '</span>, estimators.best_score_)</span><br><span class="line">print(<span class="string">'Best Params: '</span>, estimators.best_params_)</span><br><span class="line">%%time</span><br><span class="line">clf = MultinomialNB(alpha = estimators.best_params_[<span class="string">'alpha'</span>])   </span><br><span class="line">clf.fit(tfidf_train, y_train)</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">40</span>, <span class="string">' Score on TFIDF feature '</span>, <span class="string">'='</span>*<span class="number">40</span>)</span><br><span class="line">print(<span class="string">'Score on Train: '</span>, metrics.accuracy_score(y_train, clf.predict(tfidf_train)))</span><br><span class="line">print(<span class="string">'Score on Test: '</span>, metrics.accuracy_score(y_test, clf.predict(tfidf_test)))</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>平均詞向量特徵</p>
+<p>因為詞向量的結果會有負值，而貝氏分類器不接受，因此這裡多做了一個 MinMax 的轉換，將資料轉換到 0-1 之間。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line">scaler = MinMaxScaler()</span><br><span class="line">scaler.fit(w2v_train)</span><br><span class="line"></span><br><span class="line">w2v_train_mm = scaler.transform(w2v_train)</span><br><span class="line">w2v_test_mm = scaler.transform(w2v_test)</span><br><span class="line"></span><br><span class="line">param_grid = &#123;<span class="string">'alpha'</span>:[<span class="number">1.4</span>, <span class="number">1.2</span>, <span class="number">1</span>, <span class="number">0.8</span>, <span class="number">0.6</span>]&#125;</span><br><span class="line">estimators = GridSearchCV(estimator = MultinomialNB(),</span><br><span class="line">                        param_grid = param_grid,</span><br><span class="line">                        n_jobs = <span class="number">-1</span>,</span><br><span class="line">                        cv = <span class="number">5</span>)</span><br><span class="line">estimators.fit(w2v_train_mm, y_train)</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">40</span>, <span class="string">' Score on CV result '</span>, <span class="string">'='</span>*<span class="number">40</span>)</span><br><span class="line">print(<span class="string">'Best Score: '</span>, estimators.best_score_)</span><br><span class="line">print(<span class="string">'Best Params: '</span>, estimators.best_params_)</span><br><span class="line">%%time</span><br><span class="line">clf = MultinomialNB(alpha = estimators.best_params_[<span class="string">'alpha'</span>])   </span><br><span class="line">clf.fit(w2v_train_mm, y_train)</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">40</span>, <span class="string">' Score on AvgVector feature '</span>, <span class="string">'='</span>*<span class="number">40</span>)</span><br><span class="line">print(<span class="string">'Score on Train: '</span>, metrics.accuracy_score(y_train, clf.predict(w2v_train_mm)))</span><br><span class="line">print(<span class="string">'Score on Test: '</span>, metrics.accuracy_score(y_test, clf.predict(w2v_test_mm)))</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li>
+<p>SVM</p>
+<p>參考資料：<a href="https://www.analyticsvidhya.com/blog/2017/09/understaing-support-vector-machine-example-code/" target="_blank" rel="noopener">Understanding Support Vector Machine(SVM) algorithm from examples (along with code)</a></p>
+<ul>
+<li>
+<p>詞頻特徵</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line">clf = SVC(kernel=<span class="string">'linear'</span>)</span><br><span class="line">clf.fit(counts_train, y_train)</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">40</span>, <span class="string">' Score on Counts feature '</span>, <span class="string">'='</span>*<span class="number">40</span>)</span><br><span class="line">print(<span class="string">'Score on Train: '</span>, metrics.accuracy_score(y_train, clf.predict(counts_train)))</span><br><span class="line">print(<span class="string">'Score on Test: '</span>, metrics.accuracy_score(y_test, clf.predict(counts_test)))</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>TFIDF特徵</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line">clf = SVC(kernel=<span class="string">'linear'</span>)</span><br><span class="line">clf.fit(tfidf_train, y_train)</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">40</span>, <span class="string">' Score on TFIDF feature '</span>, <span class="string">'='</span>*<span class="number">40</span>)</span><br><span class="line">print(<span class="string">'Score on Train: '</span>, metrics.accuracy_score(y_train, clf.predict(tfidf_train)))</span><br><span class="line">print(<span class="string">'Score on Test: '</span>, metrics.accuracy_score(y_test, clf.predict(tfidf_test)))</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>平均詞向量特徵</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line">clf = SVC(kernel=<span class="string">'linear'</span>)</span><br><span class="line">clf.fit(w2v_train, y_train)</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">40</span>, <span class="string">' Score on AvgVector feature '</span>, <span class="string">'='</span>*<span class="number">40</span>)</span><br><span class="line">print(<span class="string">'Score on Train: '</span>, metrics.accuracy_score(y_train, clf.predict(w2v_train)))</span><br><span class="line">print(<span class="string">'Score on Test: '</span>, metrics.accuracy_score(y_test, clf.predict(w2v_test)))</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li>
+<p>KNN</p>
+<p>參考資料：<a href="https://towardsdatascience.com/k-nearest-neighbors-knn-algorithm-bd375d14eec7" target="_blank" rel="noopener">K-Nearest Neighbors (KNN) Algorithm</a></p>
+<ul>
+<li>
+<p>詞頻特徵</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line">param_grid = &#123;<span class="string">'n_neighbors'</span>:list(range(<span class="number">1</span>,<span class="number">9</span>))&#125;</span><br><span class="line">estimators = GridSearchCV(estimator = KNeighborsClassifier(),</span><br><span class="line">                        param_grid = param_grid,</span><br><span class="line">                        n_jobs = <span class="number">-1</span>,</span><br><span class="line">                        cv = <span class="number">5</span>)</span><br><span class="line">estimators.fit(counts_train, y_train)</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">40</span>, <span class="string">' Score on CV result '</span>, <span class="string">'='</span>*<span class="number">40</span>)</span><br><span class="line">print(<span class="string">'Best Score: '</span>, estimators.best_score_)</span><br><span class="line">print(<span class="string">'Best Params: '</span>, estimators.best_params_)</span><br><span class="line">%%time</span><br><span class="line">clf = KNeighborsClassifier(n_neighbors = estimators.best_params_[<span class="string">'n_neighbors'</span>])   </span><br><span class="line">clf.fit(counts_train, y_train)</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">40</span>, <span class="string">' Score on Counts feature '</span>, <span class="string">'='</span>*<span class="number">40</span>)</span><br><span class="line">print(<span class="string">'Score on Train: '</span>, metrics.accuracy_score(y_train, clf.predict(counts_train)))</span><br><span class="line">print(<span class="string">'Score on Test: '</span>, metrics.accuracy_score(y_test, clf.predict(counts_test)))</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>TFIDF特徵</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line">param_grid = &#123;<span class="string">'n_neighbors'</span>:list(range(<span class="number">1</span>,<span class="number">9</span>))&#125;</span><br><span class="line">estimators = GridSearchCV(estimator = KNeighborsClassifier(),</span><br><span class="line">                        param_grid = param_grid,</span><br><span class="line">                        n_jobs = <span class="number">-1</span>,</span><br><span class="line">                        cv = <span class="number">5</span>)</span><br><span class="line">estimators.fit(tfidf_train, y_train)</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">40</span>, <span class="string">' Score on CV result '</span>, <span class="string">'='</span>*<span class="number">40</span>)</span><br><span class="line">print(<span class="string">'Best Score: '</span>, estimators.best_score_)</span><br><span class="line">print(<span class="string">'Best Params: '</span>, estimators.best_params_)</span><br><span class="line">%%time</span><br><span class="line">clf = KNeighborsClassifier(n_neighbors = estimators.best_params_[<span class="string">'n_neighbors'</span>], n_jobs=<span class="number">-1</span>)   </span><br><span class="line">clf.fit(tfidf_train, y_train)</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">40</span>, <span class="string">' Score on TFIDF feature '</span>, <span class="string">'='</span>*<span class="number">40</span>)</span><br><span class="line">print(<span class="string">'Score on Train: '</span>, metrics.accuracy_score(y_train, clf.predict(tfidf_train)))</span><br><span class="line">print(<span class="string">'Score on Test: '</span>, metrics.accuracy_score(y_test, clf.predict(tfidf_test)))</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>平均詞向量特徵</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line">param_grid = &#123;<span class="string">'n_neighbors'</span>:list(range(<span class="number">1</span>,<span class="number">9</span>))&#125;</span><br><span class="line">estimators = GridSearchCV(estimator = KNeighborsClassifier(),</span><br><span class="line">                        param_grid = param_grid,</span><br><span class="line">                        n_jobs = <span class="number">-1</span>,</span><br><span class="line">                        cv = <span class="number">5</span>)</span><br><span class="line">estimators.fit(w2v_train, y_train)</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">40</span>, <span class="string">' Score on CV result '</span>, <span class="string">'='</span>*<span class="number">40</span>)</span><br><span class="line">print(<span class="string">'Best Score: '</span>, estimators.best_score_)</span><br><span class="line">print(<span class="string">'Best Params: '</span>, estimators.best_params_)</span><br><span class="line">%%time</span><br><span class="line">clf = KNeighborsClassifier(n_neighbors = estimators.best_params_[<span class="string">'n_neighbors'</span>], n_jobs=<span class="number">-1</span>)   </span><br><span class="line">clf.fit(w2v_train, y_train)</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">40</span>, <span class="string">' Score on AvgVector feature '</span>, <span class="string">'='</span>*<span class="number">40</span>)</span><br><span class="line">print(<span class="string">'Score on Train: '</span>, metrics.accuracy_score(y_train, clf.predict(w2v_train)))</span><br><span class="line">print(<span class="string">'Score on Test: '</span>, metrics.accuracy_score(y_test, clf.predict(w2v_test)))</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li>
+<p>RandomForest</p>
+<p>參考資料：<a href="https://www.analyticsvidhya.com/blog/2014/06/introduction-random-forest-simplified/" target="_blank" rel="noopener">Introduction to Random forest – Simplified</a></p>
+<ul>
+<li>
+<p>詞頻特徵</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line">clf = RandomForestClassifier(n_estimators = <span class="number">500</span>, max_features = <span class="string">'sqrt'</span>, n_jobs=<span class="number">-1</span>, random_state = <span class="number">10</span>)  </span><br><span class="line">clf.fit(counts_train, y_train)</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">40</span>, <span class="string">' Score on Counts feature '</span>, <span class="string">'='</span>*<span class="number">40</span>)</span><br><span class="line">print(<span class="string">'Score on Train: '</span>, metrics.accuracy_score(y_train, clf.predict(counts_train)))</span><br><span class="line">print(<span class="string">'Score on Test: '</span>, metrics.accuracy_score(y_test, clf.predict(counts_test)))</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>TFIDF特徵</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line">clf = RandomForestClassifier(n_estimators = <span class="number">500</span>, max_features = <span class="string">'sqrt'</span>, n_jobs=<span class="number">-1</span>, random_state = <span class="number">10</span>)  </span><br><span class="line">clf.fit(tfidf_train, y_train)</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">40</span>, <span class="string">' Score on TFIDF feature '</span>, <span class="string">'='</span>*<span class="number">40</span>)</span><br><span class="line">print(<span class="string">'Score on Train: '</span>, metrics.accuracy_score(y_train, clf.predict(tfidf_train)))</span><br><span class="line">print(<span class="string">'Score on Test: '</span>, metrics.accuracy_score(y_test, clf.predict(tfidf_test)))</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>平均詞向量特徵</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line">clf = RandomForestClassifier(n_estimators = <span class="number">500</span>, max_features = <span class="string">'sqrt'</span>, n_jobs=<span class="number">-1</span>, random_state = <span class="number">10</span>)  </span><br><span class="line">clf.fit(w2v_train, y_train)</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">40</span>, <span class="string">' Score on AvgVector feature '</span>, <span class="string">'='</span>*<span class="number">40</span>)</span><br><span class="line">print(<span class="string">'Score on Train: '</span>, metrics.accuracy_score(y_train, clf.predict(w2v_train)))</span><br><span class="line">print(<span class="string">'Score on Test: '</span>, metrics.accuracy_score(y_test, clf.predict(w2v_test)))</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li>
+<p>XGBoost</p>
+<p>參考資料：<a href="https://www.analyticsvidhya.com/blog/2016/01/xgboost-algorithm-easy-steps/" target="_blank" rel="noopener">How to use XGBoost algorithm in R in easy steps</a></p>
+<ul>
+<li>
+<p>詞頻特徵</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line">clf = xgb.XGBClassifier(n_estimators=<span class="number">500</span>, objective=<span class="string">'multi:softmax'</span>, n_jobs=<span class="number">-1</span>, silent=<span class="keyword">False</span>)</span><br><span class="line">clf.fit(counts_train, y_train)</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">40</span>, <span class="string">' Score on Counts feature '</span>, <span class="string">'='</span>*<span class="number">40</span>)</span><br><span class="line">print(<span class="string">'Score on Train: '</span>, metrics.accuracy_score(y_train, clf.predict(counts_train)))</span><br><span class="line">print(<span class="string">'Score on Test: '</span>, metrics.accuracy_score(y_test, clf.predict(counts_test)))</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>TFIDF特徵</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line">clf = xgb.XGBClassifier(n_estimators=<span class="number">500</span>, objective=<span class="string">'multi:softmax'</span>, n_jobs=<span class="number">-1</span>, silent=<span class="keyword">False</span>)</span><br><span class="line">clf.fit(tfidf_train, y_train)</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">40</span>, <span class="string">' Score on TFIDF feature '</span>, <span class="string">'='</span>*<span class="number">40</span>)</span><br><span class="line">print(<span class="string">'Score on Train: '</span>, metrics.accuracy_score(y_train, clf.predict(tfidf_train)))</span><br><span class="line">print(<span class="string">'Score on Test: '</span>, metrics.accuracy_score(y_test, clf.predict(tfidf_test)))</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>平均詞向量特徵</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line">clf = xgb.XGBClassifier(n_estimators=<span class="number">500</span>, objective=<span class="string">'multi:softmax'</span>, n_jobs=<span class="number">-1</span>, silent=<span class="keyword">False</span>)</span><br><span class="line">clf.fit(w2v_train, y_train)</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">40</span>, <span class="string">' Score on AvgVector feature '</span>, <span class="string">'='</span>*<span class="number">40</span>)</span><br><span class="line">print(<span class="string">'Score on Train: '</span>, metrics.accuracy_score(y_train, clf.predict(w2v_train)))</span><br><span class="line">print(<span class="string">'Score on Test: '</span>, metrics.accuracy_score(y_test, clf.predict(w2v_test)))</span><br><span class="line">print(<span class="string">'='</span>*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h1>深度學習模型</h1>
+<p>這裡開始的程式碼會變得比較複雜，並且執行時會需要使用到 GPU 來加速，如果沒有 GPU 或不會設定的人可以直接使用 Google 的 Colab。</p>
+<ul>
+<li>
+<p>MLP</p>
+<p>參考資料：<a href="https://towardsdatascience.com/machine-learning-101-artificial-neural-networks-3-46ccb04cba30" target="_blank" rel="noopener">Machine Learning 101 — Artificial Neural Networks</a></p>
+<ul>
+<li>
+<p>詞頻特徵</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 設定超參數</span></span><br><span class="line">LEARNING_RATE = <span class="number">1e-3</span></span><br><span class="line">EPOCHS = <span class="number">100</span></span><br><span class="line">BATCH_SIZE = <span class="number">128</span></span><br><span class="line">MOMENTUM = <span class="number">0.95</span></span><br><span class="line"><span class="comment"># 建立資料格式</span></span><br><span class="line"><span class="comment"># 考量時間與記憶體容量，僅保留數量最多的1萬個詞</span></span><br><span class="line">tokenizer = text.Tokenizer(num_words=<span class="number">10000</span>) </span><br><span class="line">tokenizer.fit_on_texts(df[<span class="string">'CONTENT_SEG'</span>])</span><br><span class="line">word_index = tokenizer.word_index</span><br><span class="line">print(<span class="string">'Found %s unique tokens.'</span> % len(word_index))</span><br><span class="line"></span><br><span class="line">counts_train = tokenizer.texts_to_sequences(X_train) </span><br><span class="line">counts_train = tokenizer.sequences_to_matrix(counts_train, mode=<span class="string">'freq'</span>)</span><br><span class="line">counts_test = tokenizer.texts_to_sequences(X_test)</span><br><span class="line">counts_test = tokenizer.sequences_to_matrix(counts_test, mode=<span class="string">'freq'</span>)</span><br><span class="line">print(<span class="string">'Shape of counts_train tensor:'</span>, counts_train.shape)</span><br><span class="line">print(<span class="string">'Shape of counts_test tensor:'</span>, counts_test.shape)</span><br><span class="line"></span><br><span class="line">y_train_dummy = to_categorical(np.asarray(y_train))</span><br><span class="line">y_test_dummy = to_categorical(np.asarray(y_test))</span><br><span class="line">print(<span class="string">'Shape of y_train_dummy tensor:'</span>, y_train_dummy.shape)</span><br><span class="line">print(<span class="string">'Shape of y_test_dummy tensor:'</span>, y_test_dummy.shape)</span><br><span class="line"><span class="comment"># 搭建模型框架</span></span><br><span class="line">keras.backend.clear_session()</span><br><span class="line">model = Sequential()</span><br><span class="line">model.add(Dense(units=<span class="number">512</span>, input_shape=(counts_train.shape[<span class="number">1</span>],), activation=<span class="string">'relu'</span>))</span><br><span class="line">model.add(BatchNormalization())</span><br><span class="line">model.add(Dense(<span class="number">256</span>, activation=<span class="string">'relu'</span>))</span><br><span class="line">model.add(BatchNormalization())</span><br><span class="line">model.add(Dense(<span class="number">128</span>, activation=<span class="string">'relu'</span>))</span><br><span class="line">model.add(Dense(y_train_dummy.shape[<span class="number">1</span>], activation=<span class="string">'softmax'</span>))</span><br><span class="line">model.summary()</span><br><span class="line"><span class="comment"># 載入 Callbacks, 並將 monitor 設定為監控 validation loss</span></span><br><span class="line">earlystop = EarlyStopping(monitor=<span class="string">"val_acc"</span>, </span><br><span class="line">                        patience=<span class="number">10</span>, </span><br><span class="line">                        verbose=<span class="number">1</span>)</span><br><span class="line">model.compile(loss=<span class="string">'categorical_crossentropy'</span>,</span><br><span class="line">            optimizer=optimizers.Adam(lr=LEARNING_RATE, epsilon=<span class="keyword">None</span>, decay=<span class="number">0.0</span>),</span><br><span class="line">            metrics=[<span class="string">'accuracy'</span>])</span><br><span class="line">%%time</span><br><span class="line">model.fit(counts_train, y_train_dummy,</span><br><span class="line">        epochs=EPOCHS, </span><br><span class="line">        validation_split=<span class="number">0.2</span>,</span><br><span class="line">        batch_size=BATCH_SIZE,</span><br><span class="line">        shuffle=<span class="keyword">True</span>,</span><br><span class="line">        callbacks=[earlystop])</span><br><span class="line">model.evaluate(counts_test, y_test_dummy)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>TF-IDF特徵</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 超參數設定</span></span><br><span class="line">LEARNING_RATE = <span class="number">1e-3</span></span><br><span class="line">EPOCHS = <span class="number">100</span></span><br><span class="line">BATCH_SIZE = <span class="number">128</span></span><br><span class="line">MOMENTUM = <span class="number">0.95</span></span><br><span class="line"><span class="comment"># 建立資料格式</span></span><br><span class="line"><span class="comment"># 考量時間與記憶體容量，僅保留數量最多的1萬個詞</span></span><br><span class="line">tokenizer = text.Tokenizer(num_words=<span class="number">10000</span>) </span><br><span class="line">tokenizer.fit_on_texts(df[<span class="string">'CONTENT_SEG'</span>])</span><br><span class="line">word_index = tokenizer.word_index</span><br><span class="line">print(<span class="string">'Found %s unique tokens.'</span> % len(word_index))</span><br><span class="line"></span><br><span class="line">tfidf_train = tokenizer.texts_to_sequences(X_train) </span><br><span class="line">tfidf_train = tokenizer.sequences_to_matrix(tfidf_train, mode=<span class="string">'tfidf'</span>)</span><br><span class="line">tfidf_test = tokenizer.texts_to_sequences(X_test)</span><br><span class="line">tfidf_test = tokenizer.sequences_to_matrix(tfidf_test, mode=<span class="string">'tfidf'</span>)</span><br><span class="line">print(<span class="string">'Shape of tfidf_train tensor:'</span>, tfidf_train.shape)</span><br><span class="line">print(<span class="string">'Shape of tfidf_test tensor:'</span>, tfidf_test.shape)</span><br><span class="line"></span><br><span class="line">y_train_dummy = to_categorical(np.asarray(y_train))</span><br><span class="line">y_test_dummy = to_categorical(np.asarray(y_test))</span><br><span class="line">print(<span class="string">'Shape of y_train tensor:'</span>, y_train_dummy.shape)</span><br><span class="line">print(<span class="string">'Shape of y_test tensor:'</span>, y_test_dummy.shape)</span><br><span class="line"><span class="comment"># 搭建模型框架</span></span><br><span class="line">keras.backend.clear_session()</span><br><span class="line">model = Sequential()</span><br><span class="line">model.add(Dense(units=<span class="number">512</span>, input_shape=(tfidf_train.shape[<span class="number">1</span>],), activation=<span class="string">'relu'</span>)) <span class="comment">################</span></span><br><span class="line">model.add(BatchNormalization())</span><br><span class="line">model.add(Dense(<span class="number">256</span>, activation=<span class="string">'relu'</span>))</span><br><span class="line">model.add(BatchNormalization())</span><br><span class="line">model.add(Dense(<span class="number">128</span>, activation=<span class="string">'relu'</span>))</span><br><span class="line">model.add(Dense(y_train_dummy.shape[<span class="number">1</span>], activation=<span class="string">'softmax'</span>))</span><br><span class="line">model.summary()</span><br><span class="line"><span class="comment"># 載入 Callbacks, 並將 monitor 設定為監控 validation loss</span></span><br><span class="line">earlystop = EarlyStopping(monitor=<span class="string">"val_acc"</span>, </span><br><span class="line">                        patience=<span class="number">5</span>, </span><br><span class="line">                        verbose=<span class="number">1</span>)</span><br><span class="line">model.compile(loss=<span class="string">'categorical_crossentropy'</span>,</span><br><span class="line">            optimizer=optimizers.Adam(lr=LEARNING_RATE, epsilon=<span class="keyword">None</span>, decay=<span class="number">0.0</span>),</span><br><span class="line">            metrics=[<span class="string">'accuracy'</span>])</span><br><span class="line">%%time</span><br><span class="line">model.fit(tfidf_train, y_train_dummy,</span><br><span class="line">        epochs=EPOCHS, </span><br><span class="line">        validation_split=<span class="number">0.2</span>,</span><br><span class="line">        batch_size=BATCH_SIZE,</span><br><span class="line">        shuffle=<span class="keyword">True</span>,</span><br><span class="line">        callbacks=[earlystop])</span><br><span class="line">model.evaluate(tfidf_test, y_test_dummy)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li>
+<p>CNN</p>
+<p>參考資料：<a href="https://www.analyticsvidhya.com/blog/2017/06/architecture-of-convolutional-neural-networks-simplified-demystified/" target="_blank" rel="noopener">Architecture of Convolutional Neural Networks (CNNs) demystified</a></p>
+<ul>
+<li>
+<p>詞向量特徵</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">MAX_SEQUENCE_LENGTH = <span class="number">300</span> <span class="comment"># 每条新闻最大长度</span></span><br><span class="line">EMBEDDING_DIM = <span class="number">200</span> <span class="comment"># 词向量空间维度</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 超參數設定</span></span><br><span class="line">LEARNING_RATE = <span class="number">1e-3</span></span><br><span class="line">EPOCHS = <span class="number">100</span></span><br><span class="line">BATCH_SIZE = <span class="number">128</span></span><br><span class="line">MOMENTUM = <span class="number">0.95</span></span><br><span class="line"><span class="comment"># 建立資料格式</span></span><br><span class="line">tokenizer = text.Tokenizer(num_words=<span class="number">10000</span>)</span><br><span class="line">tokenizer.fit_on_texts(df[<span class="string">'CONTENT_SEG'</span>])</span><br><span class="line">word_index = tokenizer.word_index</span><br><span class="line">print(<span class="string">'Found %s unique tokens.'</span> % len(word_index))</span><br><span class="line"></span><br><span class="line">vec_train = tokenizer.texts_to_sequences(X_train) </span><br><span class="line">vec_train = sequence.pad_sequences(vec_train, maxlen=MAX_SEQUENCE_LENGTH)</span><br><span class="line">vec_test = tokenizer.texts_to_sequences(X_test)</span><br><span class="line">vec_test = sequence.pad_sequences(vec_test, maxlen=MAX_SEQUENCE_LENGTH)</span><br><span class="line">print(<span class="string">'Shape of vec_train tensor:'</span>, vec_train.shape)</span><br><span class="line">print(<span class="string">'Shape of vec_test tensor:'</span>, vec_test.shape)</span><br><span class="line"></span><br><span class="line">y_train_dummy = to_categorical(np.asarray(y_train))</span><br><span class="line">y_test_dummy = to_categorical(np.asarray(y_test))</span><br><span class="line">print(<span class="string">'Shape of y_train_dummy tensor:'</span>, y_train_dummy.shape)</span><br><span class="line">print(<span class="string">'Shape of y_test_dummy tensor:'</span>, y_test_dummy.shape)</span><br><span class="line"><span class="comment"># 將詞替換成對應的向量</span></span><br><span class="line">embedding_matrix = np.zeros((len(word_index) + <span class="number">1</span>, EMBEDDING_DIM))</span><br><span class="line"><span class="keyword">for</span> word, i <span class="keyword">in</span> word_index.items(): </span><br><span class="line">    <span class="keyword">if</span> word <span class="keyword">in</span> w2v_model:</span><br><span class="line">        embedding_matrix[i] = np.asarray(w2v_model[word],</span><br><span class="line">                                        dtype=<span class="string">'float32'</span>)</span><br><span class="line">embedding_layer = Embedding(len(word_index) + <span class="number">1</span>,</span><br><span class="line">                            EMBEDDING_DIM,</span><br><span class="line">                            weights=[embedding_matrix],</span><br><span class="line">                            input_length=MAX_SEQUENCE_LENGTH,</span><br><span class="line">                            trainable=<span class="keyword">False</span>)</span><br><span class="line"><span class="comment"># 搭建模型框架</span></span><br><span class="line">keras.backend.clear_session()</span><br><span class="line">model = Sequential()</span><br><span class="line">model.add(embedding_layer)</span><br><span class="line">model.add(BatchNormalization())</span><br><span class="line"></span><br><span class="line">model.add(Conv1D(<span class="number">256</span>, <span class="number">3</span>, padding=<span class="string">'valid'</span>, activation=<span class="string">'relu'</span>, strides=<span class="number">1</span>))</span><br><span class="line">model.add(MaxPooling1D(<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line">model.add(Flatten())</span><br><span class="line">model.add(Dense(EMBEDDING_DIM, activation=<span class="string">'relu'</span>))</span><br><span class="line">model.add(Dense(y_train_dummy.shape[<span class="number">1</span>], activation=<span class="string">'softmax'</span>))</span><br><span class="line">model.summary()</span><br><span class="line"><span class="comment"># 載入 Callbacks, 並將 monitor 設定為監控 validation loss</span></span><br><span class="line">earlystop = EarlyStopping(monitor=<span class="string">"val_acc"</span>, </span><br><span class="line">                        patience=<span class="number">5</span>, </span><br><span class="line">                        verbose=<span class="number">1</span>)</span><br><span class="line">model.compile(loss=<span class="string">'categorical_crossentropy'</span>,</span><br><span class="line">            optimizer= optimizers.Adam(lr=LEARNING_RATE, epsilon=<span class="keyword">None</span>, decay=<span class="number">0.0</span>),</span><br><span class="line">            metrics=[<span class="string">'accuracy'</span>])</span><br><span class="line"></span><br><span class="line">model.fit(vec_train, y_train_dummy,</span><br><span class="line">        epochs=EPOCHS, </span><br><span class="line">        validation_split=<span class="number">0.2</span>,</span><br><span class="line">        batch_size=BATCH_SIZE,</span><br><span class="line">        shuffle=<span class="keyword">True</span>,</span><br><span class="line">        callbacks=[earlystop])</span><br><span class="line">model.evaluate(vec_test, y_test_dummy)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>預訓練的詞向量特徵</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">MAX_SEQUENCE_LENGTH = <span class="number">300</span> <span class="comment"># 每条新闻最大长度</span></span><br><span class="line">EMBEDDING_DIM = <span class="number">400</span> <span class="comment"># 词向量空间维度</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 超參數設定</span></span><br><span class="line">LEARNING_RATE = <span class="number">1e-3</span></span><br><span class="line">EPOCHS = <span class="number">100</span></span><br><span class="line">BATCH_SIZE = <span class="number">128</span></span><br><span class="line">MOMENTUM = <span class="number">0.95</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 建立資料格式</span></span><br><span class="line">tokenizer = text.Tokenizer(num_words=<span class="number">10000</span>)</span><br><span class="line">tokenizer.fit_on_texts(df[<span class="string">'CONTENT_SEG'</span>])</span><br><span class="line">word_index = tokenizer.word_index</span><br><span class="line">print(<span class="string">'Found %s unique tokens.'</span> % len(word_index))</span><br><span class="line"></span><br><span class="line">vec_train = tokenizer.texts_to_sequences(X_train) </span><br><span class="line">vec_train = sequence.pad_sequences(vec_train, maxlen=MAX_SEQUENCE_LENGTH)</span><br><span class="line">vec_test = tokenizer.texts_to_sequences(X_test)</span><br><span class="line">vec_test = sequence.pad_sequences(vec_test, maxlen=MAX_SEQUENCE_LENGTH)</span><br><span class="line">print(<span class="string">'Shape of vec_train tensor:'</span>, vec_train.shape)</span><br><span class="line">print(<span class="string">'Shape of vec_test tensor:'</span>, vec_test.shape)</span><br><span class="line"></span><br><span class="line">y_train_dummy = to_categorical(np.asarray(y_train))</span><br><span class="line">y_test_dummy = to_categorical(np.asarray(y_test))</span><br><span class="line">print(<span class="string">'Shape of y_train tensor:'</span>, y_train_dummy.shape)</span><br><span class="line">print(<span class="string">'Shape of y_test tensor:'</span>, y_test_dummy.shape)</span><br><span class="line"><span class="comment"># 將詞替換成對應的向量</span></span><br><span class="line">embedding_matrix = np.zeros((len(word_index) + <span class="number">1</span>, EMBEDDING_DIM))</span><br><span class="line"><span class="keyword">for</span> word, i <span class="keyword">in</span> word_index.items(): </span><br><span class="line">    <span class="keyword">if</span> word <span class="keyword">in</span> pretrain_w2v_model:</span><br><span class="line">        embedding_matrix[i] = np.asarray(pretrain_w2v_model[word],</span><br><span class="line">                                        dtype=<span class="string">'float32'</span>)</span><br><span class="line">embedding_layer = Embedding(len(word_index) + <span class="number">1</span>,</span><br><span class="line">                            EMBEDDING_DIM,</span><br><span class="line">                            weights=[embedding_matrix],</span><br><span class="line">                            input_length=MAX_SEQUENCE_LENGTH,</span><br><span class="line">                            trainable=<span class="keyword">False</span>)</span><br><span class="line"><span class="comment"># 搭建模型框架</span></span><br><span class="line">keras.backend.clear_session()</span><br><span class="line">model = Sequential()</span><br><span class="line">model.add(embedding_layer)</span><br><span class="line">model.add(BatchNormalization())</span><br><span class="line"></span><br><span class="line">model.add(Conv1D(<span class="number">256</span>, <span class="number">3</span>, padding=<span class="string">'valid'</span>, activation=<span class="string">'relu'</span>, strides=<span class="number">1</span>))</span><br><span class="line">model.add(MaxPooling1D(<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line">model.add(Flatten())</span><br><span class="line">model.add(Dense(EMBEDDING_DIM, activation=<span class="string">'relu'</span>))</span><br><span class="line">model.add(Dense(y_train_dummy.shape[<span class="number">1</span>], activation=<span class="string">'softmax'</span>))</span><br><span class="line">model.summary()</span><br><span class="line"><span class="comment"># 載入 Callbacks, 並將 monitor 設定為監控 validation loss</span></span><br><span class="line">earlystop = EarlyStopping(monitor=<span class="string">"val_loss"</span>, </span><br><span class="line">                        patience=<span class="number">5</span>, </span><br><span class="line">                        verbose=<span class="number">1</span>)</span><br><span class="line">model.compile(loss=<span class="string">'categorical_crossentropy'</span>,</span><br><span class="line">            optimizer= optimizers.Adam(lr=LEARNING_RATE, epsilon=<span class="keyword">None</span>, decay=<span class="number">0.0</span>),</span><br><span class="line">            metrics=[<span class="string">'accuracy'</span>])</span><br><span class="line"></span><br><span class="line">model.fit(vec_train, y_train_dummy,</span><br><span class="line">        epochs=EPOCHS, </span><br><span class="line">        validation_split=<span class="number">0.2</span>,</span><br><span class="line">        batch_size=BATCH_SIZE,</span><br><span class="line">        shuffle=<span class="keyword">True</span>,</span><br><span class="line">        callbacks=[earlystop])</span><br><span class="line">model.evaluate(vec_test, y_test_dummy)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li>
+<p>RNN</p>
+<p>參考資料：<a href="https://www.analyticsvidhya.com/blog/2017/12/fundamentals-of-deep-learning-introduction-to-lstm/" target="_blank" rel="noopener">Essentials of Deep Learning : Introduction to Long Short Term Memory</a></p>
+<ul>
+<li>
+<p>詞向量特徵</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">MAX_SEQUENCE_LENGTH = <span class="number">300</span> <span class="comment"># 每条新闻最大长度</span></span><br><span class="line">EMBEDDING_DIM = <span class="number">200</span> <span class="comment"># 词向量空间维度</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 超參數設定</span></span><br><span class="line">LEARNING_RATE = <span class="number">1e-3</span></span><br><span class="line">EPOCHS = <span class="number">100</span></span><br><span class="line">BATCH_SIZE = <span class="number">128</span></span><br><span class="line">MOMENTUM = <span class="number">0.95</span></span><br><span class="line"><span class="comment"># 建立資料格式</span></span><br><span class="line">tokenizer = text.Tokenizer()</span><br><span class="line">tokenizer.fit_on_texts(df[<span class="string">'CONTENT_SEG'</span>])</span><br><span class="line">word_index = tokenizer.word_index</span><br><span class="line">print(<span class="string">'Found %s unique tokens.'</span> % len(word_index))</span><br><span class="line"></span><br><span class="line">pre_vec_train = tokenizer.texts_to_sequences(X_train) </span><br><span class="line">pre_vec_train = sequence.pad_sequences(pre_vec_train, maxlen=MAX_SEQUENCE_LENGTH)</span><br><span class="line">pre_vec_test = tokenizer.texts_to_sequences(X_test)</span><br><span class="line">pre_vec_test = sequence.pad_sequences(pre_vec_test, maxlen=MAX_SEQUENCE_LENGTH)</span><br><span class="line">print(<span class="string">'Shape of pre_vec_train tensor:'</span>, pre_vec_train.shape)</span><br><span class="line">print(<span class="string">'Shape of pre_vec_test tensor:'</span>, pre_vec_test.shape)</span><br><span class="line"></span><br><span class="line">y_train_dummy = to_categorical(np.asarray(y_train))</span><br><span class="line">y_test_dummy = to_categorical(np.asarray(y_test))</span><br><span class="line">print(<span class="string">'Shape of y_train tensor:'</span>, y_train_dummy.shape)</span><br><span class="line">print(<span class="string">'Shape of y_test tensor:'</span>, y_test_dummy.shape)</span><br><span class="line"><span class="comment"># 將詞替換成對應的向量</span></span><br><span class="line">embedding_matrix = np.zeros((len(word_index) + <span class="number">1</span>, EMBEDDING_DIM))</span><br><span class="line"><span class="keyword">for</span> word, i <span class="keyword">in</span> word_index.items(): </span><br><span class="line">    <span class="keyword">if</span> word <span class="keyword">in</span> w2v_model:</span><br><span class="line">        embedding_matrix[i] = np.asarray(w2v_model[word],</span><br><span class="line">                                        dtype=<span class="string">'float32'</span>)</span><br><span class="line">embedding_layer = Embedding(len(word_index) + <span class="number">1</span>,</span><br><span class="line">                            EMBEDDING_DIM,</span><br><span class="line">                            weights=[embedding_matrix],</span><br><span class="line">                            input_length=MAX_SEQUENCE_LENGTH,</span><br><span class="line">                            trainable=<span class="keyword">False</span>)</span><br><span class="line"><span class="comment"># 搭建模型框架</span></span><br><span class="line">keras.backend.clear_session()</span><br><span class="line">model = Sequential()</span><br><span class="line">model.add(embedding_layer)</span><br><span class="line">model.add(LSTM(<span class="number">200</span>, dropout=<span class="number">0.2</span>, recurrent_dropout=<span class="number">0.2</span>))</span><br><span class="line">model.add(BatchNormalization())</span><br><span class="line">model.add(Dense(y_train_dummy.shape[<span class="number">1</span>], activation=<span class="string">'softmax'</span>))</span><br><span class="line">model.summary()</span><br><span class="line"><span class="comment"># 載入 Callbacks, 並將 monitor 設定為監控 validation loss</span></span><br><span class="line">earlystop = EarlyStopping(monitor=<span class="string">"val_acc"</span>, </span><br><span class="line">                        patience=<span class="number">5</span>, </span><br><span class="line">                        verbose=<span class="number">1</span>)</span><br><span class="line">model.compile(loss=<span class="string">'categorical_crossentropy'</span>,</span><br><span class="line">            optimizer=optimizers.Adam(lr=LEARNING_RATE, epsilon=<span class="keyword">None</span>, decay=<span class="number">0.0</span>),</span><br><span class="line">            metrics=[<span class="string">'acc'</span>])</span><br><span class="line"></span><br><span class="line">model.fit(pre_vec_train, y_train_dummy,</span><br><span class="line">        epochs=EPOCHS, </span><br><span class="line">        validation_split=<span class="number">0.2</span>,</span><br><span class="line">        batch_size=BATCH_SIZE,</span><br><span class="line">        shuffle=<span class="keyword">True</span>,</span><br><span class="line">        callbacks=[earlystop]</span><br><span class="line">        )</span><br><span class="line">model.evaluate(pre_vec_test, y_test_dummy)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>預訓練的詞向量特徵</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">MAX_SEQUENCE_LENGTH = <span class="number">300</span> <span class="comment"># 每条新闻最大长度</span></span><br><span class="line">EMBEDDING_DIM = <span class="number">400</span> <span class="comment"># 词向量空间维度</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 超參數設定</span></span><br><span class="line">LEARNING_RATE = <span class="number">1e-3</span></span><br><span class="line">EPOCHS = <span class="number">100</span></span><br><span class="line">BATCH_SIZE = <span class="number">128</span></span><br><span class="line">MOMENTUM = <span class="number">0.95</span></span><br><span class="line">tokenizer = text.Tokenizer()</span><br><span class="line">tokenizer.fit_on_texts(df[<span class="string">'CONTENT_SEG'</span>])</span><br><span class="line">word_index = tokenizer.word_index</span><br><span class="line">print(<span class="string">'Found %s unique tokens.'</span> % len(word_index))</span><br><span class="line"></span><br><span class="line">pre_vec_train = tokenizer.texts_to_sequences(X_train) </span><br><span class="line">pre_vec_train = sequence.pad_sequences(pre_vec_train, maxlen=MAX_SEQUENCE_LENGTH)</span><br><span class="line">pre_vec_test = tokenizer.texts_to_sequences(X_test)</span><br><span class="line">pre_vec_test = sequence.pad_sequences(pre_vec_test, maxlen=MAX_SEQUENCE_LENGTH)</span><br><span class="line">print(<span class="string">'Shape of pre_vec_train tensor:'</span>, pre_vec_train.shape)</span><br><span class="line">print(<span class="string">'Shape of pre_vec_test tensor:'</span>, pre_vec_test.shape)</span><br><span class="line"></span><br><span class="line">y_train_dummy = to_categorical(np.asarray(y_train))</span><br><span class="line">y_test_dummy = to_categorical(np.asarray(y_test))</span><br><span class="line">print(<span class="string">'Shape of y_train_dummy tensor:'</span>, y_train_dummy.shape)</span><br><span class="line">print(<span class="string">'Shape of y_test_dummy tensor:'</span>, y_test_dummy.shape)</span><br><span class="line"></span><br><span class="line">embedding_matrix = np.zeros((len(word_index) + <span class="number">1</span>, EMBEDDING_DIM))</span><br><span class="line"><span class="keyword">for</span> word, i <span class="keyword">in</span> word_index.items(): </span><br><span class="line">    <span class="keyword">if</span> word <span class="keyword">in</span> pretrain_w2v_model:</span><br><span class="line">        embedding_matrix[i] = np.asarray(pretrain_w2v_model[word],</span><br><span class="line">                                        dtype=<span class="string">'float32'</span>)</span><br><span class="line">embedding_layer = Embedding(len(word_index) + <span class="number">1</span>,</span><br><span class="line">                            EMBEDDING_DIM,</span><br><span class="line">                            weights=[embedding_matrix],</span><br><span class="line">                            input_length=MAX_SEQUENCE_LENGTH,</span><br><span class="line">                            trainable=<span class="keyword">False</span>)</span><br><span class="line"></span><br><span class="line">keras.backend.clear_session()</span><br><span class="line">model = Sequential()</span><br><span class="line">model.add(embedding_layer)</span><br><span class="line">model.add(LSTM(<span class="number">200</span>, dropout=<span class="number">0.2</span>, recurrent_dropout=<span class="number">0.2</span>))</span><br><span class="line">model.add(BatchNormalization())</span><br><span class="line">model.add(Dense(y_train_dummy.shape[<span class="number">1</span>], activation=<span class="string">'softmax'</span>))</span><br><span class="line">model.summary()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 載入 Callbacks, 並將 monitor 設定為監控 validation loss</span></span><br><span class="line">earlystop = EarlyStopping(monitor=<span class="string">"val_acc"</span>, </span><br><span class="line">                        patience=<span class="number">5</span>, </span><br><span class="line">                        verbose=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">model.compile(loss=<span class="string">'categorical_crossentropy'</span>,</span><br><span class="line">            optimizer=optimizers.Adam(lr=LEARNING_RATE, epsilon=<span class="keyword">None</span>, decay=<span class="number">0.0</span>),</span><br><span class="line">            metrics=[<span class="string">'acc'</span>])</span><br><span class="line"></span><br><span class="line">%%time</span><br><span class="line">model.fit(pre_vec_train, y_train_dummy,</span><br><span class="line">        epochs=EPOCHS, </span><br><span class="line">        validation_split=<span class="number">0.2</span>,</span><br><span class="line">        batch_size=BATCH_SIZE,</span><br><span class="line">        shuffle=<span class="keyword">True</span>,</span><br><span class="line">        callbacks=[earlystop]</span><br><span class="line">        )</span><br><span class="line">model.evaluate(pre_vec_test, y_test_dummy)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h1>預測結果解析</h1>
+<ul>
+<li>從分析圖的結果來看，模型在區分政治類新聞(類型3)與總統大選觀測站類的新聞(類型8)時是比較吃力的，互相預測錯129/130個樣本。但是我們透過事後的檢視則會知道其實這兩類新聞的性質非常相近，實際在使用時可以思考是否有必要區分出這兩個類別，或著直接將兩者合併成政治類新聞即可。
+<ul>
+<li>前面有將目標變數的10個類別透過 Label Encoding 轉換成數值資料，各個數值對應的類別如下：
+<ol start="0">
+<li>NBA</li>
+<li>全球財經</li>
+<li>國際焦點</li>
+<li>政治</li>
+<li>流行消費</li>
+<li>生活新聞</li>
+<li>產業綜合</li>
+<li>科技產業</li>
+<li>總統大選觀測站</li>
+<li>金融要聞</li>
+</ol>
+</li>
+<li><img src="https://lh3.googleusercontent.com/hQuCXfMrkfDRpZ5oE4B_qYPMgASLxpGR3XB_mXlx79bl1xeYbZWsKKVZxGR8pqbPP50MaqBvZV-RA-0DpwdMF5bcqQ707BWWMw-1jkVyqMDYWCpTcmWci8I4gxri3rvjWvF0ifZoZziZ4byAIP5wFPDc-jtmD2rNn72BI1RCqg0O1oEGpMXa_ZXixOzY10NpvyoJjUPuN1NsBu9sDVYso1ZpctdpsN__h90sEvKXj3EzGv6mjVUSD_XTdZ7NVBrjkM3-bn2-Lf3m-9lTnyebsJjovLdtENwYf2CP-RP0oIbiVRfEOiEkrvMCTwV8NyC4pF9FDKabHl48A7att1Q8rpFirIjHYil5UG46PYR8wsio6AFuq1Jtcg-PHdMHXgL4CNyjgG3_7i1CSW8Ls9fThua3cTLZpovZ7oAg8h2VaFz_kTCJ0iR-XLxKYMKPoFzaH1iBhS7lt7jhLu12gltGGXnyXo55fVQYql3lC6f8sGiMxYx9_n4_WM3bYWVik7OLnGn_9AM7kx8wl0KRTLIqCCFuTwHqMwdQO0eso13aoZ8_jphegrYa0dUkuGUKajyDt-dExnkMEE6UAfncuH0MWTeU3zA0g5yWVLpP7mkuynEYCvM8DPFSTHcvF36i5DdynMqdfrUr1WmMrOgfj6OqH5JwuIDh2cu0X4QNNEWFVUEbOxWsc0LzVwN-gCoCNhS16MWvcGTQM_3Tg8jd8TJIUo7mwQHAgxSarbANcS1Zx9CzlRhFaIGz0vU=w1115-h929-no" alt=""></li>
+</ul>
+</li>
+</ul>
+<h1>後記</h1>
+<ul>
+<li>本次分析是使用新聞的內文進行建模，大多數的模型表現都有將近 85% 的準確度，這當然是因為長文本提供了較多的資訊所致，然而實務上碰到大情況大多是短文本的問題，這時候由於資訊量較少，要用來預測新聞主題的難度就會大幅增加。有興趣的人可以自行嘗試用新聞的標題進行預測新聞類型，我簡單測試時的準確度約在70%左右。</li>
+<li>我們過去大多都是用分類的效果來選擇模型，但是我們經常忽略了訓練的時間成本，想這次因為要比較的東西太多了，我就沒有逐一的調整模型的參數，如果分類錯誤的成本不這麽高的時候，我們可以考慮使用快速準確度不低的模型來完成任務。對於想透過調參知道模型極限的人也可以再自行調參檢視效果。</li>
+</ul>
+<h1>附件</h1>
+<ul>
+<li><a href="https://drive.google.com/file/d/1VlBVVcWD4n3_CrOYfw4jm8bbSyeOXmRc/view?usp=sharing" target="_blank" rel="noopener">udn新聞資料集</a></li>
+<li>維基百科訓練出的詞向量
+<ul>
+<li><a href="https://drive.google.com/file/d/1MY8zMmiGTV5yW1c2-_Yu1xqdZ35I4TU9/view?usp=sharing" target="_blank" rel="noopener">wiki.zh.text.model</a></li>
+<li><a href="https://drive.google.com/file/d/1A4D1-2m_0NGaFTgTd7WMZTXkWRZ-Gg9R/view?usp=sharing" target="_blank" rel="noopener">wiki.zh.text.model.trainables.syn1neg.npy</a></li>
+<li><a href="https://drive.google.com/file/d/1x83QuJ9TD0vN5c-NPVQC70dRKoDJRLJG/view?usp=sharing" target="_blank" rel="noopener">wiki.zh.text.model.wv.vectors.npy</a></li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+
+    <div>
+      
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文結束<i class="fa fa-paw"></i>感謝你的閱讀-------------</div>
+    
+</div>
+      
+    </div>
+    
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/文本分類/" rel="tag"># 文本分類</a>
+          
+            <a href="/tags/聯合新聞/" rel="tag"># 聯合新聞</a>
+          
+            <a href="/tags/TF-IDF/" rel="tag"># TF-IDF</a>
+          
+            <a href="/tags/word2vec/" rel="tag"># word2vec</a>
+          
+            <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
+          
+            <a href="/tags/Deep-Learning/" rel="tag"># Deep Learning</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/17/Crawl-Facebook-Pages/" rel="next" title="Facebook粉絲專頁爬蟲筆記">
+                <i class="fa fa-chevron-left"></i> Facebook粉絲專頁爬蟲筆記
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container">
+    </div>
+  
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/IMG_20180501_103746.jpg"
+                alt="Tony" />
+            
+              <p class="site-author-name" itemprop="name">Tony</p>
+              <p class="site-description motion-element" itemprop="description">單純基於分享的理念而建立這個 Blog，希望對你/妳會有幫助：)</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">標籤</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/TLYu0419" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:TLYu0419@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">載入使用套件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">讀取資料</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">文本特徵處理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">機器學習模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">深度學習模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">預測結果解析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">後記</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">8.</span> <span class="nav-text">附件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tony</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '472262983d806bce741f',
+          clientSecret: '29553bfe1525442b7fa3cbd48c6f4696ebc67ec4',
+          repo: 'tlyu0419.github.io',
+          owner: 'TLYu0419',
+          admin: ['TLYu0419'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("qnSPyuKGWkfaxQ8kfY9WwHg3-gzGzoHsz", "lhHv5GaYGHkqxygYev4s6VUq");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
