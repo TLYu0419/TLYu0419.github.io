@@ -3,6 +3,32 @@
 
 
     
+    
+  <url>
+    <loc>https://TLYu0419.github.io/2020/03/17/Crawl-Facebook-Pages/</loc>
+    <lastmod>2020-04-08T15:09:27.572Z</lastmod>
+    <data>
+        <display>
+        <title>Facebook粉絲專頁爬蟲筆記</title>
+        <pubTime>2020-03-17T04:35:30.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>Web Crawler</tag>
+         
+        <tag>Facebook</tag>
+         
+        <tag>requests</tag>
+         
+        <tag>總統大選</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
   <url>
     <loc>https://TLYu0419.github.io/2020/04/04/Text-Classification/</loc>
     <lastmod>2020-04-05T07:59:11.884Z</lastmod>
@@ -22,31 +48,6 @@
         <tag>Machine Learning</tag>
          
         <tag>Deep Learning</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://TLYu0419.github.io/2020/03/17/Crawl-Facebook-Pages/</loc>
-    <lastmod>2020-03-18T04:37:40.951Z</lastmod>
-    <data>
-        <display>
-        <title>Facebook粉絲專頁爬蟲筆記</title>
-        <pubTime>2020-03-17T04:35:30.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-        <tag>Web Crawler</tag>
-         
-        <tag>Facebook</tag>
-         
-        <tag>requests</tag>
-         
-        <tag>總統大選</tag>
          
          
            
@@ -201,9 +202,9 @@
          
         <tag>網路爬蟲</tag>
          
-        <tag>Selenium</tag>
-         
         <tag>評分</tag>
+         
+        <tag>Selenium</tag>
          
         <tag>GooglePlay</tag>
          
@@ -239,7 +240,6 @@
     </url>
 
     
-    
   <url>
     <loc>https://TLYu0419.github.io/2019/05/01/Crawl-Facebook/</loc>
     <lastmod>2019-05-02T13:44:16.508Z</lastmod>
@@ -250,11 +250,11 @@
         
         <tag>python</tag>
          
-        <tag>Crawler</tag>
-         
         <tag>Facebook</tag>
          
         <tag>Selenium</tag>
+         
+        <tag>Crawler</tag>
          
          
            
@@ -275,9 +275,9 @@
          
         <tag>python</tag>
          
-        <tag>Selenium</tag>
-         
         <tag>requests</tag>
+         
+        <tag>Selenium</tag>
          
         <tag>104人力銀行</tag>
          
