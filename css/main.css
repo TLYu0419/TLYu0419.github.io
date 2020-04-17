@@ -1820,7 +1820,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff8654;
+  background: #ffe5ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2738,7 +2738,7 @@ pre .javascript .function {
 .header {
   position: relative;
   margin: 0 auto;
-  width: 60%;
+  width: 90%;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .header {
@@ -2798,7 +2798,7 @@ pre .javascript .function {
   }
 }
 .container .main-inner {
-  width: 60%;
+  width: 90%;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .container .main-inner {
