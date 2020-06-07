@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Web Crawler,博碩士論文,NDLTD," />
 
 
 
@@ -81,17 +81,22 @@
 
 
 
-<meta name="description" content="單純基於分享的理念而建立這個 Blog，希望對你/妳會有幫助：)">
-<meta name="keywords" content="統計,程式,數據">
-<meta property="og:type" content="website">
-<meta property="og:title" content="旅程">
-<meta property="og:url" content="https://TLYu0419.github.io/tags/NLP/index.html">
+<meta name="description" content="因為想要做學術圈的社群網絡分析，就順手寫了博碩士論文網的爬蟲程式，以下我簡要記錄了在爬這個網站時遇到的問題與解決方式，並於文末附上程式，供有需要的人參考">
+<meta name="keywords" content="Web Crawler,博碩士論文,NDLTD">
+<meta property="og:type" content="article">
+<meta property="og:title" content="台灣博碩士論文網爬蟲">
+<meta property="og:url" content="https://TLYu0419.github.io/2020/06/07/Crawler-ndltd/index.html">
 <meta property="og:site_name" content="旅程">
-<meta property="og:description" content="單純基於分享的理念而建立這個 Blog，希望對你/妳會有幫助：)">
+<meta property="og:description" content="因為想要做學術圈的社群網絡分析，就順手寫了博碩士論文網的爬蟲程式，以下我簡要記錄了在爬這個網站時遇到的問題與解決方式，並於文末附上程式，供有需要的人參考">
 <meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://lh3.googleusercontent.com/pw/ACtC-3fxslKKYVGSGaW6Hez_IUFdsCBLL8B4RkLW0_cmqujo5pt0CqD_9V2fBpAZ7ZmT2rtJtzYMCLTOzbZ824MDF22RIsSFtGREKbIhiiYmORXkfIShD6DvE938KWO83Xn2RZ3jx9QmzXfBUZPLRDLciujE=w851-h868-no?authuser=1">
+<meta property="og:image" content="https://lh3.googleusercontent.com/pw/ACtC-3fyIiqAg5sBZBbaDujlicUI1JLLEkNO55r08oQOvBMbC4bsbNo1nIAu5Zan5bzhWbo4b9hqso3m4acJjRww4li7CsXIRpt2l3bmtJUNxSZil-wCFoYdFAPuXg2ePVQ_oRLbN-jwktgZpCuWrMoFahHX=w622-h491-no?authuser=1">
+<meta property="og:image" content="https://lh3.googleusercontent.com/pw/ACtC-3f1IC3kbVE6PUtVpsRHHbYNMs7QGHAEPuzgI-DfCyWXxj99WK8T4bXEv3R35hgkJSc-VxCSneD4HvtA-wTkreLry52d7HB7bdA343cB5CjAngCcOOb69C9w3BbTjbXAr6qmrctoOnI5DUlgS3-X1YE3=w1481-h800-no?authuser=1">
+<meta property="og:updated_time" content="2020-06-07T06:32:07.982Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="旅程">
-<meta name="twitter:description" content="單純基於分享的理念而建立這個 Blog，希望對你/妳會有幫助：)">
+<meta name="twitter:title" content="台灣博碩士論文網爬蟲">
+<meta name="twitter:description" content="因為想要做學術圈的社群網絡分析，就順手寫了博碩士論文網的爬蟲程式，以下我簡要記錄了在爬這個網站時遇到的問題與解決方式，並於文末附上程式，供有需要的人參考">
+<meta name="twitter:image" content="https://lh3.googleusercontent.com/pw/ACtC-3fxslKKYVGSGaW6Hez_IUFdsCBLL8B4RkLW0_cmqujo5pt0CqD_9V2fBpAZ7ZmT2rtJtzYMCLTOzbZ824MDF22RIsSFtGREKbIhiiYmORXkfIShD6DvE938KWO83Xn2RZ3jx9QmzXfBUZPLRDLciujE=w851-h868-no?authuser=1">
 
 
 
@@ -121,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="https://TLYu0419.github.io/tags/NLP/"/>
+  <link rel="canonical" href="https://TLYu0419.github.io/2020/06/07/Crawler-ndltd/"/>
 
 
 
 
 
-  <title>標籤: NLP | 旅程</title>
+  <title>台灣博碩士論文網爬蟲 | 旅程</title>
   
 
 
@@ -146,7 +151,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -278,54 +283,234 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>NLP<small>標籤</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://TLYu0419.github.io/2020/06/07/Crawler-ndltd/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tony">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/IMG_20180501_103746.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="旅程">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2020/01/05/NewWordDetection/" itemprop="url">
-              
-                <span itemprop="name">中文斷詞的新詞偵測技術</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">台灣博碩士論文網爬蟲</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-01-05T09:14:37+08:00"
-              content="2020-01-05" >
-          01-05
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2020-06-07T13:35:26+08:00">
+                2020-06-07
+              </time>
+            
 
-    </header>
-  </article>
+            
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新於&#58;</span>
+              
+              <time title="更新於" itemprop="dateModified" datetime="2020-06-07T14:32:07+08:00">
+                2020-06-07
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/06/07/Crawler-ndltd/" class="leancloud_visitors" data-flag-title="台灣博碩士論文網爬蟲">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">閱讀次數&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>因為想要做學術圈的社群網絡分析，就順手寫了博碩士論文網的爬蟲程式，以下我簡要記錄了在爬這個網站時遇到的問題與解決方式，並於文末附上程式，供有需要的人參考</p>
+<a id="more"></a>
+<p>當我們嘗試在<a href="https://ndltd.ncl.edu.tw/" target="_blank" rel="noopener">博碩士論文網</a>輸入關鍵字並送出查詢後會的看到以下的畫面，在這個畫面中，有一下幾個值得注意的事情</p>
+<ol>
+<li>網址列：網址中有個ccd的參數，這是 cookie 資訊，不同的人、不同的時間進來都會不一樣，而我們把這個網址複製給其他人時，也會重新被導向首頁，並產生新的 Cookie。</li>
+<li>檢索策略：這裡有許多種查詢方式，其中簡易檢索的查詢方式有許多限制，如果我們想要查詢特定學門的所有論文，要採用指令檢索的方式查論文。</li>
+<li>查詢結果：查詢出的論文網址是專屬於這個 Cookie 使用的網址，複製網址給其他人並沒有辦法使用，會重新導向首頁。在這裡查詢出的結果如下，觀察後會發現當中有 cookie(ccd) 與 頁數(r1)的資訊。
+<ul>
+<li><a href="https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi/ccd=fuy93N/record?r1=1&amp;h1=1" target="_blank" rel="noopener">https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi/ccd=fuy93N/record?r1=1&amp;h1=1</a></li>
+<li><a href="https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi/ccd=fuy93N/record?r1=2&amp;h1=1" target="_blank" rel="noopener">https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi/ccd=fuy93N/record?r1=2&amp;h1=1</a></li>
+<li><a href="https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi/ccd=fuy93N/record?r1=3&amp;h1=1" target="_blank" rel="noopener">https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi/ccd=fuy93N/record?r1=3&amp;h1=1</a></li>
+<li>…</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://lh3.googleusercontent.com/pw/ACtC-3fxslKKYVGSGaW6Hez_IUFdsCBLL8B4RkLW0_cmqujo5pt0CqD_9V2fBpAZ7ZmT2rtJtzYMCLTOzbZ824MDF22RIsSFtGREKbIhiiYmORXkfIShD6DvE938KWO83Xn2RZ3jx9QmzXfBUZPLRDLciujE=w851-h868-no?authuser=1" alt=""></p>
+<p>另外我們如果觀察網頁的背後送的 request 中有哪些參數的話，我們會發現裡面的參數相當複雜，裡面有查詢的關鍵字，與一些不知名的參數<br>
+<img src="https://lh3.googleusercontent.com/pw/ACtC-3fyIiqAg5sBZBbaDujlicUI1JLLEkNO55r08oQOvBMbC4bsbNo1nIAu5Zan5bzhWbo4b9hqso3m4acJjRww4li7CsXIRpt2l3bmtJUNxSZil-wCFoYdFAPuXg2ePVQ_oRLbN-jwktgZpCuWrMoFahHX=w622-h491-no?authuser=1" alt=""></p>
+<p>考量我們要查詢的資料量並不大，而且查詢的參數也相當複雜，甚至還有加入Cookie的反爬蟲機制，這時候我們就直接選擇使用Selenium來解決這次的任務!</p>
+<p>詳細的語法可以參考<a href="https://github.com/TLYu0419/DataScience/blob/master/WebCrawler/NDLTD/%E5%8D%9A%E7%A2%A9%E5%A3%AB%E8%AB%96%E6%96%87%E7%B6%B2.ipynb" target="_blank" rel="noopener">博碩士論文網.ipynb</a>，執行後可以得到以下資訊：</p>
+<ul>
+<li>研究生</li>
+<li>研究生(外文)</li>
+<li>論文名稱</li>
+<li>論文名稱(外文)</li>
+<li>指導教授</li>
+<li>指導教授(外文)</li>
+<li>口試委員</li>
+<li>口試委員(外文)</li>
+<li>學位類別</li>
+<li>校院名稱</li>
+<li>系所名稱</li>
+<li>學門</li>
+<li>學類</li>
+<li>論文出版年</li>
+<li>畢業學年度</li>
+<li>語文別</li>
+<li>論文頁數</li>
+<li>中文關鍵詞</li>
+<li>外文關鍵詞</li>
+<li>相關次數</li>
+<li>點閱</li>
+<li>下載</li>
+<li>書目收藏</li>
+<li>摘要</li>
+<li>引用</li>
+<li>連結網址</li>
+</ul>
+<p><img src="https://lh3.googleusercontent.com/pw/ACtC-3f1IC3kbVE6PUtVpsRHHbYNMs7QGHAEPuzgI-DfCyWXxj99WK8T4bXEv3R35hgkJSc-VxCSneD4HvtA-wTkreLry52d7HB7bdA343cB5CjAngCcOOb69C9w3BbTjbXAr6qmrctoOnI5DUlgS3-X1YE3=w1481-h800-no?authuser=1" alt=""></p>
+<p>註：最後要提醒博碩士論文網還有一個反爬蟲機制，一個 Cookie 查詢約 500 篇論文後就會被鎖Session，這時候我們需要關閉 Selenium 的網頁，並重新開啟網頁取得新的 Session &amp; Cookie 繼續爬蟲任務。因此可以寫個簡單的 try-except 函數，當網頁請求失敗時就自動啟動!</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+
+    <div>
+      
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文結束<i class="fa fa-paw"></i>感謝你的閱讀-------------</div>
+    
+</div>
+      
+    </div>
+    
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Web-Crawler/" rel="tag"># Web Crawler</a>
+          
+            <a href="/tags/博碩士論文/" rel="tag"># 博碩士論文</a>
+          
+            <a href="/tags/NDLTD/" rel="tag"># NDLTD</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/04/Text-Classification/" rel="next" title="文本分類大亂鬥_文本特徵處理與機器學習模型綜合分析">
+                <i class="fa fa-chevron-left"></i> 文本分類大亂鬥_文本特徵處理與機器學習模型綜合分析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -333,6 +518,14 @@
 
 
           
+
+  
+    <div id="gitalk-container">
+    </div>
+  
+  
+
+
 
         </div>
         
@@ -581,6 +774,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -621,6 +818,21 @@
 
 
 
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '472262983d806bce741f',
+          clientSecret: '29553bfe1525442b7fa3cbd48c6f4696ebc67ec4',
+          repo: 'tlyu0419.github.io',
+          owner: 'TLYu0419',
+          admin: ['TLYu0419'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
 
   
 
