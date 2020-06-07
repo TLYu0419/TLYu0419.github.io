@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://TLYu0419.github.io/"/>
-  <updated>2020-06-07T06:32:07.982Z</updated>
+  <updated>2020-06-07T06:36:44.070Z</updated>
   <id>https://TLYu0419.github.io/</id>
   
   <author>
@@ -21,13 +21,13 @@
     <link href="https://TLYu0419.github.io/2020/06/07/Crawler-ndltd/"/>
     <id>https://TLYu0419.github.io/2020/06/07/Crawler-ndltd/</id>
     <published>2020-06-07T05:35:26.000Z</published>
-    <updated>2020-06-07T06:32:07.982Z</updated>
+    <updated>2020-06-07T06:36:44.070Z</updated>
     
-    <content type="html"><![CDATA[<p>因為想要做學術圈的社群網絡分析，就順手寫了博碩士論文網的爬蟲程式，以下我簡要記錄了在爬這個網站時遇到的問題與解決方式，並於文末附上程式，供有需要的人參考</p><a id="more"></a><p>當我們嘗試在<a href="https://ndltd.ncl.edu.tw/" target="_blank" rel="noopener">博碩士論文網</a>輸入關鍵字並送出查詢後會的看到以下的畫面，在這個畫面中，有一下幾個值得注意的事情</p><ol><li>網址列：網址中有個ccd的參數，這是 cookie 資訊，不同的人、不同的時間進來都會不一樣，而我們把這個網址複製給其他人時，也會重新被導向首頁，並產生新的 Cookie。</li><li>檢索策略：這裡有許多種查詢方式，其中簡易檢索的查詢方式有許多限制，如果我們想要查詢特定學門的所有論文，要採用指令檢索的方式查論文。</li><li>查詢結果：查詢出的論文網址是專屬於這個 Cookie 使用的網址，複製網址給其他人並沒有辦法使用，會重新導向首頁。在這裡查詢出的結果如下，觀察後會發現當中有 cookie(ccd) 與 頁數(r1)的資訊。<ul><li><a href="https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi/ccd=fuy93N/record?r1=1&amp;h1=1" target="_blank" rel="noopener">https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi/ccd=fuy93N/record?r1=1&amp;h1=1</a></li><li><a href="https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi/ccd=fuy93N/record?r1=2&amp;h1=1" target="_blank" rel="noopener">https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi/ccd=fuy93N/record?r1=2&amp;h1=1</a></li><li><a href="https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi/ccd=fuy93N/record?r1=3&amp;h1=1" target="_blank" rel="noopener">https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi/ccd=fuy93N/record?r1=3&amp;h1=1</a></li><li>…</li></ul></li></ol><p><img src="https://lh3.googleusercontent.com/pw/ACtC-3fxslKKYVGSGaW6Hez_IUFdsCBLL8B4RkLW0_cmqujo5pt0CqD_9V2fBpAZ7ZmT2rtJtzYMCLTOzbZ824MDF22RIsSFtGREKbIhiiYmORXkfIShD6DvE938KWO83Xn2RZ3jx9QmzXfBUZPLRDLciujE=w851-h868-no?authuser=1" alt=""></p><p>另外我們如果觀察網頁的背後送的 request 中有哪些參數的話，我們會發現裡面的參數相當複雜，裡面有查詢的關鍵字，與一些不知名的參數<br><img src="https://lh3.googleusercontent.com/pw/ACtC-3fyIiqAg5sBZBbaDujlicUI1JLLEkNO55r08oQOvBMbC4bsbNo1nIAu5Zan5bzhWbo4b9hqso3m4acJjRww4li7CsXIRpt2l3bmtJUNxSZil-wCFoYdFAPuXg2ePVQ_oRLbN-jwktgZpCuWrMoFahHX=w622-h491-no?authuser=1" alt=""></p><p>考量我們要查詢的資料量並不大，而且查詢的參數也相當複雜，甚至還有加入Cookie的反爬蟲機制，這時候我們就直接選擇使用Selenium來解決這次的任務!</p><p>詳細的語法可以參考<a href="https://github.com/TLYu0419/DataScience/blob/master/WebCrawler/NDLTD/%E5%8D%9A%E7%A2%A9%E5%A3%AB%E8%AB%96%E6%96%87%E7%B6%B2.ipynb" target="_blank" rel="noopener">博碩士論文網.ipynb</a>，執行後可以得到以下資訊：</p><ul><li>研究生</li><li>研究生(外文)</li><li>論文名稱</li><li>論文名稱(外文)</li><li>指導教授</li><li>指導教授(外文)</li><li>口試委員</li><li>口試委員(外文)</li><li>學位類別</li><li>校院名稱</li><li>系所名稱</li><li>學門</li><li>學類</li><li>論文出版年</li><li>畢業學年度</li><li>語文別</li><li>論文頁數</li><li>中文關鍵詞</li><li>外文關鍵詞</li><li>相關次數</li><li>點閱</li><li>下載</li><li>書目收藏</li><li>摘要</li><li>引用</li><li>連結網址</li></ul><p><img src="https://lh3.googleusercontent.com/pw/ACtC-3f1IC3kbVE6PUtVpsRHHbYNMs7QGHAEPuzgI-DfCyWXxj99WK8T4bXEv3R35hgkJSc-VxCSneD4HvtA-wTkreLry52d7HB7bdA343cB5CjAngCcOOb69C9w3BbTjbXAr6qmrctoOnI5DUlgS3-X1YE3=w1481-h800-no?authuser=1" alt=""></p><p>註：最後要提醒博碩士論文網還有一個反爬蟲機制，一個 Cookie 查詢約 500 篇論文後就會被鎖Session，這時候我們需要關閉 Selenium 的網頁，並重新開啟網頁取得新的 Session &amp; Cookie 繼續爬蟲任務。因此可以寫個簡單的 try-except 函數，當網頁請求失敗時就自動啟動!</p>]]></content>
+    <content type="html"><![CDATA[<p>因為想要做學術圈的社群網絡分析，就順手寫了<a href="https://ndltd.ncl.edu.tw/" target="_blank" rel="noopener">博碩士論文網</a>的爬蟲程式，以下我簡要記錄了在爬這個網站時遇到的問題與解決方式，並於文末附上程式，供有需要的人參考</p><a id="more"></a><p>當我們嘗試在<a href="https://ndltd.ncl.edu.tw/" target="_blank" rel="noopener">博碩士論文網</a>輸入關鍵字並送出查詢後會的看到以下的畫面，在這個畫面中，有以下幾個值得注意的事情：</p><ol><li>網址列：網址中有個ccd的參數，這是 cookie 資訊，不同的人、不同的時間進來都會不一樣，而我們把這個網址複製給其他人時，也會重新被導向首頁，並產生新的 Cookie。</li><li>檢索策略：這裡有許多種查詢方式，其中簡易檢索的查詢方式有許多限制，如果我們想要查詢特定學門的所有論文，要採用指令檢索的方式查論文。</li><li>查詢結果：查詢出的論文網址是專屬於這個 Cookie 使用的網址，複製網址給其他人並沒有辦法使用，會重新導向首頁。在這裡查詢出的結果如下，觀察後會發現當中有 cookie(ccd) 與 頁數(r1)的資訊。<ul><li><a href="https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi/ccd=fuy93N/record?r1=1&amp;h1=1" target="_blank" rel="noopener">https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi/ccd=fuy93N/record?r1=1&amp;h1=1</a></li><li><a href="https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi/ccd=fuy93N/record?r1=2&amp;h1=1" target="_blank" rel="noopener">https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi/ccd=fuy93N/record?r1=2&amp;h1=1</a></li><li><a href="https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi/ccd=fuy93N/record?r1=3&amp;h1=1" target="_blank" rel="noopener">https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi/ccd=fuy93N/record?r1=3&amp;h1=1</a></li><li>…</li></ul></li></ol><p><img src="https://lh3.googleusercontent.com/pw/ACtC-3fxslKKYVGSGaW6Hez_IUFdsCBLL8B4RkLW0_cmqujo5pt0CqD_9V2fBpAZ7ZmT2rtJtzYMCLTOzbZ824MDF22RIsSFtGREKbIhiiYmORXkfIShD6DvE938KWO83Xn2RZ3jx9QmzXfBUZPLRDLciujE=w851-h868-no?authuser=1" alt=""></p><p>另外我們如果觀察網頁的背後送的 request 中有哪些參數的話，我們會發現裡面的參數相當複雜，裡面有查詢的關鍵字，與一些不知名的參數<br><img src="https://lh3.googleusercontent.com/pw/ACtC-3fyIiqAg5sBZBbaDujlicUI1JLLEkNO55r08oQOvBMbC4bsbNo1nIAu5Zan5bzhWbo4b9hqso3m4acJjRww4li7CsXIRpt2l3bmtJUNxSZil-wCFoYdFAPuXg2ePVQ_oRLbN-jwktgZpCuWrMoFahHX=w622-h491-no?authuser=1" alt=""></p><p>考量我們要查詢的資料量並不大，而且查詢的參數也相當複雜，甚至還有加入Cookie的反爬蟲機制，這時候我們就直接選擇使用Selenium來解決這次的任務!</p><p>詳細的語法可以參考<a href="https://github.com/TLYu0419/DataScience/blob/master/WebCrawler/NDLTD/%E5%8D%9A%E7%A2%A9%E5%A3%AB%E8%AB%96%E6%96%87%E7%B6%B2.ipynb" target="_blank" rel="noopener">博碩士論文網.ipynb</a>，執行後可以得到以下資訊：</p><ul><li>研究生</li><li>研究生(外文)</li><li>論文名稱</li><li>論文名稱(外文)</li><li>指導教授</li><li>指導教授(外文)</li><li>口試委員</li><li>口試委員(外文)</li><li>學位類別</li><li>校院名稱</li><li>系所名稱</li><li>學門</li><li>學類</li><li>論文出版年</li><li>畢業學年度</li><li>語文別</li><li>論文頁數</li><li>中文關鍵詞</li><li>外文關鍵詞</li><li>相關次數</li><li>點閱</li><li>下載</li><li>書目收藏</li><li>摘要</li><li>引用</li><li>連結網址</li></ul><p><img src="https://lh3.googleusercontent.com/pw/ACtC-3f1IC3kbVE6PUtVpsRHHbYNMs7QGHAEPuzgI-DfCyWXxj99WK8T4bXEv3R35hgkJSc-VxCSneD4HvtA-wTkreLry52d7HB7bdA343cB5CjAngCcOOb69C9w3BbTjbXAr6qmrctoOnI5DUlgS3-X1YE3=w1481-h800-no?authuser=1" alt=""></p><p>註：最後要提醒博碩士論文網還有一個反爬蟲機制，一個 Cookie 查詢約 500 篇論文後就會被鎖Session，這時候我們需要關閉 Selenium 的網頁，並重新開啟網頁取得新的 Session &amp; Cookie 繼續爬蟲任務。因此可以寫個簡單的 try-except 函數，當網頁請求失敗時就自動啟動!</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;因為想要做學術圈的社群網絡分析，就順手寫了博碩士論文網的爬蟲程式，以下我簡要記錄了在爬這個網站時遇到的問題與解決方式，並於文末附上程式，供有需要的人參考&lt;/p&gt;
+      &lt;p&gt;因為想要做學術圈的社群網絡分析，就順手寫了&lt;a href=&quot;https://ndltd.ncl.edu.tw/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;博碩士論文網&lt;/a&gt;的爬蟲程式，以下我簡要記錄了在爬這個網站時遇到的問題與解決方式，並於文末附上程式，供有需要的人參考&lt;/p&gt;
     
     </summary>
     
@@ -222,9 +222,9 @@
     
       <category term="python" scheme="https://TLYu0419.github.io/tags/python/"/>
     
-      <category term="1111人力銀行" scheme="https://TLYu0419.github.io/tags/1111%E4%BA%BA%E5%8A%9B%E9%8A%80%E8%A1%8C/"/>
-    
       <category term="網路爬蟲" scheme="https://TLYu0419.github.io/tags/%E7%B6%B2%E8%B7%AF%E7%88%AC%E8%9F%B2/"/>
+    
+      <category term="1111人力銀行" scheme="https://TLYu0419.github.io/tags/1111%E4%BA%BA%E5%8A%9B%E9%8A%80%E8%A1%8C/"/>
     
   </entry>
   
@@ -277,9 +277,9 @@
     
       <category term="python" scheme="https://TLYu0419.github.io/tags/python/"/>
     
-      <category term="網路爬蟲" scheme="https://TLYu0419.github.io/tags/%E7%B6%B2%E8%B7%AF%E7%88%AC%E8%9F%B2/"/>
-    
       <category term="中時電子報" scheme="https://TLYu0419.github.io/tags/%E4%B8%AD%E6%99%82%E9%9B%BB%E5%AD%90%E5%A0%B1/"/>
+    
+      <category term="網路爬蟲" scheme="https://TLYu0419.github.io/tags/%E7%B6%B2%E8%B7%AF%E7%88%AC%E8%9F%B2/"/>
     
       <category term="新聞" scheme="https://TLYu0419.github.io/tags/%E6%96%B0%E8%81%9E/"/>
     
@@ -307,9 +307,9 @@
     
       <category term="python" scheme="https://TLYu0419.github.io/tags/python/"/>
     
-      <category term="Facebook" scheme="https://TLYu0419.github.io/tags/Facebook/"/>
-    
       <category term="Crawler" scheme="https://TLYu0419.github.io/tags/Crawler/"/>
+    
+      <category term="Facebook" scheme="https://TLYu0419.github.io/tags/Facebook/"/>
     
       <category term="Selenium" scheme="https://TLYu0419.github.io/tags/Selenium/"/>
     
@@ -338,9 +338,9 @@
     
       <category term="python" scheme="https://TLYu0419.github.io/tags/python/"/>
     
-      <category term="requests" scheme="https://TLYu0419.github.io/tags/requests/"/>
-    
       <category term="Selenium" scheme="https://TLYu0419.github.io/tags/Selenium/"/>
+    
+      <category term="requests" scheme="https://TLYu0419.github.io/tags/requests/"/>
     
       <category term="104人力銀行" scheme="https://TLYu0419.github.io/tags/104%E4%BA%BA%E5%8A%9B%E9%8A%80%E8%A1%8C/"/>
     

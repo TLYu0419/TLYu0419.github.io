@@ -92,7 +92,7 @@
 <meta property="og:image" content="https://lh3.googleusercontent.com/pw/ACtC-3fxslKKYVGSGaW6Hez_IUFdsCBLL8B4RkLW0_cmqujo5pt0CqD_9V2fBpAZ7ZmT2rtJtzYMCLTOzbZ824MDF22RIsSFtGREKbIhiiYmORXkfIShD6DvE938KWO83Xn2RZ3jx9QmzXfBUZPLRDLciujE=w851-h868-no?authuser=1">
 <meta property="og:image" content="https://lh3.googleusercontent.com/pw/ACtC-3fyIiqAg5sBZBbaDujlicUI1JLLEkNO55r08oQOvBMbC4bsbNo1nIAu5Zan5bzhWbo4b9hqso3m4acJjRww4li7CsXIRpt2l3bmtJUNxSZil-wCFoYdFAPuXg2ePVQ_oRLbN-jwktgZpCuWrMoFahHX=w622-h491-no?authuser=1">
 <meta property="og:image" content="https://lh3.googleusercontent.com/pw/ACtC-3f1IC3kbVE6PUtVpsRHHbYNMs7QGHAEPuzgI-DfCyWXxj99WK8T4bXEv3R35hgkJSc-VxCSneD4HvtA-wTkreLry52d7HB7bdA343cB5CjAngCcOOb69C9w3BbTjbXAr6qmrctoOnI5DUlgS3-X1YE3=w1481-h800-no?authuser=1">
-<meta property="og:updated_time" content="2020-06-07T06:32:07.982Z">
+<meta property="og:updated_time" content="2020-06-07T06:36:44.070Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="台灣博碩士論文網爬蟲">
 <meta name="twitter:description" content="因為想要做學術圈的社群網絡分析，就順手寫了博碩士論文網的爬蟲程式，以下我簡要記錄了在爬這個網站時遇到的問題與解決方式，並於文末附上程式，供有需要的人參考">
@@ -342,7 +342,7 @@
               
                 <span class="post-meta-item-text">更新於&#58;</span>
               
-              <time title="更新於" itemprop="dateModified" datetime="2020-06-07T14:32:07+08:00">
+              <time title="更新於" itemprop="dateModified" datetime="2020-06-07T14:36:44+08:00">
                 2020-06-07
               </time>
             
@@ -387,9 +387,9 @@
       
 
       
-        <p>因為想要做學術圈的社群網絡分析，就順手寫了博碩士論文網的爬蟲程式，以下我簡要記錄了在爬這個網站時遇到的問題與解決方式，並於文末附上程式，供有需要的人參考</p>
+        <p>因為想要做學術圈的社群網絡分析，就順手寫了<a href="https://ndltd.ncl.edu.tw/" target="_blank" rel="noopener">博碩士論文網</a>的爬蟲程式，以下我簡要記錄了在爬這個網站時遇到的問題與解決方式，並於文末附上程式，供有需要的人參考</p>
 <a id="more"></a>
-<p>當我們嘗試在<a href="https://ndltd.ncl.edu.tw/" target="_blank" rel="noopener">博碩士論文網</a>輸入關鍵字並送出查詢後會的看到以下的畫面，在這個畫面中，有一下幾個值得注意的事情</p>
+<p>當我們嘗試在<a href="https://ndltd.ncl.edu.tw/" target="_blank" rel="noopener">博碩士論文網</a>輸入關鍵字並送出查詢後會的看到以下的畫面，在這個畫面中，有以下幾個值得注意的事情：</p>
 <ol>
 <li>網址列：網址中有個ccd的參數，這是 cookie 資訊，不同的人、不同的時間進來都會不一樣，而我們把這個網址複製給其他人時，也會重新被導向首頁，並產生新的 Cookie。</li>
 <li>檢索策略：這裡有許多種查詢方式，其中簡易檢索的查詢方式有許多限制，如果我們想要查詢特定學門的所有論文，要採用指令檢索的方式查論文。</li>
