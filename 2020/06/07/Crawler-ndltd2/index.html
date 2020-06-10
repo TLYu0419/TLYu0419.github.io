@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Web Crawler,博碩士論文,NDLTD," />
 
 
 
@@ -81,17 +81,20 @@
 
 
 
-<meta name="description" content="單純基於分享的理念而建立這個 Blog，希望對你/妳會有幫助：)">
-<meta name="keywords" content="統計,程式,數據">
-<meta property="og:type" content="website">
-<meta property="og:title" content="旅程">
-<meta property="og:url" content="https://TLYu0419.github.io/tags/SongGuo/index.html">
+<meta name="description" content="前幾天記錄了一篇完全透過 Selenium 來爬博碩士論文網的文章 台灣博碩士論文網爬蟲，但有沒有辦法透過 requests 更快速的完成呢? 這篇簡單記錄了如何透過 request 的 post來保存當前的 Session，再藉由這個 Session 的狀態來 get 我們需要的資料，另方面也優化部分的程式碼，讓程式變得更簡潔些!">
+<meta name="keywords" content="Web Crawler,博碩士論文,NDLTD">
+<meta property="og:type" content="article">
+<meta property="og:title" content="台灣博碩士論文網爬蟲v2">
+<meta property="og:url" content="https://TLYu0419.github.io/2020/06/07/Crawler-ndltd2/index.html">
 <meta property="og:site_name" content="旅程">
-<meta property="og:description" content="單純基於分享的理念而建立這個 Blog，希望對你/妳會有幫助：)">
+<meta property="og:description" content="前幾天記錄了一篇完全透過 Selenium 來爬博碩士論文網的文章 台灣博碩士論文網爬蟲，但有沒有辦法透過 requests 更快速的完成呢? 這篇簡單記錄了如何透過 request 的 post來保存當前的 Session，再藉由這個 Session 的狀態來 get 我們需要的資料，另方面也優化部分的程式碼，讓程式變得更簡潔些!">
 <meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://lh3.googleusercontent.com/pw/ACtC-3fyIiqAg5sBZBbaDujlicUI1JLLEkNO55r08oQOvBMbC4bsbNo1nIAu5Zan5bzhWbo4b9hqso3m4acJjRww4li7CsXIRpt2l3bmtJUNxSZil-wCFoYdFAPuXg2ePVQ_oRLbN-jwktgZpCuWrMoFahHX=w622-h491-no?authuser=1">
+<meta property="og:updated_time" content="2020-06-10T16:14:34.168Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="旅程">
-<meta name="twitter:description" content="單純基於分享的理念而建立這個 Blog，希望對你/妳會有幫助：)">
+<meta name="twitter:title" content="台灣博碩士論文網爬蟲v2">
+<meta name="twitter:description" content="前幾天記錄了一篇完全透過 Selenium 來爬博碩士論文網的文章 台灣博碩士論文網爬蟲，但有沒有辦法透過 requests 更快速的完成呢? 這篇簡單記錄了如何透過 request 的 post來保存當前的 Session，再藉由這個 Session 的狀態來 get 我們需要的資料，另方面也優化部分的程式碼，讓程式變得更簡潔些!">
+<meta name="twitter:image" content="https://lh3.googleusercontent.com/pw/ACtC-3fyIiqAg5sBZBbaDujlicUI1JLLEkNO55r08oQOvBMbC4bsbNo1nIAu5Zan5bzhWbo4b9hqso3m4acJjRww4li7CsXIRpt2l3bmtJUNxSZil-wCFoYdFAPuXg2ePVQ_oRLbN-jwktgZpCuWrMoFahHX=w622-h491-no?authuser=1">
 
 
 
@@ -121,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="https://TLYu0419.github.io/tags/SongGuo/"/>
+  <link rel="canonical" href="https://TLYu0419.github.io/2020/06/07/Crawler-ndltd2/"/>
 
 
 
 
 
-  <title>標籤: SongGuo | 旅程</title>
+  <title>台灣博碩士論文網爬蟲v2 | 旅程</title>
   
 
 
@@ -146,7 +149,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -278,54 +281,203 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>SongGuo<small>標籤</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://TLYu0419.github.io/2020/06/07/Crawler-ndltd2/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tony">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/IMG_20180501_103746.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="旅程">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/04/07/Crawl-SongGuo/" itemprop="url">
-              
-                <span itemprop="name">爬蟲 - 爬取松果購物商品資訊</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">台灣博碩士論文網爬蟲v2</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-04-07T20:53:39+08:00"
-              content="2019-04-07" >
-          04-07
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2020-06-07T13:35:26+08:00">
+                2020-06-07
+              </time>
+            
 
-    </header>
-  </article>
+            
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新於&#58;</span>
+              
+              <time title="更新於" itemprop="dateModified" datetime="2020-06-11T00:14:34+08:00">
+                2020-06-11
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/06/07/Crawler-ndltd2/" class="leancloud_visitors" data-flag-title="台灣博碩士論文網爬蟲v2">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">閱讀次數&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>前幾天記錄了一篇完全透過 Selenium 來爬博碩士論文網的文章 <a href="https://tlyu0419.github.io/2020/06/07/Crawler-ndltd/">台灣博碩士論文網爬蟲</a>，但有沒有辦法透過 requests 更快速的完成呢?<br>
+這篇簡單記錄了如何透過 request 的 post來保存當前的 Session，再藉由這個 Session 的狀態來 get 我們需要的資料，另方面也優化部分的程式碼，讓程式變得更簡潔些!</p>
+<a id="more"></a>
+<p>如同前一篇文章所述的內容，博碩士論文網會記錄你的 Session 資訊，因此當我們把連結的網址給別人時，別人並沒有辦法看到我們轉貼的文章，只會被重新導回首頁 Orz…</p>
+<p>同樣的邏輯，我們如果只是單純的 get 特定的網址也沒辦法取得需要的資訊，所以我們要先開一個Session，並 post 查詢的參數到對方的伺服器，讓對方記得我們，然後再用這個 Session 去 get 我們需要的資料。</p>
+<p>怎麼做呢?其實並不能，我們首先觀察瀏覽器 post 過去的資料，並且把這些資料透過 python 送到對方的伺服器<br>
+<img src="https://lh3.googleusercontent.com/pw/ACtC-3fyIiqAg5sBZBbaDujlicUI1JLLEkNO55r08oQOvBMbC4bsbNo1nIAu5Zan5bzhWbo4b9hqso3m4acJjRww4li7CsXIRpt2l3bmtJUNxSZil-wCFoYdFAPuXg2ePVQ_oRLbN-jwktgZpCuWrMoFahHX=w622-h491-no?authuser=1" alt=""></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">payload = &#123;<span class="string">'qs0'</span>: <span class="string">'"博士".ty and ("社會服務學門" or "社會及行為科學學門").sglv1'</span>,</span><br><span class="line">                   <span class="string">'qf0'</span>: <span class="string">'_hist_'</span>,</span><br><span class="line">                   <span class="string">'gs32search.x'</span>: <span class="string">'27'</span>,</span><br><span class="line">                   <span class="string">'gs32search.y'</span>: <span class="string">'9'</span>,</span><br><span class="line">                   <span class="string">'displayonerecdisable'</span>: <span class="string">'1'</span>,</span><br><span class="line">                   <span class="string">'dbcode'</span>: <span class="string">'nclcdr'</span>,</span><br><span class="line">                   <span class="string">'action'</span>:<span class="string">''</span>,</span><br><span class="line">                   <span class="string">'op'</span>:<span class="string">''</span>,</span><br><span class="line">                   <span class="string">'h'</span>:<span class="string">''</span>,</span><br><span class="line">                   <span class="string">'histlist'</span>:<span class="string">''</span>,</span><br><span class="line">                   <span class="string">'opt'</span>: <span class="string">'m'</span>,</span><br><span class="line">                   <span class="string">'_status_'</span>: <span class="string">'search__v2'</span>&#125;</span><br><span class="line">        </span><br><span class="line">rs = requests.session()</span><br><span class="line">res = rs.post(<span class="string">'https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi/ccd=&#123;&#125;/search'</span>.format(<span class="string">'fuy93N'</span>),data=payload, headers=headers)</span><br></pre></td></tr></table></figure>
+<p>接著我們就可以從這個 Session 開始request資料囉! 後面在整理資料的流程也有做一些優化，但就不在這邊詳細說明了，有需要的人可以自行檢視程式碼。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res2 = rs.get(<span class="string">'https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi/ccd=&#123;&#125;/record?r1=&#123;&#125;&amp;h1=1'</span>.format(cookie, r1))</span><br></pre></td></tr></table></figure>
+<p>最後大家會問說，那麼 Cookie 要怎麼來?超過查詢數量的限制怎麼辦?<br>
+這時候我們與其花時間去研究/破解 Cookie 的生成方式，不如直接開個 Selenium 直接取結果會更有效益!<br>
+畢竟我們最想要節省的時間是中間在抓上千、萬篇論文資料時，頁面切換的時間，語法如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">driver = webdriver.Chrome()</span><br><span class="line">driver.get(<span class="string">'https://ndltd.ncl.edu.tw/'</span>)</span><br><span class="line">sleep(<span class="number">2</span>)</span><br><span class="line">driver.find_element_by_xpath(<span class="string">'//a[@title="指令查詢"]'</span>).click()</span><br><span class="line">cookie = re.findall(<span class="string">r'ccd=(.*?)/'</span>, driver.current_url)[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<p>最後附上完整的語法提供有興趣的人參考: <a href="https://github.com/TLYu0419/DataScience/blob/master/WebCrawler/NDLTD/%E5%8D%9A%E7%A2%A9%E5%A3%AB%E8%AB%96%E6%96%87%E7%B6%B2v2.ipynb" target="_blank" rel="noopener">博碩士論文網v2.ipynb</a></p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+
+    <div>
+      
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文結束<i class="fa fa-paw"></i>感謝你的閱讀-------------</div>
+    
+</div>
+      
+    </div>
+    
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Web-Crawler/" rel="tag"># Web Crawler</a>
+          
+            <a href="/tags/博碩士論文/" rel="tag"># 博碩士論文</a>
+          
+            <a href="/tags/NDLTD/" rel="tag"># NDLTD</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/04/Text-Classification/" rel="next" title="文本分類大亂鬥_文本特徵處理與機器學習模型綜合分析">
+                <i class="fa fa-chevron-left"></i> 文本分類大亂鬥_文本特徵處理與機器學習模型綜合分析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/06/07/Crawler-ndltd/" rel="prev" title="台灣博碩士論文網爬蟲">
+                台灣博碩士論文網爬蟲 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -333,6 +485,14 @@
 
 
           
+
+  
+    <div id="gitalk-container">
+    </div>
+  
+  
+
+
 
         </div>
         
@@ -581,6 +741,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -621,6 +785,21 @@
 
 
 
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '472262983d806bce741f',
+          clientSecret: '29553bfe1525442b7fa3cbd48c6f4696ebc67ec4',
+          repo: 'tlyu0419.github.io',
+          owner: 'TLYu0419',
+          admin: ['TLYu0419'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
 
   
 

@@ -4,6 +4,27 @@
 
     
   <url>
+    <loc>https://TLYu0419.github.io/2020/06/07/Crawler-ndltd2/</loc>
+    <lastmod>2020-06-10T16:14:34.168Z</lastmod>
+    <data>
+        <display>
+        <title>台灣博碩士論文網爬蟲v2</title>
+        <pubTime>2020-06-07T05:35:26.000Z</pubTime>
+        
+        <tag>Web Crawler</tag>
+         
+        <tag>博碩士論文</tag>
+         
+        <tag>NDLTD</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://TLYu0419.github.io/2020/06/07/Crawler-ndltd/</loc>
     <lastmod>2020-06-07T06:36:44.070Z</lastmod>
     <data>
@@ -200,9 +221,9 @@
         
         <tag>python</tag>
          
-        <tag>網路爬蟲</tag>
-         
         <tag>1111人力銀行</tag>
+         
+        <tag>網路爬蟲</tag>
          
          
            
@@ -223,9 +244,9 @@
          
         <tag>網路爬蟲</tag>
          
-        <tag>Selenium</tag>
-         
         <tag>評分</tag>
+         
+        <tag>Selenium</tag>
          
         <tag>GooglePlay</tag>
          
@@ -246,9 +267,9 @@
         
         <tag>python</tag>
          
-        <tag>中時電子報</tag>
-         
         <tag>網路爬蟲</tag>
+         
+        <tag>中時電子報</tag>
          
         <tag>新聞</tag>
          
@@ -298,9 +319,9 @@
          
         <tag>requests</tag>
          
-        <tag>104人力銀行</tag>
-         
         <tag>Selenium</tag>
+         
+        <tag>104人力銀行</tag>
          
         <tag>BeautifulSoup</tag>
          
