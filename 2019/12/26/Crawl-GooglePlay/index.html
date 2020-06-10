@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="python,網路爬蟲,評分,Selenium,GooglePlay," />
+  <meta name="keywords" content="python,網路爬蟲,Selenium,評分,GooglePlay," />
 
 
 
@@ -82,7 +82,7 @@
 
 
 <meta name="description" content="隨著行動裝置越來越普及，各家公司紛紛推出了自己的手機 APP 來降低跟客戶間的距離，如果我們想要了解客戶對於 APP 的想法，我們當然可以透過發放問卷的方式來收集客戶想法，但這種方式的缺點是會需要花費較長的時間。 另一種方式是我們可以直接到 Google Play 的 APP 頁面抓取客戶的留言，如果再搭配一些文字分析的技巧，我們就能更快速、即時的了解 APP 的優缺點。 在這篇文章我將示範怎麼透">
-<meta name="keywords" content="python,網路爬蟲,評分,Selenium,GooglePlay">
+<meta name="keywords" content="python,網路爬蟲,Selenium,評分,GooglePlay">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何爬取 GooglePlay 的APP留言與評分">
 <meta property="og:url" content="https://TLYu0419.github.io/2019/12/26/Crawl-GooglePlay/index.html">
@@ -101,7 +101,7 @@
 <meta property="og:image" content="https://lh3.googleusercontent.com/1RY9JXc87whTGNVpHY8GNm77RarneoCpsxulPb5vj6wfXeVyWIK7fZBDibHwqNOzCts_l01rF4cRfW4DT_PgQw5TTiy2GJzPkBOHVUF5Se406acjFQeu-5aIdJaSPN2BfZUe9IcH8jsejbAkBIKV-bnLT3iSwDcQDrEWWPShM-aY6Ik-ZCVgg0ru5gEzl69wz9jxslwry5qIlm1bqfFgsr9thO8KxVdWK7izA4PkHv9KtRW09_wmPr7XxfomxanTKhe2l65vpe_oTs36w03dz8huj3tKWHo9ZafJ2N4gSqdPfiabN47tKetfHlgRY48nV99oVeIQTMSehsIm9hS7ppdygWz_h04W5oR1-q4mvIREU3wwbpojD_9ae87F4aTIiLEVHKi9TOvJ9RXkgKI-z-pShLKrrEgMcSdb0XxHMXWEQNqLSFZ3u39GRG2yJMDMmF0Fr_Tj3kj7RCqRCezX0c4OsgR81NMV6Wt5CdB6NvbxbQX2HOxfc0txXze0hdGjgwaTsBf7dFYWFCw3iKBVqlVbdE0bywKFqky1i2GnxVBWOIgTijG-B48BHy_tDhWpvxB3bUnYGtfotQsMV6HExX2T4iii8EdAfpV8zHdHEAvY3yOuN_lDUfz7Iw67VZQjVx9M7M5i3tQPYJLoOCf-s8xNk9V_XCzwwCNsYsUVfZNXK8-4CzdzGGg=w1508-h67-no">
 <meta property="og:image" content="https://lh3.googleusercontent.com/vbM-BfMd3-qRvcXEo0ROQj_xubD6sDgxRenFirWnqQyMZKTCDiOH0R3r6ygLNNzgs32iUgHYy-TotV2HlaI240JJMV4NN1dcHZvRVQtVeQx8iQsiO5yEZ3P9wwXN1PKit9q_yR0i_RcL4MR5UAa3o0VuEqPqHKKhAg7orRZu0S6_C0lFtJFPfyTRNqsiR33iFkWvZDPzOuvjjzQXWqCue7ufVALDV_B0qU_6Nx8dkNcbPJ_wLI-DEriNX8zqTVa8hU9D7rZ-zaMjNO3BtNpK7uW2x1bi-xK97eHBmK1qENnups7kIvUb4ukyKZC2t88w3thrO25vwlxgc-oyZvAXB_23CiUeE7pbGvBwypdfAqg76WDm31-RZMb_HrlhB0LaR2cXaj3Kp7JUjZNNMce4dH5WppTuVI_j5BXikdkaW_igKv0MO6i-s9Ikuuq7Dt6pJxzgjL3nWsypQAMwhGiSzoSFzYVJmLyHz85WTBbWxp5xQcX5b4YCOj3qk0I9B3vbClvj5utdmYl8XKjtGrNL8HMhwY0FqjdMXirhfFmftH4XL-bip9fU6xM__1DT0ofUgh-xo-io1hfsqWz8VutTDixxv9ry-SXwvAIOliMD9WKH2rzsa4iRo6KhpU5RvsJI7ZI8136j3AlyNMdGjY07Jx7ghy72QrGZwWMmn1JOUf36mAy_eWPUE4k=w1507-h85-no">
 <meta property="og:image" content="https://lh3.googleusercontent.com/XqGbKWIZbCLvd8iGRR41WLodgwts4h9B7NEEWBh_Mg2Xo1k07Fm8FP5i-K_si7_fq1-9EuMtyTa8a-UC7_jupFpdtg8ePU2NSZgjtxya5QV115eKFcUrQeytCRqteC-XJ13otanJFZOkbm7LwG8tt0gRrSF7qVaWaOwcG2XTLVdVrJvvAnxzrK2f1G3eQEz7gZ9zLOyZMU_X9dnMh-Tx5I7ajmYgOFs1ulghQH5S54eLD_hu62mUyGOg8qc06xH7ms1K2TTNnoifjshDMfOzU8eTbfakyoV9Wt3SiZlplLxpQ-1Hxps4SAeNrHZB2MdP3J14rR5Vjz20EWscSY6t2Z1QESIYbBS8RZO9qZG3g83WnVGA9r195OiKTXKX70wVjlPGSzz8cLPE05QXpOM9ZcL_YZAgZc5eKtI8fjcFUsyiEeUyfbVluEdYNScPOizNLsm4ovhkuzROfmTwBAo_we3qysHbqHgvvRTYOq5PKV4MjiwD0Ytmi4cvrccpt_YRzMvDCfxKWmxwmbiaEhTZNVy7nQ4JH0xxDM3akaIfu34voRjUovMfalsns28I4gK-a11Ux96saA9E1VY5AG4PY_Gy3xXKXEIYBl6dznEFW7IBJt3Wtk1x18tmlJNpW7bsnI9qBuqIyNyM-gm0NtffNhxKoV2C0ayEpLnJ0tD-AKkzPOfbGOCJWvE=w1920-h878-no">
-<meta property="og:updated_time" content="2019-12-29T09:11:53.401Z">
+<meta property="og:updated_time" content="2020-06-10T16:34:09.945Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何爬取 GooglePlay 的APP留言與評分">
 <meta name="twitter:description" content="隨著行動裝置越來越普及，各家公司紛紛推出了自己的手機 APP 來降低跟客戶間的距離，如果我們想要了解客戶對於 APP 的想法，我們當然可以透過發放問卷的方式來收集客戶想法，但這種方式的缺點是會需要花費較長的時間。 另一種方式是我們可以直接到 Google Play 的 APP 頁面抓取客戶的留言，如果再搭配一些文字分析的技巧，我們就能更快速、即時的了解 APP 的優缺點。 在這篇文章我將示範怎麼透">
@@ -351,8 +351,8 @@
               
                 <span class="post-meta-item-text">更新於&#58;</span>
               
-              <time title="更新於" itemprop="dateModified" datetime="2019-12-29T17:11:53+08:00">
-                2019-12-29
+              <time title="更新於" itemprop="dateModified" datetime="2020-06-11T00:34:09+08:00">
+                2020-06-11
               </time>
             
           </span>
@@ -455,7 +455,7 @@
 <p><img src="https://lh3.googleusercontent.com/XqGbKWIZbCLvd8iGRR41WLodgwts4h9B7NEEWBh_Mg2Xo1k07Fm8FP5i-K_si7_fq1-9EuMtyTa8a-UC7_jupFpdtg8ePU2NSZgjtxya5QV115eKFcUrQeytCRqteC-XJ13otanJFZOkbm7LwG8tt0gRrSF7qVaWaOwcG2XTLVdVrJvvAnxzrK2f1G3eQEz7gZ9zLOyZMU_X9dnMh-Tx5I7ajmYgOFs1ulghQH5S54eLD_hu62mUyGOg8qc06xH7ms1K2TTNnoifjshDMfOzU8eTbfakyoV9Wt3SiZlplLxpQ-1Hxps4SAeNrHZB2MdP3J14rR5Vjz20EWscSY6t2Z1QESIYbBS8RZO9qZG3g83WnVGA9r195OiKTXKX70wVjlPGSzz8cLPE05QXpOM9ZcL_YZAgZc5eKtI8fjcFUsyiEeUyfbVluEdYNScPOizNLsm4ovhkuzROfmTwBAo_we3qysHbqHgvvRTYOq5PKV4MjiwD0Ytmi4cvrccpt_YRzMvDCfxKWmxwmbiaEhTZNVy7nQ4JH0xxDM3akaIfu34voRjUovMfalsns28I4gK-a11Ux96saA9E1VY5AG4PY_Gy3xXKXEIYBl6dznEFW7IBJt3Wtk1x18tmlJNpW7bsnI9qBuqIyNyM-gm0NtffNhxKoV2C0ayEpLnJ0tD-AKkzPOfbGOCJWvE=w1920-h878-no" alt=""></p>
 <h1>後記</h1>
 <ul>
-<li>我將程式碼都放在Colab上了，如果你/妳有想要抓取的網頁，可以直接打開這份 <a href="https://drive.google.com/file/d/1_jgNnCa8SYXJK-XO3VzG6TdvZ4JMK11u/view?usp=sharing" target="_blank" rel="noopener">GooglePlay_Crawler.ipynb</a> 執行程式!</li>
+<li>在這裡附上程式碼，如果你/妳有想要抓取的網頁，可以參考這份檔案 <a href="https://github.com/TLYu0419/DataScience/blob/master/WebCrawler/GooglePlay/GooglePlay.ipynb" target="_blank" rel="noopener">GooglePlay.ipynb</a></li>
 <li>這裡抓到的資料也挺適合用來訓練情感評分模型，因為客戶在留言的同時會一併評分。並將訓練出的模型套用在其他沒有標註的資料上(如 Facebook 的留言)</li>
 <li>如果有問題的話歡迎在底下留言或寫信給我，最後祝大家聖誕節快樂囉🙂</li>
 </ul>
@@ -491,9 +491,9 @@
           
             <a href="/tags/網路爬蟲/" rel="tag"># 網路爬蟲</a>
           
-            <a href="/tags/評分/" rel="tag"># 評分</a>
-          
             <a href="/tags/Selenium/" rel="tag"># Selenium</a>
+          
+            <a href="/tags/評分/" rel="tag"># 評分</a>
           
             <a href="/tags/GooglePlay/" rel="tag"># GooglePlay</a>
           

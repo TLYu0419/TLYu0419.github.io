@@ -4,6 +4,31 @@
 
     
   <url>
+    <loc>https://TLYu0419.github.io/2019/12/26/Crawl-GooglePlay/</loc>
+    <lastmod>2020-06-10T16:34:09.945Z</lastmod>
+    <data>
+        <display>
+        <title>如何爬取 GooglePlay 的APP留言與評分</title>
+        <pubTime>2019-12-26T10:15:22.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>網路爬蟲</tag>
+         
+        <tag>Selenium</tag>
+         
+        <tag>評分</tag>
+         
+        <tag>GooglePlay</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://TLYu0419.github.io/2020/06/07/Crawler-ndltd2/</loc>
     <lastmod>2020-06-10T16:14:34.168Z</lastmod>
     <data>
@@ -221,34 +246,9 @@
         
         <tag>python</tag>
          
+        <tag>網路爬蟲</tag>
+         
         <tag>1111人力銀行</tag>
-         
-        <tag>網路爬蟲</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://TLYu0419.github.io/2019/12/26/Crawl-GooglePlay/</loc>
-    <lastmod>2019-12-29T09:11:53.401Z</lastmod>
-    <data>
-        <display>
-        <title>如何爬取 GooglePlay 的APP留言與評分</title>
-        <pubTime>2019-12-26T10:15:22.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-        <tag>網路爬蟲</tag>
-         
-        <tag>評分</tag>
-         
-        <tag>Selenium</tag>
-         
-        <tag>GooglePlay</tag>
          
          
            
@@ -267,9 +267,9 @@
         
         <tag>python</tag>
          
-        <tag>網路爬蟲</tag>
-         
         <tag>中時電子報</tag>
+         
+        <tag>網路爬蟲</tag>
          
         <tag>新聞</tag>
          
@@ -294,9 +294,9 @@
          
         <tag>Facebook</tag>
          
-        <tag>Selenium</tag>
-         
         <tag>Crawler</tag>
+         
+        <tag>Selenium</tag>
          
          
            
