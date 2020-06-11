@@ -4,6 +4,27 @@
 
     
   <url>
+    <loc>https://TLYu0419.github.io/2020/06/11/Crawler-everylettermatters/</loc>
+    <lastmod>2020-06-11T12:55:52.663Z</lastmod>
+    <data>
+        <display>
+        <title>博客來_每字美句網路爬蟲</title>
+        <pubTime>2020-06-11T12:31:10.000Z</pubTime>
+        
+        <tag>Web Crawler</tag>
+         
+        <tag>博客來</tag>
+         
+        <tag>每字美句</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://TLYu0419.github.io/2019/12/26/Crawl-GooglePlay/</loc>
     <lastmod>2020-06-10T16:34:09.945Z</lastmod>
     <data>
@@ -246,9 +267,9 @@
         
         <tag>python</tag>
          
-        <tag>網路爬蟲</tag>
-         
         <tag>1111人力銀行</tag>
+         
+        <tag>網路爬蟲</tag>
          
          
            
@@ -267,9 +288,9 @@
         
         <tag>python</tag>
          
-        <tag>中時電子報</tag>
-         
         <tag>網路爬蟲</tag>
+         
+        <tag>中時電子報</tag>
          
         <tag>新聞</tag>
          
@@ -292,9 +313,9 @@
         
         <tag>python</tag>
          
-        <tag>Facebook</tag>
-         
         <tag>Crawler</tag>
+         
+        <tag>Facebook</tag>
          
         <tag>Selenium</tag>
          
@@ -317,9 +338,9 @@
          
         <tag>python</tag>
          
-        <tag>requests</tag>
-         
         <tag>Selenium</tag>
+         
+        <tag>requests</tag>
          
         <tag>104人力銀行</tag>
          
