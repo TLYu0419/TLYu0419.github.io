@@ -4,6 +4,27 @@
 
     
   <url>
+    <loc>https://TLYu0419.github.io/2020/06/13/Crawler-PChome/</loc>
+    <lastmod>2020-06-13T05:19:43.281Z</lastmod>
+    <data>
+        <display>
+        <title>PChome 網路爬蟲</title>
+        <pubTime>2020-06-13T04:26:55.000Z</pubTime>
+        
+        <tag>Crawler</tag>
+         
+        <tag>PChome</tag>
+         
+        <tag>Python</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://TLYu0419.github.io/2020/06/11/Crawler-everylettermatters/</loc>
     <lastmod>2020-06-11T12:55:52.663Z</lastmod>
     <data>
@@ -36,9 +57,9 @@
          
         <tag>網路爬蟲</tag>
          
-        <tag>Selenium</tag>
-         
         <tag>評分</tag>
+         
+        <tag>Selenium</tag>
          
         <tag>GooglePlay</tag>
          
@@ -315,9 +336,9 @@
          
         <tag>Crawler</tag>
          
-        <tag>Facebook</tag>
-         
         <tag>Selenium</tag>
+         
+        <tag>Facebook</tag>
          
          
            
