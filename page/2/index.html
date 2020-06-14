@@ -74,24 +74,24 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="旅程" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="Journey" type="application/atom+xml" />
 
 
 
 
 
 
-<meta name="description" content="單純基於分享的理念而建立這個 Blog，希望對你/妳會有幫助：)">
-<meta name="keywords" content="統計,程式,數據">
+<meta name="description" content="基於分享的理念而建立這個部落格，希望對你和妳會有幫助：)">
+<meta name="keywords" content="Machine Learning,Web Crawler,Big Data">
 <meta property="og:type" content="website">
-<meta property="og:title" content="旅程">
+<meta property="og:title" content="Journey">
 <meta property="og:url" content="https://TLYu0419.github.io/page/2/index.html">
-<meta property="og:site_name" content="旅程">
-<meta property="og:description" content="單純基於分享的理念而建立這個 Blog，希望對你/妳會有幫助：)">
+<meta property="og:site_name" content="Journey">
+<meta property="og:description" content="基於分享的理念而建立這個部落格，希望對你和妳會有幫助：)">
 <meta property="og:locale" content="zh-tw">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="旅程">
-<meta name="twitter:description" content="單純基於分享的理念而建立這個 Blog，希望對你/妳會有幫助：)">
+<meta name="twitter:title" content="Journey">
+<meta name="twitter:description" content="基於分享的理念而建立這個部落格，希望對你和妳會有幫助：)">
 
 
 
@@ -101,7 +101,7 @@
     root: '/',
     scheme: 'Pisces',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -127,7 +127,7 @@
 
 
 
-  <title>旅程</title>
+  <title>Journey</title>
   
 
 
@@ -158,12 +158,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">旅程</span>
+        <span class="site-title">Journey</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">The Journey is the destination.</p>
       
   </div>
 
@@ -293,6 +293,158 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://TLYu0419.github.io/2020/01/05/NewWordDetection/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tony">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/IMG_20180501_103746.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Journey">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/05/NewWordDetection/" itemprop="url">中文斷詞的新詞偵測技術</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2020-01-05T09:14:37+08:00">
+                2020-01-05
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新於&#58;</span>
+              
+              <time title="更新於" itemprop="dateModified" datetime="2020-01-09T00:48:34+08:00">
+                2020-01-09
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/01/05/NewWordDetection/" class="leancloud_visitors" data-flag-title="中文斷詞的新詞偵測技術">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">閱讀次數&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>談到自然語言處理(NLP)的中文斷詞技術，我們通常都會直接聯想並使用 Jieba 套件，網路上也有許多人分享了 Jieba 套件的功能介紹與使用方法。但是當我在使用是卻感到非常困惑，困惑的地方在於，隨著時代的演進會不斷產生新的詞彙，那麼我們透過「過去定義好的字典，適合用來分析未來的資料嗎?」</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/01/05/NewWordDetection/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+
+    <div>
+      
+    </div>
+    
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://TLYu0419.github.io/2019/12/29/Crawl-CompList1111/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -302,7 +454,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="旅程">
+      <meta itemprop="name" content="Journey">
     </span>
 
     
@@ -454,7 +606,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="旅程">
+      <meta itemprop="name" content="Journey">
     </span>
 
     
@@ -608,7 +760,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="旅程">
+      <meta itemprop="name" content="Journey">
     </span>
 
     
@@ -761,7 +913,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="旅程">
+      <meta itemprop="name" content="Journey">
     </span>
 
     
@@ -915,7 +1067,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="旅程">
+      <meta itemprop="name" content="Journey">
     </span>
 
     
@@ -1070,7 +1222,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="旅程">
+      <meta itemprop="name" content="Journey">
     </span>
 
     
@@ -1229,7 +1381,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="旅程">
+      <meta itemprop="name" content="Journey">
     </span>
 
     
@@ -1405,7 +1557,7 @@
                 alt="Tony" />
             
               <p class="site-author-name" itemprop="name">Tony</p>
-              <p class="site-description motion-element" itemprop="description">單純基於分享的理念而建立這個 Blog，希望對你/妳會有幫助：)</p>
+              <p class="site-description motion-element" itemprop="description">基於分享的理念而建立這個部落格，希望對你和妳會有幫助：)</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -1415,7 +1567,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -1428,7 +1580,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>

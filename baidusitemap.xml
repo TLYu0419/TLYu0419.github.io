@@ -4,8 +4,30 @@
 
     
   <url>
+    <loc>https://TLYu0419.github.io/2020/06/14/Crawler-Ruten/</loc>
+    <lastmod>2020-06-14T09:22:44.750Z</lastmod>
+    <data>
+        <display>
+        <title>Crawler-Ruten</title>
+        <pubTime>2020-06-14T02:22:12.000Z</pubTime>
+        
+        <tag>Crawler</tag>
+         
+        <tag>Python</tag>
+         
+        <tag>露天拍賣</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
     <loc>https://TLYu0419.github.io/2020/06/13/Crawler-PChome/</loc>
-    <lastmod>2020-06-13T05:19:43.281Z</lastmod>
+    <lastmod>2020-06-14T06:46:06.305Z</lastmod>
     <data>
         <display>
         <title>PChome 網路爬蟲</title>
@@ -57,9 +79,9 @@
          
         <tag>網路爬蟲</tag>
          
-        <tag>評分</tag>
-         
         <tag>Selenium</tag>
+         
+        <tag>評分</tag>
          
         <tag>GooglePlay</tag>
          
@@ -111,7 +133,6 @@
     </data>
     </url>
 
-    
     
   <url>
     <loc>https://TLYu0419.github.io/2020/03/17/Crawl-Facebook-Pages/</loc>
@@ -288,9 +309,9 @@
         
         <tag>python</tag>
          
-        <tag>1111人力銀行</tag>
-         
         <tag>網路爬蟲</tag>
+         
+        <tag>1111人力銀行</tag>
          
          
            
@@ -309,9 +330,9 @@
         
         <tag>python</tag>
          
-        <tag>網路爬蟲</tag>
-         
         <tag>中時電子報</tag>
+         
+        <tag>網路爬蟲</tag>
          
         <tag>新聞</tag>
          
@@ -336,9 +357,9 @@
          
         <tag>Crawler</tag>
          
-        <tag>Selenium</tag>
-         
         <tag>Facebook</tag>
+         
+        <tag>Selenium</tag>
          
          
            
@@ -359,9 +380,9 @@
          
         <tag>python</tag>
          
-        <tag>Selenium</tag>
-         
         <tag>requests</tag>
+         
+        <tag>Selenium</tag>
          
         <tag>104人力銀行</tag>
          

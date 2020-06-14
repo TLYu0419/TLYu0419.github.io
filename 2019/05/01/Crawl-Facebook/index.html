@@ -68,13 +68,13 @@
 
 
 
-  <meta name="keywords" content="python,Crawler,Selenium,Facebook," />
+  <meta name="keywords" content="python,Crawler,Facebook,Selenium," />
 
 
 
 
 
-  <link rel="alternate" href="/atom.xml" title="旅程" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="Journey" type="application/atom+xml" />
 
 
 
@@ -82,11 +82,11 @@
 
 
 <meta name="description" content="本文僅限於學習使用，請勿用於商業目的 上個月參加某公司的職缺面試時，面試長官詢問「有沒有辦法將臉書上的貼文時間、內容、按讚數、留言數與分享數、甚至是粉絲的留言資訊都抓下來？」 受限於當時還不太熟悉爬蟲，只能簡單回應說透過python與Selenium應該是可以，但卻沒辦法說出更詳細的方法與步驟。後來經過一番研究，總算知道怎麼把這些資料爬來下來了！廢話不多說，我們就開始吧！">
-<meta name="keywords" content="python,Crawler,Selenium,Facebook">
+<meta name="keywords" content="python,Crawler,Facebook,Selenium">
 <meta property="og:type" content="article">
 <meta property="og:title" content="網路爬蟲_Facebook粉絲團貼文與留言">
 <meta property="og:url" content="https://TLYu0419.github.io/2019/05/01/Crawl-Facebook/index.html">
-<meta property="og:site_name" content="旅程">
+<meta property="og:site_name" content="Journey">
 <meta property="og:description" content="本文僅限於學習使用，請勿用於商業目的 上個月參加某公司的職缺面試時，面試長官詢問「有沒有辦法將臉書上的貼文時間、內容、按讚數、留言數與分享數、甚至是粉絲的留言資訊都抓下來？」 受限於當時還不太熟悉爬蟲，只能簡單回應說透過python與Selenium應該是可以，但卻沒辦法說出更詳細的方法與步驟。後來經過一番研究，總算知道怎麼把這些資料爬來下來了！廢話不多說，我們就開始吧！">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://tlyu0419.github.io/2019/05/01/Crawl-Facebook/01.JPG">
@@ -121,7 +121,7 @@
     root: '/',
     scheme: 'Pisces',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -147,7 +147,7 @@
 
 
 
-  <title>網路爬蟲_Facebook粉絲團貼文與留言 | 旅程</title>
+  <title>網路爬蟲_Facebook粉絲團貼文與留言 | Journey</title>
   
 
 
@@ -177,12 +177,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">旅程</span>
+        <span class="site-title">Journey</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">The Journey is the destination.</p>
       
   </div>
 
@@ -321,7 +321,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="旅程">
+      <meta itemprop="name" content="Journey">
     </span>
 
     
@@ -540,6 +540,24 @@ ulr放我們要爬的Facebook網址，n是稍後要送出幾次滾動網頁到�
     
 
     
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author：</strong>
+    Tony
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link：</strong>
+    <a href="https://TLYu0419.github.io/2019/05/01/Crawl-Facebook/" title="網路爬蟲_Facebook粉絲團貼文與留言">https://TLYu0419.github.io/2019/05/01/Crawl-Facebook/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice： </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
 
 
     <div>
@@ -560,9 +578,9 @@ ulr放我們要爬的Facebook網址，n是稍後要送出幾次滾動網頁到�
           
             <a href="/tags/Crawler/" rel="tag"># Crawler</a>
           
-            <a href="/tags/Selenium/" rel="tag"># Selenium</a>
-          
             <a href="/tags/Facebook/" rel="tag"># Facebook</a>
+          
+            <a href="/tags/Selenium/" rel="tag"># Selenium</a>
           
         </div>
       
@@ -662,7 +680,7 @@ ulr放我們要爬的Facebook網址，n是稍後要送出幾次滾動網頁到�
                 alt="Tony" />
             
               <p class="site-author-name" itemprop="name">Tony</p>
-              <p class="site-description motion-element" itemprop="description">單純基於分享的理念而建立這個 Blog，希望對你/妳會有幫助：)</p>
+              <p class="site-description motion-element" itemprop="description">基於分享的理念而建立這個部落格，希望對你和妳會有幫助：)</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -672,7 +690,7 @@ ulr放我們要爬的Facebook網址，n是稍後要送出幾次滾動網頁到�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -685,7 +703,7 @@ ulr放我們要爬的Facebook網址，n是稍後要送出幾次滾動網頁到�
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>

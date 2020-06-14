@@ -68,13 +68,13 @@
 
 
 
-  <meta name="keywords" content="python,網路爬蟲,中時電子報,新聞,多線程," />
+  <meta name="keywords" content="python,中時電子報,網路爬蟲,新聞,多線程," />
 
 
 
 
 
-  <link rel="alternate" href="/atom.xml" title="旅程" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="Journey" type="application/atom+xml" />
 
 
 
@@ -82,11 +82,11 @@
 
 
 <meta name="description" content="以前我們在收集新聞資料時，是透過複製、貼上的方式逐一的把將新聞的標題、時間、內文…等等資訊從網頁上複製進 Excel 的表格當中。但是當我們需要收集上千、上萬篇新聞的時候這種方法就顯得不太可行。 那我們要怎麼解決呢?其實只需要引入網路爬蟲的技術，就能透過電腦幫我們自動瀏覽、收集指定網頁的資訊。今天我們要透過 python 撰寫網路爬蟲，練習在中時電子報的網站上爬取新聞的標題、時間、類型、摘要、內文">
-<meta name="keywords" content="python,網路爬蟲,中時電子報,新聞,多線程">
+<meta name="keywords" content="python,中時電子報,網路爬蟲,新聞,多線程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何透過爬蟲抓取中時新聞">
 <meta property="og:url" content="https://TLYu0419.github.io/2019/10/30/Crawl-ChinaTimes/index.html">
-<meta property="og:site_name" content="旅程">
+<meta property="og:site_name" content="Journey">
 <meta property="og:description" content="以前我們在收集新聞資料時，是透過複製、貼上的方式逐一的把將新聞的標題、時間、內文…等等資訊從網頁上複製進 Excel 的表格當中。但是當我們需要收集上千、上萬篇新聞的時候這種方法就顯得不太可行。 那我們要怎麼解決呢?其實只需要引入網路爬蟲的技術，就能透過電腦幫我們自動瀏覽、收集指定網頁的資訊。今天我們要透過 python 撰寫網路爬蟲，練習在中時電子報的網站上爬取新聞的標題、時間、類型、摘要、內文">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://lh3.googleusercontent.com/N8gNwNU6T7-ZGiKIyCee4wq87LsHDPv23QWgou6AzpqOm-8bkkeuCG_DB44Jt6mUv3NYx0VCH5mKMRZhvI0wsGznuwTlllNLwem5faa94G8i8GO_W8xAHNNVvLY6eYNxBDfMaXEwkFOtGSeTxrd1pqF-bFKWWvnPQGUPBOYHA2CZxA657AYw1sjGIXQMMwqZCFRmzviU_7bTPuHPV0vYR71S-5sKPk6ZL23Suv5RcV5s3z1o3JbOJI7Ou6TBSLOcxskn7Y-i3t8vly1DiQAF85SaRB_8SI5hI8uO1FJnqVUuKpGKcSOkdFB3gIVV9gMxNjFlVN7m4Xt3idCZYm3x_nQ2yz-CnpAA-tXlU5-5Jjjc4aQEJHEKB01xj4vgkjb5Anc9vqA498XJsGMFT5ypGgra3wx97mfpxtFS08QViz_ogQ5DLLHQkRx8jVWqoWMUtbQIyXcCx5YwCJESJGEX7J6tNu-MDVIa2La5UiSpqC7gPFHyiLpe5N42p4aMkXOoIjQ0T5SGomzVF-kFdqfzB4NlPd8rwR0WZID4Ay-OgOg68LCwMPjDPWChbMJvTU85znuWSlCYre-WLkuB3c6nCzDVuYNPQUbaQmVurZyQgZwRP--JD-3x4HZm-OqK20zzlQRYtaaQvs6RmwEq1bYyfuSquLn1mCHztBruzxkyLSD9c9fpYonA96M6C0LcijLlJZ4pV8HMAsosApx1znI-YN6qAc-lDBW6HwHGfM8q2zus0RnY=w1840-h413-no">
@@ -113,7 +113,7 @@
     root: '/',
     scheme: 'Pisces',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -139,7 +139,7 @@
 
 
 
-  <title>如何透過爬蟲抓取中時新聞 | 旅程</title>
+  <title>如何透過爬蟲抓取中時新聞 | Journey</title>
   
 
 
@@ -169,12 +169,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">旅程</span>
+        <span class="site-title">Journey</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">The Journey is the destination.</p>
       
   </div>
 
@@ -313,7 +313,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="旅程">
+      <meta itemprop="name" content="Journey">
     </span>
 
     
@@ -519,6 +519,24 @@
     
 
     
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author：</strong>
+    Tony
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link：</strong>
+    <a href="https://TLYu0419.github.io/2019/10/30/Crawl-ChinaTimes/" title="如何透過爬蟲抓取中時新聞">https://TLYu0419.github.io/2019/10/30/Crawl-ChinaTimes/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice： </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
 
 
     <div>
@@ -537,9 +555,9 @@
           
             <a href="/tags/python/" rel="tag"># python</a>
           
-            <a href="/tags/網路爬蟲/" rel="tag"># 網路爬蟲</a>
-          
             <a href="/tags/中時電子報/" rel="tag"># 中時電子報</a>
+          
+            <a href="/tags/網路爬蟲/" rel="tag"># 網路爬蟲</a>
           
             <a href="/tags/新聞/" rel="tag"># 新聞</a>
           
@@ -643,7 +661,7 @@
                 alt="Tony" />
             
               <p class="site-author-name" itemprop="name">Tony</p>
-              <p class="site-description motion-element" itemprop="description">單純基於分享的理念而建立這個 Blog，希望對你/妳會有幫助：)</p>
+              <p class="site-description motion-element" itemprop="description">基於分享的理念而建立這個部落格，希望對你和妳會有幫助：)</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -653,7 +671,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -666,7 +684,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>

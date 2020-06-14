@@ -74,7 +74,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="旅程" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="Journey" type="application/atom+xml" />
 
 
 
@@ -86,7 +86,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Facebook粉絲專頁爬蟲筆記">
 <meta property="og:url" content="https://TLYu0419.github.io/2020/03/17/Crawl-Facebook-Pages/index.html">
-<meta property="og:site_name" content="旅程">
+<meta property="og:site_name" content="Journey">
 <meta property="og:description" content="先前曾發表過 網路爬蟲_Facebook粉絲團貼文與留言 的文章，可以透過 Selenium 來抓取 Facebook 粉絲專頁的貼文與留言，但由於 Selenium 的效率實在太慢了，因此這篇文章是記錄我嘗試用 request 抓取資料的筆記，並且於文末附上台灣的2020總統大選 3位候選人從 2019年 1 月至 2020 年 2 月間的貼文與留言資料~">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://lh3.googleusercontent.com/cVJxdsY25nJinI9_OHsu4m4KBzKm7xXB1BQAP6bpvO7bj4buMJ0CiUrXT0J7e21Qi7Kf0vhGmqIROHISQhwZu9XH0kqoifKT8oYaCqhFP4Q83xZDfvtCb8Fc8tn6P8v9EKjeCGssai_A5lRqmSFVviH1xb50hY8gHoPPPJ_6fP3IUgNNtTgiyXtb2SGcb5Vagml-z8PYn8y5z0ZvjzqVBcIoyZqGYQ5ezzNr7ali3aV4_oOC-okBWzhhSnHVgbaSp5gtkBPjF3p8mdNdtp9ZzvJ3lgIjqLszGEjs_rdzWgXDfmSpjdFBcY4I8Rzycb9_fad5AjcDuXqasKQ_PF9LJdlSXOpU34Rva0yecpU_yYC8cAfD9hP7sKuQyq1VS0sfwcuc4gVHGoX7vbCcD3lcKQ8bI80OZaABqkeUy9cORoYaNtv_7zO7skCeCENWA9oB3UKDewUMzZrPO7j7iajXStiwPEWKNJAavPgItGMJQI_OAQ-jieIvcnQ7vA4S1VnefP1qQdD9_QpFcoR4fTaXAgaun5BuxKe9IvDBNItC-cqZ3a0xGIXKfSEhRkztM2jA5Ib66RgWgEsT34CgyUxY1W6FzdDc_FCcuJga_dnCfDOpOeaeGEHNcNP2wxrlZDqE7mIBtP5YP3dcfLPa_g01yb5QH2NOp8gq2npShQR4UTNzn36HkvMcAU5jtfOBfgHWBOivGkSIWvSH9DG9F7saq2DKul1wQYQT_IRrGvQmkITsZQqWPh7Y52k=w1118-h929-no">
@@ -113,7 +113,7 @@
     root: '/',
     scheme: 'Pisces',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -139,7 +139,7 @@
 
 
 
-  <title>Facebook粉絲專頁爬蟲筆記 | 旅程</title>
+  <title>Facebook粉絲專頁爬蟲筆記 | Journey</title>
   
 
 
@@ -169,12 +169,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">旅程</span>
+        <span class="site-title">Journey</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">The Journey is the destination.</p>
       
   </div>
 
@@ -313,7 +313,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="旅程">
+      <meta itemprop="name" content="Journey">
     </span>
 
     
@@ -531,6 +531,24 @@
     
 
     
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author：</strong>
+    Tony
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link：</strong>
+    <a href="https://TLYu0419.github.io/2020/03/17/Crawl-Facebook-Pages/" title="Facebook粉絲專頁爬蟲筆記">https://TLYu0419.github.io/2020/03/17/Crawl-Facebook-Pages/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice： </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
 
 
     <div>
@@ -655,7 +673,7 @@
                 alt="Tony" />
             
               <p class="site-author-name" itemprop="name">Tony</p>
-              <p class="site-description motion-element" itemprop="description">單純基於分享的理念而建立這個 Blog，希望對你/妳會有幫助：)</p>
+              <p class="site-description motion-element" itemprop="description">基於分享的理念而建立這個部落格，希望對你和妳會有幫助：)</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -665,7 +683,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -678,7 +696,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>

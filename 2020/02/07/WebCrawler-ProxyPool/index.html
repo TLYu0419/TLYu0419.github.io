@@ -74,7 +74,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="旅程" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="Journey" type="application/atom+xml" />
 
 
 
@@ -86,7 +86,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何建構代理IP的清單(Proxy Pool)">
 <meta property="og:url" content="https://TLYu0419.github.io/2020/02/07/WebCrawler-ProxyPool/index.html">
-<meta property="og:site_name" content="旅程">
+<meta property="og:site_name" content="Journey">
 <meta property="og:description" content="當我們在進行網路爬蟲時，或多或少都會碰到網站設置的反爬蟲機制，其中簡單的是檢查headers(瀏覽器參數)，複雜些的則會「鎖定大量訪問的IP」、「圖形驗證碼」、「登入」…等等，不過既然有「反爬蟲機制」，當然也就會有「反反爬蟲機制」囉！ 今天我要介紹的就是如何建構代理IP的清單( Proxy Pool )，透過代理IP來爬資料我們就可以避開「鎖定大量訪問的IP」的反爬蟲機制！">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://lh3.googleusercontent.com/XpGOGzFPJSsJCsI-MzGD_ORk0vn5NwA87omrsJVE_8HVRYoG87U3zoM-XKhmFOxIpEZQwmiBbBXNpgxwNv0tLixnBEU-Bo-h4E0Ok34onfxN9oy5O7DXxQ9nWhRaOb8ci1XvUPzE-ClXI2M-JPP1EgihddnAgri9Pb63_226MgvgsgQuyTnMZfWurLu196MauyPrMX8AcKTjQuapdowKcnQEdY3zvWIDWUuNrQLvFE3G46ZuVaseGforOsmMEW1pfmilDlHBNuOxwDcVQIgkN4HQ5Jk8jCulT3dIt9d3FuojR_pYV75193kNoMtjAddILBrLIJM7MfL9sdfWhSsE-51DF6rvZCitwTpLfBgtnwtcQeJ62fqDQ-xU9Fn6PX5xYEsb0SZ-wlQurHnO8tPGjaD7yhvp-0C1e2Tx42vfSj-Y7vRQ3iL-d4rz35dkhW4K5Qom0scT2g7MY8ps5M6mSZwamcp64k0h_7hyPaI3rmN3ripo5J3KV7pVioeCdAjsoIhHiGc3fbp6Jg6RjhfGA6OfDq_vWdU3w2M8weE6wzYGnyhBDJR8jR3EgqXgDiwd0XVYfIzOtjMrd4Ee4pRSwjp-8IXFNKmivla0firDAV66rZjhR6r1GEGL98QLQKbYqrtOWeUMS0c-4yzmuPDd2N1n97AgKWHIKmQz4VexSa3D9e8yvN5-gnd8xrO4=s1843-w1843-h978-no">
@@ -107,7 +107,7 @@
     root: '/',
     scheme: 'Pisces',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -133,7 +133,7 @@
 
 
 
-  <title>如何建構代理IP的清單(Proxy Pool) | 旅程</title>
+  <title>如何建構代理IP的清單(Proxy Pool) | Journey</title>
   
 
 
@@ -163,12 +163,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">旅程</span>
+        <span class="site-title">Journey</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">The Journey is the destination.</p>
       
   </div>
 
@@ -307,7 +307,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="旅程">
+      <meta itemprop="name" content="Journey">
     </span>
 
     
@@ -480,6 +480,24 @@
     
 
     
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author：</strong>
+    Tony
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link：</strong>
+    <a href="https://TLYu0419.github.io/2020/02/07/WebCrawler-ProxyPool/" title="如何建構代理IP的清單(Proxy Pool)">https://TLYu0419.github.io/2020/02/07/WebCrawler-ProxyPool/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice： </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
 
 
     <div>
@@ -602,7 +620,7 @@
                 alt="Tony" />
             
               <p class="site-author-name" itemprop="name">Tony</p>
-              <p class="site-description motion-element" itemprop="description">單純基於分享的理念而建立這個 Blog，希望對你/妳會有幫助：)</p>
+              <p class="site-description motion-element" itemprop="description">基於分享的理念而建立這個部落格，希望對你和妳會有幫助：)</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -612,7 +630,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -625,7 +643,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
