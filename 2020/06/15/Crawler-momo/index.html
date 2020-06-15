@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Crawler,露天拍賣,Python," />
+  <meta name="keywords" content="Crawler,Python,MOMO," />
 
 
 
@@ -81,22 +81,24 @@
 
 
 
-<meta name="description" content="最近想要購買新的筆記型電腦，但是筆記型電腦的品牌/規格又多又複雜，在網站上總是看的頭昏眼花，不如就來寫個爬蟲程式自動幫我們整理出結構化的資料吧! 註：本篇文章僅供研究使用，請勿惡意大量爬取資料造成對方公司的負擔">
-<meta name="keywords" content="Crawler,露天拍賣,Python">
+<meta name="description" content="最近梅雨季讓房間變得好潮濕，為了避免衣服發霉就決定要來採購一台除濕機， 但是除濕機的品牌又多又雜，在網站上總是看的頭昏眼花，不如就來寫個爬蟲程式自動幫我們整理出結構化的資料吧!(咦!這句話怎麼這麼熟悉?) 註：本篇文章僅供研究使用，請勿惡意大量爬取資料造成對方公司的負擔">
+<meta name="keywords" content="Crawler,Python,MOMO">
 <meta property="og:type" content="article">
-<meta property="og:title" content="露天拍賣 網路爬蟲">
-<meta property="og:url" content="https://TLYu0419.github.io/2020/06/14/Crawler-Ruten/index.html">
+<meta property="og:title" content="MOMO購物網 網路爬蟲">
+<meta property="og:url" content="https://TLYu0419.github.io/2020/06/15/Crawler-momo/index.html">
 <meta property="og:site_name" content="Journey">
-<meta property="og:description" content="最近想要購買新的筆記型電腦，但是筆記型電腦的品牌/規格又多又複雜，在網站上總是看的頭昏眼花，不如就來寫個爬蟲程式自動幫我們整理出結構化的資料吧! 註：本篇文章僅供研究使用，請勿惡意大量爬取資料造成對方公司的負擔">
+<meta property="og:description" content="最近梅雨季讓房間變得好潮濕，為了避免衣服發霉就決定要來採購一台除濕機， 但是除濕機的品牌又多又雜，在網站上總是看的頭昏眼花，不如就來寫個爬蟲程式自動幫我們整理出結構化的資料吧!(咦!這句話怎麼這麼熟悉?) 註：本篇文章僅供研究使用，請勿惡意大量爬取資料造成對方公司的負擔">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:image" content="https://lh3.googleusercontent.com/FvIngbp3jqc-PM62EzH8XNJVFeD2MAOhGCge6EF4cces8cgFgpFFFuHDBcehXydZVwcC1eOcLuH0eKxpLrg86vtUuZ2AH6U4LkMtIw3poxBI1yB3xRhLQXALFmiywbkKAwgusQA05vyqf4dL1-5izHR7EPPKYfa6rRx-J9ytAO7JKrJVHPWU0EHXqrfIgZKhdyTakaQ9Z1Fxjt3zRv5KWtqybqQN87Hn0_Qk2UQ5vgUsN5dovmrxCmFgCqeNKr_4SJHIdXQJ-r-TPKQ_telo_pAqpxHtdp0pQr8ZByHUu61C_eP5pT6QmRsnU523VtXEpwqF49uhIz5hMtO2bVUgBf89uZvFR0NSxn3keXRIxgj00cKnfKchVz7253usEuxUnDhOdK1el4XqO2FEVR31y_wyU7352JkjHWQlLd7reSytNBSObKYiVRwMRsQm3W5woq7ImqyNIhcH38uU9WXEd9EQOt98xj9am98ADbBaGOmk805G-2z7SbFBv-OBVNmdqN4jZgRjpBKm8fQFxwCFjzwBvHs7cHhVJpNrUcwLxqwXczUY_wBYiI_N5zZEJbraFSBt-0qxSS7UcQaisA7zlUEjqfmGtRHtnD_IjQxM-YSurcZZno1pNo-bSjSK3YRQIQvD5DbBmMXriP0z5nENmvMA4mbOBwot4GYvspQmrWLvHkgNpqeX3PEtW2OsJg=s929-no?authuser=1">
-<meta property="og:image" content="https://lh3.googleusercontent.com/pw/ACtC-3d_PsSe8-oV2COYsOD8PzUVjAbnkzJ21B0Mu9_oA64V2VBfKpMlHe_9-BNGNYjNXf3ejKRX-Ube79JJr9UNkPMv6t22TYp5sZ8mBznTRxL_3LhzPChX0BwdDo3WEgWM4c8N08rbkDgXF10mhiRXs4ps=w463-h267-no?authuser=1">
-<meta property="og:image" content="https://lh3.googleusercontent.com/pw/ACtC-3dQrP2AI9YMGmYzh7_4ZeaKHh-axwd-alHCYLsFPQaKxreC5S2c-iPPWBxrxHbNgnCop6dMu7UHS-4xGgSKfxF6PrGj_eTDvC2G1BQ5tUMzQSCq5XN9zKLzg50-X8NjSlhPqW9XQsfMlkTbY19UQPCk=w1784-h978-no?authuser=1">
-<meta property="og:updated_time" content="2020-06-15T15:45:35.630Z">
+<meta property="og:image" content="https://lh3.googleusercontent.com/pw/ACtC-3cO43RFldRLVUBSGWgpzGV12Dj8nAHJYzQ6hD63Gsq0P9y-vCV62RdZpHM-7z3_YI_8FSbMJ7uZ_XCmYy9MalTddzIR1jFWmxgqvhoOZGav4kDbAiRi4wzbhLEVQ30mweWTWupk16RxUsmNCzKoSQEn=w540-h240-no?authuser=1">
+<meta property="og:image" content="https://lh3.googleusercontent.com/pw/ACtC-3dqxgliG8avJpnCbeeezHz8p9u0JGiGQgvpImD3Gbx7rLyTEOYbFyzEC0G_mZADkAeejET10Gy4SQCMIzj67CDyy8U-Cc25TusTz9tpPSx9c054XEhrdTOybi2ThKQk0tWTZJ1CdYdu24N-x0L3gsXP=w1012-h495-no?authuser=1">
+<meta property="og:image" content="https://lh3.googleusercontent.com/pw/ACtC-3c7SUhZwiF4pNg7UbxwOkhsEJ40BMPTiY8-XLflUaPnAnw1gNQhIAnvk1a190vvzflx8HAZ5OtMEn6cjBn5bfN8dLqC8LFYjvRhiZy4kLaUxpMLEzUnZe8AwZsBiO3Q1os_yNVJU508a-V1HvhuVnaQ=w1012-h507-no?authuser=1">
+<meta property="og:image" content="https://lh3.googleusercontent.com/pw/ACtC-3eBr7o6YFk0r6LoG3qE8Hqa0Kwh9jnXIXISjkbaRAj5WxlGgps2VYbw0Ak-32KX__-pYNimknbj0lKeMolELyRdJocHJGhtvekE97MF73wHOtLOviDY90ghHhv7mePUuIqK_R34CPVGIaQ1kjzGdqeb=w298-h350-no?authuser=1">
+<meta property="og:image" content="https://lh3.googleusercontent.com/pw/ACtC-3dVLlxeydSw0k76kRresUiOwycW2IlYaJF4eZV_iP1oNe3SYFdAOzDngqYEFDkA8o-7aQKW7cf6HtcltIBbN36dZOo4Mzm4ujSQL-oHTLJxtZmtqQ8g8EPnkpxFOj630w6cs5tUbPFznlzcISf-yKAa=w1785-h978-no?authuser=1">
+<meta property="og:updated_time" content="2020-06-15T15:42:13.621Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="露天拍賣 網路爬蟲">
-<meta name="twitter:description" content="最近想要購買新的筆記型電腦，但是筆記型電腦的品牌/規格又多又複雜，在網站上總是看的頭昏眼花，不如就來寫個爬蟲程式自動幫我們整理出結構化的資料吧! 註：本篇文章僅供研究使用，請勿惡意大量爬取資料造成對方公司的負擔">
-<meta name="twitter:image" content="https://lh3.googleusercontent.com/FvIngbp3jqc-PM62EzH8XNJVFeD2MAOhGCge6EF4cces8cgFgpFFFuHDBcehXydZVwcC1eOcLuH0eKxpLrg86vtUuZ2AH6U4LkMtIw3poxBI1yB3xRhLQXALFmiywbkKAwgusQA05vyqf4dL1-5izHR7EPPKYfa6rRx-J9ytAO7JKrJVHPWU0EHXqrfIgZKhdyTakaQ9Z1Fxjt3zRv5KWtqybqQN87Hn0_Qk2UQ5vgUsN5dovmrxCmFgCqeNKr_4SJHIdXQJ-r-TPKQ_telo_pAqpxHtdp0pQr8ZByHUu61C_eP5pT6QmRsnU523VtXEpwqF49uhIz5hMtO2bVUgBf89uZvFR0NSxn3keXRIxgj00cKnfKchVz7253usEuxUnDhOdK1el4XqO2FEVR31y_wyU7352JkjHWQlLd7reSytNBSObKYiVRwMRsQm3W5woq7ImqyNIhcH38uU9WXEd9EQOt98xj9am98ADbBaGOmk805G-2z7SbFBv-OBVNmdqN4jZgRjpBKm8fQFxwCFjzwBvHs7cHhVJpNrUcwLxqwXczUY_wBYiI_N5zZEJbraFSBt-0qxSS7UcQaisA7zlUEjqfmGtRHtnD_IjQxM-YSurcZZno1pNo-bSjSK3YRQIQvD5DbBmMXriP0z5nENmvMA4mbOBwot4GYvspQmrWLvHkgNpqeX3PEtW2OsJg=s929-no?authuser=1">
+<meta name="twitter:title" content="MOMO購物網 網路爬蟲">
+<meta name="twitter:description" content="最近梅雨季讓房間變得好潮濕，為了避免衣服發霉就決定要來採購一台除濕機， 但是除濕機的品牌又多又雜，在網站上總是看的頭昏眼花，不如就來寫個爬蟲程式自動幫我們整理出結構化的資料吧!(咦!這句話怎麼這麼熟悉?) 註：本篇文章僅供研究使用，請勿惡意大量爬取資料造成對方公司的負擔">
+<meta name="twitter:image" content="https://lh3.googleusercontent.com/pw/ACtC-3cO43RFldRLVUBSGWgpzGV12Dj8nAHJYzQ6hD63Gsq0P9y-vCV62RdZpHM-7z3_YI_8FSbMJ7uZ_XCmYy9MalTddzIR1jFWmxgqvhoOZGav4kDbAiRi4wzbhLEVQ30mweWTWupk16RxUsmNCzKoSQEn=w540-h240-no?authuser=1">
 
 
 
@@ -126,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="https://TLYu0419.github.io/2020/06/14/Crawler-Ruten/"/>
+  <link rel="canonical" href="https://TLYu0419.github.io/2020/06/15/Crawler-momo/"/>
 
 
 
 
 
-  <title>露天拍賣 網路爬蟲 | Journey</title>
+  <title>MOMO購物網 網路爬蟲 | Journey</title>
   
 
 
@@ -297,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://TLYu0419.github.io/2020/06/14/Crawler-Ruten/">
+    <link itemprop="mainEntityOfPage" href="https://TLYu0419.github.io/2020/06/15/Crawler-momo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Tony">
@@ -314,7 +316,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">露天拍賣 網路爬蟲</h1>
+          <h1 class="post-title" itemprop="name headline">MOMO購物網 網路爬蟲</h1>
         
 
         <div class="post-meta">
@@ -326,8 +328,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2020-06-14T10:22:12+08:00">
-                2020-06-14
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2020-06-15T23:06:05+08:00">
+                2020-06-15
               </time>
             
 
@@ -342,7 +344,7 @@
               
                 <span class="post-meta-item-text">更新於&#58;</span>
               
-              <time title="更新於" itemprop="dateModified" datetime="2020-06-15T23:45:35+08:00">
+              <time title="更新於" itemprop="dateModified" datetime="2020-06-15T23:42:13+08:00">
                 2020-06-15
               </time>
             
@@ -356,7 +358,7 @@
 
           
           
-             <span id="/2020/06/14/Crawler-Ruten/" class="leancloud_visitors" data-flag-title="露天拍賣 網路爬蟲">
+             <span id="/2020/06/15/Crawler-momo/" class="leancloud_visitors" data-flag-title="MOMO購物網 網路爬蟲">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -387,54 +389,42 @@
       
 
       
-        <p>最近想要購買新的筆記型電腦，但是筆記型電腦的品牌/規格又多又複雜，在網站上總是看的頭昏眼花，不如就來寫個爬蟲程式自動幫我們整理出結構化的資料吧!</p>
+        <p>最近梅雨季讓房間變得好潮濕，為了避免衣服發霉就決定要來採購一台除濕機，<br>
+但是除濕機的品牌又多又雜，在網站上總是看的頭昏眼花，不如就來寫個爬蟲程式自動幫我們整理出結構化的資料吧!(咦!這句話怎麼這麼熟悉?)</p>
 <p>註：本篇文章僅供研究使用，請勿惡意大量爬取資料造成對方公司的負擔</p>
 <a id="more"></a>
-<p><img src="https://lh3.googleusercontent.com/FvIngbp3jqc-PM62EzH8XNJVFeD2MAOhGCge6EF4cces8cgFgpFFFuHDBcehXydZVwcC1eOcLuH0eKxpLrg86vtUuZ2AH6U4LkMtIw3poxBI1yB3xRhLQXALFmiywbkKAwgusQA05vyqf4dL1-5izHR7EPPKYfa6rRx-J9ytAO7JKrJVHPWU0EHXqrfIgZKhdyTakaQ9Z1Fxjt3zRv5KWtqybqQN87Hn0_Qk2UQ5vgUsN5dovmrxCmFgCqeNKr_4SJHIdXQJ-r-TPKQ_telo_pAqpxHtdp0pQr8ZByHUu61C_eP5pT6QmRsnU523VtXEpwqF49uhIz5hMtO2bVUgBf89uZvFR0NSxn3keXRIxgj00cKnfKchVz7253usEuxUnDhOdK1el4XqO2FEVR31y_wyU7352JkjHWQlLd7reSytNBSObKYiVRwMRsQm3W5woq7ImqyNIhcH38uU9WXEd9EQOt98xj9am98ADbBaGOmk805G-2z7SbFBv-OBVNmdqN4jZgRjpBKm8fQFxwCFjzwBvHs7cHhVJpNrUcwLxqwXczUY_wBYiI_N5zZEJbraFSBt-0qxSS7UcQaisA7zlUEjqfmGtRHtnD_IjQxM-YSurcZZno1pNo-bSjSK3YRQIQvD5DbBmMXriP0z5nENmvMA4mbOBwot4GYvspQmrWLvHkgNpqeX3PEtW2OsJg=s929-no?authuser=1" alt=""></p>
-<h1>露天拍賣 爬蟲要點</h1>
+<p><img src="https://lh3.googleusercontent.com/pw/ACtC-3cO43RFldRLVUBSGWgpzGV12Dj8nAHJYzQ6hD63Gsq0P9y-vCV62RdZpHM-7z3_YI_8FSbMJ7uZ_XCmYy9MalTddzIR1jFWmxgqvhoOZGav4kDbAiRi4wzbhLEVQ30mweWTWupk16RxUsmNCzKoSQEn=w540-h240-no?authuser=1" alt=""></p>
+<h1>MOMO購物網 爬蟲要點</h1>
 <ol>
-<li>在收集產品清單時需要透過 F12 的檢查功能來找出 API</li>
-<li>產品描述要呼叫另外一個 API 來取資料</li>
+<li>如果電腦版的網頁不好爬怎麼辦…?那就改爬手機版的網頁吧!</li>
+<li>資料的整理會需要使用一些正則表達式，但這比較瑣碎就不多說了</li>
 </ol>
-<h1>露天拍賣 爬蟲流程</h1>
+<h1>MOMO購物網 爬蟲流程</h1>
 <h2 id="載入使用套件"><a class="header-anchor" href="#載入使用套件">¶</a>載入使用套件</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br></pre></td></tr></table></figure>
 <h2 id="設定-request-參數"><a class="header-anchor" href="#設定-request-參數">¶</a>設定 request 參數</h2>
 <p>在這裡沒有設定 User-Agent 會被拒絕連線，因此當我們無法成功取回資料時的第一個步驟一定是加上 User-Agent 來進行測試!</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">headers = &#123;<span class="string">'User-Agent'</span>:<span class="string">'GoogleBot'</span>&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">headers = &#123;<span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36'</span>&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="收集產品連結清單"><a class="header-anchor" href="#收集產品連結清單">¶</a>收集產品連結清單</h2>
-<p>這裡在收集產品清單時使用的 API 要用 F12 的檢查功能來尋找，而在這個 API 中有個 offset 的參數，這是在記錄要從哪裡開始加載更多資料。由於每次查詢是80筆(limit參數)，因此每次查詢的 offset 是用 1 + 80*第幾次查詢來抓資料</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 商品分類</span></span><br><span class="line">cateid = <span class="string">'001100020027'</span></span><br><span class="line">pages = <span class="number">50</span></span><br><span class="line"></span><br><span class="line">prodids = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> page <span class="keyword">in</span> list(range(<span class="number">1</span>, pages)):</span><br><span class="line">    offset = <span class="number">1</span> + <span class="number">80</span>*page</span><br><span class="line">    url = <span class="string">'https://rtapi.ruten.com.tw/api/search/v3/index.php/core/prod?cateid=&#123;&#125;&amp;sort=rnk%2Fdc&amp;offset=&#123;&#125;&amp;limit=80&amp;2653512&amp;_callback=jsonpcb_CoreProd'</span>.format(cateid, offset)</span><br><span class="line">    resp = requests.get(url, headers=headers)</span><br><span class="line">    data = re.sub(<span class="string">r'try\&#123;jsonpcb_CoreProd\(|\);\&#125;catch\(e\)\&#123;if\(window.console\)\&#123;console.log\(e\);\&#125;\&#125;'</span>,<span class="string">''</span>, resp.text)</span><br><span class="line">    <span class="keyword">for</span> prod <span class="keyword">in</span> json.loads(data)[<span class="string">'Rows'</span>]:</span><br><span class="line">        prodids.append(prod[<span class="string">'Id'</span>])</span><br><span class="line">    prodids = list(set(prodids))</span><br><span class="line">    print(<span class="string">'There are &#123;&#125; prods in list.'</span>.format(len(prodids)))</span><br></pre></td></tr></table></figure>
+<p>為什麼前面說電腦版的網頁不好爬呢?我們看第一張圖，跟伺服器請求資料的方式是用 POST 的方式，而且 POST 過去的參數也相當複雜，我有嘗試 POST 這些資料過去但還是沒辦法正常請求到資料，估計還有其他的反爬蟲機制&gt;&quot;&lt;</p>
+<p><img src="https://lh3.googleusercontent.com/pw/ACtC-3dqxgliG8avJpnCbeeezHz8p9u0JGiGQgvpImD3Gbx7rLyTEOYbFyzEC0G_mZADkAeejET10Gy4SQCMIzj67CDyy8U-Cc25TusTz9tpPSx9c054XEhrdTOybi2ThKQk0tWTZJ1CdYdu24N-x0L3gsXP=w1012-h495-no?authuser=1" alt=""></p>
+<p>接著改成用手機版的網頁，請求資料的方式變成 GET，而且送的參數變得相當簡單，基本上就是查詢的關鍵詞和第一個分頁就可以了!所以…在這裡就可以改成抓簡單的手機版網頁就好 XDD<br>
+<img src="https://lh3.googleusercontent.com/pw/ACtC-3c7SUhZwiF4pNg7UbxwOkhsEJ40BMPTiY8-XLflUaPnAnw1gNQhIAnvk1a190vvzflx8HAZ5OtMEn6cjBn5bfN8dLqC8LFYjvRhiZy4kLaUxpMLEzUnZe8AwZsBiO3Q1os_yNVJU508a-V1HvhuVnaQ=w1012-h507-no?authuser=1" alt=""></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">keyword = <span class="string">'除濕機'</span></span><br><span class="line">pages = <span class="number">30</span></span><br><span class="line">headers = &#123;<span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36'</span>&#125;</span><br><span class="line">urls = []</span><br><span class="line"><span class="keyword">for</span> page <span class="keyword">in</span> range(<span class="number">1</span>, pages):</span><br><span class="line">    url = <span class="string">'https://m.momoshop.com.tw/search.momo?_advFirst=N&amp;_advCp=N&amp;curPage=&#123;&#125;&amp;searchType=1&amp;cateLevel=2&amp;ent=k&amp;searchKeyword=&#123;&#125;&amp;_advThreeHours=N&amp;_isFuzzy=0&amp;_imgSH=fourCardType'</span>.format(page, keyword)</span><br><span class="line">    print(url)</span><br><span class="line">    resp = requests.get(url, headers=headers)</span><br><span class="line">    <span class="keyword">if</span> resp.status_code == <span class="number">200</span>:</span><br><span class="line">        soup = BeautifulSoup(resp.text)</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> soup.select(<span class="string">'li.goodsItemLi &gt; a'</span>):</span><br><span class="line">            urls.append(<span class="string">'https://m.momoshop.com.tw'</span>+item[<span class="string">'href'</span>])</span><br><span class="line">    urls = list(set(urls))</span><br><span class="line">    print(len(urls))</span><br><span class="line"><span class="comment">#     break</span></span><br></pre></td></tr></table></figure>
 <h2 id="爬取產品資料"><a class="header-anchor" href="#爬取產品資料">¶</a>爬取產品資料</h2>
-<ul>
-<li>這裡在抓產品名稱、幣別、價格、商品分類等等資訊的方法相當單純，就是簡單 request 產品的網址就可以了! 而產品的網址就是在前面「收集產品清單」階段中收集到的產品 ID前面加上’<a href="https://goods.ruten.com.tw/item/show?'%E7%9A%84%E7%B6%B2%E5%9D%80%E5%8D%B3%E5%8F%AF%E3%80%82" target="_blank" rel="noopener">https://goods.ruten.com.tw/item/show?'的網址即可。</a>
-<blockquote>
-<p>例如ID：30201451592585 產品的網址就是 <a href="https://goods.ruten.com.tw/item/show?30201451592585" target="_blank" rel="noopener">https://goods.ruten.com.tw/item/show?30201451592585</a></p>
-</blockquote>
-</li>
-<li>比較複雜的地方在於產品描述不容易獲取，在這裡有兩個反爬蟲的機制：
-<ol>
-<li>request 的網址藏在前面回傳的 descriptionUrl 中
-<blockquote>
-<p>這裡要花時間找一下產品描述的 API 網址，結果是藏在前面 request 的結果當中。</p>
-</blockquote>
-</li>
-<li>Referer：要在 request 的 headers 加上 referer，這個參數是告訴對方的伺服器說我們是從哪裡進來到這個API的。</li>
-</ol>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">df = []</span><br><span class="line"><span class="keyword">for</span> i, prodid <span class="keyword">in</span> enumerate(prodids):</span><br><span class="line">    print(<span class="string">'='</span>*<span class="number">60</span>)</span><br><span class="line">    print(<span class="string">'Dealing with &#123;&#125;: &#123;&#125;'</span>.format(i, prodid))</span><br><span class="line">    headers = &#123;<span class="string">'User-Agent'</span>:<span class="string">'GoogleBot'</span>&#125;</span><br><span class="line">    url = <span class="string">'https://goods.ruten.com.tw/item/show?'</span> + prodid</span><br><span class="line">    resp = requests.get(url, headers=headers)</span><br><span class="line">    soup = BeautifulSoup(resp.text)</span><br><span class="line">    data1 = json.loads(soup.findAll(<span class="string">'script'</span>,&#123;<span class="string">'type'</span>:<span class="string">'application/ld+json'</span>&#125;)[<span class="number">0</span>].text)</span><br><span class="line">    data2 = json.loads(soup.findAll(<span class="string">'script'</span>,&#123;<span class="string">'type'</span>:<span class="string">'application/ld+json'</span>&#125;)[<span class="number">1</span>].text)</span><br><span class="line">    data3 = json.loads(soup.findAll(<span class="string">'script'</span>,&#123;<span class="string">'type'</span>:<span class="string">'application/ld+json'</span>&#125;)[<span class="number">2</span>].text)</span><br><span class="line">    <span class="comment"># 產品名稱</span></span><br><span class="line">    print(data1[<span class="string">'name'</span>])</span><br><span class="line">    <span class="comment"># 幣別</span></span><br><span class="line">    print(data1[<span class="string">'offers'</span>][<span class="string">'priceCurrency'</span>])</span><br><span class="line">    <span class="comment"># 價格</span></span><br><span class="line">    print(data1[<span class="string">'offers'</span>][<span class="string">'price'</span>])</span><br><span class="line">    <span class="comment"># 商品分類</span></span><br><span class="line">    print(<span class="string">r'/'</span>.join([i[<span class="string">'item'</span>][<span class="string">'name'</span>] <span class="keyword">for</span> i <span class="keyword">in</span> data3[<span class="string">'itemListElement'</span>]]))</span><br><span class="line">    <span class="comment"># 商品描述</span></span><br><span class="line">    descurl = re.findall(<span class="string">r'goods_comments.php\?id=.*?o=[0-9]&#123;1,&#125;'</span>,resp.text)[<span class="number">0</span>]</span><br><span class="line">    descurl = re.sub(<span class="string">'&amp;amp;'</span>,<span class="string">'&amp;'</span>,descurl)</span><br><span class="line">    descurl = <span class="string">'https://goods.ruten.com.tw/item/'</span> + descurl</span><br><span class="line">    headers = &#123;<span class="string">'User-Agent'</span>:<span class="string">'GoogleBot'</span>,</span><br><span class="line">               <span class="string">'Referer'</span>: <span class="string">'https://goods.ruten.com.tw/item/show?&#123;&#125;'</span>.format(prodid)&#125;</span><br><span class="line">    resp2 = requests.get(descurl, headers=headers)</span><br><span class="line">    soup2 = BeautifulSoup(resp2.text)</span><br><span class="line">    desc = <span class="string">' '</span>.join(i.text <span class="keyword">for</span> i <span class="keyword">in</span> soup2.findAll(<span class="string">'p'</span>))</span><br><span class="line">    </span><br><span class="line">    ndf = pd.DataFrame([&#123;<span class="string">'name'</span>: data1[<span class="string">'name'</span>],</span><br><span class="line">                         <span class="string">'description'</span>:data1[<span class="string">'description'</span>],</span><br><span class="line">                         <span class="string">'productId'</span>:data1[<span class="string">'productId'</span>],</span><br><span class="line">                         <span class="string">'brand_name'</span>:data1[<span class="string">'brand'</span>][<span class="string">'name'</span>],</span><br><span class="line">                         <span class="string">'priceCurrency'</span>:data1[<span class="string">'offers'</span>][<span class="string">'priceCurrency'</span>],</span><br><span class="line">                         <span class="string">'price'</span>:data1[<span class="string">'offers'</span>][<span class="string">'price'</span>],</span><br><span class="line">                         <span class="string">'contentLocation'</span>:data2[<span class="string">'contentLocation'</span>],</span><br><span class="line">                         <span class="string">'item_name'</span>:<span class="string">r'/'</span>.join([i[<span class="string">'item'</span>][<span class="string">'name'</span>] <span class="keyword">for</span> i <span class="keyword">in</span> data3[<span class="string">'itemListElement'</span>]]),</span><br><span class="line">                         <span class="string">'describe'</span>:desc&#125;])</span><br><span class="line">    df.append(ndf)</span><br><span class="line"></span><br><span class="line">df = pd.concat(df, ignore_index=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+<p>剩下就是單純的依照前面保存的網址送 request 請求資料，接著再自行定位一下需要資訊的位置，並且搭配正則表達式清理一下不需要的資料即可! 因為比較瑣碎在這裡就不多說了~</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">df = []</span><br><span class="line"><span class="keyword">for</span> i, url <span class="keyword">in</span> enumerate(urls):</span><br><span class="line">    columns = []</span><br><span class="line">    values = []</span><br><span class="line">    </span><br><span class="line">    resp = requests.get(url, headers=headers)</span><br><span class="line">    soup = BeautifulSoup(resp.text)</span><br><span class="line">    <span class="comment"># 標題</span></span><br><span class="line">    title = soup.find(<span class="string">'meta'</span>,&#123;<span class="string">'property'</span>:<span class="string">'og:title'</span>&#125;)[<span class="string">'content'</span>]</span><br><span class="line">    <span class="comment"># 品牌</span></span><br><span class="line">    brand = soup.find(<span class="string">'meta'</span>,&#123;<span class="string">'property'</span>:<span class="string">'product:brand'</span>&#125;)[<span class="string">'content'</span>]</span><br><span class="line">    <span class="comment"># 連結</span></span><br><span class="line">    link = soup.find(<span class="string">'meta'</span>,&#123;<span class="string">'property'</span>:<span class="string">'og:url'</span>&#125;)[<span class="string">'content'</span>]</span><br><span class="line">    <span class="comment"># 原價</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        price = re.sub(<span class="string">r'\r\n| '</span>,<span class="string">''</span>,soup.find(<span class="string">'del'</span>).text)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        price = <span class="string">''</span></span><br><span class="line">    <span class="comment"># 特價</span></span><br><span class="line">    amount = soup.find(<span class="string">'meta'</span>,&#123;<span class="string">'property'</span>:<span class="string">'product:price:amount'</span>&#125;)[<span class="string">'content'</span>]</span><br><span class="line">    <span class="comment"># 類型</span></span><br><span class="line">    cate = <span class="string">''</span>.join([i.text <span class="keyword">for</span> i <span class="keyword">in</span> soup.findAll(<span class="string">'article'</span>,&#123;<span class="string">'class'</span>:<span class="string">'pathArea'</span>&#125;)])</span><br><span class="line">    cate = re.sub(<span class="string">'\n|\xa0'</span>,<span class="string">' '</span>,cate)</span><br><span class="line">    <span class="comment"># 描述</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        desc = soup.find(<span class="string">'div'</span>,&#123;<span class="string">'class'</span>:<span class="string">'Area101'</span>&#125;).text</span><br><span class="line">        desc = re.sub(<span class="string">'\r|\n| '</span>, <span class="string">''</span>, desc)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        desc = <span class="string">''</span></span><br><span class="line">    </span><br><span class="line">    print(<span class="string">'==================  &#123;&#125;  =================='</span>.format(i))    </span><br><span class="line">    print(title)</span><br><span class="line">    print(brand)</span><br><span class="line">    print(link)</span><br><span class="line">    print(amount)</span><br><span class="line">    print(cate)</span><br><span class="line">    </span><br><span class="line">    columns += [<span class="string">'title'</span>, <span class="string">'brand'</span>, <span class="string">'link'</span>, <span class="string">'price'</span>, <span class="string">'amount'</span>, <span class="string">'cate'</span>, <span class="string">'desc'</span>]</span><br><span class="line">    values += [title, brand, link, price, amount, cate, desc]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 規格</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> soup.select(<span class="string">'div.attributesArea &gt; table &gt; tr'</span>):</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            column = i.find(<span class="string">'th'</span>).text</span><br><span class="line">            column = re.sub(<span class="string">'\n|\r| '</span>,<span class="string">''</span>,column)</span><br><span class="line">            value = <span class="string">''</span>.join([j.text <span class="keyword">for</span> j <span class="keyword">in</span> i.findAll(<span class="string">'li'</span>)])</span><br><span class="line">            value = re.sub(<span class="string">'\n|\r| '</span>,<span class="string">''</span>,value)</span><br><span class="line">            columns.append(column)</span><br><span class="line">            values.append(value)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">    ndf = pd.DataFrame(data=values, index=columns).T</span><br><span class="line">    df.append(ndf)</span><br><span class="line">df=pd.concat(df, ignore_index=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
 <h2 id="爬取結果"><a class="header-anchor" href="#爬取結果">¶</a>爬取結果</h2>
-<p>最後總共抓取了 3,920 個產品的資訊，包含了產品ID、名稱、價格、賣家名稱、商品位置、商品描述等等資訊，詳細資訊如下</p>
+<p>最後總共抓取了 580 個產品的資訊，包含了商品名稱、品牌、描述、價格、類型、連結等等資訊，詳細資訊如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.info()</span><br></pre></td></tr></table></figure>
-<p><img src="https://lh3.googleusercontent.com/pw/ACtC-3d_PsSe8-oV2COYsOD8PzUVjAbnkzJ21B0Mu9_oA64V2VBfKpMlHe_9-BNGNYjNXf3ejKRX-Ube79JJr9UNkPMv6t22TYp5sZ8mBznTRxL_3LhzPChX0BwdDo3WEgWM4c8N08rbkDgXF10mhiRXs4ps=w463-h267-no?authuser=1" alt=""></p>
+<p><img src="https://lh3.googleusercontent.com/pw/ACtC-3eBr7o6YFk0r6LoG3qE8Hqa0Kwh9jnXIXISjkbaRAj5WxlGgps2VYbw0Ak-32KX__-pYNimknbj0lKeMolELyRdJocHJGhtvekE97MF73wHOtLOviDY90ghHhv7mePUuIqK_R34CPVGIaQ1kjzGdqeb=w298-h350-no?authuser=1" alt=""></p>
 <h2 id="保存資料"><a class="header-anchor" href="#保存資料">¶</a>保存資料</h2>
 <p>抓完資料記得保存結果，不然你會需要重新再抓一次&gt;&quot;&lt;</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.to_excel(<span class="string">'./RuTen.xlsx'</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="https://lh3.googleusercontent.com/pw/ACtC-3dQrP2AI9YMGmYzh7_4ZeaKHh-axwd-alHCYLsFPQaKxreC5S2c-iPPWBxrxHbNgnCop6dMu7UHS-4xGgSKfxF6PrGj_eTDvC2G1BQ5tUMzQSCq5XN9zKLzg50-X8NjSlhPqW9XQsfMlkTbY19UQPCk=w1784-h978-no?authuser=1" alt=""></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.to_excel(<span class="string">'./MOMO.xlsx'</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://lh3.googleusercontent.com/pw/ACtC-3dVLlxeydSw0k76kRresUiOwycW2IlYaJF4eZV_iP1oNe3SYFdAOzDngqYEFDkA8o-7aQKW7cf6HtcltIBbN36dZOo4Mzm4ujSQL-oHTLJxtZmtqQ8g8EPnkpxFOj630w6cs5tUbPFznlzcISf-yKAa=w1785-h978-no?authuser=1" alt=""></p>
 <h2 id="附件"><a class="header-anchor" href="#附件">¶</a>附件</h2>
 <ul>
-<li><a href="https://github.com/TLYu0419/DataScience/blob/master/WebCrawler/ruten/Ruten.ipynb" target="_blank" rel="noopener">Ruten.ipynb</a></li>
+<li><a href="https://github.com/TLYu0419/DataScience/blob/master/WebCrawler/MOMO/MOMO.ipynb" target="_blank" rel="noopener">MOMO.ipynb</a></li>
 </ul>
 
       
@@ -456,7 +446,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link：</strong>
-    <a href="https://TLYu0419.github.io/2020/06/14/Crawler-Ruten/" title="露天拍賣 網路爬蟲">https://TLYu0419.github.io/2020/06/14/Crawler-Ruten/</a>
+    <a href="https://TLYu0419.github.io/2020/06/15/Crawler-momo/" title="MOMO購物網 網路爬蟲">https://TLYu0419.github.io/2020/06/15/Crawler-momo/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice： </strong>
@@ -484,9 +474,9 @@
           
             <a href="/tags/Crawler/" rel="tag"># Crawler</a>
           
-            <a href="/tags/露天拍賣/" rel="tag"># 露天拍賣</a>
-          
             <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/MOMO/" rel="tag"># MOMO</a>
           
         </div>
       
@@ -499,8 +489,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/06/13/Crawler-PChome/" rel="next" title="PChome 網路爬蟲">
-                <i class="fa fa-chevron-left"></i> PChome 網路爬蟲
+              <a href="/2020/06/14/Crawler-Ruten/" rel="next" title="露天拍賣 網路爬蟲">
+                <i class="fa fa-chevron-left"></i> 露天拍賣 網路爬蟲
               </a>
             
           </div>
@@ -508,10 +498,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/06/15/Crawler-momo/" rel="prev" title="MOMO購物網 網路爬蟲">
-                MOMO購物網 網路爬蟲 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -665,7 +651,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">露天拍賣 爬蟲要點</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">露天拍賣 爬蟲流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#載入使用套件"><span class="nav-number">2.1.</span> <span class="nav-text">¶載入使用套件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#設定-request-參數"><span class="nav-number">2.2.</span> <span class="nav-text">¶設定 request 參數</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#收集產品連結清單"><span class="nav-number">2.3.</span> <span class="nav-text">¶收集產品連結清單</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#爬取產品資料"><span class="nav-number">2.4.</span> <span class="nav-text">¶爬取產品資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#爬取結果"><span class="nav-number">2.5.</span> <span class="nav-text">¶爬取結果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#保存資料"><span class="nav-number">2.6.</span> <span class="nav-text">¶保存資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附件"><span class="nav-number">2.7.</span> <span class="nav-text">¶附件</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">MOMO購物網 爬蟲要點</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">MOMO購物網 爬蟲流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#載入使用套件"><span class="nav-number">2.1.</span> <span class="nav-text">¶載入使用套件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#設定-request-參數"><span class="nav-number">2.2.</span> <span class="nav-text">¶設定 request 參數</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#收集產品連結清單"><span class="nav-number">2.3.</span> <span class="nav-text">¶收集產品連結清單</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#爬取產品資料"><span class="nav-number">2.4.</span> <span class="nav-text">¶爬取產品資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#爬取結果"><span class="nav-number">2.5.</span> <span class="nav-text">¶爬取結果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#保存資料"><span class="nav-number">2.6.</span> <span class="nav-text">¶保存資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附件"><span class="nav-number">2.7.</span> <span class="nav-text">¶附件</span></a></li></ol></li></ol></div>
             
 
           </div>

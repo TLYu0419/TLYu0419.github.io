@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://TLYu0419.github.io/2020/06/14/Crawler-Ruten/</loc>
-    <lastmod>2020-06-14T10:41:43.523Z</lastmod>
+    <lastmod>2020-06-15T15:45:35.630Z</lastmod>
     <data>
         <display>
         <title>露天拍賣 網路爬蟲</title>
@@ -13,9 +13,30 @@
         
         <tag>Crawler</tag>
          
+        <tag>露天拍賣</tag>
+         
         <tag>Python</tag>
          
-        <tag>露天拍賣</tag>
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://TLYu0419.github.io/2020/06/15/Crawler-momo/</loc>
+    <lastmod>2020-06-15T15:42:13.621Z</lastmod>
+    <data>
+        <display>
+        <title>MOMO購物網 網路爬蟲</title>
+        <pubTime>2020-06-15T15:06:05.000Z</pubTime>
+        
+        <tag>Crawler</tag>
+         
+        <tag>Python</tag>
+         
+        <tag>MOMO</tag>
          
          
            
@@ -35,9 +56,9 @@
         
         <tag>Crawler</tag>
          
-        <tag>PChome</tag>
-         
         <tag>Python</tag>
+         
+        <tag>PChome</tag>
          
          
            
@@ -380,9 +401,9 @@
          
         <tag>python</tag>
          
-        <tag>requests</tag>
-         
         <tag>Selenium</tag>
+         
+        <tag>requests</tag>
          
         <tag>104人力銀行</tag>
          
