@@ -4,6 +4,27 @@
 
     
   <url>
+    <loc>https://TLYu0419.github.io/2020/06/13/Crawler-PChome/</loc>
+    <lastmod>2020-06-16T15:02:15.665Z</lastmod>
+    <data>
+        <display>
+        <title>PChome 網路爬蟲</title>
+        <pubTime>2020-06-13T04:26:55.000Z</pubTime>
+        
+        <tag>Crawler</tag>
+         
+        <tag>Python</tag>
+         
+        <tag>PChome</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://TLYu0419.github.io/2020/06/14/Crawler-Ruten/</loc>
     <lastmod>2020-06-15T15:45:35.630Z</lastmod>
     <data>
@@ -13,9 +34,9 @@
         
         <tag>Crawler</tag>
          
-        <tag>Python</tag>
-         
         <tag>露天拍賣</tag>
+         
+        <tag>Python</tag>
          
          
            
@@ -45,27 +66,6 @@
     </url>
 
     
-    
-  <url>
-    <loc>https://TLYu0419.github.io/2020/06/13/Crawler-PChome/</loc>
-    <lastmod>2020-06-14T06:46:06.305Z</lastmod>
-    <data>
-        <display>
-        <title>PChome 網路爬蟲</title>
-        <pubTime>2020-06-13T04:26:55.000Z</pubTime>
-        
-        <tag>Crawler</tag>
-         
-        <tag>PChome</tag>
-         
-        <tag>Python</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
     
   <url>
     <loc>https://TLYu0419.github.io/2020/06/11/Crawler-everylettermatters/</loc>
