@@ -91,9 +91,8 @@
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://lh3.googleusercontent.com/pw/ACtC-3ciaYU9BbEwHw4gX7S46FHWoRrAcOXTndnGqWfmueCxFomDoMznUGIxyTGMaTL7OjBlJQ31Vac8q-BhHdNcozJvU2bIlb_2khkYbqtlfEsdbaA1tvcUhI3VhX0Q25wGKf1HyKXbaBHPqoRgoJ7a-ql5=w662-h150-no?authuser=1">
 <meta property="og:image" content="https://lh3.googleusercontent.com/pw/ACtC-3ee_55qmAvXrGapUzuWX-3QJq1EkLlxInkqVz8HxXz6vkgVTsoI-W8RclyPhrG6-A_SPrqFrrLqVdOz3OC_nKSTIOJQuYJC1-B_H1PDFnqnLwM83l6OSSTwul23XsEQj9QCIvhX1SWmrg8AlzogTcpk=w865-h389-no?authuser=1">
-<meta property="og:image" content="https://lh3.googleusercontent.com/cVt4qM_LBfoUtHHUUm7jAaM_KBwRmOw9HXM1YFBOBW49Fk8DZRWVbRkAWV98whEQs5Ir8z6ecXnLzaa1tDEgzdp3VIvcncBBe7WBDgHVHG-ilPaQpAJUT4lnhyVtRziqd5EXonLmnIUd_MwAZwZsBeoyfdaGu3Uqpuc0mmvEyD324TEWS6SIcPbpi7GZ3dSlG09mC2mC4xXrDpQxsf6emBoQsnwrL89gayi4xy1FCf3xZPIBxpeG4uBvNRSIkLLoDFgA6jFfhzLWpsVus8raMYAbV4VoFfYBoDnscV4CgAEj_D1JROp0Mx5r4oZzlu0d5yMH_n4QvNHnRmHIFMpaxlqPFtGvzuXuziPSioi7ps-yaTkMWEFpJhLM8ualGJZYYgW63NPY5DhOxlN0b4SRy1s2NYiVcjRc8xoN_O6HaaCgujVEZQPm9uTRhllfDzE1qDxWVOuCNU52Q6qh0VGHfeiYHebNSM1kXA5swGRNqxSqOJq6ZqtqSKLSCQlv6ZMl5AyuQNo4MWlL94k7aaTNoOykV6Zs4VYACJtVkhd8oNeNar0OT_Z_Ez2_ie3OGHUepCpIOTy554xschJvGQTiD3709GSZ7LbgIQxYcuD3PgewhgM8IRXnyHIWOTN8yWr_YCRAX1d8z74jyW-MW0lULJGTXYdjDAjh7EjRrCU9LGUSv8lEYzC4rsF75VgzQA=w865-h389-no?authuser=1">
 <meta property="og:image" content="https://lh3.googleusercontent.com/pw/ACtC-3cqXeBjLllocOAX3JBLY74kfpStFSa2fP4tnBVo5U7GLA3vRoaf8Gvu0kKb9mWxqbtzRWjfA0azeeGFyoFIdrcNVE58LipYtIRPhCP6AfuhFtTSiLZgxi2hTPUPN_c3LO9RE7RvV_JIieC2nMVAa05L=w1702-h929-no?authuser=1">
-<meta property="og:updated_time" content="2020-06-20T04:48:01.028Z">
+<meta property="og:updated_time" content="2020-06-20T05:11:01.049Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="104人力銀行 網路爬蟲">
 <meta name="twitter:description" content="先前曾發過一篇透過 Selenium 的版本 爬蟲_104人力銀行工作清單 ，但隨著爬蟲技術的提升，就想要來更新一下爬蟲的程式 xD 註：本篇文章僅供研究使用，請勿惡意大量爬取資料造成對方公司的負擔">
@@ -343,7 +342,7 @@
               
                 <span class="post-meta-item-text">更新於&#58;</span>
               
-              <time title="更新於" itemprop="dateModified" datetime="2020-06-20T12:48:01+08:00">
+              <time title="更新於" itemprop="dateModified" datetime="2020-06-20T13:11:01+08:00">
                 2020-06-20
               </time>
             
@@ -405,7 +404,7 @@
 <li>如果是用一般的方式爬蟲的話，可以將爬取的結果分階段保存資料，而下次爬蟲時只需要繼續爬未完成的資料即可</li>
 </ul>
 </li>
-<li>承1，由於我們將查詢結果進行細分，大多數組合並不會都有150個分頁的資料量，如果將每個組合都送 150 次 request 無疑會浪費相當多時間，怎麼樣可以更有效率呢?
+<li>承1，由於我們將查詢結果按照地區與職務進行細分，大多數組合並不會都有150個分頁的資料量，如果將每個組合都送 150 次 request 無疑會浪費相當多時間，怎麼樣可以更有效率呢?
 <ul>
 <li>解決方式是檢查每次查詢的結果，如果回傳20筆職缺，表示下一個分頁還有資料，但如果小於20個分頁就表示後面沒有資料了</li>
 </ul>
@@ -465,8 +464,7 @@
 <li>公司地址</li>
 <li>地區</li>
 <li>經歷要求</li>
-<li>學歷要求<br>
-<img src="https://lh3.googleusercontent.com/cVt4qM_LBfoUtHHUUm7jAaM_KBwRmOw9HXM1YFBOBW49Fk8DZRWVbRkAWV98whEQs5Ir8z6ecXnLzaa1tDEgzdp3VIvcncBBe7WBDgHVHG-ilPaQpAJUT4lnhyVtRziqd5EXonLmnIUd_MwAZwZsBeoyfdaGu3Uqpuc0mmvEyD324TEWS6SIcPbpi7GZ3dSlG09mC2mC4xXrDpQxsf6emBoQsnwrL89gayi4xy1FCf3xZPIBxpeG4uBvNRSIkLLoDFgA6jFfhzLWpsVus8raMYAbV4VoFfYBoDnscV4CgAEj_D1JROp0Mx5r4oZzlu0d5yMH_n4QvNHnRmHIFMpaxlqPFtGvzuXuziPSioi7ps-yaTkMWEFpJhLM8ualGJZYYgW63NPY5DhOxlN0b4SRy1s2NYiVcjRc8xoN_O6HaaCgujVEZQPm9uTRhllfDzE1qDxWVOuCNU52Q6qh0VGHfeiYHebNSM1kXA5swGRNqxSqOJq6ZqtqSKLSCQlv6ZMl5AyuQNo4MWlL94k7aaTNoOykV6Zs4VYACJtVkhd8oNeNar0OT_Z_Ez2_ie3OGHUepCpIOTy554xschJvGQTiD3709GSZ7LbgIQxYcuD3PgewhgM8IRXnyHIWOTN8yWr_YCRAX1d8z74jyW-MW0lULJGTXYdjDAjh7EjRrCU9LGUSv8lEYzC4rsF75VgzQA=w865-h389-no?authuser=1" alt=""></li>
+<li>學歷要求</li>
 </ul>
 </li>
 </ul>
