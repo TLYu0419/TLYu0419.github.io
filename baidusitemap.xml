@@ -4,6 +4,27 @@
 
     
   <url>
+    <loc>https://TLYu0419.github.io/2020/06/19/Crawler-104HumanResource/</loc>
+    <lastmod>2020-06-20T04:48:01.028Z</lastmod>
+    <data>
+        <display>
+        <title>104人力銀行 網路爬蟲</title>
+        <pubTime>2020-06-19T15:08:02.000Z</pubTime>
+        
+        <tag>Crawler</tag>
+         
+        <tag>Python</tag>
+         
+        <tag>104人力銀行</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://TLYu0419.github.io/2020/06/14/Crawler-Ruten/</loc>
     <lastmod>2020-06-17T12:50:55.962Z</lastmod>
     <data>
@@ -100,9 +121,9 @@
          
         <tag>網路爬蟲</tag>
          
-        <tag>Selenium</tag>
-         
         <tag>評分</tag>
+         
+        <tag>Selenium</tag>
          
         <tag>GooglePlay</tag>
          
@@ -401,9 +422,9 @@
          
         <tag>python</tag>
          
-        <tag>Selenium</tag>
-         
         <tag>requests</tag>
+         
+        <tag>Selenium</tag>
          
         <tag>104人力銀行</tag>
          
