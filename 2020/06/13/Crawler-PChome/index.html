@@ -81,21 +81,21 @@
 
 
 
-<meta name="description" content="Pchome 的網路爬蟲程式並不難寫，但是如何寫得簡潔又有效率就不容易了! 在這篇文章我將簡介在開發 Pchome 的爬蟲程式時需要注意的事項與解決方法，並於最後附上程式碼提供參考。 註：本篇文章僅供研究使用，請勿惡意大量爬取資料造成對方公司的負擔">
+<meta name="description" content="PChome 的網路爬蟲程式並不難寫，但是如何寫得簡潔又有效率就不容易了! 在這篇文章我將簡介在開發 Pchome 的爬蟲程式時需要注意的事項與解決方法，並於最後附上程式碼提供參考。 註：本篇文章僅供研究使用，請勿惡意大量爬取資料造成對方公司的負擔">
 <meta name="keywords" content="Crawler,PChome,Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PChome 網路爬蟲">
 <meta property="og:url" content="https://TLYu0419.github.io/2020/06/13/Crawler-PChome/index.html">
 <meta property="og:site_name" content="Journey">
-<meta property="og:description" content="Pchome 的網路爬蟲程式並不難寫，但是如何寫得簡潔又有效率就不容易了! 在這篇文章我將簡介在開發 Pchome 的爬蟲程式時需要注意的事項與解決方法，並於最後附上程式碼提供參考。 註：本篇文章僅供研究使用，請勿惡意大量爬取資料造成對方公司的負擔">
+<meta property="og:description" content="PChome 的網路爬蟲程式並不難寫，但是如何寫得簡潔又有效率就不容易了! 在這篇文章我將簡介在開發 Pchome 的爬蟲程式時需要注意的事項與解決方法，並於最後附上程式碼提供參考。 註：本篇文章僅供研究使用，請勿惡意大量爬取資料造成對方公司的負擔">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://lh3.googleusercontent.com/pw/ACtC-3cjV87riQWFKNEXaGYqzdNpZxQrOFJapQukQx5vsDefWp8eE38M0nn0thmq9rUu1kRMvBPpGCS39GIZ9K6Dv3fx5YXyaXRamz2oycCFXUqumD7nGRH53b-neM0y3rUx-JS7W2H0Y3_mt5BUCs5WUtVh=w1495-h428-no?authuser=1">
 <meta property="og:image" content="https://lh3.googleusercontent.com/pw/ACtC-3fp8RFalaWpXoV1H80c0p_89j-Y_7en4rbxfVj98wktEqHoIoC70PouzTRTdCAiQiMR0LiML63oimhc1OmdbJtyjxZrFkWz7kqeWAHJuFZI8u2gzasR5zo7KGXVoICBPO1WvaphjV9iXu_1mfmMTs3p=w523-h893-no?authuser=1">
 <meta property="og:image" content="https://lh3.googleusercontent.com/pw/ACtC-3d5_qxesWknTpPEViGZTdvuzCzp38m-jW-SB4eMAs349PR36n8kavxEZmqjkh6UUTz8mVhlR6z2fBPqsSof3REFz-e4FB6hO38tbaOhxKxO9fc0_madAb5BV_4BrQaGwDOsEP-w16Tp7qG0_t1cysRs=w1026-h381-no?authuser=1">
-<meta property="og:updated_time" content="2020-06-16T15:02:15.665Z">
+<meta property="og:updated_time" content="2020-06-23T12:12:31.896Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PChome 網路爬蟲">
-<meta name="twitter:description" content="Pchome 的網路爬蟲程式並不難寫，但是如何寫得簡潔又有效率就不容易了! 在這篇文章我將簡介在開發 Pchome 的爬蟲程式時需要注意的事項與解決方法，並於最後附上程式碼提供參考。 註：本篇文章僅供研究使用，請勿惡意大量爬取資料造成對方公司的負擔">
+<meta name="twitter:description" content="PChome 的網路爬蟲程式並不難寫，但是如何寫得簡潔又有效率就不容易了! 在這篇文章我將簡介在開發 Pchome 的爬蟲程式時需要注意的事項與解決方法，並於最後附上程式碼提供參考。 註：本篇文章僅供研究使用，請勿惡意大量爬取資料造成對方公司的負擔">
 <meta name="twitter:image" content="https://lh3.googleusercontent.com/pw/ACtC-3cjV87riQWFKNEXaGYqzdNpZxQrOFJapQukQx5vsDefWp8eE38M0nn0thmq9rUu1kRMvBPpGCS39GIZ9K6Dv3fx5YXyaXRamz2oycCFXUqumD7nGRH53b-neM0y3rUx-JS7W2H0Y3_mt5BUCs5WUtVh=w1495-h428-no?authuser=1">
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新於&#58;</span>
               
-              <time title="更新於" itemprop="dateModified" datetime="2020-06-16T23:02:15+08:00">
-                2020-06-16
+              <time title="更新於" itemprop="dateModified" datetime="2020-06-23T20:12:31+08:00">
+                2020-06-23
               </time>
             
           </span>
@@ -387,7 +387,7 @@
       
 
       
-        <p>Pchome 的網路爬蟲程式並不難寫，但是如何寫得簡潔又有效率就不容易了! 在這篇文章我將簡介在開發 Pchome 的爬蟲程式時需要注意的事項與解決方法，並於最後附上程式碼提供參考。<br>
+        <p>PChome 的網路爬蟲程式並不難寫，但是如何寫得簡潔又有效率就不容易了! 在這篇文章我將簡介在開發 Pchome 的爬蟲程式時需要注意的事項與解決方法，並於最後附上程式碼提供參考。<br>
 註：本篇文章僅供研究使用，請勿惡意大量爬取資料造成對方公司的負擔</p>
 <a id="more"></a>
 <p><img src="https://lh3.googleusercontent.com/pw/ACtC-3cjV87riQWFKNEXaGYqzdNpZxQrOFJapQukQx5vsDefWp8eE38M0nn0thmq9rUu1kRMvBPpGCS39GIZ9K6Dv3fx5YXyaXRamz2oycCFXUqumD7nGRH53b-neM0y3rUx-JS7W2H0Y3_mt5BUCs5WUtVh=w1495-h428-no?authuser=1" alt=""></p>

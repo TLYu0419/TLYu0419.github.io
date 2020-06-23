@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>https://TLYu0419.github.io/2020/06/13/Crawler-PChome/</loc>
+    <lastmod>2020-06-23T12:12:31.896Z</lastmod>
+    <data>
+        <display>
+        <title>PChome 網路爬蟲</title>
+        <pubTime>2020-06-13T04:26:55.000Z</pubTime>
+        
+        <tag>Crawler</tag>
+         
+        <tag>PChome</tag>
+         
+        <tag>Python</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
     <loc>https://TLYu0419.github.io/2020/06/19/Crawler-104HumanResource/</loc>
     <lastmod>2020-06-20T05:11:01.049Z</lastmod>
     <data>
@@ -46,27 +68,6 @@
 
     
   <url>
-    <loc>https://TLYu0419.github.io/2020/06/13/Crawler-PChome/</loc>
-    <lastmod>2020-06-16T15:02:15.665Z</lastmod>
-    <data>
-        <display>
-        <title>PChome 網路爬蟲</title>
-        <pubTime>2020-06-13T04:26:55.000Z</pubTime>
-        
-        <tag>Crawler</tag>
-         
-        <tag>PChome</tag>
-         
-        <tag>Python</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://TLYu0419.github.io/2020/06/15/Crawler-momo/</loc>
     <lastmod>2020-06-15T15:42:13.621Z</lastmod>
     <data>
@@ -86,7 +87,6 @@
     </data>
     </url>
 
-    
     
   <url>
     <loc>https://TLYu0419.github.io/2020/06/11/Crawler-everylettermatters/</loc>
@@ -121,9 +121,9 @@
          
         <tag>網路爬蟲</tag>
          
-        <tag>Selenium</tag>
-         
         <tag>評分</tag>
+         
+        <tag>Selenium</tag>
          
         <tag>GooglePlay</tag>
          
@@ -184,9 +184,9 @@
         <title>Facebook粉絲專頁爬蟲筆記</title>
         <pubTime>2020-03-17T04:35:30.000Z</pubTime>
         
-        <tag>python</tag>
-         
         <tag>Web Crawler</tag>
+         
+        <tag>python</tag>
          
         <tag>Facebook</tag>
          
@@ -236,11 +236,11 @@
         <title>台灣政治人物 Facebook 粉絲專頁清單</title>
         <pubTime>2020-02-27T04:53:53.000Z</pubTime>
         
-        <tag>python</tag>
-         
         <tag>FB專頁儀表板</tag>
          
         <tag>Web Crawler</tag>
+         
+        <tag>python</tag>
          
         <tag>colab</tag>
          
@@ -259,9 +259,9 @@
         <title>如何抓取 Google Trends 近1月熱門關鍵字</title>
         <pubTime>2020-02-18T05:27:23.000Z</pubTime>
         
-        <tag>python</tag>
-         
         <tag>Web Crawler</tag>
+         
+        <tag>python</tag>
          
         <tag>Google Trends</tag>
          
@@ -303,9 +303,9 @@
         <title>爬蟲 - 爬取松果購物商品資訊</title>
         <pubTime>2019-04-07T12:53:39.000Z</pubTime>
         
-        <tag>爬蟲(Crawl)</tag>
-         
         <tag>python</tag>
+         
+        <tag>爬蟲(Crawl)</tag>
          
         <tag>SongGuo</tag>
          
@@ -351,9 +351,9 @@
         
         <tag>python</tag>
          
-        <tag>1111人力銀行</tag>
-         
         <tag>網路爬蟲</tag>
+         
+        <tag>1111人力銀行</tag>
          
          
            
@@ -372,9 +372,9 @@
         
         <tag>python</tag>
          
-        <tag>網路爬蟲</tag>
-         
         <tag>中時電子報</tag>
+         
+        <tag>網路爬蟲</tag>
          
         <tag>新聞</tag>
          
@@ -399,9 +399,9 @@
          
         <tag>Crawler</tag>
          
-        <tag>Facebook</tag>
-         
         <tag>Selenium</tag>
+         
+        <tag>Facebook</tag>
          
          
            
@@ -418,13 +418,13 @@
         <title>爬蟲_104人力銀行工作清單</title>
         <pubTime>2019-04-18T14:18:06.000Z</pubTime>
         
-        <tag>爬蟲(Crawl)</tag>
-         
         <tag>python</tag>
          
-        <tag>requests</tag>
+        <tag>爬蟲(Crawl)</tag>
          
         <tag>Selenium</tag>
+         
+        <tag>requests</tag>
          
         <tag>104人力銀行</tag>
          
@@ -445,11 +445,11 @@
         <title>爬蟲 - 爬取Dcard文章</title>
         <pubTime>2019-04-06T10:03:39.000Z</pubTime>
         
+        <tag>python</tag>
+         
         <tag>爬蟲(Crawl)</tag>
          
         <tag>Dcard</tag>
-         
-        <tag>python</tag>
          
          
            
