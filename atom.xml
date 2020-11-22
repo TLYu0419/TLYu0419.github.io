@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://TLYu0419.github.io/"/>
-  <updated>2020-09-12T12:57:50.479Z</updated>
+  <updated>2020-09-12T12:59:49.642Z</updated>
   <id>https://TLYu0419.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://TLYu0419.github.io/2020/09/12/PyConTW20/"/>
     <id>https://TLYu0419.github.io/2020/09/12/PyConTW20/</id>
     <published>2020-09-12T12:44:11.000Z</published>
-    <updated>2020-09-12T12:57:50.479Z</updated>
+    <updated>2020-09-12T12:59:49.642Z</updated>
     
-    <content type="html"><![CDATA[<p>PyConTW2020 在上週（9/5-9/6）結束了，來記錄和分享一下從自行提案到上台演講的心路歷程～</p><a id="more"></a><p><img src="https://lh3.googleusercontent.com/wCzsscUWgCNqiHshMUsj6H1pb42Ud67EEkgV95wlCPizp6Dgj_Iwqu-f5T7ZcUKthSi7u6C58QvmC5U4trXhbDVbenT2o5E3BZC8LpRfjx3kCzVbuW8esilFKiAuKfMxLt3_5cD4bxs3GDtw9U_3zZfYZiTQDsyQlpkwpcpJ84GKgIspFvIebK6xhcvcCwtllTCWg3kdbdYZXYHzaOXSo8QU054a6oDHT3k_esknSHDLUY-vyoDvhOSTltSEcndVqDED7Yqd888Fb39lVaFaktLWdeA4w_KArbiyIhh_tApQZSEf6dnXv8vIukl3byMnYi632bvij0SfOwCDzlbKVBU7KOwJv5IZAO2stEBdYpdHyt_44klTdbCVGSiQiT7jR7MYfWN7un5inNK3H7BTk93o8G8GWf9fZ_bcDWhkx2WF0sNN774tw8V6JPmBdqwzKS6tmNoAxR-LZz0EPDJUpSILmIyROSI3JY8yE6Msryq20rROgRP3ZcneVR_gq-aMA4qbMBnQXpExH_PHV70o97iVbQGiWsZtSP6qRmbzf5kmCTPpJHD68O0rDzbNtSUTVp0PotG29FYBbf9M8h-48H1jt29hXDcMthTAnPaSXCNMWcVbJhb39kNSrlWoAYzUyWslJtCHio8oETwb0rJWEWMObvSwF_JmwAieovkRm0r6n_azte1yZJDgQKrgWA=w1679-h944-no?authuser=1" alt=""></p><p>準備的過程大致可以分成以下 4 個階段：</p><ol><li><p>提案<br>這個階段需撰寫約 800 字的研究提案，主要是說明為什麼想做這個議題（含目的、重要性、大綱、方法…等等資料）。<br>在網站上會有指定的欄位讓我們填寫，如摘要、目標、詳細說明。另外還有一些封閉式的問題，如預計演講的時間長度、Python 難易度、演講類型…等等。</p></li><li><p>審稿<br>提案完成後主辦單位會請各領域的專家審稿和給予修改建議，並投票決定是否同意接受提案。<br>在這個部分是我覺得最暖心的地方，因為 PyCon 有要求評審不是用挑戰的角度挑缺點，而是會跟講者一起思考如何讓演講發揮出更大的價值。不論最終的結果是被接受或拒絕，相信每位提案人在這個階段都會有滿滿的收穫與成長！</p></li><li><p>分析<br>一旦確定入選後，你會需要把前面提案中的想法轉化成實際的分析成果（但其實應該要更早就開始準備資料）！這個階段其實也相當不容易，因為我們平常可能知道/看過/學過相當多的分析技術，很容易會「覺得」怎麼做就可以完成，但只有實際進去分析後才會發現理想和現實間有多少差距。<br>分析結果符合理想當然很好，但是不理想的結果才會帶給我們更多的成長，因為我們需要思考為什麼結果會不理想並嘗試找各種方法來處理問題，這些過程（特別是失敗的過程）都會變成你成長的養分。</p></li><li><p>報告<br>完成分析後還需要開始將分析的方法、流程與發現梳理成有系統的知識，並製作成簡報向會眾分享。<br>這裡要提醒的是，一定要回頭檢視並緊扣演講的目標！在分析時一定有相當繁雜的過程，例如資料收集、前處理、特徵工程、分析方法…等等，因為演講的時間很寶貴，所以一定要把時間留給真正有價值的地方！ 然後反覆進行練習，要多從會眾的角度思考簡報的陳述方式、傳遞的想法是否清晰、容易吸收。</p></li></ol><p>其實在每個階段難免都會遇到各種大大小小的困難，如果有遇到一些令你崩潰到想要放棄的瞬間，請回頭想想當初為什麼會想要投稿的原因～而且能獲得登台演講的機會真的非常不容易，當機會到來時一定要好好把握住，然後跟自己說「加油，一定要做的比好還要更好！」。</p><p>感謝主辦單位、匿名評審、聽眾、長官、同事以及朋友在過程中曾給我的許多協助！</p>]]></content>
+    <content type="html"><![CDATA[<p>PyConTW2020 在上週（9/5-9/6）結束了，來記錄和分享一下從自行提案到上台演講的心路歷程～</p><a id="more"></a><p><img src="https://lh3.googleusercontent.com/wCzsscUWgCNqiHshMUsj6H1pb42Ud67EEkgV95wlCPizp6Dgj_Iwqu-f5T7ZcUKthSi7u6C58QvmC5U4trXhbDVbenT2o5E3BZC8LpRfjx3kCzVbuW8esilFKiAuKfMxLt3_5cD4bxs3GDtw9U_3zZfYZiTQDsyQlpkwpcpJ84GKgIspFvIebK6xhcvcCwtllTCWg3kdbdYZXYHzaOXSo8QU054a6oDHT3k_esknSHDLUY-vyoDvhOSTltSEcndVqDED7Yqd888Fb39lVaFaktLWdeA4w_KArbiyIhh_tApQZSEf6dnXv8vIukl3byMnYi632bvij0SfOwCDzlbKVBU7KOwJv5IZAO2stEBdYpdHyt_44klTdbCVGSiQiT7jR7MYfWN7un5inNK3H7BTk93o8G8GWf9fZ_bcDWhkx2WF0sNN774tw8V6JPmBdqwzKS6tmNoAxR-LZz0EPDJUpSILmIyROSI3JY8yE6Msryq20rROgRP3ZcneVR_gq-aMA4qbMBnQXpExH_PHV70o97iVbQGiWsZtSP6qRmbzf5kmCTPpJHD68O0rDzbNtSUTVp0PotG29FYBbf9M8h-48H1jt29hXDcMthTAnPaSXCNMWcVbJhb39kNSrlWoAYzUyWslJtCHio8oETwb0rJWEWMObvSwF_JmwAieovkRm0r6n_azte1yZJDgQKrgWA=w1679-h944-no?authuser=1" alt="PyConTW2020"></p><p>準備的過程大致可以分成以下 4 個階段：</p><ol><li><p>提案<br>這個階段需撰寫約 800 字的研究提案，主要是說明為什麼想做這個議題（含目的、重要性、大綱、方法…等等資料）。<br>在網站上會有指定的欄位讓我們填寫，如摘要、目標、詳細說明。另外還有一些封閉式的問題，如預計演講的時間長度、Python 難易度、演講類型…等等。</p></li><li><p>審稿<br>提案完成後主辦單位會請各領域的專家審稿和給予修改建議，並投票決定是否同意接受提案。<br>在這個部分是我覺得最暖心的地方，因為 PyCon 有要求評審不是用挑戰的角度挑缺點，而是會跟講者一起思考如何讓演講發揮出更大的價值。不論最終的結果是被接受或拒絕，相信每位提案人在這個階段都會有滿滿的收穫與成長！</p></li><li><p>分析<br>一旦確定入選後，你會需要把前面提案中的想法轉化成實際的分析成果（但其實應該要更早就開始準備資料）！這個階段其實也相當不容易，因為我們平常可能知道/看過/學過相當多的分析技術，很容易會「覺得」怎麼做就可以完成，但只有實際進去分析後才會發現理想和現實間有多少差距。<br>分析結果符合理想當然很好，但是不理想的結果才會帶給我們更多的成長，因為我們需要思考為什麼結果會不理想並嘗試找各種方法來處理問題，這些過程（特別是失敗的過程）都會變成你成長的養分。</p></li><li><p>報告<br>完成分析後還需要開始將分析的方法、流程與發現梳理成有系統的知識，並製作成簡報向會眾分享。<br>這裡要提醒的是，一定要回頭檢視並緊扣演講的目標！在分析時一定有相當繁雜的過程，例如資料收集、前處理、特徵工程、分析方法…等等，因為演講的時間很寶貴，所以一定要把時間留給真正有價值的地方！ 然後反覆進行練習，要多從會眾的角度思考簡報的陳述方式、傳遞的想法是否清晰、容易吸收。</p></li></ol><p>其實在每個階段難免都會遇到各種大大小小的困難，如果有遇到一些令你崩潰到想要放棄的瞬間，請回頭想想當初為什麼會想要投稿的原因～而且能獲得登台演講的機會真的非常不容易，當機會到來時一定要好好把握住，然後跟自己說「加油，一定要做的比好還要更好！」。</p><p>感謝主辦單位、匿名評審、聽眾、長官、同事以及朋友在過程中曾給我的許多協助！</p>]]></content>
     
     <summary type="html">
     
@@ -106,9 +106,9 @@
     
       <category term="Crawler" scheme="https://TLYu0419.github.io/tags/Crawler/"/>
     
-      <category term="Python" scheme="https://TLYu0419.github.io/tags/Python/"/>
-    
       <category term="MOMO" scheme="https://TLYu0419.github.io/tags/MOMO/"/>
+    
+      <category term="Python" scheme="https://TLYu0419.github.io/tags/Python/"/>
     
   </entry>
   
@@ -156,9 +156,9 @@
     
       <category term="Crawler" scheme="https://TLYu0419.github.io/tags/Crawler/"/>
     
-      <category term="PChome" scheme="https://TLYu0419.github.io/tags/PChome/"/>
-    
       <category term="Python" scheme="https://TLYu0419.github.io/tags/Python/"/>
+    
+      <category term="PChome" scheme="https://TLYu0419.github.io/tags/PChome/"/>
     
   </entry>
   
@@ -445,9 +445,9 @@
     
       <category term="網路爬蟲" scheme="https://TLYu0419.github.io/tags/%E7%B6%B2%E8%B7%AF%E7%88%AC%E8%9F%B2/"/>
     
-      <category term="評分" scheme="https://TLYu0419.github.io/tags/%E8%A9%95%E5%88%86/"/>
-    
       <category term="Selenium" scheme="https://TLYu0419.github.io/tags/Selenium/"/>
+    
+      <category term="評分" scheme="https://TLYu0419.github.io/tags/%E8%A9%95%E5%88%86/"/>
     
       <category term="GooglePlay" scheme="https://TLYu0419.github.io/tags/GooglePlay/"/>
     
@@ -504,9 +504,9 @@
     
       <category term="Crawler" scheme="https://TLYu0419.github.io/tags/Crawler/"/>
     
-      <category term="Selenium" scheme="https://TLYu0419.github.io/tags/Selenium/"/>
-    
       <category term="Facebook" scheme="https://TLYu0419.github.io/tags/Facebook/"/>
+    
+      <category term="Selenium" scheme="https://TLYu0419.github.io/tags/Selenium/"/>
     
   </entry>
   
@@ -533,11 +533,11 @@
     
       <category term="python" scheme="https://TLYu0419.github.io/tags/python/"/>
     
+      <category term="requests" scheme="https://TLYu0419.github.io/tags/requests/"/>
+    
       <category term="Selenium" scheme="https://TLYu0419.github.io/tags/Selenium/"/>
     
       <category term="104人力銀行" scheme="https://TLYu0419.github.io/tags/104%E4%BA%BA%E5%8A%9B%E9%8A%80%E8%A1%8C/"/>
-    
-      <category term="requests" scheme="https://TLYu0419.github.io/tags/requests/"/>
     
       <category term="BeautifulSoup" scheme="https://TLYu0419.github.io/tags/BeautifulSoup/"/>
     
