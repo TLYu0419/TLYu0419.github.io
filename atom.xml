@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://TLYu0419.github.io/"/>
-  <updated>2020-09-12T12:59:49.642Z</updated>
+  <updated>2020-11-27T07:36:33.959Z</updated>
   <id>https://TLYu0419.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>台灣人工智慧年會 與會心得</title>
+    <link href="https://TLYu0419.github.io/2020/11/27/aiacademy2020/"/>
+    <id>https://TLYu0419.github.io/2020/11/27/aiacademy2020/</id>
+    <published>2020-11-27T07:33:25.000Z</published>
+    <updated>2020-11-27T07:36:33.959Z</updated>
+    
+    <content type="html"><![CDATA[<p>趁著今天主辦單位釋出了年會中的照片，趕緊來發一下與會心得~但我分享三個就好，說太多有點矯情XD</p><p><img src="/2020/11/27/aiacademy2020/./aiacademy2020/127185825_4669795596426635_2523615106975644869_n.jpg" alt=""></p><a id="more"></a><ol><li>追求<br>大約是演講的前兩周吧，同事看著午休時間還在趕報告的我，順口就問了一句「你在追求什麼？」。我很努力的在腦袋中轉了好幾圈，然後回答說其實也沒有特別追求什麼，就只是覺得很有趣。然後我也很享受從提案、準備、分享，到最後接收大家反饋的這些過程，這會讓我很有成就感。<br>一直到年會結尾大會在回顧創辦人的理念時，我才知道自己追求的無非就是開放和分享的文化氛圍，未來有機會的話我也還是會繼續投稿~<br>(雖然每次在準備時都會跟自己說以後千萬不要再自找麻煩了XD</li><li>視野<br>身為一個技術控，我很喜歡了解產品的背後運用了哪些技術，以及是如何將技術落地成實際的產品。以前如果我參加演講後發現都是在談大方向、理念層次的東西，我會覺得很沒意思。但這次參加年會後卻改變了想法，這次的主題是「加速AI新時代來臨」，來分享的也都是各公司/協會的高階主管或大學教授，聽他們分享後才知道，比起技術更重要的是你到底想要解決什麼問題，接著才是如何結合AI技術與落地方式<br>(然後馬上現學現賣用在我的演講上🤣</li><li>感謝<br>在整個準備的過程中，曾經接收到相當多同事、長官的支持和協助(而且是無償的用休息/下班時間給予的幫忙)。我都有把他紀錄在我的小筆記本裡面，等這個月活動告個段落後，騰林會再一一答謝:p</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;趁著今天主辦單位釋出了年會中的照片，趕緊來發一下與會心得~但我分享三個就好，說太多有點矯情XD&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2020/11/27/aiacademy2020/./aiacademy2020/127185825_4669795596426635_2523615106975644869_n.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="AI Academy" scheme="https://TLYu0419.github.io/tags/AI-Academy/"/>
+    
+  </entry>
   
   <entry>
     <title>比好還要更好 — PyConTW2020 演講心得</title>
@@ -106,9 +127,9 @@
     
       <category term="Crawler" scheme="https://TLYu0419.github.io/tags/Crawler/"/>
     
-      <category term="MOMO" scheme="https://TLYu0419.github.io/tags/MOMO/"/>
-    
       <category term="Python" scheme="https://TLYu0419.github.io/tags/Python/"/>
+    
+      <category term="MOMO" scheme="https://TLYu0419.github.io/tags/MOMO/"/>
     
   </entry>
   
@@ -156,9 +177,9 @@
     
       <category term="Crawler" scheme="https://TLYu0419.github.io/tags/Crawler/"/>
     
-      <category term="Python" scheme="https://TLYu0419.github.io/tags/Python/"/>
-    
       <category term="PChome" scheme="https://TLYu0419.github.io/tags/PChome/"/>
+    
+      <category term="Python" scheme="https://TLYu0419.github.io/tags/Python/"/>
     
   </entry>
   
@@ -507,39 +528,6 @@
       <category term="Facebook" scheme="https://TLYu0419.github.io/tags/Facebook/"/>
     
       <category term="Selenium" scheme="https://TLYu0419.github.io/tags/Selenium/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>爬蟲_104人力銀行工作清單</title>
-    <link href="https://TLYu0419.github.io/2019/04/18/Crawl-JobList104/"/>
-    <id>https://TLYu0419.github.io/2019/04/18/Crawl-JobList104/</id>
-    <published>2019-04-18T14:18:06.000Z</published>
-    <updated>2019-04-18T15:30:22.563Z</updated>
-    
-    <content type="html"><![CDATA[<p><em>本文僅限於學習使用，請勿用於商業目的</em></p><p>找工作是一件很辛苦的事情，當我們在<a href="https://www.104.com.tw/jobs/main/" target="_blank" rel="noopener">104人力銀行</a>的網站上輸入關鍵字查詢職缺時，經常會直接跳出上百、千份的職缺。雖然有很多職缺對於求職者是好事，但這也造成了求職者的大困擾！</p><p>因此我希望能透過Python的爬蟲，一次把我想要查詢的結果(工作內容、地點、薪資、要求技能、工作地點…等等資訊)抓下來，在我自己的電腦上按照我的需求進行篩選，讓我能更有效率的挑選工作並投遞履歷。</p><p>另一方面，如果想了解各個產業會需要哪些工具、技能，也可以從這份資料中進一步的分析。那麼我們就開始吧！</p><a id="more"></a><p>我們直接先看輸入與最終的輸出結果吧!<br>在左邊的圖是104的查詢系統，我在這邊搜尋的關鍵字幾項條件分別是「資料科學」、「台北市」、「最近一個月有更新」等項目，經過搜尋之後，系統幫我查詢到25頁，共730筆職缺。並且也有跟我說各職缺的公司名稱、學歷要求、工作經歷等初步資訊。</p><p>但只有這些資訊是不夠的，當我們看到有興趣的職缺時，還需要進一步的點開超連結，檢視詳細的職務說明(右邊的圖)。在這個分頁中我們就能夠看到詳細的工作內容、條件要求、公司福利與聯繫方式等資訊囉！我最終的目的是希望透過程式自動幫我們這些資訊都整理成一份excel表格！<br><img src="/2019/04/18/Crawl-JobList104/104HomePage.JPG" alt="HomePage"><br>而我們最終的目標就是將所有職缺以及各職缺的內容都整理成這份excel表格，讓我能按照自己的方式篩選資料，提升找工作的效率！<br><img src="/2019/04/18/Crawl-JobList104/JobList.JPG" alt="JobList"></p><h1>載入使用套件</h1><p><img src="/2019/04/18/Crawl-JobList104/01.JPG" alt="01.JPG"></p><h1>設定查詢條件</h1><p>這些查詢條件可以在<a href="https://www.104.com.tw/jobs/search/" target="_blank" rel="noopener">104的搜尋網頁</a>上搜索，在這裡不多做說明<br><img src="/2019/04/18/Crawl-JobList104/02.JPG" alt="02.JPG"></p><h1>展開所有工作清單，後續將依序開始爬蟲</h1><p>這裡會透過Selenium打開一個瀏覽器並開始跑程式~<br><img src="/2019/04/18/Crawl-JobList104/03.JPG" alt="03.JPG"></p><h1>解析爬蟲資料並整理成DataFrame</h1><p>在正式開始爬蟲之前，我預先定義一個函數，專於用來處理「職務類別」這個複選題，稍後將用這個函數將其串接在一起<br><img src="/2019/04/18/Crawl-JobList104/04.JPG" alt="04.JPG"></p><p>開始逐筆爬資料囉!<br><img src="/2019/04/18/Crawl-JobList104/05.JPG" alt="05.JPG"></p><h1>結果</h1><p>這裡爬得很快，大約10分鐘就抓完這700筆資料囉!<br><img src="/2019/04/18/Crawl-JobList104/06.JPG" alt="06.JPG"></p><p><img src="/2019/04/18/Crawl-JobList104/07.JPG" alt="07.JPG"></p><p>因為內容並沒有太難，因此我就不做太多說明了，不過有問題的人也歡迎在底下的留言提出！</p><h1>完整程式代碼</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">import re, time, requests</span><br><span class="line">from selenium import webdriver</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line"></span><br><span class="line"># 加入使用者資訊(如使用什麼瀏覽器、作業系統...等資訊)模擬真實瀏覽網頁的情況</span><br><span class="line">headers = &#123;&apos;User-Agent&apos;: &apos;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36&apos;&#125;</span><br><span class="line"></span><br><span class="line"># 查詢的關鍵字</span><br><span class="line">my_params = &#123;&apos;ro&apos;:&apos;1&apos;, # 限定全職的工作，如果不限定則輸入0</span><br><span class="line">             &apos;keyword&apos;:&apos;資料科學&apos;, # 想要查詢的關鍵字</span><br><span class="line">             &apos;area&apos;:&apos;6001001000&apos;, # 限定在台北的工作</span><br><span class="line">             &apos;isnew&apos;:&apos;30&apos;, # 只要最近一個月有更新的過的職缺</span><br><span class="line">             &apos;mode&apos;:&apos;l&apos;&#125; # 清單的瀏覽模式</span><br><span class="line"></span><br><span class="line">url = requests.get(&apos;https://www.104.com.tw/jobs/search/?&apos; , my_params, headers = headers).url</span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line">driver.get(url)</span><br><span class="line"></span><br><span class="line"># 網頁的設計方式是滑動到下方時，會自動加載新資料，在這裡透過程式送出Java語法幫我們執行「滑到下方」的動作</span><br><span class="line">for i in range(20): </span><br><span class="line">    driver.execute_script(&apos;window.scrollTo(0, document.body.scrollHeight);&apos;)</span><br><span class="line">    time.sleep(0.6)</span><br><span class="line">    </span><br><span class="line"># 自動加載只會加載15次，超過之後必須要點選「手動載入」的按鈕才會繼續載入新資料（可能是防止爬蟲）</span><br><span class="line">k = 1</span><br><span class="line">while k != 0:</span><br><span class="line">    try:</span><br><span class="line">        # 手動載入新資料之後會出現新的more page，舊的就無法再使用，所以要使用最後一個物件</span><br><span class="line">        driver.find_elements_by_class_name(&quot;js-more-page&quot;,)[-1].click() </span><br><span class="line">        # 如果真的找不到，也可以直接找中文!</span><br><span class="line">        # driver.find_element_by_xpath(&quot;//*[contains(text(),&apos;手動載入&apos;)]&quot;).click()</span><br><span class="line">        print(&apos;Click 手動載入，&apos; + &apos;載入第&apos; + str(15 + k) + &apos;頁&apos;)</span><br><span class="line">        k = k+1</span><br><span class="line">        time.sleep(1) # 時間設定太短的話，來不及載入新資料就會跳錯誤</span><br><span class="line">    except:</span><br><span class="line">        k = 0</span><br><span class="line">        print(&apos;No more Job&apos;)</span><br><span class="line"></span><br><span class="line"># 透過BeautifulSoup解析資料</span><br><span class="line">soup = BeautifulSoup(driver.page_source, &apos;html.parser&apos;)</span><br><span class="line">List = soup.findAll(&apos;a&apos;,&#123;&apos;class&apos;:&apos;js-job-link&apos;&#125;)</span><br><span class="line">print(&apos;共有 &apos; + str(len(List)) + &apos; 筆資料&apos;)</span><br><span class="line"></span><br><span class="line">def bind(cate):</span><br><span class="line">    k = []</span><br><span class="line">    for i in cate:</span><br><span class="line">        if len(i.text) &gt; 0:</span><br><span class="line">            k.append(i.text)</span><br><span class="line">    return str(k)</span><br><span class="line"></span><br><span class="line">JobList = pd.DataFrame()</span><br><span class="line"></span><br><span class="line">i = 0</span><br><span class="line">while i &lt; len(List):</span><br><span class="line">    # print(&apos;正在處理第&apos; + str(i) + &apos;筆，共 &apos; + str(len(List)) + &apos; 筆資料&apos;)</span><br><span class="line">    content = List[i]</span><br><span class="line">    # 這裡用Try的原因是，有時候爬太快會遭到系統阻擋導致失敗。因此透過這個方式，當我們遇到錯誤時，會重新再爬一次資料！</span><br><span class="line">    try:</span><br><span class="line">        resp = requests.get(&apos;https://&apos; + content.attrs[&apos;href&apos;].strip(&apos;//&apos;))</span><br><span class="line">        soup2 = BeautifulSoup(resp.text,&apos;html.parser&apos;)</span><br><span class="line">        df = pd.DataFrame(</span><br><span class="line">            data = [&#123;</span><br><span class="line">                &apos;公司名稱&apos;:soup2.find(&apos;a&apos;, &#123;&apos;class&apos;:&apos;cn&apos;&#125;).text,</span><br><span class="line">                &apos;工作職稱&apos;:content.attrs[&apos;title&apos;],</span><br><span class="line">                &apos;工作內容&apos;:soup2.find(&apos;p&apos;).text,</span><br><span class="line">                &apos;職務類別&apos;:bind(soup2.findAll(&apos;dd&apos;, &#123;&apos;class&apos;:&apos;cate&apos;&#125;)[0].findAll(&apos;span&apos;)),</span><br><span class="line">                &apos;工作待遇&apos;:soup2.find(&apos;dd&apos;, &#123;&apos;class&apos;:&apos;salary&apos;&#125;).text.split(&apos;\n\n&apos;,2)[0].replace(&apos; &apos;,&apos;&apos;),</span><br><span class="line">                &apos;工作性質&apos;:soup2.select(&apos;div &gt; dl &gt; dd&apos;)[2].text,</span><br><span class="line">                &apos;上班地點&apos;:soup2.select(&apos;div &gt; dl &gt; dd&apos;)[3].text.split(&apos;\n\n&apos;,2)[0].split(&apos;\n&apos;,2)[1].replace(&apos; &apos;,&apos;&apos;),</span><br><span class="line">                &apos;管理責任&apos;:soup2.select(&apos;div &gt; dl &gt; dd&apos;)[4].text,</span><br><span class="line">                &apos;出差外派&apos;:soup2.select(&apos;div &gt; dl &gt; dd&apos;)[5].text,</span><br><span class="line">                &apos;上班時段&apos;:soup2.select(&apos;div &gt; dl &gt; dd&apos;)[6].text,</span><br><span class="line">                &apos;休假制度&apos;:soup2.select(&apos;div &gt; dl &gt; dd&apos;)[7].text,</span><br><span class="line">                &apos;可上班日&apos;:soup2.select(&apos;div &gt; dl &gt; dd&apos;)[8].text,</span><br><span class="line">                &apos;需求人數&apos;:soup2.select(&apos;div &gt; dl &gt; dd&apos;)[9].text,</span><br><span class="line">                &apos;接受身份&apos;:soup2.select(&apos;div.content &gt; dl &gt; dd&apos;)[10].text,</span><br><span class="line">                &apos;學歷要求&apos;:soup2.select(&apos;div.content &gt; dl &gt; dd&apos;)[12].text,</span><br><span class="line">                &apos;工作經歷&apos;:soup2.select(&apos;div.content &gt; dl &gt; dd&apos;)[11].text,</span><br><span class="line">                &apos;語文條件&apos;:soup2.select(&apos;div.content &gt; dl &gt; dd&apos;)[14].text,</span><br><span class="line">                &apos;擅長工具&apos;:soup2.select(&apos;div.content &gt; dl &gt; dd&apos;)[15].text,</span><br><span class="line">                &apos;工作技能&apos;:soup2.select(&apos;div.content &gt; dl &gt; dd&apos;)[16].text,</span><br><span class="line">                &apos;其他條件&apos;:soup2.select(&apos;div.content &gt; dl &gt; dd&apos;)[17].text,</span><br><span class="line">                &apos;公司福利&apos;:soup2.select(&apos;div.content &gt; p&apos;)[1].text,</span><br><span class="line">                &apos;科系要求&apos;:soup2.select(&apos;div.content &gt; dl &gt; dd&apos;)[13].text,</span><br><span class="line">                &apos;聯絡方式&apos;:soup2.select(&apos;div.content&apos;)[3].text.replace(&apos;\n&apos;,&apos;&apos;),</span><br><span class="line">                &apos;連結路徑&apos;:&apos;https://&apos; + content.attrs[&apos;href&apos;].strip(&apos;//&apos;)&#125;],</span><br><span class="line">            columns = [&apos;公司名稱&apos;,&apos;工作職稱&apos;,&apos;工作內容&apos;,&apos;職務類別&apos;,&apos;工作待遇&apos;,&apos;工作性質&apos;,&apos;上班地點&apos;,&apos;管理責任&apos;,&apos;出差外派&apos;,</span><br><span class="line">                       &apos;上班時段&apos;,&apos;休假制度&apos;,&apos;可上班日&apos;,&apos;需求人數&apos;,&apos;接受身份&apos;,&apos;學歷要求&apos;,&apos;工作經歷&apos;,&apos;語文條件&apos;,&apos;擅長工具&apos;,</span><br><span class="line">                       &apos;工作技能&apos;,&apos;其他條件&apos;,&apos;公司福利&apos;,&apos;科系要求&apos;,&apos;聯絡方式&apos;,&apos;連結路徑&apos;])</span><br><span class="line">        JobList = JobList.append(df, ignore_index=True)</span><br><span class="line">        i += 1</span><br><span class="line">        print(&quot;Success and Crawl Next 目前正在爬第&quot; + str(i) + &quot;個職缺資訊&quot;)</span><br><span class="line">        time.sleep(0.5) # 執行完休息0.5秒，避免造成對方主機負擔</span><br><span class="line">    except:</span><br><span class="line">        print(&quot;Fail and Try Again!&quot;)</span><br><span class="line"></span><br><span class="line">JobList</span><br><span class="line"></span><br><span class="line">JobList.to_excel(&apos;C:/Users/TLYu0419/Desktop/JobList2.xlsx&apos;, encoding=&apos;cp950&apos;)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;em&gt;本文僅限於學習使用，請勿用於商業目的&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;找工作是一件很辛苦的事情，當我們在&lt;a href=&quot;https://www.104.com.tw/jobs/main/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;104人力銀行&lt;/a&gt;的網站上輸入關鍵字查詢職缺時，經常會直接跳出上百、千份的職缺。雖然有很多職缺對於求職者是好事，但這也造成了求職者的大困擾！&lt;/p&gt;
-&lt;p&gt;因此我希望能透過Python的爬蟲，一次把我想要查詢的結果(工作內容、地點、薪資、要求技能、工作地點…等等資訊)抓下來，在我自己的電腦上按照我的需求進行篩選，讓我能更有效率的挑選工作並投遞履歷。&lt;/p&gt;
-&lt;p&gt;另一方面，如果想了解各個產業會需要哪些工具、技能，也可以從這份資料中進一步的分析。那麼我們就開始吧！&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="爬蟲(Crawl)" scheme="https://TLYu0419.github.io/tags/%E7%88%AC%E8%9F%B2-Crawl/"/>
-    
-      <category term="python" scheme="https://TLYu0419.github.io/tags/python/"/>
-    
-      <category term="requests" scheme="https://TLYu0419.github.io/tags/requests/"/>
-    
-      <category term="Selenium" scheme="https://TLYu0419.github.io/tags/Selenium/"/>
-    
-      <category term="104人力銀行" scheme="https://TLYu0419.github.io/tags/104%E4%BA%BA%E5%8A%9B%E9%8A%80%E8%A1%8C/"/>
-    
-      <category term="BeautifulSoup" scheme="https://TLYu0419.github.io/tags/BeautifulSoup/"/>
     
   </entry>
   
