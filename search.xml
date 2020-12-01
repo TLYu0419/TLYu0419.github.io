@@ -6,7 +6,7 @@
       <title>誰識KOL?(II) PyData Taipei 2020</title>
       <link href="/2020/12/01/MeetKOLsOnFacebook/"/>
       <url>/2020/12/01/MeetKOLsOnFacebook/</url>
-      <content type="html"><![CDATA[<p><img src="/2020/12/01/MeetKOLsOnFacebook/128081647_723993228541558_1732468424653366418_o.jpg" alt="Photos"></p><a id="more"></a><p>理想上我們希望能建一個很準的情感分類模型，但現實面總是會遇到各式各樣的問題與限制，例如</p><ol><li>沒有人力標註資料</li><li>沒有時間建模與調參</li><li>硬體設備不夠你跑 ML/DL 的模型</li><li>又或者你發現下周就要上台演講但簡報還沒做完&gt;&quot;&lt;</li></ol><p>很高興主辦單位接受我的投稿，讓我能在這個場合中跟大家分享實務上在做情感分析的各種方式與技巧，也謝謝大家特地過來跟我一起認真的用資料聊八卦xD</p>]]></content>
+      <content type="html"><![CDATA[<p><img src="/2020/12/01/MeetKOLsOnFacebook/128081647_723993228541558_1732468424653366418_o.jpg" alt="Photos"></p><a id="more"></a><p>理想上我們希望能建一個很準的情感分類模型，但現實面總是會遇到各式各樣的問題與限制，例如</p><ol><li>沒有人力標註資料</li><li>沒有時間建模與調參</li><li>硬體設備不夠你跑 ML/DL 的模型</li><li>又或者你發現下周就要上台演講但簡報還沒做完&gt;&quot;&lt;</li></ol><p>很高興主辦單位接受我的投稿，讓我能在這個場合中跟大家分享實務上在做情感分析的各種方式與技巧，也謝謝大家特地過來跟我一起認真的用資料聊八卦xD</p><p>簡報連結: <a href="https://speakerdeck.com/tlyu0419/shui-shi-kol-2020tai-wan-zong-tong-da-xuan-zai-facebook-shang-de-she-qun-wang-luo-fen-xi-ii" target="_blank" rel="noopener">誰識KOL? 2020台灣總統大選在 Facebook 上的社群網絡分析(II)</a></p>]]></content>
       
       
         <tags>
@@ -346,9 +346,9 @@
             
             <tag> python </tag>
             
-            <tag> 網路爬蟲 </tag>
-            
             <tag> 1111人力銀行 </tag>
+            
+            <tag> 網路爬蟲 </tag>
             
         </tags>
       
@@ -388,9 +388,9 @@
             
             <tag> python </tag>
             
-            <tag> 中時電子報 </tag>
-            
             <tag> 網路爬蟲 </tag>
+            
+            <tag> 中時電子報 </tag>
             
             <tag> 新聞 </tag>
             
@@ -413,9 +413,9 @@
             
             <tag> Crawler </tag>
             
-            <tag> Facebook </tag>
-            
             <tag> Selenium </tag>
+            
+            <tag> Facebook </tag>
             
         </tags>
       
@@ -434,11 +434,11 @@
             
             <tag> python </tag>
             
-            <tag> requests </tag>
-            
             <tag> Selenium </tag>
             
             <tag> 104人力銀行 </tag>
+            
+            <tag> requests </tag>
             
             <tag> BeautifulSoup </tag>
             
